@@ -1,25 +1,25 @@
 # Swell
 
-> Swell makes ready-to-drink protein shakes and protein smoothies. The shakes taste like milkshakes. Each 14 fl oz bottle has 25g protein and far less sugar than a typical milkshake, plus collagen peptides and colostrum. Sold as single bottles or 12-packs.
+> Swell makes ready-to-drink protein shakes and protein smoothies that taste like dessert. Positioning: "Your dessert, minus the damage." Core Power is a post-workout recovery drink and Premier Protein is a nutrition shake; Swell is built to replace dessert.
 
 ## Key facts
-- Product: ready-to-drink protein shake (RTD), 14 fl oz (414 mL) bottle
-- Protein: 25 g per bottle, milk-protein base
-- Added ingredients: collagen peptides, colostrum
-- Shake flavors: Cookies & Cream, Cake Batter, Chocolate, Vanilla
-- Protein smoothies: creamy fruit taste, 25 g protein, less sugar, 14 fl oz; flavors Pina Colada, Mango, Berry Bliss
-- Formats: single bottle, 12-pack
+- Protein: 30 g per Standard 14 fl oz bottle; 50 g per Power Size bottle
+- Added ingredients in shakes and smoothies: collagen peptides, colostrum
+- Shake flavors (13): Cookies & Cream, Cake Batter, Chocolate, Vanilla, Peaches & Cream, Cinnamon Roll, Mint Chocolate Chip, Peanut Butter Cup, Cookie Butter, Matcha, Strawberry Shortcake, Pumpkin Spice, Blueberry Cobbler
+- Smoothie flavors (6): Pina Colada, Mango, Berry Bliss, Sour Apple, Blue Raspberry, Peach Ring
+- Buy: build a 12- or 24-bottle mixed box (reserve now, pay when it ships); Swell vending machines at gyms, high schools and hotels in Utah County, Utah
+- For: people with a sweet tooth who want dessert with protein; people eating protein-first (including GLP-1 users); Ninja Creami owners
+- Ninja Creami: pour one bottle into a pint, freeze 24 hours, spin on Lite Ice Cream (shakes) or Sorbet (smoothies)
 - Contains milk
-- Compared with fairlife: fairlife Core Power has 26 g protein per 14 fl oz and fairlife nutrition plan has 30 g per 11.5 fl oz; neither lists collagen peptides or colostrum. Swell is not affiliated with fairlife.
-- Compared with a milkshake: a medium fast-food chocolate shake has about 650 calories, 85 g sugar and 15 g protein
-- Ninja Creami: pour a bottle into a pint, freeze 24 hours, spin on Lite Ice Cream
-- Origin: started as frozen smoothie cubes sold from vending machines in high schools, gyms and hotels
-- Status: launching soon; waitlist open
 
 ## Pages
-- [Home](https://pdrayday.github.io/swell/): flavors, ingredients, comparison, FAQ and waitlist
-- [Shake flavors](https://pdrayday.github.io/swell/#flavors)
-- [Smoothies](https://pdrayday.github.io/swell/#smoothies)
-- [Compare](https://pdrayday.github.io/swell/#compare)
-- [What's inside](https://pdrayday.github.io/swell/#inside)
-- [FAQ](https://pdrayday.github.io/swell/#faq)
+- [Home](https://pdrayday.github.io/swell/)
+- [Build a box](https://pdrayday.github.io/swell/#build)
+- [Find a Swell machine](https://pdrayday.github.io/swell/#machines)
+- [Ninja Creami recipes](https://pdrayday.github.io/swell/creami/)
+- [Cookies & Cream Protein Ice Cream](https://pdrayday.github.io/swell/creami/cookies-and-cream-protein-ice-cream.html)
+- [Cake Batter Protein Ice Cream](https://pdrayday.github.io/swell/creami/cake-batter-protein-ice-cream.html)
+- [Peanut Butter Cup Protein Ice Cream](https://pdrayday.github.io/swell/creami/peanut-butter-cup-protein-ice-cream.html)
+- [Mint Chocolate Chip Protein Ice Cream](https://pdrayday.github.io/swell/creami/mint-chocolate-chip-protein-ice-cream.html)
+- [Pumpkin Spice Protein Ice Cream](https://pdrayday.github.io/swell/creami/pumpkin-spice-protein-ice-cream.html)
+- [Pina Colada Protein Sorbet](https://pdrayday.github.io/swell/creami/pina-colada-protein-sorbet.html)
