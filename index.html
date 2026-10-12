@@ -295,6 +295,13 @@ body[data-line="smoothies"] .shakes-only { display: none; }
 @media (max-width: 900px) { .flavors.three { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; } }
 @media (max-width: 760px) { .nav .wrap { gap: 12px; } .switch button { padding: 8px 11px; font-size: 13px; } .edge { top: 18px; padding: 10px 12px; } .nav .btn { display: none; } }
 @media (prefers-reduced-motion: reduce) { .lines-track, .lines, body { transition: none; } }
+
+.lineup.splash { padding-bottom: 0; }
+.lineup.splash img { width: 40%; margin-inline: -7%; filter: none; position: relative; z-index: 1; }
+.lineup.splash img:nth-child(2) { width: 46%; z-index: 2; margin-bottom: 0; }
+.lineup.splash::after { display: none; }
+.flavor .art .splash { height: 300px; width: auto; max-width: none; }
+.flavor .art { overflow: visible; }
 </style>
 
 <link rel="icon" href="img/logo.png">
@@ -341,11 +348,10 @@ body[data-line="smoothies"] .shakes-only { display: none; }
           <div role="listitem"><b>4 flavors</b><span>dessert-inspired</span></div>
         </div>
       </div>
-      <div class="lineup">
-        <img src="img/bottle_van.webp" alt="Swell Vanilla protein shake bottle" width="239" height="651">
-        <img src="img/bottle_bday.webp" alt="Swell Cake Batter protein shake bottle" width="241" height="651">
-        <img src="img/bottle_cc.webp" alt="Swell Cookies &amp; Cream protein shake bottle" width="238" height="651">
-        <img src="img/bottle_choc.webp" alt="Swell Chocolate protein shake bottle" width="236" height="651">
+      <div class="lineup splash">
+        <img src="img/splash_cake.webp" alt="Swell Cake Batter protein shake with a milk splash and sprinkles" width="311" height="720">
+        <img src="img/splash_cc.webp" alt="Swell Cookies &amp; Cream protein shake with a milk splash and cookie pieces" width="389" height="720">
+        <img src="img/splash_choc.webp" alt="Swell Chocolate protein shake with a chocolate milk splash" width="390" height="720">
       </div>
     </div>
   </section>
@@ -364,22 +370,22 @@ body[data-line="smoothies"] .shakes-only { display: none; }
       </div>
       <div class="flavors">
         <article class="flavor" id="cookies-and-cream">
-          <div class="art"><img class="bottle" src="img/bottle_cc.webp" alt="Swell Cookies &amp; Cream protein shake" width="238" height="651" loading="lazy"><img class="food" src="img/food_cc.webp" alt="" width="432" height="261" loading="lazy"></div>
+          <div class="art"><img class="splash" src="img/splash_cc.webp" alt="Swell Cookies &amp; Cream protein shake with a milk splash" width="389" height="720" loading="lazy"></div>
           <div><h3>Cookies &amp; Cream</h3><p>Real cookie crumble in a sweet cream base. The one that tastes most like a drive-thru shake.</p></div>
           <div class="tags"><span>25g protein</span><span>14 fl oz</span></div>
         </article>
         <article class="flavor" id="cake-batter">
-          <div class="art"><img class="bottle" src="img/bottle_bday.webp" alt="Swell Cake Batter protein shake" width="241" height="651" loading="lazy"><img class="food" src="img/food_bday.webp" alt="" width="414" height="234" loading="lazy"></div>
+          <div class="art"><img class="splash" src="img/splash_cake.webp" alt="Swell Cake Batter protein shake with a milk splash" width="311" height="720" loading="lazy"></div>
           <div><h3>Cake Batter</h3><p>Vanilla cake batter loaded with rainbow sprinkle flavor. Your birthday, any day of the week.</p></div>
           <div class="tags"><span>25g protein</span><span>14 fl oz</span></div>
         </article>
         <article class="flavor" id="chocolate">
-          <div class="art"><img class="bottle" src="img/bottle_choc.webp" alt="Swell Chocolate protein shake" width="236" height="651" loading="lazy"><img class="food" src="img/food_choc.webp" alt="" width="470" height="233" loading="lazy"></div>
+          <div class="art"><img class="splash" src="img/splash_choc.webp" alt="Swell Chocolate protein shake with a chocolate milk splash" width="390" height="720" loading="lazy"></div>
           <div><h3>Chocolate</h3><p>Rich, fudgy chocolate with a thick, creamy finish. The classic, done right.</p></div>
           <div class="tags"><span>25g protein</span><span>14 fl oz</span></div>
         </article>
         <article class="flavor" id="vanilla">
-          <div class="art"><img class="bottle" src="img/bottle_van.webp" alt="Swell Vanilla protein shake" width="239" height="651" loading="lazy"><img class="food" src="img/food_van.webp" alt="" width="387" height="200" loading="lazy"></div>
+          <div class="art"><img class="splash" src="img/splash_van.webp" alt="Swell Vanilla protein shake with a milk splash" width="390" height="720" loading="lazy"></div>
           <div><h3>Vanilla</h3><p>Vanilla bean ice cream in a bottle. Great on its own or spun in a Creami.</p></div>
           <div class="tags"><span>25g protein</span><span>14 fl oz</span></div>
         </article>
