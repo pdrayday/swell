@@ -1,0 +1,25 @@
+# Swell
+
+> Swell makes ready-to-drink protein shakes and protein smoothies. The shakes taste like milkshakes. Each 14 fl oz bottle has 25g protein and far less sugar than a typical milkshake, plus collagen peptides and colostrum. Sold as single bottles or 12-packs.
+
+## Key facts
+- Product: ready-to-drink protein shake (RTD), 14 fl oz (414 mL) bottle
+- Protein: 25 g per bottle, milk-protein base
+- Added ingredients: collagen peptides, colostrum
+- Shake flavors: Cookies & Cream, Cake Batter, Chocolate, Vanilla
+- Protein smoothies: creamy fruit taste, 25 g protein, less sugar, 14 fl oz; flavors Pina Colada, Mango, Berry Bliss
+- Formats: single bottle, 12-pack
+- Contains milk
+- Compared with fairlife: fairlife Core Power has 26 g protein per 14 fl oz and fairlife nutrition plan has 30 g per 11.5 fl oz; neither lists collagen peptides or colostrum. Swell is not affiliated with fairlife.
+- Compared with a milkshake: a medium fast-food chocolate shake has about 650 calories, 85 g sugar and 15 g protein
+- Ninja Creami: pour a bottle into a pint, freeze 24 hours, spin on Lite Ice Cream
+- Origin: started as frozen smoothie cubes sold from vending machines in high schools, gyms and hotels
+- Status: launching soon; waitlist open
+
+## Pages
+- [Home](https://pdrayday.github.io/swell/): flavors, ingredients, comparison, FAQ and waitlist
+- [Shake flavors](https://pdrayday.github.io/swell/#flavors)
+- [Smoothies](https://pdrayday.github.io/swell/#smoothies)
+- [Compare](https://pdrayday.github.io/swell/#compare)
+- [What's inside](https://pdrayday.github.io/swell/#inside)
+- [FAQ](https://pdrayday.github.io/swell/#faq)
