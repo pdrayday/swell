@@ -1,19 +1,25 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cake Batter Protein Ice Cream | Swell</title><meta name="description" content="Birthday-cake ice cream with rainbow sprinkles and 30g protein. Ninja Creami recipe, 5 minutes of prep."><link rel="canonical" href="https://pdrayday.github.io/swell/creami/cake-batter-protein-ice-cream.html"><meta name="theme-color" content="#5a4453">
+<title>Cake Batter Protein Ice Cream | Swell</title><meta name="description" content="Birthday-cake ice cream with rainbow sprinkles and 30g protein. Ninja Creami recipe, 5 minutes of prep."><link rel="canonical" href="https://pdrayday.github.io/swell/creami/cake-batter-protein-ice-cream.html"><meta name="theme-color" content="#745b6d">
 <link rel="icon" href="../img/logo.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,600..700&family=Instrument+Sans:wght@400;500;600;700&display=swap"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Recipe", "name": "Cake Batter Protein Ice Cream", "description": "Birthday-cake ice cream with rainbow sprinkles and 30g protein.", "image": "https://pdrayday.github.io/swell/img/b_cake.webp", "author": {"@type": "Organization", "name": "Swell"}, "prepTime": "PT5M", "totalTime": "PT24H5M", "recipeYield": "1 pint", "recipeCategory": "Dessert", "recipeCuisine": "American", "keywords": "ninja creami protein ice cream, cake batter protein ice cream, high protein dessert", "nutrition": {"@type": "NutritionInformation", "proteinContent": "30 g"}, "recipeIngredient": ["1 bottle (14 fl oz) Swell Cake Batter protein shake", "1 tbsp rainbow sprinkles"], "recipeInstructions": [{"@type": "HowToStep", "name": "Pour", "text": "Shake the bottle, then pour the whole Swell Cake Batter into an empty Ninja Creami pint."}, {"@type": "HowToStep", "name": "Freeze", "text": "Lid it and freeze on a flat surface for 24 hours."}, {"@type": "HowToStep", "name": "Spin", "text": "Lock the pint in and spin on Lite Ice Cream."}, {"@type": "HowToStep", "name": "Re-spin if crumbly", "text": "If it looks powdery, add 1 tbsp milk and run Re-spin once."}, {"@type": "HowToStep", "name": "Mix in", "text": "Make a well in the center, add mix-ins and run Mix-in."}]}</script><style>
 /* Layout: plum page; product art sits on blush (shakes) or butter (smoothies) stages. Single dark look by design. */
 :root {
-  --bg: #5a4453; --bg-2: #4c3946; --surface: #67505f; --surface-2: #735b6b;
-  --fg: #fcf0f3; --muted: #dccbd3; --line: rgba(252, 240, 243, .16);
-  --accent: #f4b9c6; --accent-strong: #ffd3dc; --on-accent: #2a1820;
+  --bg: #745b6d; --bg-2: #685062; --surface: #836a7c; --surface-2: #8f7588;
+  --fg: #fff4f7; --muted: #eedde5; --line: rgba(255, 244, 247, .2);
+  --accent: #f7c3cf; --accent-strong: #ffdbe3; --on-accent: #2a1820; --em: #ffc9d5;
   --stage: #f4dee3; --stage-ink: #1a1216; --stage-muted: #6f5560;
+  --logo: invert(1) brightness(1.05);
   --good: #bfe8c6;
   --display: "Source Serif 4", "Source Serif Pro", Georgia, serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --max: 1180px; --r: 22px;
   color-scheme: dark;
 }
-body[data-line="smoothies"] { --accent: #f5d27a; --accent-strong: #ffe7a6; --stage: #fdf2bf; --stage-muted: #7a6430; }
+body[data-line="smoothies"] { color-scheme: light; }
+body[data-line="smoothies"] {
+  --bg: #f0d47e; --bg-2: #e8c96c; --surface: #f7e3a2; --surface-2: #faebb8;
+  --fg: #2a1f0e; --muted: #5c4a22; --line: rgba(42, 31, 14, .18);
+  --accent: #2a1f0e; --accent-strong: #4a3818; --on-accent: #fdf2bf; --em: #8a5a10;
+  --stage: #fdf2bf; --stage-muted: #7a6430; --logo: none; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; animation: none !important; } }
@@ -23,7 +29,7 @@ img { max-width: 100%; height: auto; display: block; }
 button { font: inherit; color: inherit; }
 .wrap { max-width: var(--max); margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); }
 h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.06; letter-spacing: -.015em; text-wrap: balance; margin: 0; }
-h1 em, h2 em, h3 em { font-style: italic; color: var(--accent); }
+h1 em, h2 em, h3 em { font-style: italic; color: var(--em); }
 p { margin: 0; }
 .eyebrow { font: 700 12px/1.2 var(--body); letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
 :focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; border-radius: 6px; }
@@ -44,7 +50,7 @@ p { margin: 0; }
 .promo a { color: inherit; }
 .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 30; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .nav .wrap { display: flex; align-items: center; gap: 22px; padding-block: 10px; }
-.nav .logo img { height: 36px; width: auto; filter: invert(1) brightness(1.05); }
+.nav .logo img { height: 36px; width: auto; filter: var(--logo); }
 .switch { display: inline-flex; padding: 4px; border-radius: 999px; background: var(--bg-2); border: 1px solid var(--line); }
 .switch button { font: 700 13.5px/1 var(--body); padding: 9px 14px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; }
 .switch button[aria-selected="true"] { background: var(--accent); color: var(--on-accent); }
@@ -69,7 +75,7 @@ body[data-line="smoothies"] .lines-track { transform: translateX(-50%); }
 .hero .lede { font-size: clamp(17px, 1.5vw, 19px); color: var(--muted); max-width: 33em; margin-top: 20px; }
 .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
 .trust { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
-.hop { margin-top: 18px; display: inline-flex; gap: 8px; align-items: center; font: 700 14px/1 var(--body); color: var(--accent); background: none; border: 0; padding: 6px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+.hop { margin-top: 18px; display: inline-flex; gap: 8px; align-items: center; font: 700 14px/1 var(--body); color: var(--em); background: none; border: 0; padding: 6px 0; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
 .stage { position: relative; border-radius: 32px; background: radial-gradient(ellipse 80% 70% at 50% 35%, #fff 0%, var(--stage) 70%); overflow: hidden; }
 .hero .stage { display: flex; justify-content: center; align-items: flex-end; padding: 26px 8px 0; min-height: 320px; }
 .hero .stage img { height: clamp(230px, 30vw, 420px); width: auto; max-width: none; margin-inline: -3.5%; position: relative; }
@@ -179,7 +185,7 @@ body[data-line="smoothies"] .pos .us h3 em { color: #8a6512; }
 .story { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
 .story ol { list-style: none; margin: 22px 0 0; padding: 0; border-top: 1px solid var(--line); }
 .story li { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
-.story li b { font: italic 700 19px/1.2 var(--display); color: var(--accent); }
+.story li b { font: italic 700 19px/1.2 var(--display); color: var(--em); }
 .story .mach { justify-self: center; width: min(360px, 100%); filter: drop-shadow(0 30px 40px rgba(15, 4, 10, .5)); }
 @media (max-width: 860px) { .story { grid-template-columns: 1fr; } .story li { grid-template-columns: 1fr; gap: 2px; } }
 .finder { display: grid; grid-template-columns: 1.45fr 1fr; gap: 16px; margin-top: 40px; align-items: start; }
@@ -212,16 +218,16 @@ body[data-line="smoothies"] .pos .us h3 em { color: #8a6512; }
 /* moments */
 .moments { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(205px, 1fr); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; }
 .mo { scroll-snap-align: start; background: var(--surface); border-radius: var(--r); padding: 20px; display: grid; grid-template-rows: auto auto 1fr auto auto; gap: 10px; }
-.mo .when { font: 700 12px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.mo .when { font: 700 12px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; color: var(--em); }
 .mo h3 { font-size: 24px; } .mo p { color: var(--muted); }
 .mo img { height: 150px; width: auto; justify-self: center; filter: drop-shadow(0 8px 10px rgba(20,5,15,.35)); }
 
 /* reviews */
 .rv-top { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
-.ph { font: 700 12px/1.3 var(--body); letter-spacing: .08em; text-transform: uppercase; padding: 8px 12px; border-radius: 999px; border: 1.5px dashed var(--accent); color: var(--accent); }
+.ph { font: 700 12px/1.3 var(--body); letter-spacing: .08em; text-transform: uppercase; padding: 8px 12px; border-radius: 999px; border: 1.5px dashed var(--em); color: var(--em); }
 .reviews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .rv { background: var(--surface); border-radius: var(--r); padding: 22px; display: grid; gap: 12px; align-content: start; }
-.stars { color: var(--accent); letter-spacing: 2px; font-size: 16px; }
+.stars { color: var(--em); letter-spacing: 2px; font-size: 16px; }
 .rv q { font: 600 19px/1.35 var(--display); quotes: none; }
 .rv footer { color: var(--muted); font-size: 14px; display: flex; gap: 8px; flex-wrap: wrap; }
 .rv footer span { font-weight: 700; color: var(--fg); }
@@ -233,7 +239,7 @@ body[data-line="smoothies"] .pos .us h3 em { color: #8a6512; }
 /* inside */
 .inside { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
 .inside div { padding: 24px 20px 0 0; display: grid; gap: 8px; align-content: start; }
-.inside b { font: 700 34px/1 var(--display); color: var(--accent); }
+.inside b { font: 700 34px/1 var(--display); color: var(--em); }
 .inside h3 { font-size: 22px; } .inside p { color: var(--muted); font-size: 15.5px; }
 @media (max-width: 860px) { .inside { grid-template-columns: 1fr 1fr; row-gap: 20px; } }
 
@@ -254,7 +260,7 @@ table.cmp { width: 100%; min-width: 720px; border-collapse: collapse; }
 .rc .stage img { height: 200px; width: auto; }
 .rc div.t { padding: 18px 20px 22px; display: grid; gap: 6px; }
 .rc h3 { font-size: 22px; } .rc p { color: var(--muted); font-size: 15px; }
-.rc .go { font-weight: 700; color: var(--accent); }
+.rc .go { font-weight: 700; color: var(--em); }
 @media (max-width: 860px) { .recipes { grid-template-columns: 1fr; } }
 
 /* faq */
@@ -273,7 +279,7 @@ table.cmp { width: 100%; min-width: 720px; border-collapse: collapse; }
 .final p { color: var(--muted); max-width: 36em; font-size: 18px; }
 footer.site { border-top: 1px solid var(--line); padding-block: 44px 110px; }
 footer.site .top { display: grid; grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr)); gap: 28px; }
-footer.site .logo img { height: 48px; width: auto; filter: invert(1); }
+footer.site .logo img { height: 48px; width: auto; filter: var(--logo); }
 footer.site h4 { font: 700 12px/1 var(--body); letter-spacing: .18em; text-transform: uppercase; margin: 0 0 14px; color: var(--muted); }
 footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 footer.site ul a { text-decoration: none; color: var(--fg); }
