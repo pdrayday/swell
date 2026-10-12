@@ -288,17 +288,16 @@ body[data-line="smoothies"] .lines-track { transform: translateX(-50%); }
 body[data-line="smoothies"] .edge.next { display: none; }
 body[data-line="smoothies"] .edge.prev { display: inline-block; }
 body[data-line="smoothies"] .shakes-only { display: none; }
-.lineup.three img { width: 33%; }
-.lineup.three img:nth-child(2) { width: 37%; z-index: 2; }
-.lineup.three img:nth-child(3) { width: 33%; z-index: 1; margin-bottom: 0; }
+
 .flavors.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 900px) { .flavors.three { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; } }
 @media (max-width: 760px) { .nav .wrap { gap: 12px; } .switch button { padding: 8px 11px; font-size: 13px; } .edge { top: 18px; padding: 10px 12px; } .nav .btn { display: none; } }
 @media (prefers-reduced-motion: reduce) { .lines-track, .lines, body { transition: none; } }
 
 .lineup.splash { padding-bottom: 0; }
-.lineup.splash img { width: 40%; margin-inline: -7%; filter: none; position: relative; z-index: 1; }
-.lineup.splash img:nth-child(2) { width: 46%; z-index: 2; margin-bottom: 0; }
+.hero { overflow-x: clip; }
+.lineup.splash img { width: auto; max-width: none; height: clamp(190px, 29vw, 380px); margin-inline: -3%; filter: none; position: relative; z-index: 1; }
+.lineup.splash img:nth-child(2) { height: clamp(210px, 32vw, 415px); z-index: 2; margin-bottom: 0; }
 .lineup.splash::after { display: none; }
 .flavor .art .splash { height: 300px; width: auto; max-width: none; }
 .flavor .art { overflow: visible; }
@@ -349,9 +348,9 @@ body[data-line="smoothies"] .shakes-only { display: none; }
         </div>
       </div>
       <div class="lineup splash">
-        <img src="img/splash_cake.webp" alt="Swell Cake Batter protein shake with a milk splash and sprinkles" width="311" height="720">
-        <img src="img/splash_cc.webp" alt="Swell Cookies &amp; Cream protein shake with a milk splash and cookie pieces" width="389" height="720">
-        <img src="img/splash_choc.webp" alt="Swell Chocolate protein shake with a chocolate milk splash" width="390" height="720">
+        <img src="img/splash_cake.webp" alt="Swell Cake Batter protein shake with a milk splash and sprinkles" width="306" height="720">
+        <img src="img/splash_cc.webp" alt="Swell Cookies &amp; Cream protein shake with a milk splash and cookie pieces" width="380" height="720">
+        <img src="img/splash_choc.webp" alt="Swell Chocolate protein shake with a chocolate milk splash" width="388" height="720">
       </div>
     </div>
   </section>
@@ -370,22 +369,22 @@ body[data-line="smoothies"] .shakes-only { display: none; }
       </div>
       <div class="flavors">
         <article class="flavor" id="cookies-and-cream">
-          <div class="art"><img class="splash" src="img/splash_cc.webp" alt="Swell Cookies &amp; Cream protein shake with a milk splash" width="389" height="720" loading="lazy"></div>
+          <div class="art"><img class="splash" src="img/splash_cc.webp" alt="Swell Cookies &amp; Cream protein shake with a milk splash" width="380" height="720" loading="lazy"></div>
           <div><h3>Cookies &amp; Cream</h3><p>Real cookie crumble in a sweet cream base. The one that tastes most like a drive-thru shake.</p></div>
           <div class="tags"><span>25g protein</span><span>14 fl oz</span></div>
         </article>
         <article class="flavor" id="cake-batter">
-          <div class="art"><img class="splash" src="img/splash_cake.webp" alt="Swell Cake Batter protein shake with a milk splash" width="311" height="720" loading="lazy"></div>
+          <div class="art"><img class="splash" src="img/splash_cake.webp" alt="Swell Cake Batter protein shake with a milk splash" width="306" height="720" loading="lazy"></div>
           <div><h3>Cake Batter</h3><p>Vanilla cake batter loaded with rainbow sprinkle flavor. Your birthday, any day of the week.</p></div>
           <div class="tags"><span>25g protein</span><span>14 fl oz</span></div>
         </article>
         <article class="flavor" id="chocolate">
-          <div class="art"><img class="splash" src="img/splash_choc.webp" alt="Swell Chocolate protein shake with a chocolate milk splash" width="390" height="720" loading="lazy"></div>
+          <div class="art"><img class="splash" src="img/splash_choc.webp" alt="Swell Chocolate protein shake with a chocolate milk splash" width="388" height="720" loading="lazy"></div>
           <div><h3>Chocolate</h3><p>Rich, fudgy chocolate with a thick, creamy finish. The classic, done right.</p></div>
           <div class="tags"><span>25g protein</span><span>14 fl oz</span></div>
         </article>
         <article class="flavor" id="vanilla">
-          <div class="art"><img class="splash" src="img/splash_van.webp" alt="Swell Vanilla protein shake with a milk splash" width="390" height="720" loading="lazy"></div>
+          <div class="art"><img class="splash" src="img/splash_van.webp" alt="Swell Vanilla protein shake with a milk splash" width="380" height="720" loading="lazy"></div>
           <div><h3>Vanilla</h3><p>Vanilla bean ice cream in a bottle. Great on its own or spun in a Creami.</p></div>
           <div class="tags"><span>25g protein</span><span>14 fl oz</span></div>
         </article>
@@ -534,10 +533,10 @@ body[data-line="smoothies"] .shakes-only { display: none; }
           <div role="listitem"><b>3 flavors</b><span>tropical to berry</span></div>
         </div>
       </div>
-      <div class="lineup three">
-        <img src="img/bottle_sm_pina.webp" alt="Swell Pina Colada protein smoothie bottle" width="241" height="651">
-        <img src="img/bottle_sm_mango.webp" alt="Swell Mango protein smoothie bottle" width="241" height="651">
-        <img src="img/bottle_sm_berry.webp" alt="Swell Berry Bliss protein smoothie bottle" width="241" height="651">
+      <div class="lineup splash three">
+        <img src="img/splash_sm_pina.webp" alt="Swell Pina Colada protein smoothie with a coconut milk splash" width="388" height="720">
+        <img src="img/splash_sm_mango.webp" alt="Swell Mango protein smoothie with a mango splash" width="279" height="720">
+        <img src="img/splash_sm_berry.webp" alt="Swell Berry Bliss protein smoothie with a berry splash" width="398" height="720">
       </div>
     </div>
   </section>
@@ -556,17 +555,17 @@ body[data-line="smoothies"] .shakes-only { display: none; }
       </div>
       <div class="flavors three">
         <article class="flavor" id="pina-colada">
-          <div class="art"><img class="bottle" src="img/bottle_sm_pina.webp" alt="Swell Pina Colada protein smoothie" width="241" height="651" loading="lazy"><img class="food" src="img/fruit_sm_pina.webp" alt="" width="197" height="121" loading="lazy"></div>
+          <div class="art"><img class="splash" src="img/splash_sm_pina.webp" alt="Swell Pina Colada protein smoothie with a coconut milk splash" width="388" height="720" loading="lazy"></div>
           <div><h3>Pina Colada</h3><p>Pineapple and coconut, creamy and tropical. Vacation in a bottle.</p></div>
           <div class="tags"><span>25g protein</span><span>14 fl oz</span></div>
         </article>
         <article class="flavor" id="mango">
-          <div class="art"><img class="bottle" src="img/bottle_sm_mango.webp" alt="Swell Mango protein smoothie" width="241" height="651" loading="lazy"><img class="food" src="img/fruit_sm_mango.webp" alt="" width="189" height="116" loading="lazy"></div>
+          <div class="art"><img class="splash" src="img/splash_sm_mango.webp" alt="Swell Mango protein smoothie with a mango splash" width="279" height="720" loading="lazy"></div>
           <div><h3>Mango</h3><p>Ripe, sunny mango blended smooth. Bright, sweet and simple.</p></div>
           <div class="tags"><span>25g protein</span><span>14 fl oz</span></div>
         </article>
         <article class="flavor" id="berry-bliss">
-          <div class="art"><img class="bottle" src="img/bottle_sm_berry.webp" alt="Swell Berry Bliss protein smoothie" width="241" height="651" loading="lazy"><img class="food" src="img/fruit_sm_berry.webp" alt="" width="196" height="121" loading="lazy"></div>
+          <div class="art"><img class="splash" src="img/splash_sm_berry.webp" alt="Swell Berry Bliss protein smoothie with a berry splash" width="398" height="720" loading="lazy"></div>
           <div><h3>Berry Bliss</h3><p>Strawberry, raspberry, blueberry and blackberry. The classic berry smoothie.</p></div>
           <div class="tags"><span>25g protein</span><span>14 fl oz</span></div>
         </article>
