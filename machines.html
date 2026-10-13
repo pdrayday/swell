@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en" data-line="shakes" data-prefix="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="img/logo.png">
+<title>Find a Swell Machine | Utah County</title>
+<meta name="description" content="Find Swell protein shake and smoothie vending machines at gyms, high schools and hotels in Utah County, Utah.">
+<link rel="canonical" href="https://pdrayday.github.io/swell/machines.html">
+<meta name="theme-color" content="#e7a6b6">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Swell"><meta property="og:title" content="Find a Swell Machine | Utah County"><meta property="og:description" content="Find Swell protein shake and smoothie vending machines at gyms, high schools and hotels in Utah County, Utah."><meta property="og:url" content="https://pdrayday.github.io/swell/machines.html"><meta property="og:image" content="https://pdrayday.github.io/swell/img/splash_cc.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,600..700&family=Instrument+Sans:wght@400;500;600;700&display=swap"><script>try{var l=localStorage.getItem('swell-line');if(l)document.documentElement.dataset.line=JSON.parse(l);}catch(e){}</script>
+</head>
+<body>
+<style>
+/* Swell: dark-pink page for shakes, gold for smoothies. One fixed look on every device. */
+:root {
+  --bg: #e7a6b6; --bg-2: #de97a9; --surface: #f0bfcb; --surface-2: #f5ccd6;
+  --fg: #2a121a; --muted: #5f2f3d; --line: rgba(42, 18, 26, .18);
+  --ink: #2a121a; --ink-2: #4a2230; --on-ink: #fde6ec; --em: #9e2a4b;
+  --stage: #f4dee3; --stage-muted: #6f5560; --good: #c7ecce; --good-ink: #17431f;
+  --display: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --max: 1180px; --r: 20px;
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+  color-scheme: light dark; /* declared so browser auto-dark leaves our colors alone; no dark styles are defined */
+}
+html[data-line="smoothies"] {
+  --bg: #f0d47e; --bg-2: #e8c96c; --surface: #f7e3a2; --surface-2: #faebb8;
+  --fg: #2a1f0e; --muted: #5c4a22; --line: rgba(42, 31, 14, .18);
+  --ink: #2a1f0e; --ink-2: #4a3818; --on-ink: #fdf2bf; --em: #8a5a10;
+  --stage: #fdf2bf; --stage-muted: #7a6430;
+}
+@view-transition { navigation: auto; }
+::view-transition-old(root) { animation: vt-out .18s ease both; }
+::view-transition-new(root) { animation: vt-in .32s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(10px); } }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; transition: background-color .45s, color .45s; }
+a { color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+button, input, select { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.wrap { max-width: var(--max); margin: 0 auto; padding-inline: clamp(16px, 4vw, 40px); }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.05; letter-spacing: -.02em; text-wrap: balance; margin: 0; }
+h1 em { font-style: italic; color: var(--em); }
+p { margin: 0; }
+:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 3px; border-radius: 8px; }
+.lead { font-size: clamp(17px, 1.5vw, 20px); color: var(--muted); max-width: 34em; }
+.small { font-size: 14px; color: var(--muted); }
+
+/* ---- buttons + Venmo-style press ---- */
+.btn { position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: 700 15.5px/1 var(--body);
+  padding: 16px 26px; border-radius: 999px; border: 0; background: var(--ink); color: var(--on-ink); text-decoration: none; cursor: pointer;
+  transition: transform .35s var(--spring), background-color .2s, box-shadow .2s; -webkit-tap-highlight-color: transparent; user-select: none; }
+.btn:hover { background: var(--ink-2); }
+.btn.alt { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 1.5px var(--line); }
+.btn.alt:hover { box-shadow: inset 0 0 0 1.5px var(--fg); background: transparent; }
+.btn.sm { padding: 11px 18px; font-size: 14.5px; }
+.press { transition: transform .35s var(--spring); -webkit-tap-highlight-color: transparent; }
+.press:active, .btn:active { transform: scale(.94); transition-duration: .08s; }
+.ripple { position: absolute; border-radius: 50%; pointer-events: none; background: currentColor; opacity: .22; transform: scale(0); animation: ripple .55s ease-out forwards; }
+@keyframes ripple { to { transform: scale(1); opacity: 0; } }
+.burst { position: fixed; pointer-events: none; z-index: 80; width: 0; height: 0; }
+.burst i { position: absolute; left: -4px; top: -4px; width: 8px; height: 8px; border-radius: 50%; animation: burst .6s cubic-bezier(.15,.8,.3,1) forwards; }
+@keyframes burst { 0% { transform: translate(0,0) scale(1); opacity: 1; } 100% { transform: translate(var(--x), var(--y)) scale(.2); opacity: 0; } }
+.confetti { position: fixed; pointer-events: none; z-index: 80; left: 0; top: 0; }
+.confetti i { position: absolute; width: 9px; height: 14px; border-radius: 2px; animation: conf 1.3s cubic-bezier(.2,.6,.3,1) forwards; }
+@keyframes conf { 0% { transform: translate(0,0) rotate(0); opacity: 1; } 100% { transform: translate(var(--x), var(--y)) rotate(var(--r)); opacity: 0; } }
+.pop { animation: pop .45s var(--spring); }
+@keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.35); } 100% { transform: scale(1); } }
+.check { width: 18px; height: 18px; }
+.check path { stroke-dasharray: 24; stroke-dashoffset: 24; animation: draw .35s .05s ease-out forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { *, ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; transition: none !important; } }
+
+/* ---- header ---- */
+.promo { background: var(--ink); color: var(--on-ink); text-align: center; font: 600 13.5px/1.35 var(--body); padding: 9px 16px; }
+.promo a { color: inherit; font-weight: 700; }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: background-color .45s; }
+header.top .wrap { display: flex; align-items: center; gap: 20px; height: 66px; }
+.logo img { height: 34px; width: auto; }
+.tabs { display: flex; gap: 4px; margin-left: 10px; }
+.tabs a { position: relative; text-decoration: none; font: 600 15px/1 var(--body); padding: 10px 12px; border-radius: 999px; color: var(--muted); transition: color .2s, background-color .2s; }
+.tabs a:hover { color: var(--fg); background: var(--surface); }
+.tabs a[aria-current="page"] { color: var(--fg); }
+.tabs a[aria-current="page"]::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 2px; height: 2.5px; border-radius: 2px; background: var(--fg); }
+.right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.boxbtn { position: relative; }
+.boxbtn .n { position: absolute; top: -6px; right: -6px; min-width: 21px; height: 21px; padding: 0 5px; border-radius: 11px; background: var(--em); color: #fff; font: 700 11.5px/21px var(--body); text-align: center; }
+.line-sw { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--surface); }
+.line-sw button { border: 0; background: transparent; padding: 8px 13px; border-radius: 999px; font: 700 13.5px/1 var(--body); color: var(--muted); cursor: pointer; transition: background-color .25s, color .25s; }
+.line-sw button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+.burger { display: none; width: 44px; height: 44px; border: 0; background: transparent; border-radius: 12px; cursor: pointer; margin-left: -8px; }
+.burger span { display: block; width: 22px; height: 2.5px; background: var(--fg); border-radius: 2px; margin: 5px auto; transition: transform .3s var(--spring), opacity .2s; }
+@media (max-width: 960px) {
+  .tabs, header.top .line-sw { display: none; }
+  .burger { display: block; }
+  header.top .wrap { gap: 6px; height: 60px; }
+  .logo { position: absolute; left: 50%; transform: translateX(-50%); }
+  .logo img { height: 30px; }
+  .boxbtn { padding: 10px 14px; font-size: 14px; }
+}
+/* drawer */
+.scrim { position: fixed; inset: 0; z-index: 60; background: rgba(20, 8, 12, .38); opacity: 0; pointer-events: none; transition: opacity .3s; }
+.drawer { position: fixed; z-index: 61; top: 0; bottom: 0; left: 0; width: min(86vw, 360px); background: var(--bg); padding: calc(18px + env(safe-area-inset-top, 0px)) 22px 24px;
+  transform: translateX(-104%); transition: transform .45s cubic-bezier(.22,1,.36,1); display: flex; flex-direction: column; gap: 20px; overflow-y: auto; box-shadow: 10px 0 40px rgba(20,8,12,.18); }
+.menu-open .scrim { opacity: 1; pointer-events: auto; }
+.menu-open .drawer { transform: none; }
+.drawer .x { align-self: flex-start; width: 44px; height: 44px; border-radius: 12px; border: 0; background: var(--surface); font-size: 24px; line-height: 1; cursor: pointer; }
+.drawer nav { display: grid; gap: 2px; }
+.drawer nav a { display: flex; justify-content: space-between; align-items: center; text-decoration: none; font: 700 26px/1.15 var(--display); padding: 12px 4px; border-bottom: 1px solid var(--line);
+  opacity: 0; transform: translateX(-14px); transition: opacity .3s, transform .45s var(--spring); }
+.drawer nav a span { font: 500 14px var(--body); color: var(--muted); }
+.drawer nav a[aria-current="page"] { color: var(--em); }
+.menu-open .drawer nav a { opacity: 1; transform: none; }
+.menu-open .drawer nav a:nth-child(2) { transition-delay: .03s; } .menu-open .drawer nav a:nth-child(3) { transition-delay: .06s; }
+.menu-open .drawer nav a:nth-child(4) { transition-delay: .09s; } .menu-open .drawer nav a:nth-child(5) { transition-delay: .12s; } .menu-open .drawer nav a:nth-child(6) { transition-delay: .15s; }
+.drawer .line-sw { align-self: flex-start; }
+
+/* ---- sections ---- */
+section { padding-block: clamp(52px, 8vw, 100px); }
+.sec-h { display: grid; gap: 12px; max-width: 760px; margin-bottom: clamp(26px, 4vw, 44px); }
+.sec-h h2 { font-size: clamp(32px, 4.4vw, 54px); }
+.sec-h p { color: var(--muted); font-size: 18px; max-width: 38em; }
+.alt-bg { background: var(--bg-2); transition: background-color .45s; }
+.stage { border-radius: 28px; background: radial-gradient(ellipse 80% 70% at 50% 35%, #fff 0%, var(--stage) 72%); overflow: hidden; }
+
+/* hero */
+.hero { padding-block: clamp(26px, 5vw, 60px) 20px; overflow-x: clip; }
+.hero .wrap { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(20px, 4vw, 56px); align-items: center; }
+.hero h1 { font-size: clamp(46px, 6.8vw, 92px); }
+.hero .lead { margin-top: 20px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.hero .stage { display: flex; justify-content: center; align-items: flex-end; padding: 24px 8px 0; min-height: 320px; }
+.hero .stage img { height: clamp(220px, 30vw, 420px); width: auto; max-width: none; margin-inline: -3.5%; position: relative; }
+.hero .stage img:nth-child(2) { height: clamp(240px, 33vw, 460px); z-index: 2; }
+.hero .facts { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px; font-size: 15px; color: var(--muted); }
+.hero .facts b { display: block; font: 700 26px/1 var(--display); color: var(--fg); margin-bottom: 4px; }
+@media (max-width: 560px) { .hero .facts { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 14px; font-size: 13px; } }
+.hero .sw-row { margin-top: 26px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
+@media (max-width: 880px) { .hero .wrap { grid-template-columns: 1fr; } }
+.lines { position: relative; overflow: hidden; transition: height .45s ease; }
+.lines-track { display: flex; width: 200%; align-items: flex-start; transition: transform .6s cubic-bezier(.22,1,.36,1); }
+.line { width: 50%; flex: 0 0 50%; min-width: 0; }
+html[data-line="smoothies"] .lines-track { transform: translateX(-50%); }
+
+/* flavor shelf */
+.shelf-top { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; }
+.shelf-top h2 { font-size: clamp(28px, 3.4vw, 40px); }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; }
+.filters button { border: 0; background: var(--surface); color: var(--muted); padding: 9px 14px; border-radius: 999px; font: 600 14px/1 var(--body); cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+.rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(162px, 1fr); gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 14px; scrollbar-width: thin; }
+.fl { scroll-snap-align: start; background: var(--surface); border-radius: 18px; padding: 12px 12px 14px; display: grid; gap: 8px; align-content: start; position: relative; }
+.fl .pic { display: grid; place-items: end center; height: 196px; }
+.fl .pic img { height: 186px; width: auto; filter: drop-shadow(0 10px 10px rgba(40, 10, 20, .22)); transition: transform .35s var(--spring); }
+.fl:hover .pic img { transform: translateY(-5px) rotate(-2deg); }
+.fl h3 { font-size: 18px; line-height: 1.15; min-height: 2.3em; }
+.fl .tag { position: absolute; top: 10px; left: 10px; font: 700 11px/1 var(--body); padding: 6px 8px; border-radius: 6px; background: var(--ink); color: var(--on-ink); }
+.fl .tag.classic { background: var(--stage); color: var(--fg); }
+.fl .tag.seasonal { background: #f7a85c; color: #2a1408; }
+.add { position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 0; padding: 11px 12px; border-radius: 999px;
+  background: var(--ink); color: var(--on-ink); font: 700 14px/1 var(--body); cursor: pointer; transition: transform .35s var(--spring), background-color .25s; min-height: 40px; }
+.add:active { transform: scale(.92); transition-duration: .08s; }
+.add.in { background: var(--em); color: #fff; }
+
+/* home: why */
+.why { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(24px, 5vw, 70px); align-items: start; }
+.why .big { font: 600 clamp(26px, 3vw, 38px)/1.25 var(--display); letter-spacing: -.01em; }
+.why .big b { color: var(--em); font-weight: 700; }
+.who { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.who div { display: grid; grid-template-columns: 54px 1fr; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.who img { height: 74px; width: auto; justify-self: center; }
+.who b { display: block; font-size: 17px; } .who span { color: var(--muted); font-size: 15px; }
+@media (max-width: 860px) { .why { grid-template-columns: 1fr; } }
+.doors { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 14px; }
+.door { position: relative; display: grid; align-content: space-between; min-height: 300px; padding: 24px; border-radius: 24px; background: var(--surface); text-decoration: none; overflow: hidden; transition: transform .4s var(--spring); }
+.door:hover { transform: translateY(-4px); } .door:active { transform: scale(.98); }
+.door h3 { font-size: clamp(26px, 2.6vw, 34px); max-width: 9em; } .door p { color: var(--muted); margin-top: 8px; max-width: 18em; }
+.door .go { font-weight: 700; margin-top: 16px; }
+.door img { position: absolute; right: -10px; bottom: -14px; height: 78%; width: auto; filter: drop-shadow(0 12px 16px rgba(40,10,20,.25)); }
+.door.dark { background: var(--ink); color: var(--on-ink); } .door.dark p { color: color-mix(in srgb, var(--on-ink) 75%, transparent); }
+@media (max-width: 860px) { .doors { grid-template-columns: 1fr; } .door { min-height: 240px; } }
+.quotes { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(280px, 1fr); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; }
+.quote { scroll-snap-align: start; background: var(--surface); border-radius: var(--r); padding: 22px; display: grid; gap: 14px; align-content: space-between; margin: 0; }
+.quote q { font: 600 20px/1.35 var(--display); quotes: none; }
+.quote figcaption { color: var(--muted); font-size: 14px; }
+.ph { display: inline-block; font: 700 12.5px/1.3 var(--body); padding: 7px 11px; border-radius: 8px; border: 1.5px dashed var(--em); color: var(--em); }
+
+/* shop */
+.page-h { padding-block: clamp(30px, 5vw, 60px) 10px; }
+.page-h h1 { font-size: clamp(44px, 6vw, 80px); }
+.page-h .lead { margin-top: 14px; }
+.presets { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+.sizes { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(20px, 4vw, 56px); align-items: center; }
+.sizes .stage { padding: 26px 18px 0; }
+.opt { width: 100%; display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; padding: 18px 20px; border-radius: 18px; background: var(--surface); border: 2px solid transparent; cursor: pointer; text-align: left; margin-bottom: 10px; transition: transform .35s var(--spring), border-color .2s; }
+.opt:active { transform: scale(.97); }
+.opt[aria-pressed="true"] { border-color: var(--ink); }
+.opt .g { font: 700 40px/1 var(--display); } .opt .t b { display: block; font-size: 17px; } .opt .t span { color: var(--muted); font-size: 14.5px; }
+.opt .dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line); transition: border .25s var(--spring); }
+.opt[aria-pressed="true"] .dot { border: 7px solid var(--ink); }
+@media (max-width: 860px) { .sizes { grid-template-columns: 1fr; } }
+.builder { display: grid; grid-template-columns: 1fr 380px; gap: 24px; align-items: start; }
+.steps { display: grid; gap: 24px; min-width: 0; }
+.step h3 { font: 700 15px/1 var(--body); margin-bottom: 12px; }
+.seg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.seg button { text-align: left; padding: 16px 18px; border-radius: 16px; background: var(--surface); border: 2px solid transparent; cursor: pointer; display: grid; gap: 4px; transition: transform .35s var(--spring), border-color .2s; }
+.seg button:active { transform: scale(.97); }
+.seg button[aria-pressed="true"] { border-color: var(--ink); }
+.seg b { font-size: 18px; } .seg span { color: var(--muted); font-size: 14px; }
+.save { display: inline-block; margin-top: 4px; font: 700 12px/1 var(--body); padding: 6px 8px; border-radius: 6px; background: var(--good); color: var(--good-ink); width: max-content; font-style: normal; }
+.btabs { display: flex; gap: 6px; margin-bottom: 12px; }
+.btabs button { border: 0; padding: 10px 14px; border-radius: 999px; background: var(--surface); color: var(--muted); font: 700 14px/1 var(--body); cursor: pointer; }
+.btabs button[aria-selected="true"] { background: var(--ink); color: var(--on-ink); }
+.picks { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 8px; }
+.pk { display: grid; grid-template-columns: 46px 1fr auto; gap: 12px; align-items: center; padding: 8px 10px; border-radius: 14px; background: var(--surface); border: 2px solid transparent; transition: border-color .2s; }
+.pk.on { border-color: var(--ink); }
+.pk img { height: 64px; width: auto; justify-self: center; }
+.pk b { font-size: 15px; line-height: 1.2; display: block; } .pk small { color: var(--muted); font-size: 12.5px; }
+.qty { display: flex; align-items: center; gap: 4px; }
+.qty button { width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--bg-2); cursor: pointer; font-size: 19px; line-height: 1; display: grid; place-items: center; transition: transform .3s var(--spring); }
+.qty button:active { transform: scale(.82); }
+.qty output { min-width: 22px; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; display: inline-block; }
+.summary { position: sticky; top: 86px; background: var(--stage); color: #1a1216; border-radius: 24px; padding: 22px; display: grid; gap: 14px; }
+html[data-line="smoothies"] .summary { color: #2a1f0e; }
+.summary h3 { font-size: 26px; }
+.slots { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+.slots i { aspect-ratio: 1 / 1.35; border-radius: 10px; border: 1.5px dashed rgba(26,18,22,.25); display: grid; place-items: center; overflow: hidden; }
+.slots i img { height: 92%; width: auto; animation: drop .4s var(--spring); }
+@keyframes drop { from { transform: translateY(-14px) scale(.8); opacity: 0; } }
+.slots i.f { border-style: solid; border-color: transparent; background: rgba(255,255,255,.6); }
+.bar { height: 8px; border-radius: 4px; background: rgba(26,18,22,.12); overflow: hidden; } .bar span { display: block; height: 100%; width: 0; background: #1a1216; transition: width .4s var(--spring); }
+.summary .row { display: flex; justify-content: space-between; font-weight: 600; font-size: 14.5px; } .summary .ok { color: #1f6b33; }
+.summary input { width: 100%; padding: 14px 16px; border-radius: 999px; border: 1.5px solid rgba(26,18,22,.2); background: #fff; color: #1a1216; font-size: 16px; }
+.summary .btn { width: 100%; background: #1a1216; color: #fde6ec; }
+.summary .btn[disabled] { opacity: .45; cursor: not-allowed; }
+.summary .btn.done { background: #1f6b33; color: #fff; }
+.links { display: flex; gap: 14px; font: 600 14px var(--body); } .links button { border: 0; background: none; padding: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; color: inherit; }
+.assure { color: #6f5560; font-size: 13px; }
+@media (max-width: 980px) { .builder { grid-template-columns: 1fr; } .summary { position: static; } }
+
+/* machines */
+.mach-top { display: grid; grid-template-columns: 1fr 240px; gap: 48px; align-items: center; }
+.mach-facts { display: flex; flex-wrap: wrap; gap: 10px 26px; margin: 22px 0 0; padding: 0; list-style: none; font-weight: 600; font-size: 15px; }
+.mach-facts li::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--em); margin-right: 9px; vertical-align: middle; }
+.mach-top img { width: 220px; justify-self: end; filter: drop-shadow(0 26px 30px rgba(40,10,20,.3)); }
+@media (max-width: 760px) { .mach-top { grid-template-columns: 1fr; } .mach-top img { width: 200px; justify-self: start; } }
+.finder { display: grid; grid-template-columns: 1.45fr 1fr; gap: 16px; align-items: start; }
+.mapcard { background: var(--surface); border-radius: 24px; padding: 14px; min-width: 0; }
+.maptools { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+.maptools select { padding: 10px 14px; border-radius: 999px; background: var(--bg); color: var(--fg); border: 0; font-weight: 600; }
+.map { width: 100%; height: auto; display: block; border-radius: 16px; background: #f8e9ed; }
+html[data-line="smoothies"] .map { background: #fdf5d6; }
+.map .county { fill: #fff; stroke: #c7a3ae; stroke-width: 2.5; }
+.map .lake { fill: #a9d2ec; }
+.map .road { fill: none; stroke: #c7a3ae; stroke-width: 3; stroke-dasharray: 2 8; stroke-linecap: round; }
+.map .city { fill: #6f5560; font: 600 17px var(--body); paint-order: stroke; stroke: #fff; stroke-width: 4px; }
+.map .lbl { fill: #4f87ad; font: italic 600 22px var(--display); }
+.pin { cursor: pointer; } .pin circle { stroke: #2a121a; stroke-width: 3; transition: r .3s var(--spring); }
+.pin.gym circle { fill: #ef8fa6; } .pin.school circle { fill: #f2c94c; } .pin.hotel circle { fill: #8fd4a0; }
+.pin text { font: 800 14px var(--body); fill: #2a121a; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.pin.sel circle { r: 22; stroke-width: 4; } .pin.off { display: none; }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 13.5px; color: var(--muted); margin-top: 10px; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; border: 2px solid #2a121a; }
+.loclist { background: var(--surface); border-radius: 24px; padding: 8px; max-height: 640px; overflow: auto; }
+.loc { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: center; padding: 12px; border-radius: 14px; cursor: pointer; border: 0; background: transparent; width: 100%; text-align: left; transition: background-color .2s, transform .3s var(--spring); }
+.loc:hover, .loc.sel { background: var(--surface-2); } .loc:active { transform: scale(.98); } .loc.off { display: none; }
+.loc .n { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #2a121a; }
+.loc b { display: block; } .loc span { color: var(--muted); font-size: 14px; }
+@media (max-width: 900px) { .finder { grid-template-columns: 1fr; } .loclist { max-height: 360px; } }
+.host { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; background: var(--ink); color: var(--on-ink); border-radius: 28px; padding: clamp(24px, 4vw, 48px); }
+.host h2 { font-size: clamp(30px, 3.6vw, 44px); } .host p { opacity: .8; margin-top: 10px; }
+.host form { display: flex; gap: 8px; flex-wrap: wrap; }
+.host input { flex: 1 1 220px; padding: 15px 18px; border-radius: 999px; border: 0; background: #fff; color: #1a1216; min-width: 0; }
+.host .btn { background: var(--on-ink); color: var(--ink); }
+@media (max-width: 760px) { .host { grid-template-columns: 1fr; } }
+
+/* about */
+.story { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 64px); }
+.story .body { display: grid; gap: 14px; font-size: 18px; color: var(--muted); }
+.story .body strong { color: var(--fg); }
+.time { list-style: none; margin: 0; padding: 0; display: grid; }
+.time li { display: grid; grid-template-columns: 90px 1fr; gap: 16px; padding: 18px 0; border-top: 1px solid var(--line); }
+.time li b { font: 700 20px var(--display); }
+.time li span { color: var(--muted); }
+@media (max-width: 860px) { .story { grid-template-columns: 1fr; } }
+.inside { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.inside div { background: var(--surface); border-radius: 18px; padding: 20px; display: grid; gap: 8px; align-content: start; }
+.inside b { font: 700 32px/1 var(--display); color: var(--em); } .inside h3 { font-size: 21px; } .inside p { color: var(--muted); font-size: 15.5px; }
+@media (max-width: 860px) { .inside { grid-template-columns: 1fr 1fr; } }
+.cw { overflow-x: auto; border-radius: 20px; background: var(--surface); }
+table.cmp { width: 100%; min-width: 720px; border-collapse: collapse; }
+.cmp th, .cmp td { padding: 15px 18px; text-align: left; border-bottom: 1px solid var(--line); }
+.cmp thead th { font: 700 13px/1.2 var(--body); color: var(--muted); }
+.cmp .us { background: var(--stage); font-weight: 700; }
+.cmp tr:last-child > * { border-bottom: 0; }
+
+/* faq + recipes */
+.acc { border-top: 1px solid var(--line); max-width: 880px; }
+.acc details { border-bottom: 1px solid var(--line); }
+.acc summary { list-style: none; cursor: pointer; display: flex; gap: 18px; padding: 22px 0; align-items: baseline; }
+.acc summary::-webkit-details-marker { display: none; }
+.acc summary h3 { font-size: clamp(20px, 2.2vw, 25px); flex: 1; }
+.acc summary::after { content: "+"; font: 400 30px/1 var(--display); transition: transform .35s var(--spring); }
+.acc details[open] summary::after { transform: rotate(45deg); }
+.acc .ans { padding: 0 0 24px; color: var(--muted); max-width: 40em; }
+.recipes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.rc { background: var(--surface); border-radius: var(--r); overflow: hidden; text-decoration: none; display: grid; transition: transform .4s var(--spring); }
+.rc:hover { transform: translateY(-4px); } .rc:active { transform: scale(.98); }
+.rc .stage { border-radius: 0; height: 220px; display: grid; place-items: end center; padding-top: 14px; } .rc .stage img { height: 200px; width: auto; }
+.rc .t { padding: 18px 20px 22px; display: grid; gap: 6px; } .rc h3 { font-size: 22px; } .rc p { color: var(--muted); font-size: 15px; } .rc .go { font-weight: 700; }
+@media (max-width: 860px) { .recipes { grid-template-columns: 1fr; } }
+.crumbs { margin-top: 22px; font-size: 14px; color: var(--muted); } .crumbs a { color: var(--muted); }
+.recipe { display: grid; grid-template-columns: 340px 1fr; gap: 40px; margin-top: 26px; align-items: start; }
+.rhero { display: grid; place-items: end center; padding-top: 30px; min-height: 420px; position: sticky; top: 90px; } .rhero img { height: 380px; width: auto; }
+.recipe h1 { font-size: clamp(38px, 5vw, 60px); margin-top: 6px; } .recipe h2 { font-size: 28px; margin: 32px 0 12px; }
+.rfacts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 24px 0 0; }
+.rfacts div { background: var(--surface); border-radius: 14px; padding: 14px; } .rfacts dt { font-size: 13px; color: var(--muted); } .rfacts dd { margin: 4px 0 0; font: 700 24px var(--display); }
+.ing, .rsteps { padding-left: 22px; display: grid; gap: 8px; }
+.tipbox { margin-top: 22px; padding: 16px 18px; border-radius: 14px; background: var(--surface); }
+@media (max-width: 860px) { .recipe { grid-template-columns: 1fr; } .rhero { position: static; min-height: 0; } .rhero img { height: 280px; } .rfacts { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+
+/* footer, mobile bar, toast */
+footer.site { border-top: 1px solid var(--line); padding-block: 44px 110px; }
+footer.site .cols { display: grid; grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr)); gap: 28px; }
+footer.site .logo img { height: 44px; }
+footer.site h4 { font: 700 14px/1 var(--body); margin: 0 0 14px; }
+footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; } footer.site ul a { text-decoration: none; color: var(--muted); } footer.site ul a:hover { color: var(--fg); }
+footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); display: grid; gap: 6px; }
+@media (max-width: 760px) { footer.site .cols { grid-template-columns: 1fr 1fr; } footer.site .cols > div:first-child { grid-column: 1 / -1; } }
+.mbar { position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); z-index: 40; padding: 10px 10px 10px 16px; border-radius: 999px; background: var(--ink); color: var(--on-ink);
+  display: none; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(20,8,12,.25); transition: transform .45s var(--spring); }
+.mbar .p { flex: 1; min-width: 0; font-size: 14px; line-height: 1.3; } .mbar .p b { display: block; }
+.mbar .btn { background: var(--on-ink); color: var(--ink); }
+.mbar.hide { transform: translateY(150%); }
+@media (max-width: 960px) { .mbar { display: flex; } }
+.toast { position: fixed; left: 50%; top: 82px; transform: translate(-50%, -20px) scale(.9); opacity: 0; z-index: 70; background: var(--ink); color: var(--on-ink); font: 700 14.5px/1.3 var(--body);
+  padding: 12px 18px; border-radius: 999px; box-shadow: 0 10px 30px rgba(20,8,12,.25); transition: opacity .25s, transform .45s var(--spring); pointer-events: none; max-width: calc(100vw - 32px); text-align: center; display: flex; gap: 10px; align-items: center; }
+.toast.on { opacity: 1; transform: translate(-50%, 0) scale(1); }
+.toast a { color: inherit; pointer-events: auto; }
+</style>
+<div class="promo">Reserve a box today and pay nothing until it ships. <a href="shop.html#build">Build yours</a></div>
+<header class="top"><div class="wrap">
+  <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+  <a class="logo" href="index.html" aria-label="Swell home"><img src="img/logo.png" alt="Swell" width="416" height="159"></a>
+  <nav class="tabs" aria-label="Main"><a href="shop.html">Shop</a><a href="machines.html" aria-current="page">Find a machine</a><a href="creami/index.html">Recipes</a><a href="about.html">About</a><a href="faq.html">FAQ</a></nav>
+  <div class="right"><div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div><a class="btn sm boxbtn" href="shop.html#build">Box<span class="n boxcount" hidden>0</span></a></div>
+</div></header>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Menu">
+  <button type="button" class="x press" id="drawer-x" aria-label="Close menu">×</button>
+  <div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div>
+  <nav><a href="index.html">Home<span></span></a><a href="shop.html">Shop<span>Build a box</span></a><a href="machines.html" aria-current="page">Find a machine<span>Utah County</span></a><a href="creami/index.html">Recipes<span>Ninja Creami</span></a><a href="about.html">About<span>Our story</span></a><a href="faq.html">FAQ<span>Questions</span></a></nav>
+  <a class="btn" href="shop.html#build">Build a box</a>
+</aside><main id="main">
+<section class="page-h"><div class="wrap mach-top">
+  <div><h1>Find a Swell machine</h1><p class="lead">Swell started in our own vending machines. You'll find them in gyms, high schools and hotels around Utah County, stocked cold with shakes and smoothies.</p>
+  <ul class="mach-facts"><li>Tap to pay</li><li>Served ice cold</li><li>Shakes and smoothies</li></ul></div>
+  <img src="img/machine.webp" alt="A Swell vending machine stocked with protein shakes and smoothies" width="620" height="1070">
+</div></section>
+<section style="padding-top:10px"><div class="wrap finder">
+  <div class="mapcard">
+    <div class="maptools"><label class="sr" for="region">Region</label>
+      <select id="region"><option selected>Utah County, UT</option><option disabled>Salt Lake County (soon)</option><option disabled>Davis County (soon)</option></select>
+      <div class="filters" role="group" aria-label="Location type"><button type="button" class="press" aria-pressed="true" data-mfilter="all">All</button><button type="button" class="press" aria-pressed="false" data-mfilter="gym">Gyms</button><button type="button" class="press" aria-pressed="false" data-mfilter="school">Schools</button><button type="button" class="press" aria-pressed="false" data-mfilter="hotel">Hotels</button></div></div>
+    <svg class="map" viewBox="0 0 1000 901" role="img" aria-label="Map of Swell machines in Utah County"><path class="county" d="M420.2,110.6 L820.1,-93.5 L797.8,145.0 L868.5,257.6 L962.1,258.5 L1029.4,381.8 L1169.0,380.7 L1213.9,428.0 L1280.6,577.6 L1254.7,773.9 L1305.3,774.1 L1458.7,944.7 L1459.4,1015.2 L1697.7,1016.8 L1740.8,1017.2 L1740.1,1158.8 L1253.1,1157.5 L761.8,1157.9 L604.8,1161.8 L644.8,1090.9 L569.0,964.4 L425.7,1024.4 L347.5,1168.3 L223.3,1215.3 L245.8,1026.6 L87.8,832.7 L131.0,571.2 L88.1,471.6 L47.2,99.5 L96.0,86.9 L339.7,168.2 L398.1,141.6 L413.6,125.8 L420.2,110.6 Z"/><path class="lake" d="M719.7,468.7 L724.1,476.4 L725.2,487.0 L723.0,498.1 L718.4,507.3 L712.0,513.6 L694.5,516.9 L675.5,525.6 L658.6,521.8 L648.1,522.7 L641.5,531.9 L636.5,545.9 L629.2,556.5 L620.0,563.2 L608.8,564.2 L574.0,557.0 L554.3,558.9 L536.8,574.8 L525.2,588.8 L520.5,597.0 L505.7,644.2 L504.1,655.3 L504.8,664.0 L507.9,670.2 L511.1,674.1 L511.1,677.5 L505.0,688.6 L499.7,694.3 L494.0,699.2 L489.0,705.0 L486.2,714.6 L485.3,725.2 L483.5,733.9 L478.9,740.1 L469.3,745.5 L449.6,752.2 L444.5,752.2 L442.8,747.4 L447.4,710.7 L452.7,708.8 L463.1,702.5 L469.9,693.4 L464.5,682.3 L441.7,662.0 L435.8,652.4 L435.1,641.8 L437.1,630.7 L437.8,621.6 L436.2,614.3 L421.7,602.3 L414.1,591.2 L412.6,576.2 L421.1,558.4 L477.0,475.0 L500.2,418.1 L509.0,387.3 L510.1,368.9 L505.0,351.1 L475.4,287.9 L455.9,258.0 L453.7,251.3 L457.7,244.5 L467.8,236.4 L484.0,230.1 L506.5,228.6 L530.0,233.9 L589.3,255.2 L601.2,263.4 L611.2,274.9 L616.7,287.9 L619.4,321.7 L622.9,338.6 L630.7,351.1 L650.5,368.9 L656.2,378.1 L655.3,387.3 L647.0,404.1 L646.1,412.3 L649.2,422.0 L652.4,435.5 L652.7,450.9 L654.9,462.0 L663.2,462.5 L675.0,458.6 L685.1,458.1 L703.5,460.5 L712.3,463.4 L719.7,468.7 Z"/><text class="lbl" x="400" y="560">Utah Lake</text><path class="road" d="M431.3,32.8 L463.7,142.5 L487.5,210.3 L562.5,245.7 L637.5,278.4 L665.0,327.6 L685.0,384.9 L708.7,442.2 L735.0,507.7 L775.0,573.2 L756.3,646.9 L700.0,720.6 L631.2,802.5 L575.0,900.8"/><text class="city" x="473.0" y="214.3" text-anchor="end">Lehi</text><text class="city" x="589.8" y="218.4">American Fork</text><text class="city" x="661.4" y="239.3">Pleasant Grove</text><text class="city" x="716.3" y="349.4">Orem</text><text class="city" x="761.4" y="452.7">Provo</text><text class="city" x="821.1" y="565.1">Springville</text><text class="city" x="765.9" y="647.5">Spanish Fork</text><text class="city" x="669.4" y="762.9">Payson</text><text class="city" x="454.1" y="263.4">Saratoga Springs</text><text class="city" x="325.9" y="321.2">Eagle Mountain</text><text class="city" x="590.9" y="139.6">Highland</text><g class="pin gym" data-i="1" data-type="gym" transform="translate(499.0,210.3)" tabindex="0" role="button" aria-label="Gym in Lehi"><circle r="17"/><text>1</text></g><g class="pin school" data-i="2" data-type="school" transform="translate(519.0,190.6)" tabindex="0" role="button" aria-label="High school in Lehi"><circle r="17"/><text>2</text></g><g class="pin gym" data-i="3" data-type="gym" transform="translate(567.8,234.4)" tabindex="0" role="button" aria-label="Gym in American Fork"><circle r="17"/><text>3</text></g><g class="pin school" data-i="4" data-type="school" transform="translate(639.4,255.3)" tabindex="0" role="button" aria-label="High school in Pleasant Grove"><circle r="17"/><text>4</text></g><g class="pin gym" data-i="5" data-type="gym" transform="translate(694.3,365.4)" tabindex="0" role="button" aria-label="Gym in Orem"><circle r="17"/><text>5</text></g><g class="pin hotel" data-i="6" data-type="hotel" transform="translate(711.8,385.0)" tabindex="0" role="button" aria-label="Hotel in Orem"><circle r="17"/><text>6</text></g><g class="pin gym" data-i="7" data-type="gym" transform="translate(739.4,468.7)" tabindex="0" role="button" aria-label="Gym in Provo"><circle r="17"/><text>7</text></g><g class="pin hotel" data-i="8" data-type="hotel" transform="translate(719.4,449.1)" tabindex="0" role="button" aria-label="Hotel in Provo"><circle r="17"/><text>8</text></g><g class="pin school" data-i="9" data-type="school" transform="translate(734.4,494.9)" tabindex="0" role="button" aria-label="High school in Provo"><circle r="17"/><text>9</text></g><g class="pin gym" data-i="10" data-type="gym" transform="translate(799.1,581.1)" tabindex="0" role="button" aria-label="Gym in Springville"><circle r="17"/><text>10</text></g><g class="pin school" data-i="11" data-type="school" transform="translate(743.9,663.5)" tabindex="0" role="button" aria-label="High school in Spanish Fork"><circle r="17"/><text>11</text></g><g class="pin gym" data-i="12" data-type="gym" transform="translate(432.1,279.4)" tabindex="0" role="button" aria-label="Gym in Saratoga Springs"><circle r="17"/><text>12</text></g><g class="pin gym" data-i="13" data-type="gym" transform="translate(303.9,337.2)" tabindex="0" role="button" aria-label="Gym in Eagle Mountain"><circle r="17"/><text>13</text></g><g class="pin hotel" data-i="14" data-type="hotel" transform="translate(647.4,778.9)" tabindex="0" role="button" aria-label="Hotel in Payson"><circle r="17"/><text>14</text></g><g class="pin school" data-i="15" data-type="school" transform="translate(568.9,155.6)" tabindex="0" role="button" aria-label="High school in Highland"><circle r="17"/><text>15</text></g></svg>
+    <div class="legend"><span><i style="background:#ef8fa6"></i>Gym</span><span><i style="background:#f2c94c"></i>High school</span><span><i style="background:#8fd4a0"></i>Hotel</span></div>
+  </div>
+  <div><div class="loclist"><button type="button" class="loc" data-i="1" data-type="gym"><span class="n" style="background:#ef8fa6">1</span><span><b>Gym · Lehi</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="2" data-type="school"><span class="n" style="background:#f2c94c">2</span><span><b>High school · Lehi</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="3" data-type="gym"><span class="n" style="background:#ef8fa6">3</span><span><b>Gym · American Fork</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="4" data-type="school"><span class="n" style="background:#f2c94c">4</span><span><b>High school · Pleasant Grove</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="5" data-type="gym"><span class="n" style="background:#ef8fa6">5</span><span><b>Gym · Orem</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="6" data-type="hotel"><span class="n" style="background:#8fd4a0">6</span><span><b>Hotel · Orem</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="7" data-type="gym"><span class="n" style="background:#ef8fa6">7</span><span><b>Gym · Provo</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="8" data-type="hotel"><span class="n" style="background:#8fd4a0">8</span><span><b>Hotel · Provo</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="9" data-type="school"><span class="n" style="background:#f2c94c">9</span><span><b>High school · Provo</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="10" data-type="gym"><span class="n" style="background:#ef8fa6">10</span><span><b>Gym · Springville</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="11" data-type="school"><span class="n" style="background:#f2c94c">11</span><span><b>High school · Spanish Fork</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="12" data-type="gym"><span class="n" style="background:#ef8fa6">12</span><span><b>Gym · Saratoga Springs</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="13" data-type="gym"><span class="n" style="background:#ef8fa6">13</span><span><b>Gym · Eagle Mountain</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="14" data-type="hotel"><span class="n" style="background:#8fd4a0">14</span><span><b>Hotel · Payson</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="15" data-type="school"><span class="n" style="background:#f2c94c">15</span><span><b>High school · Highland</b><span>Shakes and smoothies</span></span></button></div><p class="small" style="margin-top:10px">Sample locations for layout. Replace with live machine data before launch.</p></div>
+</div></section>
+<section id="host" style="padding-top:0"><div class="wrap"><div class="host">
+  <div><h2>Want a Swell machine at your gym or school?</h2><p>We install, stock and service it. You get a cold protein option your members actually buy.</p></div>
+  <div><form data-simple="Thanks. We'll reach out within two business days." novalidate><label class="sr" for="host-email">Email</label><input type="email" id="host-email" placeholder="you@yourgym.com" autocomplete="email"><button class="btn" type="submit">Request a machine</button></form><p class="fmsg small" style="color:inherit;opacity:.8;margin-top:10px" aria-live="polite"></p></div>
+</div></div></section></main>
+<footer class="site"><div class="wrap">
+  <div class="cols">
+    <div><a class="logo" href="index.html"><img src="img/logo.png" alt="Swell" width="416" height="159" loading="lazy"></a><p class="small" style="margin-top:12px;max-width:22em">Protein shakes and smoothies that taste like dessert. Made in Utah County.</p></div>
+    <div><h4>Shop</h4><ul><li><a href="shop.html#build">Build a box</a></li><li><a href="index.html#shelf-shakes">Shake flavors</a></li><li><a href="index.html#smoothies">Smoothie flavors</a></li></ul></div>
+    <div><h4>Swell</h4><ul><li><a href="machines.html">Find a machine</a></li><li><a href="creami/index.html">Creami recipes</a></li><li><a href="about.html">About</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="faq.html">FAQ</a></li><li><a href="machines.html#host">Host a machine</a></li></ul></div>
+  </div>
+  <div class="legal"><p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+  <p>Nutrition, sizes, box discounts, reviews and machine locations are placeholders until launch. Core Power is a trademark of fairlife, LLC; Premier Protein and Ninja Creami are trademarks of their owners. Swell isn't affiliated with any of them.</p>
+  <p>Contains milk. © 2026 Swell.</p></div>
+</div></footer>
+<div class="mbar" id="mbar"><div class="p"><b id="mb-t">Build a box</b><span id="mb-s">Mix any 12 or 24</span></div><a class="btn sm" href="shop.html#build">Open box <span class="boxcount" hidden>0</span></a></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div><script>var NAMES = {"cc": "Cookies & Cream", "cake": "Cake Batter", "choc": "Chocolate", "van": "Vanilla", "peach": "Peaches & Cream", "cinn": "Cinnamon Roll", "mint": "Mint Chocolate Chip", "pbc": "Peanut Butter Cup", "cbutter": "Cookie Butter", "matcha": "Matcha", "shortcake": "Strawberry Shortcake", "pumpkin": "Pumpkin Spice", "cobbler": "Blueberry Cobbler", "sm_pina": "Pina Colada", "sm_mango": "Mango", "sm_berry": "Berry Bliss", "sm_apple": "Sour Apple", "sm_blue": "Blue Raspberry", "sm_ring": "Peach Ring"};</script><script>
+(function () {
+  var root = document.documentElement;
+  function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k)); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
+  var P = root.dataset.prefix || "";
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // ---------- Venmo-style feedback ----------
+  function ripple(el, e) {
+    if (reduce || !el.getBoundingClientRect) return;
+    var r = el.getBoundingClientRect(), s = Math.max(r.width, r.height) * 2.2, d = document.createElement("span");
+    d.className = "ripple"; d.style.width = d.style.height = s + "px";
+    d.style.left = ((e.clientX || r.left + r.width / 2) - r.left - s / 2) + "px"; d.style.top = ((e.clientY || r.top + r.height / 2) - r.top - s / 2) + "px";
+    el.appendChild(d); setTimeout(function () { d.remove(); }, 600);
+  }
+  document.addEventListener("pointerdown", function (e) {
+    var b = e.target.closest(".btn, .add"); if (b && getComputedStyle(b).overflow === "hidden") ripple(b, e);
+    if (navigator.vibrate && e.target.closest(".add, .btn, .qty button")) { try { navigator.vibrate(8); } catch (x) {} }
+  });
+  function burst(el) {
+    if (reduce) return;
+    var r = el.getBoundingClientRect(), w = document.createElement("div"), cols = ["#9e2a4b", "#ef8fa6", "#f2c94c", "#8fd4a0", "#2a121a"];
+    w.className = "burst"; w.style.left = (r.left + r.width / 2) + "px"; w.style.top = (r.top + r.height / 2) + "px";
+    for (var i = 0; i < 10; i++) { var a = i / 10 * Math.PI * 2, dist = 34 + Math.random() * 18, d = document.createElement("i");
+      d.style.background = cols[i % cols.length]; d.style.setProperty("--x", Math.cos(a) * dist + "px"); d.style.setProperty("--y", Math.sin(a) * dist + "px"); w.appendChild(d); }
+    document.body.appendChild(w); setTimeout(function () { w.remove(); }, 700);
+  }
+  function confetti(el) {
+    if (reduce) return;
+    var r = el.getBoundingClientRect(), w = document.createElement("div"), cols = ["#9e2a4b", "#ef8fa6", "#f2c94c", "#8fd4a0", "#fde6ec", "#2a121a"];
+    w.className = "confetti"; w.style.left = (r.left + r.width / 2) + "px"; w.style.top = (r.top) + "px";
+    for (var i = 0; i < 46; i++) { var d = document.createElement("i"), a = -Math.PI / 2 + (Math.random() - .5) * 2.2, v = 120 + Math.random() * 240;
+      d.style.background = cols[i % cols.length]; d.style.setProperty("--x", Math.cos(a) * v + "px"); d.style.setProperty("--y", (Math.sin(a) * v + 160) + "px");
+      d.style.setProperty("--r", (Math.random() * 720 - 360) + "deg"); d.style.animationDelay = (Math.random() * .08) + "s"; if (i % 3 === 0) d.style.borderRadius = "50%"; w.appendChild(d); }
+    document.body.appendChild(w); setTimeout(function () { w.remove(); }, 1500);
+  }
+  function pop(el) { if (!el || reduce) return; el.classList.remove("pop"); void el.offsetWidth; el.classList.add("pop"); }
+  var CHECK = '<svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  var toastEl = document.getElementById("toast"), tt;
+  function toast(html) { toastEl.innerHTML = html; toastEl.classList.add("on"); clearTimeout(tt); tt = setTimeout(function () { toastEl.classList.remove("on"); }, 2600); }
+
+  // ---------- drawer ----------
+  var burger = document.getElementById("burger");
+  function menu(open) { root.classList.toggle("menu-open", open); burger.setAttribute("aria-expanded", String(open)); if (open) document.getElementById("drawer-x").focus(); }
+  burger.addEventListener("click", function () { menu(true); });
+  document.getElementById("drawer-x").addEventListener("click", function () { menu(false); });
+  document.getElementById("scrim").addEventListener("click", function () { menu(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") menu(false); });
+
+  // ---------- product line (shakes / smoothies) ----------
+  var lineWrap = document.getElementById("lines");
+  var panels = lineWrap ? { shakes: document.getElementById("line-shakes"), smoothies: document.getElementById("line-smoothies") } : null;
+  function fit() { if (lineWrap) lineWrap.style.height = panels[root.dataset.line].offsetHeight + "px"; }
+  function setLine(line, save) {
+    root.dataset.line = line;
+    document.querySelectorAll("[data-go]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.go === line)); });
+    if (panels) Object.keys(panels).forEach(function (k) { if (k === line) panels[k].removeAttribute("inert"); else panels[k].setAttribute("inert", ""); });
+    btab(line); fit(); if (save) store("swell-line", line);
+  }
+  document.querySelectorAll("[data-go]").forEach(function (b) { b.addEventListener("click", function () { setLine(b.dataset.go, true); }); });
+  if (lineWrap) {
+    var sx = 0, sy = 0, tr = false;
+    lineWrap.addEventListener("touchstart", function (e) { if (e.target.closest(".rail")) { tr = false; return; } var t = e.touches[0]; sx = t.clientX; sy = t.clientY; tr = true; }, { passive: true });
+    lineWrap.addEventListener("touchend", function (e) { if (!tr) return; tr = false; var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) setLine(root.dataset.line === "shakes" ? "smoothies" : "shakes", true); }, { passive: true });
+    if (window.ResizeObserver) { new ResizeObserver(fit).observe(panels.shakes); new ResizeObserver(fit).observe(panels.smoothies); }
+    window.addEventListener("resize", fit);
+  }
+  document.querySelectorAll(".shelf").forEach(function (sec) {
+    sec.querySelectorAll("[data-filter]").forEach(function (b) { b.addEventListener("click", function () {
+      sec.querySelectorAll("[data-filter]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      sec.querySelectorAll(".fl").forEach(function (c) { c.hidden = !(b.dataset.filter === "all" || c.dataset.tag === b.dataset.filter); });
+    }); });
+  });
+
+  // ---------- box (shared across pages) ----------
+  var box = store("swell-box") || { size: 12, protein: 30, items: {} };
+  function total() { var n = 0; for (var k in box.items) n += box.items[k]; return n; }
+  function $(id) { return document.getElementById(id); }
+  function render() {
+    var n = total(), s = box.size, pct = Math.min(100, n / s * 100), save = s === 24 ? "Save 15%" : "Save 10%";
+    document.querySelectorAll(".boxcount").forEach(function (c) { c.hidden = !n; c.textContent = n; });
+    if ($("mb-s")) { $("mb-s").textContent = n ? n + " of " + s + " in your box" : "Mix any 12 or 24"; $("mb-t").textContent = n ? "Your box" : "Build a box"; }
+    document.querySelectorAll("[data-add]").forEach(function (b) { var q = box.items[b.dataset.add] || 0; b.classList.toggle("in", q > 0);
+      if (!b.dataset.busy) b.innerHTML = q ? CHECK + " " + q + " in box" : (b.dataset.label || "Add to box"); });
+    if (!$("box-form")) { store("swell-box", box); return; }
+    document.querySelectorAll("[data-size]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.size === s)); });
+    document.querySelectorAll("[data-protein]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.protein === box.protein)); });
+    $("box-title").textContent = s + " bottles · " + box.protein + "g protein";
+    $("box-count").textContent = n + " of " + s; $("box-save").textContent = save; $("box-bar").style.width = pct + "%";
+    var sub = $("box-submit"), left = s - n;
+    if (!sub.classList.contains("done")) { sub.disabled = left > 0; sub.textContent = left > 0 ? "Add " + left + " more to reserve" : "Reserve my box"; }
+    var list = []; Object.keys(box.items).forEach(function (k) { for (var i = 0; i < box.items[k]; i++) list.push(k); });
+    var slots = $("slots"), prev = slots.querySelectorAll("i.f").length, h = "";
+    for (var i = 0; i < s; i++) h += list[i] ? '<i class="f"><img src="' + P + 'img/b_' + list[i] + '.webp" alt=""' + (i < prev ? ' style="animation:none"' : "") + "></i>" : "<i></i>";
+    slots.innerHTML = h; slots.style.gridTemplateColumns = "repeat(" + (s === 24 ? 8 : 6) + ", 1fr)";
+    document.querySelectorAll(".pk").forEach(function (r) { var q = box.items[r.dataset.id] || 0; r.classList.toggle("on", q > 0); $("q-" + r.dataset.id).textContent = q; });
+    store("swell-box", box);
+  }
+  function add(k, n, src) {
+    if (n > 0 && total() >= box.size) {
+      if (box.size === 12) { box.size = 24; toast("Bumped you to a 24-bottle box · Save 15%"); }
+      else { toast("Your box is full. Remove one to swap."); return false; }
+    }
+    box.items[k] = Math.max(0, (box.items[k] || 0) + n); if (!box.items[k]) delete box.items[k];
+    render();
+    if (n > 0) {
+      document.querySelectorAll(".boxcount").forEach(pop); if (src) burst(src);
+      var q = $("q-" + k); if (q) pop(q);
+      if (!$("box-form")) toast(NAMES[k] + " added · <a href='" + P + "shop.html#build'>View box</a>");
+    }
+    return true;
+  }
+  document.querySelectorAll("[data-add]").forEach(function (b) {
+    b.dataset.label = b.innerHTML;
+    b.addEventListener("click", function () {
+      if (b.dataset.power) box.protein = 50;
+      if (add(b.dataset.add, 1, b)) { b.dataset.busy = 1; b.innerHTML = CHECK + " Added"; setTimeout(function () { delete b.dataset.busy; render(); }, 900); }
+    });
+  });
+  document.querySelectorAll("[data-inc]").forEach(function (b) { b.addEventListener("click", function () { add(b.dataset.inc, 1, b); }); });
+  document.querySelectorAll("[data-dec]").forEach(function (b) { b.addEventListener("click", function () { add(b.dataset.dec, -1); }); });
+  document.querySelectorAll("[data-size]").forEach(function (b) { b.addEventListener("click", function () {
+    var s = +b.dataset.size; if (s < total()) { toast("Remove " + (total() - s) + " first to switch to " + s); return; } box.size = s; render(); }); });
+  document.querySelectorAll("[data-protein]").forEach(function (b) { b.addEventListener("click", function () { box.protein = +b.dataset.protein; render(); }); });
+  document.querySelectorAll("[data-preset]").forEach(function (b) { b.addEventListener("click", function () {
+    var ks = b.dataset.preset.split(","), s = +b.dataset.n; box.size = s; box.items = {};
+    for (var i = 0; i < s; i++) { var k = ks[i % ks.length]; box.items[k] = (box.items[k] || 0) + 1; }
+    render(); burst(b); toast(b.textContent.trim() + " loaded"); var f = $("build"); if (f) f.scrollIntoView({ behavior: "smooth" });
+  }); });
+  if ($("fill")) $("fill").addEventListener("click", function (e) {
+    var pool = Object.keys(box.items).length ? Object.keys(box.items) : ["cc", "cake", "choc", "van", "pbc", "mint"], i = 0;
+    while (total() < box.size) { var k = pool[i++ % pool.length]; box.items[k] = (box.items[k] || 0) + 1; }
+    render(); burst(e.currentTarget);
+  });
+  if ($("clear")) $("clear").addEventListener("click", function () { box.items = {}; render(); });
+  function btab(line) {
+    document.querySelectorAll("[data-btab]").forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.btab === line)); });
+    document.querySelectorAll("[data-bpanel]").forEach(function (p) { p.hidden = p.dataset.bpanel !== line; });
+  }
+  document.querySelectorAll("[data-btab]").forEach(function (t) { t.addEventListener("click", function () { btab(t.dataset.btab); }); });
+  if ($("box-form")) $("box-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var em = $("box-email"), msg = $("box-msg"), sub = $("box-submit");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)) { msg.textContent = "Enter a full email, like you@email.com."; em.focus(); return; }
+    sub.classList.add("done"); sub.innerHTML = CHECK + " Reserved"; confetti(sub);
+    msg.textContent = "We'll email you before your " + box.size + "-bottle box ships.";
+  });
+  document.querySelectorAll("form[data-simple]").forEach(function (f) { f.addEventListener("submit", function (e) {
+    e.preventDefault(); var em = f.querySelector("input"), b = f.querySelector("button"), m = f.parentNode.querySelector(".fmsg");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)) { m.textContent = "Enter a full email, like you@email.com."; em.focus(); return; }
+    b.innerHTML = CHECK + " Sent"; confetti(b); m.textContent = f.dataset.simple;
+  }); });
+  var mbar = $("mbar"), build = $("build");
+  if (mbar && build && window.IntersectionObserver) new IntersectionObserver(function (es) { mbar.classList.toggle("hide", es[0].isIntersecting); }, { threshold: .1 }).observe(build);
+
+  // ---------- machine finder ----------
+  function sel(i) { document.querySelectorAll(".pin, .loc").forEach(function (el) { el.classList.toggle("sel", el.dataset.i === String(i)); }); }
+  document.querySelectorAll(".pin, .loc").forEach(function (el) {
+    el.addEventListener("click", function () { sel(el.dataset.i); });
+    el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); sel(el.dataset.i); } });
+  });
+  document.querySelectorAll("[data-mfilter]").forEach(function (b) { b.addEventListener("click", function () {
+    document.querySelectorAll("[data-mfilter]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    document.querySelectorAll(".pin, .loc").forEach(function (el) { el.classList.toggle("off", !(b.dataset.mfilter === "all" || el.dataset.type === b.dataset.mfilter)); });
+  }); });
+
+  var h = (location.hash || "").replace("#", "");
+  var startLine = h === "smoothies" ? "smoothies" : h === "shakes" ? "shakes" : (store("swell-line") || "shakes");
+  setLine(startLine, false); render();
+})();
+</script>
+</body>
+</html>

@@ -14,9 +14,11 @@
 
 ## Pages
 - [Home](https://pdrayday.github.io/swell/)
-- [Build a box](https://pdrayday.github.io/swell/#build)
-- [Find a Swell machine](https://pdrayday.github.io/swell/#machines)
-- [Ninja Creami recipes](https://pdrayday.github.io/swell/creami/)
+- [Shop](https://pdrayday.github.io/swell/shop.html)
+- [Find a machine](https://pdrayday.github.io/swell/machines.html)
+- [Recipes](https://pdrayday.github.io/swell/creami/)
+- [About](https://pdrayday.github.io/swell/about.html)
+- [FAQ](https://pdrayday.github.io/swell/faq.html)
 - [Cookies & Cream Protein Ice Cream](https://pdrayday.github.io/swell/creami/cookies-and-cream-protein-ice-cream.html)
 - [Cake Batter Protein Ice Cream](https://pdrayday.github.io/swell/creami/cake-batter-protein-ice-cream.html)
 - [Peanut Butter Cup Protein Ice Cream](https://pdrayday.github.io/swell/creami/peanut-butter-cup-protein-ice-cream.html)
