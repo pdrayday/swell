@@ -237,11 +237,23 @@ a.opt { color: inherit; text-decoration: none; margin-bottom: 12px; }
 .summary { position: sticky; top: 86px; background: var(--stage); color: #1a1216; border-radius: 24px; padding: 22px; display: grid; gap: 14px; }
 html[data-line="smoothies"] .summary { color: #2a1f0e; }
 .summary h3 { font-size: 26px; }
-.slots { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
-.slots i { aspect-ratio: 1 / 1.35; border-radius: 10px; border: 1.5px dashed rgba(26,18,22,.25); display: grid; place-items: center; overflow: hidden; }
-.slots i img { height: 92%; width: auto; animation: drop .4s var(--spring); }
+.pack { border-radius: 20px; background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.35)); box-shadow: inset 0 0 0 2px rgba(255,255,255,.7), 0 14px 30px -20px rgba(40,10,20,.4); overflow: hidden; }
+.packband { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; background: var(--ink); color: var(--on-ink); }
+.packband img { height: 26px; width: auto; filter: invert(1) brightness(1.1); }
+html[data-line="smoothies"] .packband img { filter: invert(1) sepia(.4) brightness(1.05); }
+.packband span { font: 700 11.5px/1.2 var(--body); letter-spacing: .12em; text-transform: uppercase; text-align: right; }
+.slots { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px 8px; padding: 14px 12px 8px; }
+.slots i { display: flex; flex-direction: column; align-items: center; gap: 5px; font-style: normal; min-width: 0; }
+.slots i .b { position: relative; width: 100%; aspect-ratio: 1 / 2.45; border-radius: 12px; border: 1.5px dashed rgba(26,18,22,.22); }
+.slots i.f .b { border-color: transparent; }
+.slots i .b img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 6px 6px rgba(40,10,20,.25)); animation: drop .4s var(--spring); }
 @keyframes drop { from { transform: translateY(-14px) scale(.8); opacity: 0; } }
-.slots i.f { border-style: solid; border-color: transparent; background: rgba(255,255,255,.6); }
+.slots i small { font: 600 10px/1.15 var(--body); letter-spacing: -.01em; text-align: center; color: var(--fg); min-height: 2.3em; word-break: keep-all; overflow-wrap: normal; hyphens: none; white-space: normal; }
+.slots.s24 { grid-template-columns: repeat(8, 1fr); row-gap: 6px; } .slots.s24 i small { display: none; }
+.tally { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 12px 12px; }
+.tally:empty { display: none; }
+.tally span { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px 5px 6px; border-radius: 999px; background: #fff; font: 600 12.5px/1 var(--body); color: #2a121a; }
+.tally img { height: 22px; width: auto; }
 .bar { height: 8px; border-radius: 4px; background: rgba(26,18,22,.12); overflow: hidden; } .bar span { display: block; height: 100%; width: 0; background: #1a1216; transition: width .4s var(--spring); }
 .summary .row { display: flex; justify-content: space-between; font-weight: 600; font-size: 14.5px; } .summary .ok { color: #1f6b33; }
 .summary input { width: 100%; padding: 14px 16px; border-radius: 999px; border: 1.5px solid rgba(26,18,22,.2); background: #fff; color: #1a1216; font-size: 16px; }
@@ -415,7 +427,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   <a class="logo" href="../index.html" aria-label="Swell home"><img src="../img/logo.png" alt="Swell" width="416" height="159"></a>
   <nav class="tabs" aria-label="Main"><a href="../shop.html">Shop</a><a href="../machines.html">Find a machine</a><a href="../creami/index.html" aria-current="page">Recipes</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a></nav>
-  <div class="right"><div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div><a class="btn sm boxbtn" href="../shop.html#build">Box<span class="n boxcount" hidden>0</span></a></div>
+  <div class="right"><div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div></div>
 </div></header>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Menu">
@@ -531,8 +543,12 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     if (!sub.classList.contains("done")) { sub.disabled = left > 0; sub.textContent = left > 0 ? "Add " + left + " more to reserve" : "Reserve my box"; }
     var list = []; Object.keys(box.items).forEach(function (k) { for (var i = 0; i < box.items[k]; i++) list.push(k); });
     var slots = $("slots"), prev = slots.querySelectorAll("i.f").length, h = "";
-    for (var i = 0; i < s; i++) h += list[i] ? '<i class="f"><img src="' + P + 'img/b_' + list[i] + '.webp" alt=""' + (i < prev ? ' style="animation:none"' : "") + "></i>" : "<i></i>";
-    slots.innerHTML = h; slots.style.gridTemplateColumns = "repeat(" + (s === 24 ? 8 : 6) + ", 1fr)";
+    for (var i = 0; i < s; i++) h += list[i]
+      ? '<i class="f"><span class="b"><img src="' + P + 'img/b_' + list[i] + '.webp" alt="' + NAMES[list[i]] + '"' + (i < prev ? ' style="animation:none"' : "") + '></span><small>' + NAMES[list[i]] + "</small></i>"
+      : '<i><span class="b"></span><small></small></i>';
+    slots.innerHTML = h; slots.classList.toggle("s24", s === 24); slots.style.gridTemplateColumns = "";
+    $("packtxt").textContent = s + " bottles · " + (box.protein === 50 ? "Swoll · 50g protein" : "14 fl oz · 30g protein");
+    $("tally").innerHTML = s !== 24 ? "" : Object.keys(box.items).map(function (k) { return '<span><img src="' + P + 'img/b_' + k + '.webp" alt="">' + NAMES[k] + " × " + box.items[k] + "</span>"; }).join("");
     document.querySelectorAll(".pk").forEach(function (r) { var q = box.items[r.dataset.id] || 0; r.classList.toggle("on", q > 0); $("q-" + r.dataset.id).textContent = q; });
     store("swell-box", box);
   }
