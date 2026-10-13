@@ -205,6 +205,10 @@ html[data-line="smoothies"] .lines-track { transform: translateX(-50%); }
 .opt .g { font: 700 40px/1 var(--display); } .opt .t b { display: block; font-size: 17px; } .opt .t span { color: var(--muted); font-size: 14.5px; }
 .opt .dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line); transition: border .25s var(--spring); }
 .opt[aria-pressed="true"] .dot { border: 7px solid var(--ink); }
+a.opt { color: inherit; text-decoration: none; margin-bottom: 12px; }
+.opt .go { font-size: 22px; transition: transform .3s var(--spring); }
+.opt.link:hover .go { transform: translateX(4px); }
+.opt.link:hover { border-color: var(--ink); }
 @media (max-width: 860px) { .sizes { grid-template-columns: 1fr; } }
 .builder { display: grid; grid-template-columns: 1fr 380px; gap: 24px; align-items: start; }
 .steps { display: grid; gap: 24px; min-width: 0; }
@@ -378,10 +382,10 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   </div>
 </div></section>
 <section id="compare"><div class="wrap">
-  <div class="sec-h"><h2>How Swell compares</h2><p>Core Power is a recovery drink. Premier is a nutrition shake. Swell is built to replace dessert.</p></div>
+  <div class="sec-h"><h2>How Swell compares</h2><p>Core Power is sold for recovery. Premier is sold for nutrition. Swell works before or after the gym, fills nutrition gaps, and tastes like dessert.</p></div>
   <div class="cw"><table class="cmp"><caption class="sr">Swell compared with Core Power, Premier Protein and a fast-food milkshake</caption>
     <thead><tr><th scope="col">Per bottle</th><th scope="col" class="us">Swell</th><th scope="col">Core Power</th><th scope="col">Premier Protein</th><th scope="col">Fast-food shake</th></tr></thead>
-    <tbody><tr><th scope="row">Built for</th><td class="us">Dessert cravings</td><td>Post-workout recovery</td><td>Daily nutrition</td><td>Dessert</td></tr>
+    <tbody><tr><th scope="row">Built for</th><td class="us">Before and after the gym, nutrition gaps, dessert cravings</td><td>Post-workout recovery</td><td>Daily nutrition</td><td>Dessert</td></tr>
     <tr><th scope="row">Protein</th><td class="us">30g or 50g</td><td>26g</td><td>30g</td><td>About 15g</td></tr>
     <tr><th scope="row">Collagen + colostrum</th><td class="us">Yes</td><td>No</td><td>No</td><td>No</td></tr>
     <tr><th scope="row">Flavors</th><td class="us">13 shakes, 6 smoothies</td><td>A few classics</td><td>Lots</td><td>Lots</td></tr>

@@ -205,6 +205,10 @@ html[data-line="smoothies"] .lines-track { transform: translateX(-50%); }
 .opt .g { font: 700 40px/1 var(--display); } .opt .t b { display: block; font-size: 17px; } .opt .t span { color: var(--muted); font-size: 14.5px; }
 .opt .dot { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--line); transition: border .25s var(--spring); }
 .opt[aria-pressed="true"] .dot { border: 7px solid var(--ink); }
+a.opt { color: inherit; text-decoration: none; margin-bottom: 12px; }
+.opt .go { font-size: 22px; transition: transform .3s var(--spring); }
+.opt.link:hover .go { transform: translateX(4px); }
+.opt.link:hover { border-color: var(--ink); }
 @media (max-width: 860px) { .sizes { grid-template-columns: 1fr; } }
 .builder { display: grid; grid-template-columns: 1fr 380px; gap: 24px; align-items: start; }
 .steps { display: grid; gap: 24px; min-width: 0; }
@@ -373,7 +377,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
       <button type="button" data-size="12" aria-pressed="true"><b>12 bottles</b><span>Try a few flavors</span><em class="save">Save 10%</em></button>
       <button type="button" data-size="24" aria-pressed="false"><b>24 bottles</b><span>For the daily drinker</span><em class="save">Save 15%</em></button></div></div>
     <div class="step"><h3>2. Protein</h3><div class="seg" role="group" aria-label="Protein">
-      <button type="button" data-protein="30" aria-pressed="true"><b>30g · Standard</b><span>14 fl oz bottle</span></button>
+      <button type="button" data-protein="30" aria-pressed="true"><b>30g · Swell</b><span>14 fl oz bottle</span></button>
       <button type="button" data-protein="50" aria-pressed="false"><b>50g · Swoll</b><span>Bigger bottle</span></button></div></div>
     <div class="step"><h3>3. Flavors</h3>
       <div class="btabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-btab="shakes">Shakes (13)</button><button type="button" role="tab" aria-selected="false" data-btab="smoothies">Smoothies (6)</button></div>
@@ -391,9 +395,9 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   </form>
 </div></section>
 <section class="alt-bg" id="sizes"><div class="wrap sizes">
-  <div class="stage"><img src="img/size_compare.webp" alt="Swell Standard bottle with 30g protein next to the bigger Swoll bottle with 50g" width="913" height="820" loading="lazy"></div>
+  <div class="stage"><img src="img/size_compare.webp" alt="Swell bottle with 30g protein next to the bigger Swoll bottle with 50g" width="913" height="820" loading="lazy"></div>
   <div><div class="sec-h" style="margin-bottom:20px"><h2>Two bottle sizes</h2><p>Same flavors either way. Choose how much protein you want.</p></div>
-    <button type="button" class="opt" data-protein="30" aria-pressed="true"><span class="g">30g</span><span class="t"><b>Standard</b><span>14 fl oz. A snack or a dessert swap.</span></span><span class="dot"></span></button>
+    <button type="button" class="opt" data-protein="30" aria-pressed="true"><span class="g">30g</span><span class="t"><b>Swell</b><span>14 fl oz. Before the gym, a snack, or a dessert swap.</span></span><span class="dot"></span></button>
     <button type="button" class="opt" data-protein="50" aria-pressed="false"><span class="g">50g</span><span class="t"><b>Swoll</b><span>After the gym, or when it's replacing a meal.</span></span><span class="dot"></span></button></div>
 </div></section></main>
 <footer class="site"><div class="wrap">
