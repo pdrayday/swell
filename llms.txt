@@ -15,7 +15,7 @@
 ## Pages
 - [Home](https://pdrayday.github.io/swell/)
 - [Shop](https://pdrayday.github.io/swell/shop.html)
-- [Find a machine](https://pdrayday.github.io/swell/machines.html)
+- [Find a machine](https://pdrayday.github.io/swell/#machines)
 - [Recipes](https://pdrayday.github.io/swell/creami/)
 - [About](https://pdrayday.github.io/swell/about.html)
 - [FAQ](https://pdrayday.github.io/swell/faq.html)

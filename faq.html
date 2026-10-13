@@ -147,6 +147,9 @@ section { padding-block: clamp(52px, 8vw, 100px); }
 .hero .stage { display: flex; justify-content: center; align-items: flex-end; padding: 24px 8px 0; min-height: 320px; }
 .hero .stage img { height: clamp(220px, 30vw, 420px); width: auto; max-width: none; margin-inline: -3.5%; position: relative; }
 .hero .stage img:nth-child(2) { height: clamp(240px, 33vw, 460px); z-index: 2; }
+.hero .stage.vid { padding: 0; min-height: 0; width: 100%; max-width: 500px; justify-self: end; aspect-ratio: 4 / 5; border-radius: 28px; overflow: hidden; background: var(--stage); box-shadow: 0 30px 60px -28px rgba(40,10,20,.45); }
+.hero .stage.vid video { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; display: block; }
+@media (max-width: 860px) { .hero .stage.vid { order: -1; max-width: none; justify-self: stretch; } }
 .hero .stage.pair { padding: 0; min-height: 0; border-radius: 28px; background: radial-gradient(120% 90% at 50% 20%, #fff, var(--stage) 70%); overflow: hidden; }
 .hero .stage.pair img { width: 100%; height: auto; max-width: none; margin: 0; padding: 22px 18px 0; }
 .hero .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; max-width: 520px; }
@@ -283,6 +286,9 @@ html[data-line="smoothies"] .packband img { filter: invert(1) sepia(.4) brightne
 .creami-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
 .creami-top img { width: 100%; height: auto; border-radius: 28px; box-shadow: 0 30px 60px -24px rgba(40,10,20,.45); }
 @media (max-width: 860px) { .creami-top { grid-template-columns: 1fr; gap: 22px; } }
+.mach-sec { border-top: 1px solid var(--line); padding-top: clamp(40px, 6vw, 80px); scroll-margin-top: 70px; }
+#find, #host { scroll-margin-top: 80px; }
+h2.h1 { font-size: clamp(42px, 5.6vw, 76px); } .mach-top .lead { margin-top: 18px; }
 .mach-top { display: grid; grid-template-columns: 1fr 1.1fr; gap: 32px; align-items: center; }
 .mach-facts { display: flex; flex-wrap: wrap; gap: 10px 26px; margin: 22px 0 0; padding: 0; list-style: none; font-weight: 600; font-size: 15px; }
 .mach-facts li::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--em); margin-right: 9px; vertical-align: middle; }
@@ -445,22 +451,22 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 <header class="top"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   <a class="logo" href="index.html" aria-label="Swell home"><img src="img/logo.png" alt="Swell" width="416" height="159"></a>
-  <nav class="tabs" aria-label="Main"><a href="shop.html">Shop</a><a href="machines.html">Find a machine</a><a href="creami/index.html">Recipes</a><a href="about.html">About</a><a href="faq.html" aria-current="page">FAQ</a></nav>
+  <nav class="tabs" aria-label="Main"><a href="shop.html">Shop</a><a href="index.html#machines">Find a machine</a><a href="creami/index.html">Recipes</a><a href="about.html">About</a><a href="faq.html" aria-current="page">FAQ</a></nav>
   <div class="right"><div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div></div>
 </div></header>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Menu">
   <button type="button" class="x press" id="drawer-x" aria-label="Close menu">×</button>
   <div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div>
-  <nav><a href="index.html">Home<span></span></a><a href="shop.html">Shop<span>Build a box</span></a><a href="machines.html">Find a machine<span>Utah County</span></a><a href="creami/index.html">Recipes<span>Ninja Creami</span></a><a href="about.html">About<span>Our story</span></a><a href="faq.html" aria-current="page">FAQ<span>Questions</span></a></nav>
+  <nav><a href="index.html">Home<span></span></a><a href="shop.html">Shop<span>Build a box</span></a><a href="index.html#machines">Find a machine<span>Utah County</span></a><a href="creami/index.html">Recipes<span>Ninja Creami</span></a><a href="about.html">About<span>Our story</span></a><a href="faq.html" aria-current="page">FAQ<span>Questions</span></a></nav>
   <a class="btn" href="shop.html#build">Build a box</a>
 </aside><main id="main"><section class="page-h"><div class="wrap"><h1>Questions</h1></div></section><section style="padding-top:10px"><div class="wrap"><div class="acc"><details open><summary><h2>What is Swell?</h2></summary><div class="ans"><p>Ready-to-drink protein shakes and smoothies that taste like dessert. Every bottle has 30g protein (50g in a Swoll), collagen peptides and colostrum, with far less sugar than a milkshake.</p></div></details><details><summary><h2>What flavors are there?</h2></summary><div class="ans"><p>Shakes: Cookies &amp; Cream, Cake Batter, Chocolate, Vanilla, Peaches &amp; Cream, Cinnamon Roll, Mint Chocolate Chip, Peanut Butter Cup, Cookie Butter, Matcha, Strawberry Shortcake, Pumpkin Spice, Blueberry Cobbler. Smoothies: Pina Colada, Mango, Berry Bliss, Sour Apple, Blue Raspberry, Peach Ring.</p></div></details><details><summary><h2>How much protein is in a bottle?</h2></summary><div class="ans"><p>30g in a Swell (14 fl oz) and 50g in the bigger Swoll bottle.</p></div></details><details><summary><h2>What is Swoll?</h2></summary><div class="ans"><p>Swoll is the bigger Swell bottle, with 50g protein instead of 30g. Choose it in the box builder when you want a post-workout shake or a meal replacement.</p></div></details><details><summary><h2>How is Swell different from Core Power or Premier Protein?</h2></summary><div class="ans"><p>Core Power is positioned mainly as a post-workout recovery drink and Premier Protein as a nutrition shake. Swell covers both: drink it before or after the gym, or to fill the gaps between meals. The difference is that it tastes like dessert, with milkshake and smoothie flavors, 30g protein (50g in a Swoll), collagen and colostrum.</p></div></details><details><summary><h2>Is Swell a good fit if I&#x27;m on a GLP-1?</h2></summary><div class="ans"><p>Plenty of people eating less still have a protein goal, and one bottle gives you 30g (or 50g) without a full meal. Swell isn&#x27;t a medical product, so check with your doctor about your own needs.</p></div></details><details><summary><h2>Can I make ice cream with it in a Ninja Creami?</h2></summary><div class="ans"><p>Yes. Pour one bottle into a Creami pint, freeze 24 hours, and spin on Lite Ice Cream for shakes or Sorbet for smoothies.</p></div></details><details><summary><h2>Can I mix flavors in a box?</h2></summary><div class="ans"><p>Yes. Build a 12- or 24-bottle box with any mix of shakes and smoothies, in 30g or 50g.</p></div></details><details><summary><h2>Where can I buy Swell?</h2></summary><div class="ans"><p>In Swell vending machines around Utah County now. Boxes are launching soon, and you can reserve one today.</p></div></details><details><summary><h2>Does Swell have dairy?</h2></summary><div class="ans"><p>Yes. It&#x27;s made with milk protein and colostrum, which both come from milk.</p></div></details></div></div></section></main>
 <footer class="site"><div class="wrap">
   <div class="cols">
     <div><a class="logo" href="index.html"><img src="img/logo.png" alt="Swell" width="416" height="159" loading="lazy"></a><p class="small" style="margin-top:12px;max-width:22em">Protein shakes and smoothies that taste like dessert. Made in Utah County.</p></div>
     <div><h2>Shop</h2><ul><li><a href="shop.html#build">Build a box</a></li><li><a href="index.html#shelf-shakes">Shake flavors</a></li><li><a href="index.html#smoothies">Smoothie flavors</a></li></ul></div>
-    <div><h2>Swell</h2><ul><li><a href="machines.html">Find a machine</a></li><li><a href="creami/index.html">Creami recipes</a></li><li><a href="about.html">About</a></li></ul></div>
-    <div><h2>Help</h2><ul><li><a href="faq.html">FAQ</a></li><li><a href="machines.html#host">Host a machine</a></li></ul></div>
+    <div><h2>Swell</h2><ul><li><a href="index.html#machines">Find a machine</a></li><li><a href="creami/index.html">Creami recipes</a></li><li><a href="about.html">About</a></li></ul></div>
+    <div><h2>Help</h2><ul><li><a href="faq.html">FAQ</a></li><li><a href="index.html#host">Host a machine</a></li></ul></div>
   </div>
   <div class="legal"><p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
   <p>Nutrition, sizes, box discounts, reviews and machine locations are placeholders until launch. Core Power is a trademark of fairlife, LLC; Premier Protein and Ninja Creami are trademarks of their owners. Swell isn't affiliated with any of them.</p>
@@ -696,6 +702,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
         select(near.id, false); toast("Closest machine: " + near.city + ", " + miles(you, near).toFixed(1) + " mi");
       }, function () { toast("Couldn't get your location. Search by city instead."); }, { enableHighAccuracy: false, timeout: 9000, maximumAge: 300000 });
     }
+    function initMap() {
     var ML = window.maplibregl;
     if (ML) try {
       var b = M.reduce(function (a, m) { return [[Math.min(a[0][0], m.lng), Math.min(a[0][1], m.lat)], [Math.max(a[1][0], m.lng), Math.max(a[1][1], m.lat)]]; }, [[180, 90], [-180, -90]]);
@@ -727,6 +734,15 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
       $("fzout").addEventListener("click", function () { map.zoomOut(); });
     } catch (e) { map = null; document.querySelector(".fnotiles").hidden = false; }
     else { document.querySelector(".fnotiles").hidden = false; }
+    }
+    if (window.maplibregl) initMap();
+    else {
+      var started = false, loadLib = function () { if (started) return; started = true;
+        var sc = document.createElement("script"); sc.src = fmapEl.dataset.lib; sc.onload = initMap;
+        sc.onerror = function () { document.querySelector(".fnotiles").hidden = false; }; document.body.appendChild(sc); };
+      if (window.IntersectionObserver) new IntersectionObserver(function (es, o) { if (es[0].isIntersecting) { o.disconnect(); loadLib(); } }, { rootMargin: "900px 0px" }).observe(fmapEl);
+      else loadLib();
+    }
     Object.keys(cards).forEach(function (k) { cards[k].addEventListener("click", function () {
       select(k); if (window.matchMedia("(max-width: 900px)").matches) fmapEl.scrollIntoView({ behavior: "smooth", block: "center" }); }); });
     document.querySelectorAll("[data-mf]").forEach(function (b) { b.addEventListener("click", function () {
@@ -738,9 +754,30 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     $("flocate").addEventListener("click", locate); $("flocate2").addEventListener("click", locate);
   })();
 
+  // ---------- hero videos: play only the visible line, only while on screen ----------
+  var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches, heroSeen = true;
+  function vids() { document.querySelectorAll("video.hv").forEach(function (v) {
+    var on = !calm && heroSeen && !v.closest("[inert]");
+    if (on) { if (v.preload !== "auto") v.preload = "auto"; var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); } else v.pause(); }); }
+  var hero1 = document.querySelector(".lines");
+  if (hero1 && window.IntersectionObserver) new IntersectionObserver(function (es) { heroSeen = es[0].isIntersecting; vids(); }, { threshold: .15 }).observe(hero1);
+  document.addEventListener("visibilitychange", function () { if (document.hidden) document.querySelectorAll("video.hv").forEach(function (v) { v.pause(); }); else vids(); });
+
+  // ---------- scrollspy: "Find a machine" tab lights up over the machine section ----------
+  var msec = document.getElementById("machines");
+  if (msec && window.IntersectionObserver) {
+    var mlinks = document.querySelectorAll('a[href$="#machines"]');
+    new IntersectionObserver(function (es) { mlinks.forEach(function (a) { if (a.closest(".tabs, .drawer")) { if (es[0].isIntersecting) a.setAttribute("aria-current", "location"); else a.removeAttribute("aria-current"); } }); },
+      { rootMargin: "-45% 0px -45% 0px" }).observe(msec);
+  }
+  document.querySelectorAll(".drawer a").forEach(function (a) { a.addEventListener("click", function () { if (a.hash && a.pathname === location.pathname) menu(false); }); });
+
   var h = (location.hash || "").replace("#", "");
   var startLine = h === "smoothies" ? "smoothies" : h === "shakes" ? "shakes" : (store("swell-line") || "shakes");
   setLine(startLine, false); render();
+  vids(); var _setLine = setLine; setLine = function (l, sv) { _setLine(l, sv); vids(); };
+  document.querySelectorAll("[data-go]").forEach(function (b) { b.addEventListener("click", function () { setTimeout(vids, 50); }); });
+  if (h && document.getElementById(h) && h !== "smoothies" && h !== "shakes") window.addEventListener("load", function () { document.getElementById(h).scrollIntoView(); });
 })();
 </script>
 </body>
