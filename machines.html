@@ -308,35 +308,34 @@ html[data-line="smoothies"] .mloc { background: #fffdf3; }
 .fctl button + button { border-top: 1px solid #eadde1; }
 .fctl.fme { bottom: 22px; width: 52px; height: 52px; display: grid; place-items: center; border: 0; color: #2a121a; cursor: pointer; }
 .fnotiles { position: absolute; z-index: 400; inset: auto 18px 18px 18px; max-width: 360px; background: #fff; border-radius: 14px; padding: 12px 14px; font-size: 14px; color: #2a121a; }
-.leaflet-container { font-family: var(--body); }
-.spin { background: none; border: 0; }
-.pinb { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: radial-gradient(circle at 35% 30%, #fde4ea, #f1a9ba 70%); border: 2px solid #fff; box-shadow: 0 8px 14px -4px rgba(120,30,60,.55); transition: transform .35s var(--spring); }
+.maplibregl-map { font-family: var(--body); }
+.spin { position: relative; width: 46px; height: 58px; padding: 0; border: 0; background: none; cursor: pointer; }
+.pinb { position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); transform-origin: 50% 50%; background: radial-gradient(circle at 35% 30%, #fde4ea, #f1a9ba 70%); border: 2px solid #fff; box-shadow: 0 8px 14px -4px rgba(120,30,60,.55); transition: transform .35s var(--spring); }
 html[data-line="smoothies"] .pinb { background: radial-gradient(circle at 35% 30%, #fff4cf, #f0cf6e 70%); box-shadow: 0 8px 14px -4px rgba(120,80,10,.5); }
-.leaflet-container .leaflet-marker-pane .pinb img { width: 21px !important; height: auto !important; transform: rotate(45deg); }
+.pinb img { width: 21px; height: auto; transform: rotate(45deg); }
 .spin:hover .pinb { transform: rotate(-45deg) scale(1.1); }
-.spin.sel { z-index: 1000 !important; } .spin.sel .pinb { transform: rotate(-45deg) scale(1.28); box-shadow: 0 0 0 8px rgba(241,169,186,.35), 0 10px 18px -4px rgba(120,30,60,.6); }
-.leaflet-tooltip.plbl { background: none; border: 0; box-shadow: none; padding: 0; font: 700 16px var(--body); color: #2a121a; text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 6px #fff; }
-.leaflet-tooltip.plbl::before { display: none; }
+.spin.sel { z-index: 5; } .spin.sel .pinb { transform: rotate(-45deg) scale(1.25); box-shadow: 0 0 0 8px rgba(241,169,186,.35), 0 10px 18px -4px rgba(120,30,60,.6); }
+.plbl { position: absolute; left: 48px; top: 12px; white-space: nowrap; font: 700 16px var(--body); color: #2a121a; text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 6px #fff, 0 0 8px #fff; pointer-events: none; }
 #fmap.lowzoom .plbl { display: none; }
 .youdot { width: 18px; height: 18px; border-radius: 50%; background: #2f7bf6; border: 3px solid #fff; box-shadow: 0 0 0 8px rgba(47,123,246,.22); }
-.spop .leaflet-popup-content-wrapper { border-radius: 22px; padding: 0; box-shadow: 0 20px 40px -14px rgba(40,10,20,.45); border: 2px solid #f6d3dc; }
-.spop .leaflet-popup-content { margin: 0; width: 330px !important; }
-.spop .leaflet-popup-tip { border: 2px solid #f6d3dc; }
+.maplibregl-popup.spop { z-index: 6; }
+.spop .maplibregl-popup-content { border-radius: 22px; padding: 0; box-shadow: 0 20px 40px -14px rgba(40,10,20,.45); border: 2px solid #f6d3dc; width: 330px; }
+.spop.maplibregl-popup-anchor-bottom .maplibregl-popup-tip { border-top-color: #fff; }
+.spop .maplibregl-popup-close-button { top: 8px; right: 10px; font-size: 22px; color: #6f5560; background: none; }
 .pc { display: grid; grid-template-columns: 100px 1fr; gap: 14px; padding: 14px; align-items: center; color: #2a121a; }
 .pc img { width: 100px; height: 140px; object-fit: cover; border-radius: 12px; background: #f6e6ea; }
-.pc h3 { font: 700 19px/1.15 var(--display); margin: 0 0 6px; }
+.pc h3 { font: 700 19px/1.15 var(--display); margin: 0 0 6px; padding-right: 22px; }
 .pc .pa { font-size: 13.5px; color: #5f2f3d; line-height: 1.35; margin: 0 0 4px; }
 .pc .pv { font-size: 12.5px; color: #8a6470; margin: 0 0 10px; }
 .pc .dir { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; background: #c96b84; color: #fff !important; font-weight: 700; text-decoration: none; font-size: 15px; transition: transform .3s var(--spring); }
 .pc .dir:active { transform: scale(.95); }
-.spop a.leaflet-popup-close-button { top: 8px; right: 10px; font-size: 22px; color: #6f5560; }
 @media (max-width: 900px) {
   .finder2 { grid-template-columns: 1fr; height: auto; }
   .fmapwrap { order: -1; height: 440px; }
   .fside { padding: 20px 14px 14px; }
   .flist { max-height: 520px; }
   .fctl { bottom: 84px; right: 12px; } .fctl.fme { bottom: 18px; }
-  .spop .leaflet-popup-content { width: 270px !important; } .pc { grid-template-columns: 76px 1fr; } .pc img { width: 76px; height: 108px; }
+    .spop .maplibregl-popup-content { width: 270px; } .pc { grid-template-columns: 76px 1fr; } .pc img { width: 76px; height: 108px; }
 }
 
 .host { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; background: var(--ink); color: var(--on-ink); border-radius: 28px; padding: clamp(24px, 4vw, 48px); }
@@ -430,7 +429,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   <img src="img/machine_photo.webp" alt="A student taps her phone to pay at a pink Swell vending machine stocked with protein shakes and smoothies" width="900" height="1164">
 </div></section>
 <section style="padding-top:10px" id="find"><div class="wrap">
-<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="vendor/maplibre-gl.css">
 <div class="finder2">
   <aside class="fside">
     <div class="fhead"><h2>Find a Swell</h2><p>Utah County · <span id="fcount">9</span> machines</p></div>
@@ -449,7 +448,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   </div>
 </div>
 <script type="application/json" id="mdata">[{"id": "provo", "city": "Provo", "type": "shopping", "address": "1200 Towne Centre Blvd", "csz": "Provo, UT 84601", "lat": 40.2173, "lng": -111.6646, "photo": "img/loc_provo.webp", "venue": "Shopping center"}, {"id": "orem", "city": "Orem", "type": "shopping", "address": "575 E University Pkwy", "csz": "Orem, UT 84097", "lat": 40.2767, "lng": -111.6829, "photo": "img/loc_orem.webp", "venue": "Shopping center"}, {"id": "lehi", "city": "Lehi", "type": "gym", "address": "1230 E Main St", "csz": "Lehi, UT 84043", "lat": 40.3887, "lng": -111.8279, "photo": "img/loc_lehi.webp", "venue": "Gym"}, {"id": "af", "city": "American Fork", "type": "gym", "address": "51 E 100 N", "csz": "American Fork, UT 84003", "lat": 40.3786, "lng": -111.7946, "photo": "img/loc_af.webp", "venue": "Gym"}, {"id": "pg", "city": "Pleasant Grove", "type": "school", "address": "Address coming soon", "csz": "Pleasant Grove, UT 84062", "lat": 40.364, "lng": -111.738, "photo": "img/loc_machine.webp", "venue": "High school"}, {"id": "em", "city": "Eagle Mountain", "type": "gym", "address": "Address coming soon", "csz": "Eagle Mountain, UT 84005", "lat": 40.3141, "lng": -112.0069, "photo": "img/loc_machine.webp", "venue": "Gym"}, {"id": "ss", "city": "Saratoga Springs", "type": "gym", "address": "Address coming soon", "csz": "Saratoga Springs, UT 84045", "lat": 40.3492, "lng": -111.9047, "photo": "img/loc_machine.webp", "venue": "Gym"}, {"id": "sv", "city": "Springville", "type": "school", "address": "Address coming soon", "csz": "Springville, UT 84663", "lat": 40.1652, "lng": -111.6107, "photo": "img/loc_machine.webp", "venue": "High school"}, {"id": "sf", "city": "Spanish Fork", "type": "hotel", "address": "Address coming soon", "csz": "Spanish Fork, UT 84660", "lat": 40.115, "lng": -111.655, "photo": "img/loc_machine.webp", "venue": "Hotel"}]</script>
-<script src="vendor/leaflet.js"></script>
+<script src="vendor/maplibre-gl.js"></script>
 </div></section>
 <section id="host" style="padding-top:0"><div class="wrap"><div class="host">
   <div><h2>Want a Swell machine at your gym or school?</h2><p>We install, stock and service it. You get a cold protein option your members actually buy.</p></div>
@@ -650,13 +649,14 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
       return '<div class="pc"><img src="' + m.photo + '" alt=""><div><h3>Swell Vending — ' + esc(m.city) + '</h3><p class="pa">' + esc(m.address) + "<br>" + esc(m.csz) + "</p>" + d +
         '<a class="dir" href="' + dirUrl(m) + '" target="_blank" rel="noopener">Directions <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></a></div></div>';
     }
-    function select(id, fly) {
+    function select(id, fly, fromPin) {
       var m = M.filter(function (x) { return x.id === id; })[0]; if (!m) return; current = id;
       Object.keys(cards).forEach(function (k) { cards[k].classList.toggle("sel", k === id); });
       if (map) {
-        Object.keys(markers).forEach(function (k) { var el = markers[k].getElement(); if (el) el.classList.toggle("sel", k === id); });
-        if (fly !== false) map.flyTo([m.lat, m.lng], Math.max(map.getZoom(), 13), { duration: .6 });
-        markers[id].openPopup();
+        Object.keys(markers).forEach(function (k) { markers[k].getElement().classList.toggle("sel", k === id); });
+        if (fly !== false) map.flyTo({ center: [m.lng, m.lat], zoom: Math.max(map.getZoom(), 12.5), duration: 700, offset: [0, 80] });
+        Object.keys(markers).forEach(function (k) { var pp = markers[k].getPopup(); if (k !== id && pp.isOpen()) pp.remove(); });
+        if (!fromPin && !markers[id].getPopup().isOpen()) markers[id].togglePopup();
       }
     }
     function applyFilter() {
@@ -664,7 +664,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
       M.forEach(function (m) {
         var c = cards[m.id], ok = (filter === "all" || m.type === filter) && (!q || c.dataset.q.indexOf(q) > -1);
         c.hidden = !ok; if (ok) n++;
-        if (map) { if (ok && !map.hasLayer(markers[m.id])) markers[m.id].addTo(map); if (!ok && map.hasLayer(markers[m.id])) map.removeLayer(markers[m.id]); }
+        if (map) { if (ok) markers[m.id].addTo(map); else { markers[m.id].getPopup().remove(); markers[m.id].remove(); } }
       });
       $("fcount").textContent = n;
       return n;
@@ -674,7 +674,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
       M.slice().sort(function (a, b) { return miles(you, a) - miles(you, b); }).forEach(function (m) {
         var c = cards[m.id]; c.querySelector(".dist").textContent = miles(you, m).toFixed(1) + " mi · " + m.venue; list.appendChild(c);
       });
-      if (map) markers && Object.keys(markers).forEach(function (k) { var m = M.filter(function (x) { return x.id === k; })[0]; markers[k].setPopupContent(popupHtml(m)); });
+      if (map) Object.keys(markers).forEach(function (k) { var m = M.filter(function (x) { return x.id === k; })[0]; markers[k].getPopup().setHTML(popupHtml(m)); });
     }
     function locate() {
       if (!navigator.geolocation) { toast("Location isn't available in this browser"); return; }
@@ -683,35 +683,39 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
         you = { lat: pos.coords.latitude, lng: pos.coords.longitude }; sortByDistance();
         var near = M.slice().sort(function (a, b) { return miles(you, a) - miles(you, b); })[0];
         if (map) {
-          if (!locate.dot) locate.dot = L.marker([you.lat, you.lng], { icon: L.divIcon({ className: "", html: '<div class="youdot"></div>', iconSize: [18, 18] }), interactive: false }).addTo(map);
-          else locate.dot.setLatLng([you.lat, you.lng]);
-          map.fitBounds(L.latLngBounds([[you.lat, you.lng], [near.lat, near.lng]]).pad(.5), { maxZoom: 13 });
+          if (!locate.dot) { var d = document.createElement("div"); d.className = "youdot"; locate.dot = new window.maplibregl.Marker({ element: d }).setLngLat([you.lng, you.lat]).addTo(map); }
+          else locate.dot.setLngLat([you.lng, you.lat]);
+          map.fitBounds([[Math.min(you.lng, near.lng), Math.min(you.lat, near.lat)], [Math.max(you.lng, near.lng), Math.max(you.lat, near.lat)]], { padding: { top: 140, left: 60, right: 110, bottom: 60 }, maxZoom: 13 });
         }
         select(near.id, false); toast("Closest machine: " + near.city + ", " + miles(you, near).toFixed(1) + " mi");
       }, function () { toast("Couldn't get your location. Search by city instead."); }, { enableHighAccuracy: false, timeout: 9000, maximumAge: 300000 });
     }
-    if (window.L) {
-      map = L.map(fmapEl, { zoomControl: false, scrollWheelZoom: false, attributionControl: true, zoomSnap: .25 });
-      var fitAll = function () { map.fitBounds(L.latLngBounds(M.map(function (m) { return [m.lat, m.lng]; })), { paddingTopLeft: [30, 96], paddingBottomRight: [96, 24] }); };
-      fitAll();
-      var lz = function () { fmapEl.classList.toggle("lowzoom", map.getZoom() < 10.75 && fmapEl.offsetWidth < 600); }; map.on("zoomend", lz); lz();
-      var loaded = false, tl = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
-        subdomains: "abcd", maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>' }).addTo(map);
-      tl.on("tileload", function () { loaded = true; });
-      setTimeout(function () { if (!loaded) document.querySelector(".fnotiles").hidden = false; }, 6000);
-      map.on("click focus", function () { map.scrollWheelZoom.enable(); });
+    var ML = window.maplibregl;
+    if (ML) try {
+      var b = M.reduce(function (a, m) { return [[Math.min(a[0][0], m.lng), Math.min(a[0][1], m.lat)], [Math.max(a[1][0], m.lng), Math.max(a[1][1], m.lat)]]; }, [[180, 90], [-180, -90]]);
+      map = new ML.Map({ container: fmapEl, style: "https://tiles.openfreemap.org/styles/liberty", bounds: b,
+        fitBoundsOptions: { padding: { top: 96, left: 40, right: 110, bottom: 30 } }, scrollZoom: false, dragRotate: false, pitchWithRotate: false,
+        attributionControl: { compact: true } });
+      map.touchZoomRotate.disableRotation();
+      var loaded = false; map.on("load", function () { loaded = true; });
+      map.on("error", function () { if (!loaded) document.querySelector(".fnotiles").hidden = false; });
+      setTimeout(function () { if (!loaded) document.querySelector(".fnotiles").hidden = false; }, 8000);
+      fmapEl.addEventListener("click", function () { map.scrollZoom.enable(); });
       M.forEach(function (m) {
-        var mk = L.marker([m.lat, m.lng], { title: "Swell machine in " + m.city, riseOnHover: true, keyboard: true,
-          icon: L.divIcon({ className: "spin", html: '<span class="pinb"><img src="' + P + 'img/s_mark.png" alt=""></span>', iconSize: [46, 58], iconAnchor: [23, 56], popupAnchor: [0, -54], tooltipAnchor: [22, -26] }) });
-        mk.bindTooltip(m.city, { permanent: true, direction: "right", className: "plbl", interactive: false });
-        mk.bindPopup(popupHtml(m), { className: "spop", maxWidth: 340, autoPanPadding: [30, 30] });
-        mk.on("click", function () { select(m.id, false); });
-        mk.addTo(map); markers[m.id] = mk;
+        var el = document.createElement("button"); el.type = "button"; el.className = "spin"; el.setAttribute("aria-label", "Swell machine in " + m.city);
+        el.innerHTML = '<span class="pinb"><img src="' + P + 'img/s_mark.png" alt=""></span><span class="plbl">' + esc(m.city) + "</span>";
+        var pop = new ML.Popup({ className: "spop", offset: [0, -52], maxWidth: "340px", focusAfterOpen: false }).setHTML(popupHtml(m));
+        var mk = new ML.Marker({ element: el, anchor: "bottom" }).setLngLat([m.lng, m.lat]).setPopup(pop).addTo(map);
+        el.setAttribute("aria-label", "Swell machine in " + m.city); el.dataset.id = m.id;
+        el.addEventListener("click", function () { select(m.id, false, true); });
+        pop.on("close", function () { if (current === m.id) { el.classList.remove("sel"); if (cards[m.id]) cards[m.id].classList.remove("sel"); current = null; } });
+        markers[m.id] = mk;
       });
-      map.on("popupclose", function () { Object.keys(markers).forEach(function (k) { var el = markers[k].getElement(); if (el) el.classList.remove("sel"); }); Object.keys(cards).forEach(function (k) { cards[k].classList.remove("sel"); }); });
+      var lz = function () { fmapEl.classList.toggle("lowzoom", map.getZoom() < 10.4 && fmapEl.offsetWidth < 600); }; map.on("zoomend", lz); map.on("load", lz);
       $("fzin").addEventListener("click", function () { map.zoomIn(); });
       $("fzout").addEventListener("click", function () { map.zoomOut(); });
-    } else { document.querySelector(".fnotiles").hidden = false; }
+    } catch (e) { map = null; document.querySelector(".fnotiles").hidden = false; }
+    else { document.querySelector(".fnotiles").hidden = false; }
     Object.keys(cards).forEach(function (k) { cards[k].addEventListener("click", function () {
       select(k); if (window.matchMedia("(max-width: 900px)").matches) fmapEl.scrollIntoView({ behavior: "smooth", block: "center" }); }); });
     document.querySelectorAll("[data-mf]").forEach(function (b) { b.addEventListener("click", function () {
