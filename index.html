@@ -692,9 +692,10 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
         fitBoundsOptions: { padding: { top: 96, left: 40, right: 110, bottom: 30 } }, scrollZoom: false, dragRotate: false, pitchWithRotate: false,
         attributionControl: { compact: true } });
       map.touchZoomRotate.disableRotation();
-      var loaded = false; map.on("load", function () { loaded = true; });
-      map.on("error", function () { if (!loaded) document.querySelector(".fnotiles").hidden = false; });
-      setTimeout(function () { if (!loaded) document.querySelector(".fnotiles").hidden = false; }, 8000);
+      var loaded = false, note = document.querySelector(".fnotiles"); window.swellMap = map;
+      map.on("load", function () { loaded = true; note.hidden = true; });
+      var watch = function () { if (document.visibilityState !== "visible") return document.addEventListener("visibilitychange", watch, { once: true });
+        setTimeout(function () { if (!loaded) note.hidden = false; }, 9000); }; watch();
       fmapEl.addEventListener("click", function () { map.scrollZoom.enable(); });
       M.forEach(function (m) {
         var el = document.createElement("button"); el.type = "button"; el.className = "spin"; el.setAttribute("aria-label", "Swell machine in " + m.city);
