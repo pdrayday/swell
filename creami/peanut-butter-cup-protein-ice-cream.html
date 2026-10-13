@@ -435,6 +435,63 @@ footer.site .logo { position: static; transform: none; display: inline-block; } 
 footer.site h2 { font: 700 14px/1 var(--body); letter-spacing: 0; margin: 0 0 14px; }
 footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; } footer.site ul a { text-decoration: none; color: var(--muted); } footer.site ul a:hover { color: var(--fg); }
 
+
+/* ---------- ice cream ---------- */
+.ictop { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.ictop h1 { font-size: clamp(44px, 6.4vw, 86px); } .ictop h1 em { color: var(--em); }
+.ictop .lead { margin-top: 18px; }
+.soon { display: inline-block; margin-bottom: 16px; padding: 7px 12px; border-radius: 999px; background: var(--ink); color: var(--on-ink); font: 700 12.5px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; }
+.fan { position: relative; height: clamp(360px, 42vw, 560px); }
+.fan img { position: absolute; top: 50%; left: 50%; width: 46%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 22px; box-shadow: 0 30px 50px -24px rgba(40,10,20,.55); border: 4px solid #fff; transition: transform .5s var(--spring); }
+.fan img:nth-child(1) { transform: translate(-108%, -48%) rotate(-9deg); }
+.fan img:nth-child(2) { transform: translate(-50%, -54%); z-index: 2; }
+.fan img:nth-child(3) { transform: translate(8%, -48%) rotate(9deg); }
+.fan:hover img:nth-child(1) { transform: translate(-118%, -48%) rotate(-12deg); } .fan:hover img:nth-child(3) { transform: translate(18%, -48%) rotate(12deg); }
+@media (max-width: 860px) { .ictop { grid-template-columns: 1fr; } .fan { order: -1; height: 92vw; max-height: 460px; } .fan img { width: 44%; } }
+.icgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 900px) { .icgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .icgrid { gap: 10px; } .ict { padding: 12px 12px 14px; } .ict h3 { font-size: 18px; } .ict p { font-size: 13.5px; } .icc { border-radius: 18px; } }
+.icc { background: var(--surface); border-radius: 24px; overflow: hidden; display: grid; transition: transform .4s var(--spring); }
+.icc[hidden] { display: none; }
+.icc:hover { transform: translateY(-4px); }
+.icpic { overflow: hidden; aspect-ratio: 4 / 5; } .icpic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--spring); }
+.icc:hover .icpic img { transform: scale(1.04); }
+.ict { padding: 16px 18px 20px; display: grid; gap: 6px; } .ict h3 { font-size: 24px; } .ict p { color: var(--muted); font-size: 15px; }
+.ictag { justify-self: start; font: 700 11.5px/1 var(--body); padding: 6px 9px; border-radius: 6px; background: var(--ink); color: var(--on-ink); }
+.ictag.sh { background: #f0d47e; color: #2a1f0e; }
+.icwhy { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.icwhy-img img { width: 100%; height: auto; max-height: 620px; object-fit: cover; border-radius: 28px; box-shadow: 0 30px 60px -28px rgba(40,10,20,.45); display: block; }
+.icwhy h2 { font-size: clamp(32px, 4vw, 52px); }
+.icpoints { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.icpoints li { display: grid; gap: 3px; padding: 14px 0; border-bottom: 1px solid var(--line); } .icpoints b { font-size: 17px; } .icpoints span { color: var(--muted); }
+.icdiy { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.icdiy img { width: 100%; height: auto; border-radius: 28px; box-shadow: 0 30px 60px -28px rgba(40,10,20,.45); }
+.icdiy h2 { font-size: clamp(32px, 4vw, 52px); } .icdiy .lead { margin-top: 12px; }
+@media (max-width: 860px) { .icwhy, .icdiy { grid-template-columns: 1fr; } .icwhy-img img { max-height: 420px; } }
+/* ---------- home: #drinkswell marquee + reviews ---------- */
+.ds-sec { overflow: hidden; }
+.ds-head { display: flex; justify-content: space-between; align-items: end; gap: 18px 30px; flex-wrap: wrap; margin-bottom: 26px; }
+.ds-head h2 { font-size: clamp(44px, 6.5vw, 88px); letter-spacing: -.03em; } .ds-head .hash { color: var(--em); font-style: italic; }
+.ds-head p { max-width: 34em; color: var(--muted); margin-top: 8px; font-size: 17px; } .ds-head p b { color: var(--fg); }
+.ds-head .ctas { margin: 0; }
+.marquee { --gap: 16px; --cw: calc((min(100vw, 1440px) - 3 * var(--gap) - 48px) / 4); overflow: hidden; padding: 6px 0 10px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.mq-track { display: flex; gap: var(--gap); width: max-content; animation: mq 140s linear infinite; }
+.mq-dup { display: contents; }
+.marquee:hover .mq-track, .marquee:focus-within .mq-track { animation-play-state: paused; }
+.mq-track .post { flex: 0 0 var(--cw); width: var(--cw); margin: 0; animation: none; align-self: start; }
+.mq-track .pimg { aspect-ratio: 4 / 5 !important; }
+@keyframes mq { to { transform: translateX(calc(-50% - var(--gap) / 2)); } }
+@media (max-width: 1100px) { .marquee { --cw: calc((100vw - 2 * var(--gap) - 32px) / 3); } }
+@media (max-width: 760px) { .marquee { --cw: min(300px, 66vw); --gap: 12px; } .mq-track { animation-duration: 120s; } }
+@media (prefers-reduced-motion: reduce) { .mq-track { animation: none; } .marquee { overflow-x: auto; } .mq-dup { display: none; } }
+.rev-h { display: flex; justify-content: space-between; align-items: end; gap: 10px 20px; flex-wrap: wrap; }
+.reviews { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; align-items: start; }
+.rev { margin: 0; padding: 22px 22px 18px; border-radius: 22px; background: var(--surface); display: grid; gap: 14px; }
+.rev .stars { display: flex; gap: 2px; color: var(--em); }
+.rev blockquote { margin: 0; } .rev blockquote p { font: 600 clamp(19px, 1.7vw, 22px)/1.35 var(--display); }
+.rev figcaption { display: flex; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.rev figcaption img { height: 46px; width: auto; } .rev figcaption b { display: block; font-size: 15px; } .rev figcaption small { color: var(--muted); font-size: 13.5px; }
 /* ---------- blog / #drinkswell ---------- */
 .btop { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
 .tagline { font-size: clamp(54px, 9vw, 120px); letter-spacing: -.035em; }
@@ -492,14 +549,14 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 <header class="top"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   <a class="logo" href="../index.html" aria-label="Swell home"><img src="../img/logo.png" alt="Swell" width="416" height="159"></a>
-  <nav class="tabs" aria-label="Main"><a href="../shop.html">Shop</a><a href="../index.html#machines">Find a machine</a><a href="../creami/index.html" aria-current="page">Recipes</a><a href="../blog.html">Blog</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a></nav>
+  <nav class="tabs" aria-label="Main"><a href="../shop.html">Shop</a><a href="../icecream.html">Ice Cream</a><a href="../index.html#machines">Find a machine</a><a href="../creami/index.html" aria-current="page">Recipes</a><a href="../blog.html">Blog</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a></nav>
   <div class="right"><div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div></div>
 </div></header>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Menu">
   <button type="button" class="x press" id="drawer-x" aria-label="Close menu">×</button>
   <div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div>
-  <nav><a href="../index.html">Home<span></span></a><a href="../shop.html">Shop<span>Build a box</span></a><a href="../index.html#machines">Find a machine<span>Utah County</span></a><a href="../creami/index.html" aria-current="page">Recipes<span>Ninja Creami</span></a><a href="../blog.html">Blog<span>#drinkswell</span></a><a href="../about.html">About<span>Our story</span></a><a href="../faq.html">FAQ<span>Questions</span></a></nav>
+  <nav><a href="../index.html">Home<span></span></a><a href="../shop.html">Shop<span>Build a box</span></a><a href="../icecream.html">Ice Cream<span>Protein pints</span></a><a href="../index.html#machines">Find a machine<span>Utah County</span></a><a href="../creami/index.html" aria-current="page">Recipes<span>Ninja Creami</span></a><a href="../blog.html">Blog<span>#drinkswell</span></a><a href="../about.html">About<span>Our story</span></a><a href="../faq.html">FAQ<span>Questions</span></a></nav>
   <a class="btn" href="../shop.html#build">Build a box</a>
 </aside><main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Recipes</a> / <span>Peanut Butter Cup Protein Ice Cream</span></nav>
 <article class="recipe"><div class="stage rhero"><img src="../img/b_pbc.webp" alt="Swell Peanut Butter Cup protein shake" width="200" height="520"></div>
@@ -823,6 +880,10 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   document.querySelectorAll(".drawer a").forEach(function (a) { a.addEventListener("click", function () { if (a.hash && a.pathname === location.pathname) menu(false); }); });
 
 
+
+  document.querySelectorAll("[data-icf]").forEach(function (b) { b.addEventListener("click", function () {
+    document.querySelectorAll("[data-icf]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    document.querySelectorAll(".icc").forEach(function (c) { c.hidden = !(b.dataset.icf === "all" || c.dataset.ict === b.dataset.icf); }); }); });
   // ---------- #drinkswell page ----------
   document.querySelectorAll("[data-copy]").forEach(function (b) { b.addEventListener("click", function () {
     var t = b.dataset.copy, done = function () { var o = b.dataset.label || b.textContent; b.dataset.label = o; b.innerHTML = CHECK + " Copied"; b.classList.add("in"); burst(b);
