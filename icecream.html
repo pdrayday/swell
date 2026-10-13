@@ -448,11 +448,14 @@ footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8p
 .fan img:nth-child(3) { transform: translate(8%, -48%) rotate(9deg); }
 .fan:hover img:nth-child(1) { transform: translate(-118%, -48%) rotate(-12deg); } .fan:hover img:nth-child(3) { transform: translate(18%, -48%) rotate(12deg); }
 @media (max-width: 860px) { .ictop { grid-template-columns: 1fr; } .fan { order: -1; height: 92vw; max-height: 460px; } .fan img { width: 44%; } }
-.icgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-@media (max-width: 900px) { .icgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.icgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+html[data-line="smoothies"] .icgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; }
+@media (max-width: 1000px) { .icgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .icgrid { gap: 10px; } .ict { padding: 12px 12px 14px; } .ict h3 { font-size: 18px; } .ict p { font-size: 13.5px; } .icc { border-radius: 18px; } }
 .icc { background: var(--surface); border-radius: 24px; overflow: hidden; display: grid; transition: transform .4s var(--spring); }
 .icc[hidden] { display: none; }
+.ic-sw { margin-top: 14px; } .linkbtn { border: 0; background: none; padding: 6px 0; font: 600 15px var(--body); color: var(--fg); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.icdiy img { max-height: 640px; object-fit: cover; }
 .icc:hover { transform: translateY(-4px); }
 .icpic { overflow: hidden; aspect-ratio: 4 / 5; } .icpic img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--spring); }
 .icc:hover .icpic img { transform: scale(1.04); }
@@ -562,34 +565,35 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 <section class="page-h ic-top"><div class="wrap ictop">
   <div>
     <span class="soon">Coming soon</span>
-    <h1>Protein ice cream, <em>by the pint.</em></h1>
-    <p class="lead">The same dessert flavors as the shakes, scooped. Swell ice cream and sherbet pints with protein in every spoonful and less sugar than the regular stuff.</p>
+    <h1><span class="for-shakes">Protein ice cream, <em>by the pint.</em></span><span class="for-smoothies">Smoothie flavors, <em>by the pint.</em></span></h1>
+    <p class="lead"><span class="for-shakes">The same dessert flavors as the shakes, scooped. Swell protein ice cream pints with protein in every spoonful and less sugar than the regular stuff.</span><span class="for-smoothies">The fruit flavors from the smoothies, scooped. Swell protein ice cream and protein sherbet with protein in every spoonful and less sugar than the regular stuff.</span></p>
     <div class="ctas"><a class="btn" href="#notify">Get first dibs</a><a class="btn alt" href="#pints">See the flavors</a></div>
+    <p class="small ic-sw"><button type="button" class="linkbtn for-shakes" data-go="smoothies">Fruit person? See the smoothie-flavored pints →</button><button type="button" class="linkbtn for-smoothies" data-go="shakes">← See the dessert pints</button></p>
   </div>
-  <div class="fan" aria-hidden="true"><img src="img/ic/raspberry_tall.webp" alt="" width="720" height="1280" loading="lazy"><img src="img/ic/cookies_cream_tall.webp" alt="" width="720" height="1280"><img src="img/ic/chocolate_tall.webp" alt="" width="720" height="1280" loading="lazy"></div>
+  <div class="fan for-shakes" aria-hidden="true"><img src="img/ic/cookie_butter_tall.webp" alt="" width="720" height="1280"><img src="img/ic/cookies_cream_tall.webp" alt="" width="720" height="1280"><img src="img/ic/chocolate_tall.webp" alt="" width="720" height="1280"></div><div class="fan for-smoothies" aria-hidden="true"><img src="img/ic/raspberry_tall.webp" alt="" width="720" height="1280" loading="lazy"><img src="img/ic/peach_rasp_tall.webp" alt="" width="720" height="1280" loading="lazy"><img src="img/posts/ugc_ic_picnic.webp" alt="" width="720" height="1280" loading="lazy"></div>
 </div></section>
 <section id="pints" style="padding-top:20px"><div class="wrap">
-  <div class="sec-h feedh"><h2>Six pints to start</h2>
-    <div class="filters" role="group" aria-label="Filter pints"><button type="button" class="press" aria-pressed="true" data-icf="all">All</button><button type="button" class="press" aria-pressed="false" data-icf="ice">Ice cream</button><button type="button" class="press" aria-pressed="false" data-icf="sherbet">Sherbet</button></div></div>
-  <div class="icgrid"><article class="icc" data-ict="ice"><div class="icpic"><img src="img/ic/cookies_cream.webp" alt="Swell Cookies &amp; Cream protein ice cream pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Ice cream</span><h3>Cookies &amp; Cream</h3><p>Sweet cream packed with chocolate cookie pieces.</p></div></article><article class="icc" data-ict="ice"><div class="icpic"><img src="img/ic/chocolate.webp" alt="Swell Chocolate protein ice cream pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Ice cream</span><h3>Chocolate</h3><p>Deep cocoa with fudge ribbons and chocolate chunks.</p></div></article><article class="icc" data-ict="ice"><div class="icpic"><img src="img/ic/vanilla.webp" alt="Swell Vanilla protein ice cream pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Ice cream</span><h3>Vanilla</h3><p>Vanilla bean, speckled and creamy. Goes with everything.</p></div></article><article class="icc" data-ict="ice"><div class="icpic"><img src="img/ic/cookie_butter.webp" alt="Swell Cookie Butter protein ice cream pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Ice cream</span><h3>Cookie Butter</h3><p>Spiced speculoos cookie with a caramel cookie-butter swirl.</p></div></article><article class="icc" data-ict="ice"><div class="icpic"><img src="img/ic/raspberry.webp" alt="Swell Raspberry Cream protein ice cream pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Ice cream</span><h3>Raspberry Cream</h3><p>Raspberry swirled through sweet cream.</p></div></article><article class="icc" data-ict="sherbet"><div class="icpic"><img src="img/ic/peach_rasp.webp" alt="Swell Peach Raspberry protein sherbet pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag sh">Sherbet</span><h3>Peach Raspberry</h3><p>Bright peach sherbet with a tart raspberry ribbon.</p></div></article></div>
+  <div class="sec-h"><h2><span class="for-shakes">Four dessert pints</span><span class="for-smoothies">Smoothie-flavored pints</span></h2><p><span class="for-shakes">Every pint is protein ice cream.</span><span class="for-smoothies">Protein ice cream and protein sherbet in the smoothie flavors.</span></p></div>
+  <div class="icgrid"><article class="icc for-shakes"><div class="icpic"><img src="img/ic/cookies_cream.webp" alt="Swell Cookies &amp; Cream protein ice cream pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Cookies &amp; Cream</h3><p>Sweet cream packed with chocolate cookie pieces.</p></div></article><article class="icc for-shakes"><div class="icpic"><img src="img/ic/chocolate.webp" alt="Swell Chocolate protein ice cream pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Chocolate</h3><p>Deep cocoa with fudge ribbons and chocolate chunks.</p></div></article><article class="icc for-shakes"><div class="icpic"><img src="img/ic/vanilla.webp" alt="Swell Vanilla protein ice cream pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Vanilla</h3><p>Vanilla bean, speckled and creamy. Goes with everything.</p></div></article><article class="icc for-shakes"><div class="icpic"><img src="img/ic/cookie_butter.webp" alt="Swell Cookie Butter protein ice cream pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Cookie Butter</h3><p>Spiced speculoos cookie with a caramel cookie-butter swirl.</p></div></article><article class="icc for-smoothies"><div class="icpic"><img src="img/ic/raspberry.webp" alt="Swell Raspberry Cream protein ice cream pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag sh">Protein ice cream</span><h3>Raspberry Cream</h3><p>Raspberry swirled through sweet cream, like a berry smoothie you eat with a spoon.</p></div></article><article class="icc for-smoothies"><div class="icpic"><img src="img/ic/peach_rasp.webp" alt="Swell Peach Raspberry protein sherbet pint" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag sh">Protein sherbet</span><h3>Peach Raspberry</h3><p>Bright peach sherbet with a tart raspberry ribbon.</p></div></article></div>
 </div></section>
 <section class="alt-bg"><div class="wrap icwhy">
-  <div class="icwhy-img"><img src="img/ic/peach_rasp_tall.webp" alt="Swell Peach Raspberry protein sherbet pint surrounded by peach slices and raspberries" width="720" height="1279" loading="lazy"></div>
+  <div class="icwhy-img"><img class="for-shakes" src="img/posts/ugc_ic_couch.webp" alt="Friends sharing a pint of Swell Cookies and Cream protein ice cream on the couch" width="720" height="900" loading="lazy"><img class="for-smoothies" src="img/ic/peach_rasp_tall.webp" alt="Swell Peach Raspberry protein sherbet pint surrounded by peach slices and raspberries" width="720" height="1279" loading="lazy"></div>
   <div>
     <h2>Dessert first. Protein included.</h2>
     <ul class="icpoints">
-      <li><b>Real dessert flavors</b><span>Cookies &amp; cream, chocolate, cookie butter. The ones you'd actually order.</span></li>
+      <li class="for-shakes"><b>Real dessert flavors</b><span>Cookies &amp; cream, chocolate, cookie butter. The ones you'd actually order.</span></li>
+      <li class="for-smoothies"><b>Real fruit flavors</b><span>Raspberry Cream and Peach Raspberry, the smoothie flavors you'd actually order.</span></li>
       <li><b>Protein in every pint</b><span>Built on the same milk protein as the shakes, so it's a snack that holds you over.</span></li>
       <li><b>Less sugar</b><span>Sweet enough for 9pm, without the crash.</span></li>
-      <li><b>Sherbet, too</b><span>Peach Raspberry for the fruit people. Lighter, brighter, still creamy.</span></li>
+      <li class="for-shakes"><b>Smoothie flavors, too</b><span>Raspberry Cream and Peach Raspberry sherbet for the fruit people. Switch to Smoothies at the top to see them.</span></li>
     </ul>
     <p class="small" style="margin-top:14px"><span class="ph">Nutrition and pint sizes are placeholders until the recipes are final.</span></p>
   </div>
 </div></section>
 <section><div class="wrap icdiy">
-  <img src="img/creami_hero.webp" alt="Protein ice cream made from Swell shakes in a Ninja Creami" width="1000" height="1000" loading="lazy">
-  <div><h2>Can't wait for pints?</h2><p class="lead">Pour a bottle of Swell into a Ninja Creami pint, freeze it, spin it. Protein ice cream tonight.</p>
-    <div class="ctas"><a class="btn" href="creami/index.html">Get the Creami recipes</a><a class="btn alt" href="shop.html#build">Build a box</a></div></div>
+  <img src="img/posts/ugc_ic_machine.webp" alt="A student buying a pint from a pink Swell protein ice cream vending machine" width="720" height="900" loading="lazy">
+  <div><h2>Coming to the machines, too.</h2><p class="lead">Swell protein ice cream machines are on the way to campuses and gyms. Until then, make it at home: pour a bottle of Swell into a Ninja Creami, freeze, spin.</p>
+    <div class="ctas"><a class="btn" href="creami/index.html">Get the Creami recipes</a><a class="btn alt" href="index.html#machines">Find a machine</a></div></div>
 </div></section>
 <section id="notify" style="padding-top:0"><div class="wrap"><div class="host">
   <div><h2>Be first in line for pints.</h2><p>We'll email you once when Swell ice cream drops, plus where to find it near you.</p></div>
