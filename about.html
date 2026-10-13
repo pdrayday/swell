@@ -146,6 +146,13 @@ section { padding-block: clamp(52px, 8vw, 100px); }
 .hero .stage { display: flex; justify-content: center; align-items: flex-end; padding: 24px 8px 0; min-height: 320px; }
 .hero .stage img { height: clamp(220px, 30vw, 420px); width: auto; max-width: none; margin-inline: -3.5%; position: relative; }
 .hero .stage img:nth-child(2) { height: clamp(240px, 33vw, 460px); z-index: 2; }
+.hero .stage.pair { padding: 0; min-height: 0; border-radius: 28px; background: radial-gradient(120% 90% at 50% 20%, #fff, var(--stage) 70%); overflow: hidden; }
+.hero .stage.pair img { width: 100%; height: auto; max-width: none; margin: 0; padding: 22px 18px 0; }
+.hero .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 24px; max-width: 520px; }
+.hero .opts .opt { margin: 0; padding: 12px 14px; gap: 10px; }
+@media (max-width: 860px) { .hero .stage.pair { order: -1; } .hero .stage.pair img { padding: 14px 12px 0; } }
+@media (max-width: 560px) { .hero .opts .opt .t span { display: none; } .hero .opts .opt { padding: 12px; } }
+.hero .opts .opt .g { font-size: 30px; } .hero .opts .opt .t b { font-size: 16px; } .hero .opts .opt .t span { font-size: 13px; }
 .hero .facts { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 26px; font-size: 15px; color: var(--muted); }
 .hero .facts b { display: block; font: 700 26px/1 var(--display); color: var(--fg); margin-bottom: 4px; }
 @media (max-width: 560px) { .hero .facts { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 14px; font-size: 13px; } }
@@ -272,6 +279,9 @@ html[data-line="smoothies"] .packband img { filter: invert(1) sepia(.4) brightne
 @media (max-width: 980px) { .builder { grid-template-columns: 1fr; } .summary { position: static; } }
 
 /* machines */
+.creami-top { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.creami-top img { width: 100%; height: auto; border-radius: 28px; box-shadow: 0 30px 60px -24px rgba(40,10,20,.45); }
+@media (max-width: 860px) { .creami-top { grid-template-columns: 1fr; gap: 22px; } }
 .mach-top { display: grid; grid-template-columns: 1fr 1.1fr; gap: 32px; align-items: center; }
 .mach-facts { display: flex; flex-wrap: wrap; gap: 10px 26px; margin: 22px 0 0; padding: 0; list-style: none; font-weight: 600; font-size: 15px; }
 .mach-facts li::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--em); margin-right: 9px; vertical-align: middle; }
