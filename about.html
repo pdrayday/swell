@@ -692,11 +692,15 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     if (ML) try {
       var b = M.reduce(function (a, m) { return [[Math.min(a[0][0], m.lng), Math.min(a[0][1], m.lat)], [Math.max(a[1][0], m.lng), Math.max(a[1][1], m.lat)]]; }, [[180, 90], [-180, -90]]);
       map = new ML.Map({ container: fmapEl, style: "https://tiles.openfreemap.org/styles/liberty", bounds: b,
-        fitBoundsOptions: { padding: { top: 96, left: 40, right: 110, bottom: 30 } }, scrollZoom: false, dragRotate: false, pitchWithRotate: false,
+        fitBoundsOptions: { padding: { top: 96, left: 40, right: 150, bottom: 30 } }, scrollZoom: false, dragRotate: false, pitchWithRotate: false,
         attributionControl: { compact: true } });
       map.touchZoomRotate.disableRotation();
       var loaded = false, note = document.querySelector(".fnotiles"); window.swellMap = map;
-      map.on("load", function () { loaded = true; note.hidden = true; });
+      map.on("load", function () { loaded = true; note.hidden = true;
+        map.getStyle().layers.forEach(function (l) {
+          if (l.type === "symbol" && l["source-layer"] === "place") map.setLayoutProperty(l.id, "visibility", "none");
+          if (l.type === "fill" && l["source-layer"] === "water") map.setPaintProperty(l.id, "fill-color", "#a9d5f5");
+        }); });
       var watch = function () { if (document.visibilityState !== "visible") return document.addEventListener("visibilitychange", watch, { once: true });
         setTimeout(function () { if (!loaded) note.hidden = false; }, 9000); }; watch();
       fmapEl.addEventListener("click", function () { map.scrollZoom.enable(); });
