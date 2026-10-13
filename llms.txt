@@ -17,6 +17,7 @@
 - [Shop](https://pdrayday.github.io/swell/shop.html)
 - [Find a machine](https://pdrayday.github.io/swell/#machines)
 - [Recipes](https://pdrayday.github.io/swell/creami/)
+- [Blog](https://pdrayday.github.io/swell/blog.html)
 - [About](https://pdrayday.github.io/swell/about.html)
 - [FAQ](https://pdrayday.github.io/swell/faq.html)
 - [Cookies & Cream Protein Ice Cream](https://pdrayday.github.io/swell/creami/cookies-and-cream-protein-ice-cream.html)

@@ -434,6 +434,46 @@ footer.site .cols { display: grid; grid-template-columns: 1.4fr repeat(3, minmax
 footer.site .logo { position: static; transform: none; display: inline-block; } footer.site .logo img { height: 44px; }
 footer.site h2 { font: 700 14px/1 var(--body); letter-spacing: 0; margin: 0 0 14px; }
 footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; } footer.site ul a { text-decoration: none; color: var(--muted); } footer.site ul a:hover { color: var(--fg); }
+
+/* ---------- blog / #drinkswell ---------- */
+.btop { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
+.tagline { font-size: clamp(54px, 9vw, 120px); letter-spacing: -.035em; }
+.tagline span { color: var(--em); font-style: italic; }
+.btop .lead b { color: var(--fg); }
+.steps3 { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: 10px; }
+.steps3 li { counter-increment: s; position: relative; padding: 16px 18px 16px 64px; border-radius: 20px; background: var(--surface); display: grid; gap: 3px; }
+.steps3 li::before { content: counter(s); position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: var(--on-ink); display: grid; place-items: center; font: 700 16px/1 var(--display); }
+.steps3 b { font-size: 17px; } .steps3 span { color: var(--muted); font-size: 14.5px; } .steps3 span b { color: var(--fg); font-size: inherit; }
+@media (max-width: 860px) { .btop { grid-template-columns: 1fr; } }
+.feedh { display: flex; justify-content: space-between; align-items: end; gap: 12px; flex-wrap: wrap; }
+.feed { columns: 3 300px; column-gap: 16px; }
+.post { break-inside: avoid; margin: 0 0 16px; background: #fffafb; border-radius: 20px; overflow: hidden; color: #2a121a; box-shadow: 0 10px 30px -22px rgba(40,10,20,.5); animation: rise .5s var(--spring) both; }
+html[data-line="smoothies"] .post { background: #fffdf3; }
+.post[hidden] { display: none; }
+@keyframes rise { from { opacity: 0; transform: translateY(14px) scale(.98); } }
+.ph-h { display: flex; align-items: center; gap: 10px; padding: 12px 14px; }
+.av { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; font: 700 15px/1 var(--display); color: #fff; background: linear-gradient(135deg, #c96b84, #f2c94c); box-shadow: 0 0 0 2px #fff, 0 0 0 4px #e7a6b6; flex: none; }
+.pwho { display: grid; gap: 1px; min-width: 0; flex: 1 1 0; } .pwho b { display: block; min-width: 0; font-size: 14.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pwho small { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: #7a5a64; }
+.sample { margin-left: auto; font: 700 10.5px/1 var(--body); letter-spacing: .04em; text-transform: uppercase; padding: 5px 7px; border-radius: 6px; border: 1.5px dashed #9e6b78; color: #6f3d4b; flex: none; }
+.pimg { position: relative; background: var(--stage); }
+.pimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pplay { position: absolute; right: 12px; top: 12px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: rgba(20,8,14,.5); backdrop-filter: blur(4px); }
+.pact { display: flex; gap: 4px; padding: 8px 8px 0; }
+.pact button { width: 44px; height: 44px; border: 0; background: none; border-radius: 50%; display: grid; place-items: center; color: #2a121a; cursor: pointer; }
+.like[aria-pressed="true"] { color: #d6345f; --hf: #d6345f; }
+.like[aria-pressed="true"] svg { animation: heart .45s var(--spring); }
+@keyframes heart { 30% { transform: scale(1.35); } 60% { transform: scale(.9); } }
+.pcap { padding: 2px 16px 16px; font-size: 14.5px; line-height: 1.45; } .pcap .ht { color: #9e2a4b; font-weight: 600; }
+html[data-line="smoothies"] .pcap .ht { color: #7a4e0c; }
+.tagband { align-items: center; } .tagband h2 { font-size: clamp(34px, 4vw, 52px); }
+.tagband-r { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.social.on-dark a, ul.social.on-dark a { background: var(--on-ink); color: var(--ink); }
+footer.site .fsocial { display: flex; align-items: center; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); }
+footer.site .fsocial p { color: var(--muted); font-size: 15px; } footer.site .fsocial p a { color: var(--fg); }
+ul.social, footer.site ul.social { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.social a, footer.site ul.social a { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--ink); color: var(--on-ink); transition: transform .35s var(--spring); }
+.social a:hover { transform: translateY(-3px); }
 footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); display: grid; gap: 6px; }
 @media (max-width: 760px) { footer.site .cols { grid-template-columns: 1fr 1fr; } footer.site .cols > div:first-child { grid-column: 1 / -1; } }
 .mbar { position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); z-index: 40; padding: 10px 10px 10px 16px; border-radius: 999px; background: var(--ink); color: var(--on-ink);
@@ -451,14 +491,14 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 <header class="top"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   <a class="logo" href="../index.html" aria-label="Swell home"><img src="../img/logo.png" alt="Swell" width="416" height="159"></a>
-  <nav class="tabs" aria-label="Main"><a href="../shop.html">Shop</a><a href="../index.html#machines">Find a machine</a><a href="../creami/index.html" aria-current="page">Recipes</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a></nav>
+  <nav class="tabs" aria-label="Main"><a href="../shop.html">Shop</a><a href="../index.html#machines">Find a machine</a><a href="../creami/index.html" aria-current="page">Recipes</a><a href="../blog.html">Blog</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a></nav>
   <div class="right"><div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div></div>
 </div></header>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Menu">
   <button type="button" class="x press" id="drawer-x" aria-label="Close menu">×</button>
   <div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div>
-  <nav><a href="../index.html">Home<span></span></a><a href="../shop.html">Shop<span>Build a box</span></a><a href="../index.html#machines">Find a machine<span>Utah County</span></a><a href="../creami/index.html" aria-current="page">Recipes<span>Ninja Creami</span></a><a href="../about.html">About<span>Our story</span></a><a href="../faq.html">FAQ<span>Questions</span></a></nav>
+  <nav><a href="../index.html">Home<span></span></a><a href="../shop.html">Shop<span>Build a box</span></a><a href="../index.html#machines">Find a machine<span>Utah County</span></a><a href="../creami/index.html" aria-current="page">Recipes<span>Ninja Creami</span></a><a href="../blog.html">Blog<span>#drinkswell</span></a><a href="../about.html">About<span>Our story</span></a><a href="../faq.html">FAQ<span>Questions</span></a></nav>
   <a class="btn" href="../shop.html#build">Build a box</a>
 </aside><main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Recipes</a> / <span>Pumpkin Spice Protein Ice Cream</span></nav>
 <article class="recipe"><div class="stage rhero"><img src="../img/b_pumpkin.webp" alt="Swell Pumpkin Spice protein shake" width="200" height="520"></div>
@@ -476,6 +516,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     <div><h2>Swell</h2><ul><li><a href="../index.html#machines">Find a machine</a></li><li><a href="../creami/index.html">Creami recipes</a></li><li><a href="../about.html">About</a></li></ul></div>
     <div><h2>Help</h2><ul><li><a href="../faq.html">FAQ</a></li><li><a href="../index.html#host">Host a machine</a></li></ul></div>
   </div>
+  <div class="fsocial"><ul class="social" aria-label="Swell on social media"><li><a class="press" href="https://www.instagram.com/drinkswell" target="_blank" rel="noopener" aria-label="Swell on Instagram"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a></li><li><a class="press" href="https://www.tiktok.com/@drinkswell" target="_blank" rel="noopener" aria-label="Swell on TikTok"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M14.5 3v11.2a3.6 3.6 0 1 1-3.6-3.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M14.5 3c.4 2.6 2.2 4.4 5 4.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a></li><li><a class="press" href="https://www.youtube.com/@drinkswell" target="_blank" rel="noopener" aria-label="Swell on YouTube"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10.2 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg></a></li><li><a class="press" href="https://www.facebook.com/drinkswell" target="_blank" rel="noopener" aria-label="Swell on Facebook"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M13.6 21v-7.6h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5H17V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8.2v3h2.6V21z" fill="currentColor"/></svg></a></li><li><a class="press" href="https://x.com/drinkswell" target="_blank" rel="noopener" aria-label="Swell on X"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg></a></li></ul><p>Tag <b>@drinkswell</b> and use <a href="../blog.html"><b>#drinkswell</b></a> to get featured.</p></div>
   <div class="legal"><p>*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
   <p>Nutrition, sizes, box discounts, reviews and machine locations are placeholders until launch. Core Power is a trademark of fairlife, LLC; Premier Protein and Ninja Creami are trademarks of their owners. Swell isn't affiliated with any of them.</p>
   <p>Contains milk. © 2026 Swell.</p></div>
@@ -780,6 +821,21 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   }
   document.querySelectorAll(".drawer a").forEach(function (a) { a.addEventListener("click", function () { if (a.hash && a.pathname === location.pathname) menu(false); }); });
 
+
+  // ---------- #drinkswell page ----------
+  document.querySelectorAll("[data-copy]").forEach(function (b) { b.addEventListener("click", function () {
+    var t = b.dataset.copy, done = function () { var o = b.dataset.label || b.textContent; b.dataset.label = o; b.innerHTML = CHECK + " Copied"; b.classList.add("in"); burst(b);
+      toast("Copied <b>" + t + "</b>. Paste it in your caption and tag @drinkswell."); setTimeout(function () { b.textContent = o; b.classList.remove("in"); }, 2200); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, done); else done(); }); });
+  document.querySelectorAll(".post .like").forEach(function (b) { b.addEventListener("click", function () {
+    var on = b.getAttribute("aria-pressed") !== "true"; b.setAttribute("aria-pressed", String(on)); if (on) burst(b); }); });
+  document.querySelectorAll(".post .share").forEach(function (b) { b.addEventListener("click", function () {
+    var url = location.href.split("#")[0];
+    if (navigator.share) navigator.share({ title: "#drinkswell", text: "Tag @drinkswell and use #drinkswell", url: url }).catch(function () {});
+    else if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () { toast("Link copied"); }, function () {}); }); });
+  document.querySelectorAll("[data-pfil]").forEach(function (b) { b.addEventListener("click", function () {
+    document.querySelectorAll("[data-pfil]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+    document.querySelectorAll(".post").forEach(function (p) { p.hidden = !(b.dataset.pfil === "all" || p.dataset.pf === b.dataset.pfil || (b.dataset.pfil !== "creami" && b.dataset.pfil !== "machines" && p.dataset.line === b.dataset.pfil && p.dataset.pf !== "machines" && p.dataset.pf !== "creami")); }); }); });
   var h = (location.hash || "").replace("#", "");
   var startLine = h === "smoothies" ? "smoothies" : h === "shakes" ? "shakes" : (store("swell-line") || "shakes");
   setLine(startLine, false); render();
