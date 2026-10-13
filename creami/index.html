@@ -281,6 +281,65 @@ html[data-line="smoothies"] .map { background: #fdf5d6; }
 .loc .n { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #2a121a; }
 .loc b { display: block; } .loc span { color: var(--muted); font-size: 14px; }
 @media (max-width: 900px) { .finder { grid-template-columns: 1fr; } .loclist { max-height: 360px; } }
+/* ---------- machine finder (map) ---------- */
+.finder2 { display: grid; grid-template-columns: 380px 1fr; height: 660px; border-radius: 28px; overflow: hidden; background: var(--surface); box-shadow: 0 30px 60px -30px rgba(40,10,20,.35); }
+.fside { display: flex; flex-direction: column; min-height: 0; padding: 26px 18px 14px; background: linear-gradient(180deg, var(--surface-2), var(--surface)); }
+.fhead h2 { font-size: 34px; } .fhead p { color: var(--muted); font-size: 17px; margin-top: 2px; }
+.ffilters { margin: 16px 0 10px; } .ffilters button { background: #fffafb; } html[data-line="smoothies"] .ffilters button { background: #fffdf3; } .ffilters button[aria-pressed="true"] { background: var(--ink); }
+.flocate { display: inline-flex; gap: 8px; align-items: center; align-self: flex-start; margin-bottom: 12px; }
+.flist { overflow-y: auto; flex: 1; min-height: 0; display: grid; align-content: start; gap: 10px; padding: 2px 4px 8px 2px; margin-right: -6px; }
+.mloc { display: grid; grid-template-columns: 92px 1fr 18px; gap: 14px; align-items: center; padding: 12px; border-radius: 20px; border: 2px solid transparent; background: #fffafb; text-align: left; cursor: pointer; color: var(--fg); box-shadow: 0 6px 18px -12px rgba(40,10,20,.35); transition: transform .35s var(--spring), border-color .2s; }
+html[data-line="smoothies"] .mloc { background: #fffdf3; }
+.mloc:hover { transform: translateY(-2px); } .mloc:active { transform: scale(.97); }
+.mloc.sel { border-color: var(--ink); }
+.mloc img { width: 92px; height: 96px; object-fit: cover; border-radius: 14px; }
+.mloc b { display: block; font: 700 22px/1.1 var(--display); }
+.mloc .dist { display: block; color: var(--muted); font-size: 14.5px; margin: 3px 0 4px; }
+.mloc .addr { display: block; font-size: 13.5px; color: var(--muted); line-height: 1.35; }
+.mloc .chev { color: var(--muted); }
+.mloc[hidden] { display: none; }
+.fnote { margin-top: 8px; }
+.fmapwrap { position: relative; min-width: 0; isolation: isolate; }
+#fmap { position: absolute; inset: 0; background: #f2ece6; }
+.fsearch { position: absolute; z-index: 500; top: 18px; left: 18px; width: min(420px, calc(100% - 36px)); display: flex; align-items: center; gap: 10px; padding: 0 10px 0 16px; height: 52px; border-radius: 999px; background: #fff; color: #2a121a; box-shadow: 0 10px 30px -10px rgba(40,10,20,.4); }
+.fsearch input { flex: 1; border: 0; background: none; font: 500 17px var(--display); color: #2a121a; outline: none; min-width: 0; }
+.fsearch button { border: 0; background: none; font-size: 26px; line-height: 1; color: #6f5560; cursor: pointer; padding: 4px 6px; }
+.fctl { position: absolute; z-index: 500; right: 18px; bottom: 92px; display: grid; border-radius: 16px; background: #fff; box-shadow: 0 10px 30px -10px rgba(40,10,20,.4); overflow: hidden; }
+.fctl button { width: 52px; height: 52px; border: 0; background: #fff; font-size: 28px; color: #2a121a; cursor: pointer; }
+.fctl button + button { border-top: 1px solid #eadde1; }
+.fctl.fme { bottom: 22px; width: 52px; height: 52px; display: grid; place-items: center; border: 0; color: #2a121a; cursor: pointer; }
+.fnotiles { position: absolute; z-index: 400; inset: auto 18px 18px 18px; max-width: 360px; background: #fff; border-radius: 14px; padding: 12px 14px; font-size: 14px; color: #2a121a; }
+.leaflet-container { font-family: var(--body); }
+.spin { background: none; border: 0; }
+.pinb { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: radial-gradient(circle at 35% 30%, #fde4ea, #f1a9ba 70%); border: 2px solid #fff; box-shadow: 0 8px 14px -4px rgba(120,30,60,.55); transition: transform .35s var(--spring); }
+html[data-line="smoothies"] .pinb { background: radial-gradient(circle at 35% 30%, #fff4cf, #f0cf6e 70%); box-shadow: 0 8px 14px -4px rgba(120,80,10,.5); }
+.leaflet-container .leaflet-marker-pane .pinb img { width: 21px !important; height: auto !important; transform: rotate(45deg); }
+.spin:hover .pinb { transform: rotate(-45deg) scale(1.1); }
+.spin.sel { z-index: 1000 !important; } .spin.sel .pinb { transform: rotate(-45deg) scale(1.28); box-shadow: 0 0 0 8px rgba(241,169,186,.35), 0 10px 18px -4px rgba(120,30,60,.6); }
+.leaflet-tooltip.plbl { background: none; border: 0; box-shadow: none; padding: 0; font: 700 16px var(--body); color: #2a121a; text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 6px #fff; }
+.leaflet-tooltip.plbl::before { display: none; }
+#fmap.lowzoom .plbl { display: none; }
+.youdot { width: 18px; height: 18px; border-radius: 50%; background: #2f7bf6; border: 3px solid #fff; box-shadow: 0 0 0 8px rgba(47,123,246,.22); }
+.spop .leaflet-popup-content-wrapper { border-radius: 22px; padding: 0; box-shadow: 0 20px 40px -14px rgba(40,10,20,.45); border: 2px solid #f6d3dc; }
+.spop .leaflet-popup-content { margin: 0; width: 330px !important; }
+.spop .leaflet-popup-tip { border: 2px solid #f6d3dc; }
+.pc { display: grid; grid-template-columns: 100px 1fr; gap: 14px; padding: 14px; align-items: center; color: #2a121a; }
+.pc img { width: 100px; height: 140px; object-fit: cover; border-radius: 12px; background: #f6e6ea; }
+.pc h3 { font: 700 19px/1.15 var(--display); margin: 0 0 6px; }
+.pc .pa { font-size: 13.5px; color: #5f2f3d; line-height: 1.35; margin: 0 0 4px; }
+.pc .pv { font-size: 12.5px; color: #8a6470; margin: 0 0 10px; }
+.pc .dir { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; background: #c96b84; color: #fff !important; font-weight: 700; text-decoration: none; font-size: 15px; transition: transform .3s var(--spring); }
+.pc .dir:active { transform: scale(.95); }
+.spop a.leaflet-popup-close-button { top: 8px; right: 10px; font-size: 22px; color: #6f5560; }
+@media (max-width: 900px) {
+  .finder2 { grid-template-columns: 1fr; height: auto; }
+  .fmapwrap { order: -1; height: 440px; }
+  .fside { padding: 20px 14px 14px; }
+  .flist { max-height: 520px; }
+  .fctl { bottom: 84px; right: 12px; } .fctl.fme { bottom: 18px; }
+  .spop .leaflet-popup-content { width: 270px !important; } .pc { grid-template-columns: 76px 1fr; } .pc img { width: 76px; height: 108px; }
+}
+
 .host { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; background: var(--ink); color: var(--on-ink); border-radius: 28px; padding: clamp(24px, 4vw, 48px); }
 .host h2 { font-size: clamp(30px, 3.6vw, 44px); } .host p { opacity: .8; margin-top: 10px; }
 .host form { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -545,6 +604,95 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     document.querySelectorAll("[data-mfilter]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
     document.querySelectorAll(".pin, .loc").forEach(function (el) { el.classList.toggle("off", !(b.dataset.mfilter === "all" || el.dataset.type === b.dataset.mfilter)); });
   }); });
+
+
+  // ---------- machine finder (Leaflet) ----------
+  var fmapEl = $("fmap"), mdataEl = $("mdata");
+  if (fmapEl && mdataEl) (function () {
+    var M = JSON.parse(mdataEl.textContent), P = root.dataset.prefix || "";
+    var cards = {}; document.querySelectorAll(".mloc").forEach(function (c) { cards[c.dataset.id] = c; });
+    var you = null, markers = {}, map = null, current = null, filter = "all";
+    function miles(a, b) { var R = 3958.8, r = Math.PI / 180, dl = (b.lat - a.lat) * r, dg = (b.lng - a.lng) * r;
+      var h = Math.sin(dl / 2) * Math.sin(dl / 2) + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dg / 2) * Math.sin(dg / 2); return 2 * R * Math.asin(Math.sqrt(h)); }
+    function dirUrl(m) { return "https://www.google.com/maps/dir/?api=1&destination=" + m.lat + "," + m.lng; }
+    function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+    function popupHtml(m) {
+      var d = you ? '<p class="pv">' + miles(you, m).toFixed(1) + " mi away · " + esc(m.venue) + "</p>" : '<p class="pv">' + esc(m.venue) + " · Shakes and smoothies</p>";
+      return '<div class="pc"><img src="' + m.photo + '" alt=""><div><h3>Swell Vending — ' + esc(m.city) + '</h3><p class="pa">' + esc(m.address) + "<br>" + esc(m.csz) + "</p>" + d +
+        '<a class="dir" href="' + dirUrl(m) + '" target="_blank" rel="noopener">Directions <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></a></div></div>';
+    }
+    function select(id, fly) {
+      var m = M.filter(function (x) { return x.id === id; })[0]; if (!m) return; current = id;
+      Object.keys(cards).forEach(function (k) { cards[k].classList.toggle("sel", k === id); });
+      if (map) {
+        Object.keys(markers).forEach(function (k) { var el = markers[k].getElement(); if (el) el.classList.toggle("sel", k === id); });
+        if (fly !== false) map.flyTo([m.lat, m.lng], Math.max(map.getZoom(), 13), { duration: .6 });
+        markers[id].openPopup();
+      }
+    }
+    function applyFilter() {
+      var q = ($("fq").value || "").trim().toLowerCase(), n = 0;
+      M.forEach(function (m) {
+        var c = cards[m.id], ok = (filter === "all" || m.type === filter) && (!q || c.dataset.q.indexOf(q) > -1);
+        c.hidden = !ok; if (ok) n++;
+        if (map) { if (ok && !map.hasLayer(markers[m.id])) markers[m.id].addTo(map); if (!ok && map.hasLayer(markers[m.id])) map.removeLayer(markers[m.id]); }
+      });
+      $("fcount").textContent = n;
+      return n;
+    }
+    function sortByDistance() {
+      var list = $("flist");
+      M.slice().sort(function (a, b) { return miles(you, a) - miles(you, b); }).forEach(function (m) {
+        var c = cards[m.id]; c.querySelector(".dist").textContent = miles(you, m).toFixed(1) + " mi · " + m.venue; list.appendChild(c);
+      });
+      if (map) markers && Object.keys(markers).forEach(function (k) { var m = M.filter(function (x) { return x.id === k; })[0]; markers[k].setPopupContent(popupHtml(m)); });
+    }
+    function locate() {
+      if (!navigator.geolocation) { toast("Location isn't available in this browser"); return; }
+      toast("Finding machines near you…");
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        you = { lat: pos.coords.latitude, lng: pos.coords.longitude }; sortByDistance();
+        var near = M.slice().sort(function (a, b) { return miles(you, a) - miles(you, b); })[0];
+        if (map) {
+          if (!locate.dot) locate.dot = L.marker([you.lat, you.lng], { icon: L.divIcon({ className: "", html: '<div class="youdot"></div>', iconSize: [18, 18] }), interactive: false }).addTo(map);
+          else locate.dot.setLatLng([you.lat, you.lng]);
+          map.fitBounds(L.latLngBounds([[you.lat, you.lng], [near.lat, near.lng]]).pad(.5), { maxZoom: 13 });
+        }
+        select(near.id, false); toast("Closest machine: " + near.city + ", " + miles(you, near).toFixed(1) + " mi");
+      }, function () { toast("Couldn't get your location. Search by city instead."); }, { enableHighAccuracy: false, timeout: 9000, maximumAge: 300000 });
+    }
+    if (window.L) {
+      map = L.map(fmapEl, { zoomControl: false, scrollWheelZoom: false, attributionControl: true, zoomSnap: .25 });
+      var fitAll = function () { map.fitBounds(L.latLngBounds(M.map(function (m) { return [m.lat, m.lng]; })), { paddingTopLeft: [30, 96], paddingBottomRight: [96, 24] }); };
+      fitAll();
+      var lz = function () { fmapEl.classList.toggle("lowzoom", map.getZoom() < 10.75 && fmapEl.offsetWidth < 600); }; map.on("zoomend", lz); lz();
+      var loaded = false, tl = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        subdomains: "abcd", maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>' }).addTo(map);
+      tl.on("tileload", function () { loaded = true; });
+      setTimeout(function () { if (!loaded) document.querySelector(".fnotiles").hidden = false; }, 6000);
+      map.on("click focus", function () { map.scrollWheelZoom.enable(); });
+      M.forEach(function (m) {
+        var mk = L.marker([m.lat, m.lng], { title: "Swell machine in " + m.city, riseOnHover: true, keyboard: true,
+          icon: L.divIcon({ className: "spin", html: '<span class="pinb"><img src="' + P + 'img/s_mark.png" alt=""></span>', iconSize: [46, 58], iconAnchor: [23, 56], popupAnchor: [0, -54], tooltipAnchor: [22, -26] }) });
+        mk.bindTooltip(m.city, { permanent: true, direction: "right", className: "plbl", interactive: false });
+        mk.bindPopup(popupHtml(m), { className: "spop", maxWidth: 340, autoPanPadding: [30, 30] });
+        mk.on("click", function () { select(m.id, false); });
+        mk.addTo(map); markers[m.id] = mk;
+      });
+      map.on("popupclose", function () { Object.keys(markers).forEach(function (k) { var el = markers[k].getElement(); if (el) el.classList.remove("sel"); }); Object.keys(cards).forEach(function (k) { cards[k].classList.remove("sel"); }); });
+      $("fzin").addEventListener("click", function () { map.zoomIn(); });
+      $("fzout").addEventListener("click", function () { map.zoomOut(); });
+    } else { document.querySelector(".fnotiles").hidden = false; }
+    Object.keys(cards).forEach(function (k) { cards[k].addEventListener("click", function () {
+      select(k); if (window.matchMedia("(max-width: 900px)").matches) fmapEl.scrollIntoView({ behavior: "smooth", block: "center" }); }); });
+    document.querySelectorAll("[data-mf]").forEach(function (b) { b.addEventListener("click", function () {
+      document.querySelectorAll("[data-mf]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); }); filter = b.dataset.mf; applyFilter(); }); });
+    $("fq").addEventListener("input", applyFilter);
+    $("fclear").addEventListener("click", function () { $("fq").value = ""; applyFilter(); $("fq").focus(); });
+    $("fsearch").addEventListener("submit", function (e) { e.preventDefault(); if (!applyFilter()) { toast("No machines match that yet"); return; }
+      var first = M.filter(function (m) { return !cards[m.id].hidden; })[0]; select(first.id); });
+    $("flocate").addEventListener("click", locate); $("flocate2").addEventListener("click", locate);
+  })();
 
   var h = (location.hash || "").replace("#", "");
   var startLine = h === "smoothies" ? "smoothies" : h === "shakes" ? "shakes" : (store("swell-line") || "shakes");

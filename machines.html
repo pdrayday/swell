@@ -280,6 +280,65 @@ html[data-line="smoothies"] .map { background: #fdf5d6; }
 .loc .n { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; color: #2a121a; }
 .loc b { display: block; } .loc span { color: var(--muted); font-size: 14px; }
 @media (max-width: 900px) { .finder { grid-template-columns: 1fr; } .loclist { max-height: 360px; } }
+/* ---------- machine finder (map) ---------- */
+.finder2 { display: grid; grid-template-columns: 380px 1fr; height: 660px; border-radius: 28px; overflow: hidden; background: var(--surface); box-shadow: 0 30px 60px -30px rgba(40,10,20,.35); }
+.fside { display: flex; flex-direction: column; min-height: 0; padding: 26px 18px 14px; background: linear-gradient(180deg, var(--surface-2), var(--surface)); }
+.fhead h2 { font-size: 34px; } .fhead p { color: var(--muted); font-size: 17px; margin-top: 2px; }
+.ffilters { margin: 16px 0 10px; } .ffilters button { background: #fffafb; } html[data-line="smoothies"] .ffilters button { background: #fffdf3; } .ffilters button[aria-pressed="true"] { background: var(--ink); }
+.flocate { display: inline-flex; gap: 8px; align-items: center; align-self: flex-start; margin-bottom: 12px; }
+.flist { overflow-y: auto; flex: 1; min-height: 0; display: grid; align-content: start; gap: 10px; padding: 2px 4px 8px 2px; margin-right: -6px; }
+.mloc { display: grid; grid-template-columns: 92px 1fr 18px; gap: 14px; align-items: center; padding: 12px; border-radius: 20px; border: 2px solid transparent; background: #fffafb; text-align: left; cursor: pointer; color: var(--fg); box-shadow: 0 6px 18px -12px rgba(40,10,20,.35); transition: transform .35s var(--spring), border-color .2s; }
+html[data-line="smoothies"] .mloc { background: #fffdf3; }
+.mloc:hover { transform: translateY(-2px); } .mloc:active { transform: scale(.97); }
+.mloc.sel { border-color: var(--ink); }
+.mloc img { width: 92px; height: 96px; object-fit: cover; border-radius: 14px; }
+.mloc b { display: block; font: 700 22px/1.1 var(--display); }
+.mloc .dist { display: block; color: var(--muted); font-size: 14.5px; margin: 3px 0 4px; }
+.mloc .addr { display: block; font-size: 13.5px; color: var(--muted); line-height: 1.35; }
+.mloc .chev { color: var(--muted); }
+.mloc[hidden] { display: none; }
+.fnote { margin-top: 8px; }
+.fmapwrap { position: relative; min-width: 0; isolation: isolate; }
+#fmap { position: absolute; inset: 0; background: #f2ece6; }
+.fsearch { position: absolute; z-index: 500; top: 18px; left: 18px; width: min(420px, calc(100% - 36px)); display: flex; align-items: center; gap: 10px; padding: 0 10px 0 16px; height: 52px; border-radius: 999px; background: #fff; color: #2a121a; box-shadow: 0 10px 30px -10px rgba(40,10,20,.4); }
+.fsearch input { flex: 1; border: 0; background: none; font: 500 17px var(--display); color: #2a121a; outline: none; min-width: 0; }
+.fsearch button { border: 0; background: none; font-size: 26px; line-height: 1; color: #6f5560; cursor: pointer; padding: 4px 6px; }
+.fctl { position: absolute; z-index: 500; right: 18px; bottom: 92px; display: grid; border-radius: 16px; background: #fff; box-shadow: 0 10px 30px -10px rgba(40,10,20,.4); overflow: hidden; }
+.fctl button { width: 52px; height: 52px; border: 0; background: #fff; font-size: 28px; color: #2a121a; cursor: pointer; }
+.fctl button + button { border-top: 1px solid #eadde1; }
+.fctl.fme { bottom: 22px; width: 52px; height: 52px; display: grid; place-items: center; border: 0; color: #2a121a; cursor: pointer; }
+.fnotiles { position: absolute; z-index: 400; inset: auto 18px 18px 18px; max-width: 360px; background: #fff; border-radius: 14px; padding: 12px 14px; font-size: 14px; color: #2a121a; }
+.leaflet-container { font-family: var(--body); }
+.spin { background: none; border: 0; }
+.pinb { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: radial-gradient(circle at 35% 30%, #fde4ea, #f1a9ba 70%); border: 2px solid #fff; box-shadow: 0 8px 14px -4px rgba(120,30,60,.55); transition: transform .35s var(--spring); }
+html[data-line="smoothies"] .pinb { background: radial-gradient(circle at 35% 30%, #fff4cf, #f0cf6e 70%); box-shadow: 0 8px 14px -4px rgba(120,80,10,.5); }
+.leaflet-container .leaflet-marker-pane .pinb img { width: 21px !important; height: auto !important; transform: rotate(45deg); }
+.spin:hover .pinb { transform: rotate(-45deg) scale(1.1); }
+.spin.sel { z-index: 1000 !important; } .spin.sel .pinb { transform: rotate(-45deg) scale(1.28); box-shadow: 0 0 0 8px rgba(241,169,186,.35), 0 10px 18px -4px rgba(120,30,60,.6); }
+.leaflet-tooltip.plbl { background: none; border: 0; box-shadow: none; padding: 0; font: 700 16px var(--body); color: #2a121a; text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 6px #fff; }
+.leaflet-tooltip.plbl::before { display: none; }
+#fmap.lowzoom .plbl { display: none; }
+.youdot { width: 18px; height: 18px; border-radius: 50%; background: #2f7bf6; border: 3px solid #fff; box-shadow: 0 0 0 8px rgba(47,123,246,.22); }
+.spop .leaflet-popup-content-wrapper { border-radius: 22px; padding: 0; box-shadow: 0 20px 40px -14px rgba(40,10,20,.45); border: 2px solid #f6d3dc; }
+.spop .leaflet-popup-content { margin: 0; width: 330px !important; }
+.spop .leaflet-popup-tip { border: 2px solid #f6d3dc; }
+.pc { display: grid; grid-template-columns: 100px 1fr; gap: 14px; padding: 14px; align-items: center; color: #2a121a; }
+.pc img { width: 100px; height: 140px; object-fit: cover; border-radius: 12px; background: #f6e6ea; }
+.pc h3 { font: 700 19px/1.15 var(--display); margin: 0 0 6px; }
+.pc .pa { font-size: 13.5px; color: #5f2f3d; line-height: 1.35; margin: 0 0 4px; }
+.pc .pv { font-size: 12.5px; color: #8a6470; margin: 0 0 10px; }
+.pc .dir { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; background: #c96b84; color: #fff !important; font-weight: 700; text-decoration: none; font-size: 15px; transition: transform .3s var(--spring); }
+.pc .dir:active { transform: scale(.95); }
+.spop a.leaflet-popup-close-button { top: 8px; right: 10px; font-size: 22px; color: #6f5560; }
+@media (max-width: 900px) {
+  .finder2 { grid-template-columns: 1fr; height: auto; }
+  .fmapwrap { order: -1; height: 440px; }
+  .fside { padding: 20px 14px 14px; }
+  .flist { max-height: 520px; }
+  .fctl { bottom: 84px; right: 12px; } .fctl.fme { bottom: 18px; }
+  .spop .leaflet-popup-content { width: 270px !important; } .pc { grid-template-columns: 76px 1fr; } .pc img { width: 76px; height: 108px; }
+}
+
 .host { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; background: var(--ink); color: var(--on-ink); border-radius: 28px; padding: clamp(24px, 4vw, 48px); }
 .host h2 { font-size: clamp(30px, 3.6vw, 44px); } .host p { opacity: .8; margin-top: 10px; }
 .host form { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -370,15 +429,27 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   <ul class="mach-facts"><li>Tap to pay</li><li>Served ice cold</li><li>Shakes and smoothies</li></ul></div>
   <img src="img/machine_photo.webp" alt="A student taps her phone to pay at a pink Swell vending machine stocked with protein shakes and smoothies" width="900" height="1164">
 </div></section>
-<section style="padding-top:10px"><div class="wrap finder">
-  <div class="mapcard">
-    <div class="maptools"><label class="sr" for="region">Region</label>
-      <select id="region"><option selected>Utah County, UT</option><option disabled>Salt Lake County (soon)</option><option disabled>Davis County (soon)</option></select>
-      <div class="filters" role="group" aria-label="Location type"><button type="button" class="press" aria-pressed="true" data-mfilter="all">All</button><button type="button" class="press" aria-pressed="false" data-mfilter="gym">Gyms</button><button type="button" class="press" aria-pressed="false" data-mfilter="school">Schools</button><button type="button" class="press" aria-pressed="false" data-mfilter="hotel">Hotels</button></div></div>
-    <svg class="map" viewBox="0 0 1000 901" role="img" aria-label="Map of Swell machines in Utah County"><path class="county" d="M420.2,110.6 L820.1,-93.5 L797.8,145.0 L868.5,257.6 L962.1,258.5 L1029.4,381.8 L1169.0,380.7 L1213.9,428.0 L1280.6,577.6 L1254.7,773.9 L1305.3,774.1 L1458.7,944.7 L1459.4,1015.2 L1697.7,1016.8 L1740.8,1017.2 L1740.1,1158.8 L1253.1,1157.5 L761.8,1157.9 L604.8,1161.8 L644.8,1090.9 L569.0,964.4 L425.7,1024.4 L347.5,1168.3 L223.3,1215.3 L245.8,1026.6 L87.8,832.7 L131.0,571.2 L88.1,471.6 L47.2,99.5 L96.0,86.9 L339.7,168.2 L398.1,141.6 L413.6,125.8 L420.2,110.6 Z"/><path class="lake" d="M719.7,468.7 L724.1,476.4 L725.2,487.0 L723.0,498.1 L718.4,507.3 L712.0,513.6 L694.5,516.9 L675.5,525.6 L658.6,521.8 L648.1,522.7 L641.5,531.9 L636.5,545.9 L629.2,556.5 L620.0,563.2 L608.8,564.2 L574.0,557.0 L554.3,558.9 L536.8,574.8 L525.2,588.8 L520.5,597.0 L505.7,644.2 L504.1,655.3 L504.8,664.0 L507.9,670.2 L511.1,674.1 L511.1,677.5 L505.0,688.6 L499.7,694.3 L494.0,699.2 L489.0,705.0 L486.2,714.6 L485.3,725.2 L483.5,733.9 L478.9,740.1 L469.3,745.5 L449.6,752.2 L444.5,752.2 L442.8,747.4 L447.4,710.7 L452.7,708.8 L463.1,702.5 L469.9,693.4 L464.5,682.3 L441.7,662.0 L435.8,652.4 L435.1,641.8 L437.1,630.7 L437.8,621.6 L436.2,614.3 L421.7,602.3 L414.1,591.2 L412.6,576.2 L421.1,558.4 L477.0,475.0 L500.2,418.1 L509.0,387.3 L510.1,368.9 L505.0,351.1 L475.4,287.9 L455.9,258.0 L453.7,251.3 L457.7,244.5 L467.8,236.4 L484.0,230.1 L506.5,228.6 L530.0,233.9 L589.3,255.2 L601.2,263.4 L611.2,274.9 L616.7,287.9 L619.4,321.7 L622.9,338.6 L630.7,351.1 L650.5,368.9 L656.2,378.1 L655.3,387.3 L647.0,404.1 L646.1,412.3 L649.2,422.0 L652.4,435.5 L652.7,450.9 L654.9,462.0 L663.2,462.5 L675.0,458.6 L685.1,458.1 L703.5,460.5 L712.3,463.4 L719.7,468.7 Z"/><text class="lbl" x="400" y="560">Utah Lake</text><path class="road" d="M431.3,32.8 L463.7,142.5 L487.5,210.3 L562.5,245.7 L637.5,278.4 L665.0,327.6 L685.0,384.9 L708.7,442.2 L735.0,507.7 L775.0,573.2 L756.3,646.9 L700.0,720.6 L631.2,802.5 L575.0,900.8"/><text class="city" x="473.0" y="214.3" text-anchor="end">Lehi</text><text class="city" x="589.8" y="218.4">American Fork</text><text class="city" x="661.4" y="239.3">Pleasant Grove</text><text class="city" x="716.3" y="349.4">Orem</text><text class="city" x="761.4" y="452.7">Provo</text><text class="city" x="821.1" y="565.1">Springville</text><text class="city" x="765.9" y="647.5">Spanish Fork</text><text class="city" x="669.4" y="762.9">Payson</text><text class="city" x="454.1" y="263.4">Saratoga Springs</text><text class="city" x="325.9" y="321.2">Eagle Mountain</text><text class="city" x="590.9" y="139.6">Highland</text><g class="pin gym" data-i="1" data-type="gym" transform="translate(499.0,210.3)" tabindex="0" role="button" aria-label="Gym in Lehi"><circle r="17"/><text>1</text></g><g class="pin school" data-i="2" data-type="school" transform="translate(519.0,190.6)" tabindex="0" role="button" aria-label="High school in Lehi"><circle r="17"/><text>2</text></g><g class="pin gym" data-i="3" data-type="gym" transform="translate(567.8,234.4)" tabindex="0" role="button" aria-label="Gym in American Fork"><circle r="17"/><text>3</text></g><g class="pin school" data-i="4" data-type="school" transform="translate(639.4,255.3)" tabindex="0" role="button" aria-label="High school in Pleasant Grove"><circle r="17"/><text>4</text></g><g class="pin gym" data-i="5" data-type="gym" transform="translate(694.3,365.4)" tabindex="0" role="button" aria-label="Gym in Orem"><circle r="17"/><text>5</text></g><g class="pin hotel" data-i="6" data-type="hotel" transform="translate(711.8,385.0)" tabindex="0" role="button" aria-label="Hotel in Orem"><circle r="17"/><text>6</text></g><g class="pin gym" data-i="7" data-type="gym" transform="translate(739.4,468.7)" tabindex="0" role="button" aria-label="Gym in Provo"><circle r="17"/><text>7</text></g><g class="pin hotel" data-i="8" data-type="hotel" transform="translate(719.4,449.1)" tabindex="0" role="button" aria-label="Hotel in Provo"><circle r="17"/><text>8</text></g><g class="pin school" data-i="9" data-type="school" transform="translate(734.4,494.9)" tabindex="0" role="button" aria-label="High school in Provo"><circle r="17"/><text>9</text></g><g class="pin gym" data-i="10" data-type="gym" transform="translate(799.1,581.1)" tabindex="0" role="button" aria-label="Gym in Springville"><circle r="17"/><text>10</text></g><g class="pin school" data-i="11" data-type="school" transform="translate(743.9,663.5)" tabindex="0" role="button" aria-label="High school in Spanish Fork"><circle r="17"/><text>11</text></g><g class="pin gym" data-i="12" data-type="gym" transform="translate(432.1,279.4)" tabindex="0" role="button" aria-label="Gym in Saratoga Springs"><circle r="17"/><text>12</text></g><g class="pin gym" data-i="13" data-type="gym" transform="translate(303.9,337.2)" tabindex="0" role="button" aria-label="Gym in Eagle Mountain"><circle r="17"/><text>13</text></g><g class="pin hotel" data-i="14" data-type="hotel" transform="translate(647.4,778.9)" tabindex="0" role="button" aria-label="Hotel in Payson"><circle r="17"/><text>14</text></g><g class="pin school" data-i="15" data-type="school" transform="translate(568.9,155.6)" tabindex="0" role="button" aria-label="High school in Highland"><circle r="17"/><text>15</text></g></svg>
-    <div class="legend"><span><i style="background:#ef8fa6"></i>Gym</span><span><i style="background:#f2c94c"></i>High school</span><span><i style="background:#8fd4a0"></i>Hotel</span></div>
+<section style="padding-top:10px" id="find"><div class="wrap">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<div class="finder2">
+  <aside class="fside">
+    <div class="fhead"><h2>Find a Swell</h2><p>Utah County · <span id="fcount">9</span> machines</p></div>
+    <div class="ffilters filters" role="group" aria-label="Location type"><button type="button" class="press" aria-pressed="true" data-mf="all">All</button><button type="button" class="press" aria-pressed="false" data-mf="gym">Gyms</button><button type="button" class="press" aria-pressed="false" data-mf="school">Schools</button><button type="button" class="press" aria-pressed="false" data-mf="hotel">Hotels</button><button type="button" class="press" aria-pressed="false" data-mf="shopping">Shopping</button></div>
+    <button type="button" class="btn sm alt flocate" id="flocate2"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="7.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>Sort by distance from me</button>
+    <div class="flist" id="flist"><button type="button" class="mloc" data-id="provo" data-type="shopping" data-q="provo 1200 towne centre blvd provo, ut 84601 shopping center"><img src="img/loc_provo.webp" alt="" width="92" height="96" loading="lazy"><span class="mt"><b>Provo</b><span class="dist" data-venue="Shopping center">Shopping center</span><span class="addr">1200 Towne Centre Blvd<br>Provo, UT 84601</span></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="mloc" data-id="orem" data-type="shopping" data-q="orem 575 e university pkwy orem, ut 84097 shopping center"><img src="img/loc_orem.webp" alt="" width="92" height="96" loading="lazy"><span class="mt"><b>Orem</b><span class="dist" data-venue="Shopping center">Shopping center</span><span class="addr">575 E University Pkwy<br>Orem, UT 84097</span></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="mloc" data-id="lehi" data-type="gym" data-q="lehi 1230 e main st lehi, ut 84043 gym"><img src="img/loc_lehi.webp" alt="" width="92" height="96" loading="lazy"><span class="mt"><b>Lehi</b><span class="dist" data-venue="Gym">Gym</span><span class="addr">1230 E Main St<br>Lehi, UT 84043</span></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="mloc" data-id="af" data-type="gym" data-q="american fork 51 e 100 n american fork, ut 84003 gym"><img src="img/loc_af.webp" alt="" width="92" height="96" loading="lazy"><span class="mt"><b>American Fork</b><span class="dist" data-venue="Gym">Gym</span><span class="addr">51 E 100 N<br>American Fork, UT 84003</span></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="mloc" data-id="pg" data-type="school" data-q="pleasant grove address coming soon pleasant grove, ut 84062 high school"><img src="img/loc_machine.webp" alt="" width="92" height="96" loading="lazy"><span class="mt"><b>Pleasant Grove</b><span class="dist" data-venue="High school">High school</span><span class="addr">Address coming soon<br>Pleasant Grove, UT 84062</span></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="mloc" data-id="em" data-type="gym" data-q="eagle mountain address coming soon eagle mountain, ut 84005 gym"><img src="img/loc_machine.webp" alt="" width="92" height="96" loading="lazy"><span class="mt"><b>Eagle Mountain</b><span class="dist" data-venue="Gym">Gym</span><span class="addr">Address coming soon<br>Eagle Mountain, UT 84005</span></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="mloc" data-id="ss" data-type="gym" data-q="saratoga springs address coming soon saratoga springs, ut 84045 gym"><img src="img/loc_machine.webp" alt="" width="92" height="96" loading="lazy"><span class="mt"><b>Saratoga Springs</b><span class="dist" data-venue="Gym">Gym</span><span class="addr">Address coming soon<br>Saratoga Springs, UT 84045</span></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="mloc" data-id="sv" data-type="school" data-q="springville address coming soon springville, ut 84663 high school"><img src="img/loc_machine.webp" alt="" width="92" height="96" loading="lazy"><span class="mt"><b>Springville</b><span class="dist" data-venue="High school">High school</span><span class="addr">Address coming soon<br>Springville, UT 84663</span></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button type="button" class="mloc" data-id="sf" data-type="hotel" data-q="spanish fork address coming soon spanish fork, ut 84660 hotel"><img src="img/loc_machine.webp" alt="" width="92" height="96" loading="lazy"><span class="mt"><b>Spanish Fork</b><span class="dist" data-venue="Hotel">Hotel</span><span class="addr">Address coming soon<br>Spanish Fork, UT 84660</span></span><svg class="chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+    <p class="small fnote">Sample locations for layout. Replace with live machine data before launch.</p>
+  </aside>
+  <div class="fmapwrap">
+    <div id="fmap" role="region" aria-label="Map of Swell vending machines in Utah County"></div>
+    <form class="fsearch" id="fsearch" role="search"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M15.5 15.5 21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <label class="sr" for="fq">Search by city, address or ZIP</label><input id="fq" type="search" placeholder="Search city, address or ZIP" autocomplete="off"><button type="button" id="fclear" aria-label="Clear search">×</button></form>
+    <div class="fctl"><button type="button" id="fzin" aria-label="Zoom in">+</button><button type="button" id="fzout" aria-label="Zoom out">−</button></div>
+    <button type="button" class="fctl fme" id="flocate" aria-label="Show my location"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="3.5" fill="currentColor"/><circle cx="12" cy="12" r="7.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1.5v3.5M12 19v3.5M1.5 12H5M19 12h3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <p class="fnotiles" hidden>The map couldn't load here. The list still works, and Directions opens Google Maps.</p>
   </div>
-  <div><div class="loclist"><button type="button" class="loc" data-i="1" data-type="gym"><span class="n" style="background:#ef8fa6">1</span><span><b>Gym · Lehi</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="2" data-type="school"><span class="n" style="background:#f2c94c">2</span><span><b>High school · Lehi</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="3" data-type="gym"><span class="n" style="background:#ef8fa6">3</span><span><b>Gym · American Fork</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="4" data-type="school"><span class="n" style="background:#f2c94c">4</span><span><b>High school · Pleasant Grove</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="5" data-type="gym"><span class="n" style="background:#ef8fa6">5</span><span><b>Gym · Orem</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="6" data-type="hotel"><span class="n" style="background:#8fd4a0">6</span><span><b>Hotel · Orem</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="7" data-type="gym"><span class="n" style="background:#ef8fa6">7</span><span><b>Gym · Provo</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="8" data-type="hotel"><span class="n" style="background:#8fd4a0">8</span><span><b>Hotel · Provo</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="9" data-type="school"><span class="n" style="background:#f2c94c">9</span><span><b>High school · Provo</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="10" data-type="gym"><span class="n" style="background:#ef8fa6">10</span><span><b>Gym · Springville</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="11" data-type="school"><span class="n" style="background:#f2c94c">11</span><span><b>High school · Spanish Fork</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="12" data-type="gym"><span class="n" style="background:#ef8fa6">12</span><span><b>Gym · Saratoga Springs</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="13" data-type="gym"><span class="n" style="background:#ef8fa6">13</span><span><b>Gym · Eagle Mountain</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="14" data-type="hotel"><span class="n" style="background:#8fd4a0">14</span><span><b>Hotel · Payson</b><span>Shakes and smoothies</span></span></button><button type="button" class="loc" data-i="15" data-type="school"><span class="n" style="background:#f2c94c">15</span><span><b>High school · Highland</b><span>Shakes and smoothies</span></span></button></div><p class="small" style="margin-top:10px">Sample locations for layout. Replace with live machine data before launch.</p></div>
+</div>
+<script type="application/json" id="mdata">[{"id": "provo", "city": "Provo", "type": "shopping", "address": "1200 Towne Centre Blvd", "csz": "Provo, UT 84601", "lat": 40.2173, "lng": -111.6646, "photo": "img/loc_provo.webp", "venue": "Shopping center"}, {"id": "orem", "city": "Orem", "type": "shopping", "address": "575 E University Pkwy", "csz": "Orem, UT 84097", "lat": 40.2767, "lng": -111.6829, "photo": "img/loc_orem.webp", "venue": "Shopping center"}, {"id": "lehi", "city": "Lehi", "type": "gym", "address": "1230 E Main St", "csz": "Lehi, UT 84043", "lat": 40.3887, "lng": -111.8279, "photo": "img/loc_lehi.webp", "venue": "Gym"}, {"id": "af", "city": "American Fork", "type": "gym", "address": "51 E 100 N", "csz": "American Fork, UT 84003", "lat": 40.3786, "lng": -111.7946, "photo": "img/loc_af.webp", "venue": "Gym"}, {"id": "pg", "city": "Pleasant Grove", "type": "school", "address": "Address coming soon", "csz": "Pleasant Grove, UT 84062", "lat": 40.364, "lng": -111.738, "photo": "img/loc_machine.webp", "venue": "High school"}, {"id": "em", "city": "Eagle Mountain", "type": "gym", "address": "Address coming soon", "csz": "Eagle Mountain, UT 84005", "lat": 40.3141, "lng": -112.0069, "photo": "img/loc_machine.webp", "venue": "Gym"}, {"id": "ss", "city": "Saratoga Springs", "type": "gym", "address": "Address coming soon", "csz": "Saratoga Springs, UT 84045", "lat": 40.3492, "lng": -111.9047, "photo": "img/loc_machine.webp", "venue": "Gym"}, {"id": "sv", "city": "Springville", "type": "school", "address": "Address coming soon", "csz": "Springville, UT 84663", "lat": 40.1652, "lng": -111.6107, "photo": "img/loc_machine.webp", "venue": "High school"}, {"id": "sf", "city": "Spanish Fork", "type": "hotel", "address": "Address coming soon", "csz": "Spanish Fork, UT 84660", "lat": 40.115, "lng": -111.655, "photo": "img/loc_machine.webp", "venue": "Hotel"}]</script>
+<script src="vendor/leaflet.js"></script>
 </div></section>
 <section id="host" style="padding-top:0"><div class="wrap"><div class="host">
   <div><h2>Want a Swell machine at your gym or school?</h2><p>We install, stock and service it. You get a cold protein option your members actually buy.</p></div>
@@ -562,6 +633,95 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     document.querySelectorAll("[data-mfilter]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
     document.querySelectorAll(".pin, .loc").forEach(function (el) { el.classList.toggle("off", !(b.dataset.mfilter === "all" || el.dataset.type === b.dataset.mfilter)); });
   }); });
+
+
+  // ---------- machine finder (Leaflet) ----------
+  var fmapEl = $("fmap"), mdataEl = $("mdata");
+  if (fmapEl && mdataEl) (function () {
+    var M = JSON.parse(mdataEl.textContent), P = root.dataset.prefix || "";
+    var cards = {}; document.querySelectorAll(".mloc").forEach(function (c) { cards[c.dataset.id] = c; });
+    var you = null, markers = {}, map = null, current = null, filter = "all";
+    function miles(a, b) { var R = 3958.8, r = Math.PI / 180, dl = (b.lat - a.lat) * r, dg = (b.lng - a.lng) * r;
+      var h = Math.sin(dl / 2) * Math.sin(dl / 2) + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(dg / 2) * Math.sin(dg / 2); return 2 * R * Math.asin(Math.sqrt(h)); }
+    function dirUrl(m) { return "https://www.google.com/maps/dir/?api=1&destination=" + m.lat + "," + m.lng; }
+    function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+    function popupHtml(m) {
+      var d = you ? '<p class="pv">' + miles(you, m).toFixed(1) + " mi away · " + esc(m.venue) + "</p>" : '<p class="pv">' + esc(m.venue) + " · Shakes and smoothies</p>";
+      return '<div class="pc"><img src="' + m.photo + '" alt=""><div><h3>Swell Vending — ' + esc(m.city) + '</h3><p class="pa">' + esc(m.address) + "<br>" + esc(m.csz) + "</p>" + d +
+        '<a class="dir" href="' + dirUrl(m) + '" target="_blank" rel="noopener">Directions <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></a></div></div>';
+    }
+    function select(id, fly) {
+      var m = M.filter(function (x) { return x.id === id; })[0]; if (!m) return; current = id;
+      Object.keys(cards).forEach(function (k) { cards[k].classList.toggle("sel", k === id); });
+      if (map) {
+        Object.keys(markers).forEach(function (k) { var el = markers[k].getElement(); if (el) el.classList.toggle("sel", k === id); });
+        if (fly !== false) map.flyTo([m.lat, m.lng], Math.max(map.getZoom(), 13), { duration: .6 });
+        markers[id].openPopup();
+      }
+    }
+    function applyFilter() {
+      var q = ($("fq").value || "").trim().toLowerCase(), n = 0;
+      M.forEach(function (m) {
+        var c = cards[m.id], ok = (filter === "all" || m.type === filter) && (!q || c.dataset.q.indexOf(q) > -1);
+        c.hidden = !ok; if (ok) n++;
+        if (map) { if (ok && !map.hasLayer(markers[m.id])) markers[m.id].addTo(map); if (!ok && map.hasLayer(markers[m.id])) map.removeLayer(markers[m.id]); }
+      });
+      $("fcount").textContent = n;
+      return n;
+    }
+    function sortByDistance() {
+      var list = $("flist");
+      M.slice().sort(function (a, b) { return miles(you, a) - miles(you, b); }).forEach(function (m) {
+        var c = cards[m.id]; c.querySelector(".dist").textContent = miles(you, m).toFixed(1) + " mi · " + m.venue; list.appendChild(c);
+      });
+      if (map) markers && Object.keys(markers).forEach(function (k) { var m = M.filter(function (x) { return x.id === k; })[0]; markers[k].setPopupContent(popupHtml(m)); });
+    }
+    function locate() {
+      if (!navigator.geolocation) { toast("Location isn't available in this browser"); return; }
+      toast("Finding machines near you…");
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        you = { lat: pos.coords.latitude, lng: pos.coords.longitude }; sortByDistance();
+        var near = M.slice().sort(function (a, b) { return miles(you, a) - miles(you, b); })[0];
+        if (map) {
+          if (!locate.dot) locate.dot = L.marker([you.lat, you.lng], { icon: L.divIcon({ className: "", html: '<div class="youdot"></div>', iconSize: [18, 18] }), interactive: false }).addTo(map);
+          else locate.dot.setLatLng([you.lat, you.lng]);
+          map.fitBounds(L.latLngBounds([[you.lat, you.lng], [near.lat, near.lng]]).pad(.5), { maxZoom: 13 });
+        }
+        select(near.id, false); toast("Closest machine: " + near.city + ", " + miles(you, near).toFixed(1) + " mi");
+      }, function () { toast("Couldn't get your location. Search by city instead."); }, { enableHighAccuracy: false, timeout: 9000, maximumAge: 300000 });
+    }
+    if (window.L) {
+      map = L.map(fmapEl, { zoomControl: false, scrollWheelZoom: false, attributionControl: true, zoomSnap: .25 });
+      var fitAll = function () { map.fitBounds(L.latLngBounds(M.map(function (m) { return [m.lat, m.lng]; })), { paddingTopLeft: [30, 96], paddingBottomRight: [96, 24] }); };
+      fitAll();
+      var lz = function () { fmapEl.classList.toggle("lowzoom", map.getZoom() < 10.75 && fmapEl.offsetWidth < 600); }; map.on("zoomend", lz); lz();
+      var loaded = false, tl = L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        subdomains: "abcd", maxZoom: 19, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>' }).addTo(map);
+      tl.on("tileload", function () { loaded = true; });
+      setTimeout(function () { if (!loaded) document.querySelector(".fnotiles").hidden = false; }, 6000);
+      map.on("click focus", function () { map.scrollWheelZoom.enable(); });
+      M.forEach(function (m) {
+        var mk = L.marker([m.lat, m.lng], { title: "Swell machine in " + m.city, riseOnHover: true, keyboard: true,
+          icon: L.divIcon({ className: "spin", html: '<span class="pinb"><img src="' + P + 'img/s_mark.png" alt=""></span>', iconSize: [46, 58], iconAnchor: [23, 56], popupAnchor: [0, -54], tooltipAnchor: [22, -26] }) });
+        mk.bindTooltip(m.city, { permanent: true, direction: "right", className: "plbl", interactive: false });
+        mk.bindPopup(popupHtml(m), { className: "spop", maxWidth: 340, autoPanPadding: [30, 30] });
+        mk.on("click", function () { select(m.id, false); });
+        mk.addTo(map); markers[m.id] = mk;
+      });
+      map.on("popupclose", function () { Object.keys(markers).forEach(function (k) { var el = markers[k].getElement(); if (el) el.classList.remove("sel"); }); Object.keys(cards).forEach(function (k) { cards[k].classList.remove("sel"); }); });
+      $("fzin").addEventListener("click", function () { map.zoomIn(); });
+      $("fzout").addEventListener("click", function () { map.zoomOut(); });
+    } else { document.querySelector(".fnotiles").hidden = false; }
+    Object.keys(cards).forEach(function (k) { cards[k].addEventListener("click", function () {
+      select(k); if (window.matchMedia("(max-width: 900px)").matches) fmapEl.scrollIntoView({ behavior: "smooth", block: "center" }); }); });
+    document.querySelectorAll("[data-mf]").forEach(function (b) { b.addEventListener("click", function () {
+      document.querySelectorAll("[data-mf]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); }); filter = b.dataset.mf; applyFilter(); }); });
+    $("fq").addEventListener("input", applyFilter);
+    $("fclear").addEventListener("click", function () { $("fq").value = ""; applyFilter(); $("fq").focus(); });
+    $("fsearch").addEventListener("submit", function (e) { e.preventDefault(); if (!applyFilter()) { toast("No machines match that yet"); return; }
+      var first = M.filter(function (m) { return !cards[m.id].hidden; })[0]; select(first.id); });
+    $("flocate").addEventListener("click", locate); $("flocate2").addEventListener("click", locate);
+  })();
 
   var h = (location.hash || "").replace("#", "");
   var startLine = h === "smoothies" ? "smoothies" : h === "shakes" ? "shakes" : (store("swell-line") || "shakes");
