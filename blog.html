@@ -120,9 +120,9 @@ header.top .wrap { display: flex; align-items: center; gap: 20px; height: 66px; 
 .menu-open .drawer { transform: none; }
 .drawer .x { align-self: flex-start; width: 44px; height: 44px; border-radius: 12px; border: 0; background: var(--surface); font-size: 24px; line-height: 1; cursor: pointer; }
 .drawer nav { display: grid; gap: 2px; }
-.drawer nav a { display: flex; justify-content: space-between; align-items: center; text-decoration: none; font: 700 26px/1.15 var(--display); padding: 12px 4px; border-bottom: 1px solid var(--line);
+.drawer nav a { display: flex; justify-content: space-between; align-items: center; text-decoration: none; font: 700 20px/1.15 var(--display); padding: 10px 4px; border-bottom: 1px solid var(--line);
   opacity: 0; transform: translateX(-14px); transition: opacity .3s, transform .45s var(--spring); }
-.drawer nav a span { font: 500 14px var(--body); color: var(--muted); }
+.drawer nav a span { font: 500 12.5px var(--body); color: var(--muted); }
 .drawer nav a[aria-current="page"] { color: var(--em); }
 .menu-open .drawer nav a { opacity: 1; transform: none; }
 .menu-open .drawer nav a:nth-child(2) { transition-delay: .03s; } .menu-open .drawer nav a:nth-child(3) { transition-delay: .06s; }
@@ -505,7 +505,8 @@ html[data-line="smoothies"] .icgrid { grid-template-columns: repeat(2, minmax(0,
 .steps3 b { font-size: 17px; } .steps3 span { color: var(--muted); font-size: 14.5px; } .steps3 span b { color: var(--fg); font-size: inherit; }
 @media (max-width: 860px) { .btop { grid-template-columns: 1fr; } }
 .feedh { display: flex; justify-content: space-between; align-items: end; gap: 12px; flex-wrap: wrap; }
-.feed { columns: 3 300px; column-gap: 16px; }
+.feed { columns: 4 220px; column-gap: 14px; }
+@media (max-width: 560px) { .feed { columns: 2; column-gap: 10px; } .feed .post { margin-bottom: 10px; border-radius: 16px; } .feed .ph-h { padding: 8px 10px; gap: 7px; } .feed .av { width: 26px; height: 26px; } .feed .pwho b { font-size: 12px; } .feed .pwho small { display: none; } .feed .sample { font-size: 8.5px; padding: 4px 5px; } .feed .pcap { font-size: 12.5px; padding: 2px 10px 12px; } .feed .pact { padding: 4px 4px 0; } .feed .pact button { width: 36px; height: 36px; } }
 .post { break-inside: avoid; margin: 0 0 16px; background: #fffafb; border-radius: 20px; overflow: hidden; color: #2a121a; box-shadow: 0 10px 30px -22px rgba(40,10,20,.5); animation: rise .5s var(--spring) both; }
 html[data-line="smoothies"] .post { background: #fffdf3; }
 .post[hidden] { display: none; }
