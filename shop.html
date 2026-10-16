@@ -14,10 +14,10 @@
 <title>Build a Box | Swell</title>
 <meta name="description" content="Build a 12- or 24-bottle box of Swell protein shakes and smoothies. Mix any flavors, choose 30g or 50g, pay when it ships.">
 <link rel="canonical" href="https://pdrayday.github.io/swell/shop.html">
-<meta name="theme-color" content="#e7a6b6">
+<meta name="theme-color" content="#2a121a">
 <meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Swell"><meta property="og:title" content="Build a Box | Swell"><meta property="og:description" content="Build a 12- or 24-bottle box of Swell protein shakes and smoothies. Mix any flavors, choose 30g or 50g, pay when it ships."><meta property="og:url" content="https://pdrayday.github.io/swell/shop.html"><meta property="og:image" content="https://pdrayday.github.io/swell/img/splash_cc.webp">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,600..700&family=Instrument+Sans:wght@400;500;600;700&display=swap"><script>try{var l=localStorage.getItem('swell-line');if(l){l=JSON.parse(l);document.documentElement.dataset.line=l;if(l==='smoothies')document.querySelector('meta[name=theme-color]').content='#f0d47e';}}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,600..700&family=Instrument+Sans:wght@400;500;600;700&display=swap"><script>try{var l=localStorage.getItem('swell-line');if(l){l=JSON.parse(l);document.documentElement.dataset.line=l;if(l==='smoothies')document.querySelector('meta[name=theme-color]').content='#2a1f0e';}}catch(e){}</script>
 </head>
 <body>
 <style>
@@ -831,7 +831,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   function fit() { if (lineWrap) lineWrap.style.height = panels[root.dataset.line].offsetHeight + "px"; }
   function setLine(line, save) {
     root.dataset.line = line;
-    var tc = document.querySelector("meta[name=theme-color]"); if (tc) tc.content = line === "smoothies" ? "#f0d47e" : "#e7a6b6";
+    var tc = document.querySelector("meta[name=theme-color]"); if (tc) tc.content = line === "smoothies" ? "#2a1f0e" : "#2a121a";
     document.querySelectorAll("[data-go]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.go === line)); });
     if (panels) Object.keys(panels).forEach(function (k) { if (k === line) panels[k].removeAttribute("inert"); else panels[k].setAttribute("inert", ""); });
     btab(line); fit(); if (save) store("swell-line", line);
