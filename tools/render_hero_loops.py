@@ -16,7 +16,7 @@ from PIL import Image, ImageDraw, ImageFilter
 
 WIDTH, HEIGHT = 720, 1280
 FPS = 30
-DURATION = 12.0
+DURATION = 18.0
 FRAMES = int(FPS * DURATION)
 
 SCENES = {
@@ -84,22 +84,61 @@ def paste_with_shadow(canvas: Image.Image, im: Image.Image, xy: tuple[int, int],
     canvas.alpha_composite(im, (x, y))
 
 
+def opacity(im: Image.Image, amount: float) -> Image.Image:
+    if amount >= 0.999:
+        return im
+    out = im.copy()
+    a = np.asarray(out.getchannel("A"), dtype=np.float32)
+    out.putalpha(Image.fromarray(np.clip(a * amount, 0, 255).astype(np.uint8), "L"))
+    return out
+
+
+def flavor_field(root: Path, flavor: str) -> Image.Image:
+    """Turn the splash render into a wide flavor environment without its bottle."""
+    art = trim_alpha(Image.open(root / "img" / f"splash_{flavor}.webp"))
+
+    # Remove the center product render so both products use matching clean cutouts.
+    # The feathered mask preserves the cream, fruit, cookie, and spice details that
+    # naturally extend beyond the bottle silhouette.
+    alpha = art.getchannel("A").point(lambda a: a if a >= 42 else 0)
+    keep = Image.new("L", art.size, 255)
+    kd = ImageDraw.Draw(keep)
+    kd.rounded_rectangle(
+        (round(art.width * .17), -round(art.height * .03), round(art.width * .83), round(art.height * .90)),
+        radius=round(art.width * .21),
+        fill=0,
+    )
+    keep = keep.filter(ImageFilter.GaussianBlur(max(3, round(art.width * .014))))
+    alpha_arr = np.asarray(alpha, dtype=np.float32)
+    keep_arr = np.asarray(keep, dtype=np.float32)
+    art.putalpha(Image.fromarray(np.clip(alpha_arr * keep_arr / 255, 0, 255).astype(np.uint8), "L"))
+    art = trim_alpha(art)
+    art = fit_height(art, 930)
+
+    field = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
+    left = opacity(art, .90)
+    right = opacity(art.transpose(Image.Transpose.FLIP_LEFT_RIGHT), .82)
+    field.alpha_composite(left, (-100, 150))
+    field.alpha_composite(right, (WIDTH - right.width + 100, 115))
+    return field
+
+
 def make_pair(root: Path, line: str, flavor: str) -> Image.Image:
-    splash = trim_alpha(Image.open(root / "img" / f"splash_{flavor}.webp"))
+    swell = trim_alpha(Image.open(root / "img" / f"b_{flavor}.webp"))
     swoll = trim_alpha(Image.open(root / "img" / "swoll" / f"{flavor}.png"))
 
-    swell_h = 760 if line == "shakes" else 750
     swoll_h = 820
-    splash = fit_height(splash, swell_h)
+    swell_h = round(swoll_h * .75)
+    swell = fit_height(swell, swell_h)
     swoll = fit_height(swoll, swoll_h)
 
-    layer = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
+    layer = flavor_field(root, flavor)
     # Keep both silhouettes fully inside the site's 4:5 hero crop.
-    floor_y = 1060
-    swoll_x = 252
-    swell_x = -4
+    floor_y = 1050
+    swoll_x = 254
+    swell_x = 34
     paste_with_shadow(layer, swoll, (swoll_x, floor_y - swoll.height), 88)
-    paste_with_shadow(layer, splash, (swell_x, floor_y - splash.height), 105)
+    paste_with_shadow(layer, swell, (swell_x, floor_y - swell.height), 105)
 
     # Grounding shadow shared by both bottles.
     ground = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
@@ -108,15 +147,6 @@ def make_pair(root: Path, line: str, flavor: str) -> Image.Image:
     ground = ground.filter(ImageFilter.GaussianBlur(24))
     layer = Image.alpha_composite(ground, layer)
     return layer
-
-
-def opacity(im: Image.Image, amount: float) -> Image.Image:
-    if amount >= 0.999:
-        return im
-    out = im.copy()
-    a = np.asarray(out.getchannel("A"), dtype=np.float32)
-    out.putalpha(Image.fromarray(np.clip(a * amount, 0, 255).astype(np.uint8), "L"))
-    return out
 
 
 def particles(line: str, theta: float, foreground: bool = False) -> Image.Image:
@@ -153,7 +183,7 @@ def frame_for(line: str, pairs: list[Image.Image], index: int, background: Image
     frac = phase - math.floor(phase)
 
     # Hold long enough to read the bottle, then ease into the next flavor.
-    hold = 0.55
+    hold = 0.65
     if frac <= hold:
         nxt_w = 0.0
     else:
