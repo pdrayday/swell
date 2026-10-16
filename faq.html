@@ -486,6 +486,14 @@ html[data-line="smoothies"] .icgrid { grid-template-columns: repeat(2, minmax(0,
 .icdiy h2 { font-size: clamp(32px, 4vw, 52px); } .icdiy .lead { margin-top: 12px; }
 @media (max-width: 860px) { .icwhy, .icdiy { grid-template-columns: 1fr; } .icwhy-img img { max-height: 420px; } }
 
+/* ---------- shelf Swell/Swoll toggle ---------- */
+.bottle-view { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: -2px 0 16px; padding: 10px 12px 10px 16px; border-radius: 16px; background: color-mix(in srgb, var(--surface) 78%, white); }
+.bottle-view p { color: var(--muted); font-size: 14px; } .bottle-view p b { color: var(--fg); }
+.bottle-view .segline { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--bg); flex: none; }
+.bottle-view button { border: 0; background: transparent; color: var(--muted); padding: 9px 13px; border-radius: 999px; font: 700 13px/1 var(--body); cursor: pointer; }
+.bottle-view button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+.bottle-view button.w[aria-pressed="true"] { background: #2f5aa8; color: #fff; }
+@media (max-width: 760px) { .bottle-view { align-items: flex-start; flex-direction: column; } }
 /* ---------- drink sheet + nutrition facts ---------- */
 .fl .pic { border: 0; background: none; padding: 0; cursor: pointer; width: 100%; }
 .nlink { border: 0; background: none; padding: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; }
@@ -727,11 +735,13 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     var nw = 0; for (var kk in box.items) if (isW(kk)) nw += box.items[kk]; var ns = n - nw;
     document.querySelectorAll(".boxcount").forEach(function (c) { c.hidden = !n; c.textContent = n; });
     if ($("mb-s")) { $("mb-s").textContent = n ? n + " of " + s + " in your box" : "Mix any 12 or 24"; $("mb-t").textContent = n ? "Your box" : "Build a box"; }
+    document.querySelectorAll("button[data-protein]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.protein === box.protein)); });
+    document.querySelectorAll(".fl[id^='flavor-'] .pic img").forEach(function (im) { var id = im.closest(".fl").id.slice(7), w = P + "img/" + (box.protein === 50 ? "sw_" : "b_") + id + ".webp"; if (im.getAttribute("src") !== w) im.setAttribute("src", w); });
     document.querySelectorAll("[data-add]").forEach(function (b) { var q = count(b.dataset.add); b.classList.toggle("in", q > 0);
       if (!b.dataset.busy) b.innerHTML = q ? CHECK + " " + q + " in box" : (b.dataset.label || "Add to box"); });
     if (!$("box-form")) { store("swell-box", box); return; }
     document.querySelectorAll("[data-size]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.size === s)); });
-    document.querySelectorAll("[data-protein]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.protein === box.protein)); });
+    document.querySelectorAll("button[data-protein]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.protein === box.protein)); });
     $("box-title").textContent = s + " bottles" + (n ? " · " + (ns ? ns + " Swell" : "") + (ns && nw ? " + " : "") + (nw ? nw + " Swoll" : "") : "");
     $("box-count").textContent = n + " of " + s; $("box-save").textContent = save; $("box-bar").style.width = pct + "%";
     var sub = $("box-submit"), left = s - n;
@@ -769,7 +779,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   document.querySelectorAll("[data-add]").forEach(function (b) {
     b.dataset.label = b.innerHTML;
     b.addEventListener("click", function () {
-      if (add(b.dataset.add, 1, b)) { b.dataset.busy = 1; b.innerHTML = CHECK + " Added"; setTimeout(function () { delete b.dataset.busy; render(); }, 900); }
+      if (add(keyFor(b.dataset.add), 1, b)) { b.dataset.busy = 1; b.innerHTML = CHECK + " Added"; setTimeout(function () { delete b.dataset.busy; render(); }, 900); }
     });
   });
   document.querySelectorAll("[data-inc]").forEach(function (b) { b.addEventListener("click", function () { add(keyFor(b.dataset.inc), 1, b); }); });
