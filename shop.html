@@ -705,15 +705,16 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     $("box-count").textContent = n + " of " + s; $("box-save").textContent = save; $("box-bar").style.width = pct + "%";
     var sub = $("box-submit"), left = s - n;
     if (!sub.classList.contains("done")) { sub.disabled = left > 0; sub.textContent = left > 0 ? "Add " + left + " more to reserve" : "Reserve my box"; }
+    var productImg = function (k) { return P + (box.protein === 50 ? "img/swoll/" + k + ".png" : "img/b_" + k + ".webp"); };
     var list = []; Object.keys(box.items).forEach(function (k) { for (var i = 0; i < box.items[k]; i++) list.push(k); });
     var slots = $("slots"), prev = slots.querySelectorAll("i.f").length, h = "";
     for (var i = 0; i < s; i++) h += list[i]
-      ? '<i class="f"><span class="b"><img src="' + P + 'img/b_' + list[i] + '.webp" alt="' + NAMES[list[i]] + '"' + (i < prev ? ' style="animation:none"' : "") + '></span><small>' + NAMES[list[i]] + "</small></i>"
+      ? '<i class="f"><span class="b"><img src="' + productImg(list[i]) + '" alt="' + NAMES[list[i]] + '"' + (i < prev ? ' style="animation:none"' : "") + '></span><small>' + NAMES[list[i]] + "</small></i>"
       : '<i><span class="b"></span><small></small></i>';
     slots.innerHTML = h; slots.classList.toggle("s24", s === 24); slots.style.gridTemplateColumns = "";
     $("packtxt").textContent = s + " bottles · " + (box.protein === 50 ? "Swoll · 50g protein" : "14 fl oz · 30g protein");
-    $("tally").innerHTML = s !== 24 ? "" : Object.keys(box.items).map(function (k) { return '<span><img src="' + P + 'img/b_' + k + '.webp" alt="">' + NAMES[k] + " × " + box.items[k] + "</span>"; }).join("");
-    document.querySelectorAll(".pk").forEach(function (r) { var q = box.items[r.dataset.id] || 0; r.classList.toggle("on", q > 0); $("q-" + r.dataset.id).textContent = q; });
+    $("tally").innerHTML = s !== 24 ? "" : Object.keys(box.items).map(function (k) { return '<span><img src="' + productImg(k) + '" alt="">' + NAMES[k] + " × " + box.items[k] + "</span>"; }).join("");
+    document.querySelectorAll(".pk").forEach(function (r) { var q = box.items[r.dataset.id] || 0, im = r.querySelector("img"); r.classList.toggle("on", q > 0); if (im) im.src = productImg(r.dataset.id); $("q-" + r.dataset.id).textContent = q; });
     store("swell-box", box);
   }
   function add(k, n, src) {

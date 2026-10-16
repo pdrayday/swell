@@ -187,6 +187,56 @@ html[data-line="smoothies"] .lines-track { transform: translateX(-50%); }
 .add:active { transform: scale(.92); transition-duration: .08s; }
 .add.in { background: var(--em); color: #fff; }
 
+/* product gallery: Swell 30g / Swoll 50g + detail dialog */
+.bottle-view { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: -2px 0 16px; padding: 10px 12px 10px 16px; border-radius: 16px; background: color-mix(in srgb, var(--surface) 78%, white); }
+.bottle-view p { color: var(--muted); font-size: 14px; }
+.bottle-view p b { color: var(--fg); }
+.bottle-view .segline { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--bg); }
+.bottle-view button { border: 0; background: transparent; color: var(--muted); padding: 9px 13px; border-radius: 999px; font: 700 13px/1 var(--body); cursor: pointer; }
+.bottle-view button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+.fl .pic { position: relative; cursor: zoom-in; border-radius: 14px; }
+.fl .pic:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 3px; }
+.zoom-bottle { position: absolute; right: 6px; bottom: 2px; display: inline-flex; align-items: center; gap: 5px; border: 0; border-radius: 999px; padding: 7px 9px; background: color-mix(in srgb, var(--stage) 90%, transparent); color: var(--fg); box-shadow: 0 5px 18px rgba(40,10,20,.12); font: 700 11px/1 var(--body); cursor: zoom-in; backdrop-filter: blur(8px); }
+.zoom-bottle svg { width: 14px; height: 14px; }
+html[data-bottle-line="swoll"] .fl .pic img { height: 190px; }
+
+.product-dialog { width: min(1040px, calc(100vw - 24px)); max-height: min(900px, calc(100dvh - 24px)); padding: 0; border: 0; border-radius: 26px; background: #f8f5f2; color: #171316; box-shadow: 0 30px 90px rgba(30,10,20,.35); overflow: hidden; }
+.product-dialog::backdrop { background: rgba(25,12,18,.64); backdrop-filter: blur(7px); }
+.pd-close { position: absolute; z-index: 3; right: 14px; top: 14px; width: 42px; height: 42px; border: 0; border-radius: 50%; background: rgba(255,255,255,.9); color: #171316; font-size: 24px; line-height: 1; cursor: pointer; box-shadow: 0 8px 24px rgba(20,10,15,.15); }
+.pd-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr); min-height: 650px; }
+.pd-product { position: relative; display: grid; grid-template-rows: auto 1fr auto; min-width: 0; padding: 34px clamp(22px,4vw,46px) 26px; background: radial-gradient(ellipse 90% 75% at 50% 35%, #fff 0%, #ece8e4 78%); }
+.pd-kicker { font: 700 12px/1 var(--body); letter-spacing: .15em; text-transform: uppercase; color: #5f5960; }
+.pd-bottle { display: grid; place-items: center; min-height: 0; padding: 18px 0 10px; }
+.pd-bottle img { max-height: 560px; width: auto; filter: drop-shadow(0 24px 22px rgba(25,15,20,.2)); }
+.pd-name { display: grid; gap: 6px; text-align: center; }
+.pd-name h2 { font-size: clamp(30px,4vw,48px); }
+.pd-name p { color: #5f5960; font-size: 15px; }
+.pd-side { padding: 66px clamp(22px,4vw,42px) 34px; overflow-y: auto; background: #fff; }
+.pd-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px; }
+.pd-switch button { padding: 12px 10px; border: 1.5px solid #d8d2ce; border-radius: 12px; background: #fff; color: #5f5960; font: 700 14px/1 var(--body); cursor: pointer; }
+.pd-switch button[aria-pressed="true"] { background: #171316; border-color: #171316; color: #fff; }
+.nf-label { border: 3px solid #111; padding: 7px 8px 9px; background: #fff; color: #050505; font: 600 13px/1.1 Arial, Helvetica, sans-serif; }
+.nf-label h3 { font: 900 36px/.9 Arial, Helvetica, sans-serif; letter-spacing: -1.8px; }
+.nf-rule { border-top: 1px solid #111; margin-top: 4px; padding-top: 3px; }
+.nf-rule.thick { border-top-width: 8px; }
+.nf-row { display: flex; justify-content: space-between; gap: 14px; padding: 3px 0; border-top: 1px solid #777; }
+.nf-row.first { border-top: 0; }
+.nf-row.cal { align-items: end; border-top: 5px solid #111; margin-top: 4px; padding: 5px 0 3px; }
+.nf-row.cal b:first-child { font-size: 20px; }
+.nf-row.cal b:last-child { font-size: 30px; }
+.nf-indent { padding-left: 16px; }
+.nf-dv { text-align: right; font-weight: 800; border-top: 4px solid #111; padding: 3px 0 2px; }
+.nf-protein { border-top: 8px solid #111; font-size: 16px; padding: 5px 0; }
+.nf-foot { border-top: 5px solid #111; padding-top: 5px; font-size: 10.5px; line-height: 1.25; }
+.concept-note { margin-top: 12px; color: #6a6267; font-size: 12px; line-height: 1.4; }
+@media (max-width: 760px) {
+  .bottle-view { align-items: flex-start; flex-direction: column; }
+  .pd-grid { grid-template-columns: 1fr; }
+  .pd-product { min-height: 560px; }
+  .pd-bottle img { max-height: 410px; }
+  .pd-side { padding-top: 28px; }
+}
+
 /* home: why */
 html[data-line="smoothies"] .for-shakes, html:not([data-line="smoothies"]) .for-smoothies { display: none !important; }
 .why { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(24px, 5vw, 70px); align-items: start; }
@@ -704,6 +754,71 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
       sec.querySelectorAll(".fl").forEach(function (c) { c.hidden = !(b.dataset.filter === "all" || c.dataset.tag === b.dataset.filter); });
     }); });
   });
+
+  // ---------- bottle gallery + concept nutrition facts ----------
+  var productCards = Array.prototype.slice.call(document.querySelectorAll(".fl[id^='flavor-']"));
+  var bottleLine = store("swell-bottle-line") || "swell";
+  var productDialog, activeFlavor;
+  function flavorId(card) { return card.id.replace("flavor-", ""); }
+  function bottleSrc(id, line) { return P + (line === "swoll" ? "img/swoll/" + id + ".png" : "img/b_" + id + ".webp"); }
+  function productKind(id) { return id.indexOf("sm_") === 0 ? "smoothie" : "shake"; }
+  function setBottleLine(line, save) {
+    bottleLine = line; root.dataset.bottleLine = line;
+    document.querySelectorAll("[data-bottle-line], [data-pd-line]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.bottleLine === line || b.dataset.pdLine === line)); });
+    productCards.forEach(function (card) {
+      var id = flavorId(card), img = card.querySelector(".pic img");
+      img.src = bottleSrc(id, line);
+      img.alt = (line === "swoll" ? "Swoll 50g " : "Swell 30g ") + NAMES[id] + " protein " + productKind(id);
+    });
+    if (activeFlavor) updateProductDialog(activeFlavor, line);
+    if (save) store("swell-bottle-line", line);
+    setTimeout(fit, 50);
+  }
+  function productControl() {
+    var wrap = document.createElement("div");
+    wrap.className = "bottle-view";
+    wrap.innerHTML = '<p><b>Choose a bottle.</b> Click any flavor to see it full size and view its concept nutrition panel.</p><div class="segline" role="group" aria-label="Bottle size"><button type="button" data-bottle-line="swell">Swell · 30g</button><button type="button" data-bottle-line="swoll">Swoll · 50g</button></div>';
+    wrap.querySelectorAll("[data-bottle-line]").forEach(function (b) { b.addEventListener("click", function () { setBottleLine(b.dataset.bottleLine, true); }); });
+    return wrap;
+  }
+  document.querySelectorAll(".shelf").forEach(function (sec) { var rail = sec.querySelector(".rail"); if (rail) rail.parentNode.insertBefore(productControl(), rail); });
+  if (productCards.length) {
+    productDialog = document.createElement("dialog");
+    productDialog.className = "product-dialog";
+    productDialog.setAttribute("aria-labelledby", "pd-title");
+    productDialog.innerHTML = '<button type="button" class="pd-close" aria-label="Close product details">×</button><div class="pd-grid"><section class="pd-product"><p class="pd-kicker" id="pd-kicker"></p><div class="pd-bottle"><img id="pd-image" src="" alt=""></div><div class="pd-name"><h2 id="pd-title"></h2><p id="pd-sub"></p></div></section><aside class="pd-side"><div class="pd-switch" role="group" aria-label="Bottle size"><button type="button" data-pd-line="swell">Swell · 30g</button><button type="button" data-pd-line="swoll">Swoll · 50g</button></div><div class="nf-label" aria-label="Concept nutrition facts"><h3>Nutrition Facts</h3><div class="nf-rule"><b>1 serving per container</b></div><div class="nf-row first"><span>Serving size</span><b>1 bottle (14 fl oz / 414 mL)</b></div><div class="nf-row cal"><b>Calories</b><b id="nf-cal">180</b></div><div class="nf-dv">% Daily Value*</div><div class="nf-row"><b>Total Fat <span id="nf-fat">4g</span></b><b>5%</b></div><div class="nf-row nf-indent"><span>Saturated Fat 2.5g</span><b>13%</b></div><div class="nf-row"><b>Cholesterol</b><b>10%</b></div><div class="nf-row"><b>Sodium <span id="nf-sodium">230mg</span></b><b>10%</b></div><div class="nf-row"><b>Total Carbohydrate <span id="nf-carb">9g</span></b><b>3%</b></div><div class="nf-row nf-indent"><span>Dietary Fiber 1g</span><b>4%</b></div><div class="nf-row nf-indent"><span>Total Sugars <span id="nf-sugar">4g</span></span><b></b></div><div class="nf-row nf-protein"><b>Protein <span id="nf-protein">30g</span></b><b></b></div><div class="nf-foot">* The % Daily Value tells you how much a nutrient in a serving of food contributes to a daily diet.</div></div><p class="concept-note"><b>Concept panel — not final artwork.</b> Values are placeholders pending final formulation, laboratory analysis and regulatory review.</p></aside></div>';
+    document.body.appendChild(productDialog);
+    productDialog.querySelector(".pd-close").addEventListener("click", function () { productDialog.close(); });
+    productDialog.addEventListener("click", function (e) { if (e.target === productDialog) productDialog.close(); });
+    productDialog.querySelectorAll("[data-pd-line]").forEach(function (b) { b.addEventListener("click", function () { setBottleLine(b.dataset.pdLine, true); }); });
+  }
+  function updateProductDialog(id, line) {
+    if (!productDialog) return;
+    var kind = productKind(id), swoll = line === "swoll";
+    productDialog.querySelector("#pd-image").src = bottleSrc(id, line);
+    productDialog.querySelector("#pd-image").alt = (swoll ? "Swoll 50g " : "Swell 30g ") + NAMES[id] + " protein " + kind;
+    productDialog.querySelector("#pd-kicker").textContent = (swoll ? "Swoll · 50g" : "Swell · 30g") + " protein " + kind;
+    productDialog.querySelector("#pd-title").textContent = NAMES[id];
+    productDialog.querySelector("#pd-sub").textContent = swoll ? "The taller 50g bottle, rendered in soft cornflower blue." : "The original 30g bottle with flavor art printed on-pack.";
+    productDialog.querySelector("#nf-cal").textContent = swoll ? "280" : "180";
+    productDialog.querySelector("#nf-fat").textContent = swoll ? "5g" : "4g";
+    productDialog.querySelector("#nf-sodium").textContent = swoll ? "340mg" : "230mg";
+    productDialog.querySelector("#nf-carb").textContent = swoll ? "12g" : "9g";
+    productDialog.querySelector("#nf-sugar").textContent = swoll ? "5g" : "4g";
+    productDialog.querySelector("#nf-protein").textContent = swoll ? "50g" : "30g";
+    productDialog.querySelectorAll("[data-pd-line]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.pdLine === line)); });
+  }
+  productCards.forEach(function (card) {
+    var id = flavorId(card), pic = card.querySelector(".pic"), z = document.createElement("span");
+    pic.tabIndex = 0; pic.setAttribute("role", "button"); pic.setAttribute("aria-label", "Open " + NAMES[id] + " bottle details");
+    z.className = "zoom-bottle"; z.setAttribute("aria-hidden", "true");
+    z.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21M10.5 7.5v6M7.5 10.5h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>View';
+    pic.appendChild(z);
+    function open() { activeFlavor = id; updateProductDialog(id, bottleLine); productDialog.showModal(); }
+    pic.addEventListener("click", open);
+    pic.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } });
+  });
+  setBottleLine(bottleLine, false);
 
   // ---------- box (shared across pages) ----------
   var box = store("swell-box") || { size: 12, protein: 30, items: {} };
