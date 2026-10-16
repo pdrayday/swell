@@ -119,14 +119,17 @@ header.top .wrap { display: flex; align-items: center; gap: 20px; height: 66px; 
 .menu-open .scrim { opacity: 1; pointer-events: auto; }
 .menu-open .drawer { transform: none; }
 .drawer .x { align-self: flex-start; width: 44px; height: 44px; border-radius: 12px; border: 0; background: var(--surface); font-size: 24px; line-height: 1; cursor: pointer; }
-.drawer nav { display: grid; gap: 2px; }
-.drawer nav a { display: flex; justify-content: space-between; align-items: center; text-decoration: none; font: 700 20px/1.15 var(--display); padding: 10px 4px; border-bottom: 1px solid var(--line);
+.drawer nav { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.drawer nav a { display: grid; justify-items: center; align-content: center; gap: 6px; text-align: center; text-decoration: none; padding: 16px 8px 14px; border-radius: 26px; background: var(--surface); color: var(--fg); min-height: 112px;
   opacity: 0; transform: translateX(-14px); transition: opacity .3s, transform .45s var(--spring); }
-.drawer nav a span { font: 500 12.5px var(--body); color: var(--muted); }
-.drawer nav a[aria-current="page"] { color: var(--em); }
+.drawer nav a i { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--bg); color: var(--fg); font-style: normal; }
+.drawer nav a b { font: 700 16px/1.1 var(--display); }
+.drawer nav a span { font: 500 11.5px/1.2 var(--body); color: var(--muted); }
+.drawer nav a:active { transform: scale(.94); }
+.drawer nav a[aria-current="page"] { background: var(--ink); color: var(--on-ink); } .drawer nav a[aria-current="page"] span { color: color-mix(in srgb, var(--on-ink) 75%, transparent); } .drawer nav a[aria-current="page"] i { background: color-mix(in srgb, var(--on-ink) 18%, transparent); color: var(--on-ink); }
 .menu-open .drawer nav a { opacity: 1; transform: none; }
 .menu-open .drawer nav a:nth-child(2) { transition-delay: .03s; } .menu-open .drawer nav a:nth-child(3) { transition-delay: .06s; }
-.menu-open .drawer nav a:nth-child(4) { transition-delay: .09s; } .menu-open .drawer nav a:nth-child(5) { transition-delay: .12s; } .menu-open .drawer nav a:nth-child(6) { transition-delay: .15s; }
+.menu-open .drawer nav a:nth-child(4) { transition-delay: .09s; } .menu-open .drawer nav a:nth-child(5) { transition-delay: .12s; } .menu-open .drawer nav a:nth-child(6) { transition-delay: .15s; } .menu-open .drawer nav a:nth-child(7) { transition-delay: .18s; } .menu-open .drawer nav a:nth-child(8) { transition-delay: .21s; }
 .drawer .line-sw { align-self: flex-start; }
 
 /* ---- sections ---- */
@@ -245,7 +248,15 @@ a.opt { color: inherit; text-decoration: none; margin-bottom: 12px; }
 .picks { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 8px; }
 .pk { display: grid; grid-template-columns: 46px 1fr auto; gap: 12px; align-items: center; padding: 8px 10px; border-radius: 14px; background: var(--surface); border: 2px solid transparent; transition: border-color .2s; }
 .pk.on { border-color: var(--ink); }
-.pk img { height: 64px; width: auto; justify-self: center; }
+.pk img { height: 64px; width: auto; justify-self: center; cursor: zoom-in; }
+.pk { grid-template-columns: 46px 1fr auto auto !important; }
+.pkmix { font: 700 11px/1.2 var(--body); color: var(--muted); text-align: right; }
+.pkmix i { font-style: normal; display: block; } .pkmix .w { color: #2f5aa8; }
+.mixnote { margin-top: 10px; font-size: 13.5px; color: var(--muted); }
+.seg button.swollbtn[aria-pressed="true"] { background: #b9cdee; border-color: #2f5aa8; color: #10203f; }
+.slots i.w .b { background: rgba(185,205,238,.55); border-radius: 12px; }
+.slots i.w small::after { content: " · 50g"; color: #2f5aa8; }
+.tally span.w { background: #dbe6f7; }
 .pk b { font-size: 15px; line-height: 1.2; display: block; } .pk small { color: var(--muted); font-size: 12.5px; }
 .qty { display: flex; align-items: center; gap: 4px; }
 .qty button { width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--bg-2); cursor: pointer; font-size: 19px; line-height: 1; display: grid; place-items: center; transition: transform .3s var(--spring); }
@@ -323,11 +334,11 @@ html[data-line="smoothies"] .map { background: #fdf5d6; }
 .ffilters { margin: 16px 0 10px; } .ffilters button { background: #fffafb; } html[data-line="smoothies"] .ffilters button { background: #fffdf3; } html[data-line="smoothies"] .ffilters button[aria-pressed="true"] { background: var(--ink); } .ffilters button[aria-pressed="true"] { background: var(--ink); }
 .flocate { display: inline-flex; gap: 8px; align-items: center; align-self: flex-start; margin-bottom: 12px; }
 .flist { overflow-y: auto; flex: 1; min-height: 0; display: grid; align-content: start; gap: 10px; padding: 2px 4px 8px 2px; margin-right: -6px; }
-.mloc { display: grid; grid-template-columns: 92px 1fr 18px; gap: 14px; align-items: center; padding: 12px; border-radius: 20px; border: 2px solid transparent; background: #fffafb; text-align: left; cursor: pointer; color: var(--fg); box-shadow: 0 6px 18px -12px rgba(40,10,20,.35); transition: transform .35s var(--spring), border-color .2s; }
+.mloc { display: grid; grid-template-columns: 112px 1fr 18px; gap: 14px; align-items: center; padding: 12px; border-radius: 20px; border: 2px solid transparent; background: #fffafb; text-align: left; cursor: pointer; color: var(--fg); box-shadow: 0 6px 18px -12px rgba(40,10,20,.35); transition: transform .35s var(--spring), border-color .2s; }
 html[data-line="smoothies"] .mloc { background: #fffdf3; }
 .mloc:hover { transform: translateY(-2px); } .mloc:active { transform: scale(.97); }
 .mloc.sel { border-color: var(--ink); }
-.mloc img { width: 92px; height: 96px; object-fit: cover; border-radius: 14px; }
+.mloc img { width: 112px; height: 140px; object-fit: cover; border-radius: 16px; box-shadow: 0 6px 14px -8px rgba(40,10,20,.45); }
 .mloc b { display: block; font: 700 22px/1.1 var(--display); }
 .mloc .dist { display: block; color: var(--muted); font-size: 14.5px; margin: 3px 0 4px; }
 .mloc .addr { display: block; font-size: 13.5px; color: var(--muted); line-height: 1.35; }
@@ -359,8 +370,8 @@ html[data-line="smoothies"] .pinb { background: radial-gradient(circle at 35% 30
 .spop .maplibregl-popup-content { border-radius: 22px; padding: 0; box-shadow: 0 20px 40px -14px rgba(40,10,20,.45); border: 2px solid #f6d3dc; width: 330px; }
 .spop.maplibregl-popup-anchor-bottom .maplibregl-popup-tip { border-top-color: #fff; }
 .spop .maplibregl-popup-close-button { top: 8px; right: 10px; font-size: 22px; color: #6f5560; background: none; }
-.pc { display: grid; grid-template-columns: 100px 1fr; gap: 14px; padding: 14px; align-items: center; color: #2a121a; }
-.pc img { width: 100px; height: 140px; object-fit: cover; border-radius: 12px; background: #f6e6ea; }
+.pc { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 14px; align-items: center; color: #2a121a; }
+.pc img { width: 120px; height: 150px; object-fit: cover; border-radius: 12px; background: #f6e6ea; }
 .pc h3 { font: 700 19px/1.15 var(--display); margin: 0 0 6px; padding-right: 22px; }
 .pc .pa { font-size: 13.5px; color: #5f2f3d; line-height: 1.35; margin: 0 0 4px; }
 .pc .pv { font-size: 12.5px; color: #8a6470; margin: 0 0 10px; }
@@ -372,12 +383,15 @@ html[data-line="smoothies"] .pinb { background: radial-gradient(circle at 35% 30
   .fside { padding: 20px 14px 14px; }
   .flist { max-height: 520px; }
   .fctl { bottom: 84px; right: 12px; } .fctl.fme { bottom: 18px; }
-    .spop .maplibregl-popup-content { width: 270px; } .pc { grid-template-columns: 76px 1fr; } .pc img { width: 76px; height: 108px; }
+    .spop .maplibregl-popup-content { width: 270px; } .pc { grid-template-columns: 96px 1fr; } .pc img { width: 96px; height: 120px; }
 }
 
 .host { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; background: var(--ink); color: var(--on-ink); border-radius: 28px; padding: clamp(24px, 4vw, 48px); }
 .host h2 { font-size: clamp(30px, 3.6vw, 44px); } .host p { opacity: .8; margin-top: 10px; }
 .host form { display: flex; gap: 8px; flex-wrap: wrap; }
+.hsel { flex: 1 1 100%; padding: 15px 18px; border-radius: 999px; border: 0; background: #fff; color: #1a1216; font: 600 15px var(--body); }
+.venues { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 16px 0 0; padding: 0; }
+.venues li { padding: 6px 12px; border-radius: 999px; background: color-mix(in srgb, var(--on-ink) 14%, transparent); font: 600 13px/1.2 var(--body); }
 .host input { flex: 1 1 220px; padding: 15px 18px; border-radius: 999px; border: 0; background: #fff; color: #1a1216; min-width: 0; }
 .host .btn { background: var(--on-ink); color: var(--ink); }
 @media (max-width: 760px) { .host { grid-template-columns: 1fr; } }
@@ -470,6 +484,54 @@ html[data-line="smoothies"] .icgrid { grid-template-columns: repeat(2, minmax(0,
 .icdiy img { width: 100%; height: auto; border-radius: 28px; box-shadow: 0 30px 60px -28px rgba(40,10,20,.45); }
 .icdiy h2 { font-size: clamp(32px, 4vw, 52px); } .icdiy .lead { margin-top: 12px; }
 @media (max-width: 860px) { .icwhy, .icdiy { grid-template-columns: 1fr; } .icwhy-img img { max-height: 420px; } }
+
+/* ---------- shelf Swell/Swoll toggle ---------- */
+.bottle-view { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: -2px 0 16px; padding: 10px 12px 10px 16px; border-radius: 16px; background: color-mix(in srgb, var(--surface) 78%, white); }
+.bottle-view p { color: var(--muted); font-size: 14px; } .bottle-view p b { color: var(--fg); }
+.bottle-view .segline { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--bg); flex: none; }
+.bottle-view button { border: 0; background: transparent; color: var(--muted); padding: 9px 13px; border-radius: 999px; font: 700 13px/1 var(--body); cursor: pointer; }
+.bottle-view button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+.bottle-view button.w[aria-pressed="true"] { background: #2f5aa8; color: #fff; }
+@media (max-width: 760px) { .bottle-view { align-items: flex-start; flex-direction: column; } }
+/* ---------- drink sheet + nutrition facts ---------- */
+.fl .pic { border: 0; background: none; padding: 0; cursor: pointer; width: 100%; }
+.nlink { border: 0; background: none; padding: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.nf-link { justify-self: start; border: 0; background: none; padding: 2px 0; font: 600 13px var(--body); color: var(--muted); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.nf-link.sm { font-size: 12px; padding: 0; }
+html.sheet-open, html.sheet-open body { overflow: hidden; }
+.sheet-scrim { position: fixed; inset: 0; z-index: 90; background: rgba(20,8,12,.45); animation: fadein .25s; }
+@keyframes fadein { from { opacity: 0; } }
+.sheet { position: fixed; z-index: 91; left: 0; right: 0; bottom: 0; max-height: 92dvh; max-height: 92vh; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y;
+  background: var(--bg); border-radius: 26px 26px 0 0; box-shadow: 0 -20px 50px rgba(20,8,12,.3); padding: 0 18px calc(24px + env(safe-area-inset-bottom, 0px)); animation: sheetup .45s cubic-bezier(.22,1,.36,1); }
+@supports (max-height: 92dvh) { .sheet { max-height: 92dvh; } }
+.sheet[hidden], .sheet-scrim[hidden] { display: none; }
+@keyframes sheetup { from { transform: translateY(100%); } }
+@media (min-width: 760px) { .sheet { left: 50%; right: auto; bottom: auto; top: 50%; width: min(720px, 92vw); max-height: 88vh; border-radius: 26px; transform: translate(-50%, -50%); animation: sheetin .35s var(--spring); } @keyframes sheetin { from { transform: translate(-50%, -46%) scale(.96); opacity: 0; } } }
+.sh-grab { position: sticky; top: 0; z-index: 2; display: grid; place-items: center; height: 26px; margin: 0 -18px; background: var(--bg); cursor: grab; touch-action: none; }
+.sh-grab span { width: 44px; height: 5px; border-radius: 3px; background: rgba(42,18,26,.25); }
+.sh-x { position: absolute; right: 14px; top: 12px; z-index: 3; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--surface); font-size: 24px; line-height: 1; cursor: pointer; }
+.sh-top { display: grid; grid-template-columns: 130px 1fr; gap: 16px; align-items: center; padding-top: 6px; }
+.sh-top .bimg { display: grid; place-items: center; height: 220px; border-radius: 20px; background: var(--stage); }
+.sh-top .bimg.w { background: #dbe6f7; }
+.sh-top .bimg img { height: 200px; width: auto; filter: drop-shadow(0 10px 10px rgba(40,10,20,.2)); }
+.sh-top h2 { font-size: clamp(28px, 6vw, 36px); padding-right: 40px; } .sh-top .kind { color: var(--muted); font-size: 14px; margin-top: 4px; }
+.sh-top p.d { margin-top: 10px; color: var(--muted); font-size: 15px; }
+.sh-size { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0 12px; }
+.sh-size button { border: 2px solid transparent; background: var(--surface); border-radius: 16px; padding: 10px 12px; text-align: left; cursor: pointer; color: var(--fg); }
+.sh-size button b { display: block; font-size: 15px; } .sh-size button span { font-size: 12.5px; color: var(--muted); }
+.sh-size button[aria-pressed="true"] { border-color: var(--ink); } .sh-size button.w[aria-pressed="true"] { border-color: #2f5aa8; background: #dbe6f7; color: #10203f; }
+.sh-add { width: 100%; margin-bottom: 18px; }
+.nf { background: #fff; color: #000; border: 2px solid #000; padding: 6px 10px 8px; font: 400 14px/1.25 Arial, Helvetica, sans-serif; max-width: 420px; margin: 0 auto; }
+.nf h3 { font: 900 30px/1 "Arial Black", Arial, sans-serif; letter-spacing: -.5px; margin: 0; border-bottom: 1px solid #000; padding-bottom: 2px; }
+.nf .srv { border-bottom: 9px solid #000; padding: 3px 0 4px; } .nf .srv b { font-weight: 900; }
+.nf .cal { display: flex; justify-content: space-between; align-items: end; border-bottom: 5px solid #000; padding: 2px 0; font-weight: 900; }
+.nf .cal span:first-child { font-size: 15px; } .nf .cal span:last-child { font-size: 34px; line-height: 1; }
+.nf .dvh { text-align: right; font-weight: 700; font-size: 12px; border-bottom: 1px solid #000; padding: 2px 0; }
+.nf .r { display: flex; justify-content: space-between; border-bottom: 1px solid #000; padding: 2px 0; }
+.nf .r.i1 { padding-left: 16px; } .nf .r.i2 { padding-left: 32px; } .nf .r.thick { border-bottom-width: 9px; }
+.nf .r b { font-weight: 900; } .nf .vit { font-size: 13px; } .nf .foot { font-size: 11px; padding-top: 4px; }
+.sh-extra { max-width: 420px; margin: 14px auto 0; font-size: 13.5px; color: var(--muted); display: grid; gap: 8px; }
+.sh-extra b { color: var(--fg); }
 /* ---------- home: #drinkswell marquee + reviews ---------- */
 .ds-sec { overflow: hidden; }
 .ds-head { display: flex; justify-content: space-between; align-items: end; gap: 18px 30px; flex-wrap: wrap; margin-bottom: 26px; }
@@ -559,7 +621,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 <aside class="drawer" id="drawer" aria-label="Menu">
   <button type="button" class="x press" id="drawer-x" aria-label="Close menu">×</button>
   <div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div>
-  <nav><a href="index.html">Home<span></span></a><a href="shop.html" aria-current="page">Shop<span>Build a box</span></a><a href="icecream.html">Ice Cream<span>Protein pints</span></a><a href="index.html#machines">Find a machine<span>Utah County</span></a><a href="creami/index.html">Recipes<span>Ninja Creami</span></a><a href="blog.html">Blog<span>#drinkswell</span></a><a href="about.html">About<span>Our story</span></a><a href="faq.html">FAQ<span>Questions</span></a></nav>
+  <nav><a href="index.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg></i><b>Home</b><span></span></a><a href="shop.html" aria-current="page"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></i><b>Shop</b><span>Build a box</span></a><a href="icecream.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11h8l-4 10z"/><path d="M7.5 11a4.5 4.5 0 0 1 9 0"/></svg></i><b>Ice Cream</b><span>Protein pints</span></a><a href="index.html#machines"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></i><b>Find a machine</b><span>Utah County</span></a><a href="creami/index.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M9 7c0-1.5 1.5-1.5 1.5-3M13.5 7c0-1.5 1.5-1.5 1.5-3"/></svg></i><b>Recipes</b><span>Ninja Creami</span></a><a href="blog.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 7 20M17 4l-2 16M4.5 9h16M3.5 15h16"/></svg></i><b>Blog</b><span>#drinkswell</span></a><a href="about.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.1"/></svg></i><b>About</b><span>Our story</span></a><a href="faq.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4M12 16.6v.1"/></svg></i><b>FAQ</b><span>Questions</span></a></nav>
   <a class="btn" href="shop.html#build">Build a box</a>
 </aside><main id="main">
 <section class="page-h"><div class="wrap">
@@ -575,12 +637,13 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     <div class="step"><h2>1. Box size</h2><div class="seg" role="group" aria-label="Box size">
       <button type="button" data-size="12" aria-pressed="true"><b>12 bottles</b><span>Try a few flavors</span><em class="save">Save 10%</em></button>
       <button type="button" data-size="24" aria-pressed="false"><b>24 bottles</b><span>For the daily drinker</span><em class="save">Save 15%</em></button></div></div>
-    <div class="step"><h2>2. Protein</h2><div class="seg" role="group" aria-label="Protein">
-      <button type="button" data-protein="30" aria-pressed="true"><b>30g · Swell</b><span>14 fl oz bottle</span></button>
-      <button type="button" data-protein="50" aria-pressed="false"><b>50g · Swoll</b><span>Bigger bottle</span></button></div></div>
+    <div class="step"><h2>2. Bottle to add</h2><div class="seg" role="group" aria-label="Bottle to add">
+      <button type="button" data-protein="30" aria-pressed="true"><b>Swell · 30g</b><span>Pink bottle</span></button>
+      <button type="button" data-protein="50" aria-pressed="false" class="swollbtn"><b>Swoll · 50g</b><span>Blue bottle</span></button></div>
+      <p class="mixnote">Mix both in one box. Switching keeps every bottle you've already picked.</p></div>
     <div class="step"><h2>3. Flavors</h2>
       <div class="btabs" role="tablist"><button type="button" role="tab" aria-selected="true" data-btab="shakes">Shakes (13)</button><button type="button" role="tab" aria-selected="false" data-btab="smoothies">Smoothies (6)</button></div>
-      <div class="picks" data-bpanel="shakes"><div class="pk" data-id="cc"><img src="img/b_cc.webp" alt="" width="46" height="120" loading="lazy"><div><b>Cookies &amp; Cream</b><small>Classic</small></div><div class="qty"><button type="button" data-dec="cc" aria-label="Remove one Cookies &amp; Cream">−</button><output id="q-cc">0</output><button type="button" data-inc="cc" aria-label="Add one Cookies &amp; Cream">+</button></div></div><div class="pk" data-id="cake"><img src="img/b_cake.webp" alt="" width="46" height="120" loading="lazy"><div><b>Cake Batter</b><small>Classic</small></div><div class="qty"><button type="button" data-dec="cake" aria-label="Remove one Cake Batter">−</button><output id="q-cake">0</output><button type="button" data-inc="cake" aria-label="Add one Cake Batter">+</button></div></div><div class="pk" data-id="choc"><img src="img/b_choc.webp" alt="" width="46" height="120" loading="lazy"><div><b>Chocolate</b><small>Classic</small></div><div class="qty"><button type="button" data-dec="choc" aria-label="Remove one Chocolate">−</button><output id="q-choc">0</output><button type="button" data-inc="choc" aria-label="Add one Chocolate">+</button></div></div><div class="pk" data-id="van"><img src="img/b_van.webp" alt="" width="46" height="120" loading="lazy"><div><b>Vanilla</b><small>Classic</small></div><div class="qty"><button type="button" data-dec="van" aria-label="Remove one Vanilla">−</button><output id="q-van">0</output><button type="button" data-inc="van" aria-label="Add one Vanilla">+</button></div></div><div class="pk" data-id="peach"><img src="img/b_peach.webp" alt="" width="46" height="120" loading="lazy"><div><b>Peaches &amp; Cream</b><small>New</small></div><div class="qty"><button type="button" data-dec="peach" aria-label="Remove one Peaches &amp; Cream">−</button><output id="q-peach">0</output><button type="button" data-inc="peach" aria-label="Add one Peaches &amp; Cream">+</button></div></div><div class="pk" data-id="cinn"><img src="img/b_cinn.webp" alt="" width="46" height="120" loading="lazy"><div><b>Cinnamon Roll</b><small>New</small></div><div class="qty"><button type="button" data-dec="cinn" aria-label="Remove one Cinnamon Roll">−</button><output id="q-cinn">0</output><button type="button" data-inc="cinn" aria-label="Add one Cinnamon Roll">+</button></div></div><div class="pk" data-id="mint"><img src="img/b_mint.webp" alt="" width="46" height="120" loading="lazy"><div><b>Mint Chocolate Chip</b><small>New</small></div><div class="qty"><button type="button" data-dec="mint" aria-label="Remove one Mint Chocolate Chip">−</button><output id="q-mint">0</output><button type="button" data-inc="mint" aria-label="Add one Mint Chocolate Chip">+</button></div></div><div class="pk" data-id="pbc"><img src="img/b_pbc.webp" alt="" width="46" height="120" loading="lazy"><div><b>Peanut Butter Cup</b><small>New</small></div><div class="qty"><button type="button" data-dec="pbc" aria-label="Remove one Peanut Butter Cup">−</button><output id="q-pbc">0</output><button type="button" data-inc="pbc" aria-label="Add one Peanut Butter Cup">+</button></div></div><div class="pk" data-id="cbutter"><img src="img/b_cbutter.webp" alt="" width="46" height="120" loading="lazy"><div><b>Cookie Butter</b><small>New</small></div><div class="qty"><button type="button" data-dec="cbutter" aria-label="Remove one Cookie Butter">−</button><output id="q-cbutter">0</output><button type="button" data-inc="cbutter" aria-label="Add one Cookie Butter">+</button></div></div><div class="pk" data-id="matcha"><img src="img/b_matcha.webp" alt="" width="46" height="120" loading="lazy"><div><b>Matcha</b><small>New</small></div><div class="qty"><button type="button" data-dec="matcha" aria-label="Remove one Matcha">−</button><output id="q-matcha">0</output><button type="button" data-inc="matcha" aria-label="Add one Matcha">+</button></div></div><div class="pk" data-id="shortcake"><img src="img/b_shortcake.webp" alt="" width="46" height="120" loading="lazy"><div><b>Strawberry Shortcake</b><small>New</small></div><div class="qty"><button type="button" data-dec="shortcake" aria-label="Remove one Strawberry Shortcake">−</button><output id="q-shortcake">0</output><button type="button" data-inc="shortcake" aria-label="Add one Strawberry Shortcake">+</button></div></div><div class="pk" data-id="pumpkin"><img src="img/b_pumpkin.webp" alt="" width="46" height="120" loading="lazy"><div><b>Pumpkin Spice</b><small>Seasonal</small></div><div class="qty"><button type="button" data-dec="pumpkin" aria-label="Remove one Pumpkin Spice">−</button><output id="q-pumpkin">0</output><button type="button" data-inc="pumpkin" aria-label="Add one Pumpkin Spice">+</button></div></div><div class="pk" data-id="cobbler"><img src="img/b_cobbler.webp" alt="" width="46" height="120" loading="lazy"><div><b>Blueberry Cobbler</b><small>New</small></div><div class="qty"><button type="button" data-dec="cobbler" aria-label="Remove one Blueberry Cobbler">−</button><output id="q-cobbler">0</output><button type="button" data-inc="cobbler" aria-label="Add one Blueberry Cobbler">+</button></div></div></div><div class="picks" data-bpanel="smoothies" hidden><div class="pk" data-id="sm_pina"><img src="img/b_sm_pina.webp" alt="" width="46" height="120" loading="lazy"><div><b>Pina Colada</b><small>Classic</small></div><div class="qty"><button type="button" data-dec="sm_pina" aria-label="Remove one Pina Colada">−</button><output id="q-sm_pina">0</output><button type="button" data-inc="sm_pina" aria-label="Add one Pina Colada">+</button></div></div><div class="pk" data-id="sm_mango"><img src="img/b_sm_mango.webp" alt="" width="46" height="120" loading="lazy"><div><b>Mango</b><small>Classic</small></div><div class="qty"><button type="button" data-dec="sm_mango" aria-label="Remove one Mango">−</button><output id="q-sm_mango">0</output><button type="button" data-inc="sm_mango" aria-label="Add one Mango">+</button></div></div><div class="pk" data-id="sm_berry"><img src="img/b_sm_berry.webp" alt="" width="46" height="120" loading="lazy"><div><b>Berry Bliss</b><small>Classic</small></div><div class="qty"><button type="button" data-dec="sm_berry" aria-label="Remove one Berry Bliss">−</button><output id="q-sm_berry">0</output><button type="button" data-inc="sm_berry" aria-label="Add one Berry Bliss">+</button></div></div><div class="pk" data-id="sm_apple"><img src="img/b_sm_apple.webp" alt="" width="46" height="120" loading="lazy"><div><b>Sour Apple</b><small>New</small></div><div class="qty"><button type="button" data-dec="sm_apple" aria-label="Remove one Sour Apple">−</button><output id="q-sm_apple">0</output><button type="button" data-inc="sm_apple" aria-label="Add one Sour Apple">+</button></div></div><div class="pk" data-id="sm_blue"><img src="img/b_sm_blue.webp" alt="" width="46" height="120" loading="lazy"><div><b>Blue Raspberry</b><small>New</small></div><div class="qty"><button type="button" data-dec="sm_blue" aria-label="Remove one Blue Raspberry">−</button><output id="q-sm_blue">0</output><button type="button" data-inc="sm_blue" aria-label="Add one Blue Raspberry">+</button></div></div><div class="pk" data-id="sm_ring"><img src="img/b_sm_ring.webp" alt="" width="46" height="120" loading="lazy"><div><b>Peach Ring</b><small>New</small></div><div class="qty"><button type="button" data-dec="sm_ring" aria-label="Remove one Peach Ring">−</button><output id="q-sm_ring">0</output><button type="button" data-inc="sm_ring" aria-label="Add one Peach Ring">+</button></div></div></div></div>
+      <div class="picks" data-bpanel="shakes"><div class="pk" data-id="cc"><img src="img/b_cc.webp" alt="" width="46" height="120" loading="lazy" data-drink="cc"><div><b>Cookies &amp; Cream</b><small>Classic · <button type="button" class="nf-link sm" data-drink="cc">Nutrition</button></small></div><span class="pkmix" id="mix-cc"></span><div class="qty"><button type="button" data-dec="cc" aria-label="Remove one Cookies &amp; Cream">−</button><output id="q-cc">0</output><button type="button" data-inc="cc" aria-label="Add one Cookies &amp; Cream">+</button></div></div><div class="pk" data-id="cake"><img src="img/b_cake.webp" alt="" width="46" height="120" loading="lazy" data-drink="cake"><div><b>Cake Batter</b><small>Classic · <button type="button" class="nf-link sm" data-drink="cake">Nutrition</button></small></div><span class="pkmix" id="mix-cake"></span><div class="qty"><button type="button" data-dec="cake" aria-label="Remove one Cake Batter">−</button><output id="q-cake">0</output><button type="button" data-inc="cake" aria-label="Add one Cake Batter">+</button></div></div><div class="pk" data-id="choc"><img src="img/b_choc.webp" alt="" width="46" height="120" loading="lazy" data-drink="choc"><div><b>Chocolate</b><small>Classic · <button type="button" class="nf-link sm" data-drink="choc">Nutrition</button></small></div><span class="pkmix" id="mix-choc"></span><div class="qty"><button type="button" data-dec="choc" aria-label="Remove one Chocolate">−</button><output id="q-choc">0</output><button type="button" data-inc="choc" aria-label="Add one Chocolate">+</button></div></div><div class="pk" data-id="van"><img src="img/b_van.webp" alt="" width="46" height="120" loading="lazy" data-drink="van"><div><b>Vanilla</b><small>Classic · <button type="button" class="nf-link sm" data-drink="van">Nutrition</button></small></div><span class="pkmix" id="mix-van"></span><div class="qty"><button type="button" data-dec="van" aria-label="Remove one Vanilla">−</button><output id="q-van">0</output><button type="button" data-inc="van" aria-label="Add one Vanilla">+</button></div></div><div class="pk" data-id="peach"><img src="img/b_peach.webp" alt="" width="46" height="120" loading="lazy" data-drink="peach"><div><b>Peaches &amp; Cream</b><small>New · <button type="button" class="nf-link sm" data-drink="peach">Nutrition</button></small></div><span class="pkmix" id="mix-peach"></span><div class="qty"><button type="button" data-dec="peach" aria-label="Remove one Peaches &amp; Cream">−</button><output id="q-peach">0</output><button type="button" data-inc="peach" aria-label="Add one Peaches &amp; Cream">+</button></div></div><div class="pk" data-id="cinn"><img src="img/b_cinn.webp" alt="" width="46" height="120" loading="lazy" data-drink="cinn"><div><b>Cinnamon Roll</b><small>New · <button type="button" class="nf-link sm" data-drink="cinn">Nutrition</button></small></div><span class="pkmix" id="mix-cinn"></span><div class="qty"><button type="button" data-dec="cinn" aria-label="Remove one Cinnamon Roll">−</button><output id="q-cinn">0</output><button type="button" data-inc="cinn" aria-label="Add one Cinnamon Roll">+</button></div></div><div class="pk" data-id="mint"><img src="img/b_mint.webp" alt="" width="46" height="120" loading="lazy" data-drink="mint"><div><b>Mint Chocolate Chip</b><small>New · <button type="button" class="nf-link sm" data-drink="mint">Nutrition</button></small></div><span class="pkmix" id="mix-mint"></span><div class="qty"><button type="button" data-dec="mint" aria-label="Remove one Mint Chocolate Chip">−</button><output id="q-mint">0</output><button type="button" data-inc="mint" aria-label="Add one Mint Chocolate Chip">+</button></div></div><div class="pk" data-id="pbc"><img src="img/b_pbc.webp" alt="" width="46" height="120" loading="lazy" data-drink="pbc"><div><b>Peanut Butter Cup</b><small>New · <button type="button" class="nf-link sm" data-drink="pbc">Nutrition</button></small></div><span class="pkmix" id="mix-pbc"></span><div class="qty"><button type="button" data-dec="pbc" aria-label="Remove one Peanut Butter Cup">−</button><output id="q-pbc">0</output><button type="button" data-inc="pbc" aria-label="Add one Peanut Butter Cup">+</button></div></div><div class="pk" data-id="cbutter"><img src="img/b_cbutter.webp" alt="" width="46" height="120" loading="lazy" data-drink="cbutter"><div><b>Cookie Butter</b><small>New · <button type="button" class="nf-link sm" data-drink="cbutter">Nutrition</button></small></div><span class="pkmix" id="mix-cbutter"></span><div class="qty"><button type="button" data-dec="cbutter" aria-label="Remove one Cookie Butter">−</button><output id="q-cbutter">0</output><button type="button" data-inc="cbutter" aria-label="Add one Cookie Butter">+</button></div></div><div class="pk" data-id="matcha"><img src="img/b_matcha.webp" alt="" width="46" height="120" loading="lazy" data-drink="matcha"><div><b>Matcha</b><small>New · <button type="button" class="nf-link sm" data-drink="matcha">Nutrition</button></small></div><span class="pkmix" id="mix-matcha"></span><div class="qty"><button type="button" data-dec="matcha" aria-label="Remove one Matcha">−</button><output id="q-matcha">0</output><button type="button" data-inc="matcha" aria-label="Add one Matcha">+</button></div></div><div class="pk" data-id="shortcake"><img src="img/b_shortcake.webp" alt="" width="46" height="120" loading="lazy" data-drink="shortcake"><div><b>Strawberry Shortcake</b><small>New · <button type="button" class="nf-link sm" data-drink="shortcake">Nutrition</button></small></div><span class="pkmix" id="mix-shortcake"></span><div class="qty"><button type="button" data-dec="shortcake" aria-label="Remove one Strawberry Shortcake">−</button><output id="q-shortcake">0</output><button type="button" data-inc="shortcake" aria-label="Add one Strawberry Shortcake">+</button></div></div><div class="pk" data-id="pumpkin"><img src="img/b_pumpkin.webp" alt="" width="46" height="120" loading="lazy" data-drink="pumpkin"><div><b>Pumpkin Spice</b><small>Seasonal · <button type="button" class="nf-link sm" data-drink="pumpkin">Nutrition</button></small></div><span class="pkmix" id="mix-pumpkin"></span><div class="qty"><button type="button" data-dec="pumpkin" aria-label="Remove one Pumpkin Spice">−</button><output id="q-pumpkin">0</output><button type="button" data-inc="pumpkin" aria-label="Add one Pumpkin Spice">+</button></div></div><div class="pk" data-id="cobbler"><img src="img/b_cobbler.webp" alt="" width="46" height="120" loading="lazy" data-drink="cobbler"><div><b>Blueberry Cobbler</b><small>New · <button type="button" class="nf-link sm" data-drink="cobbler">Nutrition</button></small></div><span class="pkmix" id="mix-cobbler"></span><div class="qty"><button type="button" data-dec="cobbler" aria-label="Remove one Blueberry Cobbler">−</button><output id="q-cobbler">0</output><button type="button" data-inc="cobbler" aria-label="Add one Blueberry Cobbler">+</button></div></div></div><div class="picks" data-bpanel="smoothies" hidden><div class="pk" data-id="sm_pina"><img src="img/b_sm_pina.webp" alt="" width="46" height="120" loading="lazy" data-drink="sm_pina"><div><b>Pina Colada</b><small>Classic · <button type="button" class="nf-link sm" data-drink="sm_pina">Nutrition</button></small></div><span class="pkmix" id="mix-sm_pina"></span><div class="qty"><button type="button" data-dec="sm_pina" aria-label="Remove one Pina Colada">−</button><output id="q-sm_pina">0</output><button type="button" data-inc="sm_pina" aria-label="Add one Pina Colada">+</button></div></div><div class="pk" data-id="sm_mango"><img src="img/b_sm_mango.webp" alt="" width="46" height="120" loading="lazy" data-drink="sm_mango"><div><b>Mango</b><small>Classic · <button type="button" class="nf-link sm" data-drink="sm_mango">Nutrition</button></small></div><span class="pkmix" id="mix-sm_mango"></span><div class="qty"><button type="button" data-dec="sm_mango" aria-label="Remove one Mango">−</button><output id="q-sm_mango">0</output><button type="button" data-inc="sm_mango" aria-label="Add one Mango">+</button></div></div><div class="pk" data-id="sm_berry"><img src="img/b_sm_berry.webp" alt="" width="46" height="120" loading="lazy" data-drink="sm_berry"><div><b>Berry Bliss</b><small>Classic · <button type="button" class="nf-link sm" data-drink="sm_berry">Nutrition</button></small></div><span class="pkmix" id="mix-sm_berry"></span><div class="qty"><button type="button" data-dec="sm_berry" aria-label="Remove one Berry Bliss">−</button><output id="q-sm_berry">0</output><button type="button" data-inc="sm_berry" aria-label="Add one Berry Bliss">+</button></div></div><div class="pk" data-id="sm_apple"><img src="img/b_sm_apple.webp" alt="" width="46" height="120" loading="lazy" data-drink="sm_apple"><div><b>Sour Apple</b><small>New · <button type="button" class="nf-link sm" data-drink="sm_apple">Nutrition</button></small></div><span class="pkmix" id="mix-sm_apple"></span><div class="qty"><button type="button" data-dec="sm_apple" aria-label="Remove one Sour Apple">−</button><output id="q-sm_apple">0</output><button type="button" data-inc="sm_apple" aria-label="Add one Sour Apple">+</button></div></div><div class="pk" data-id="sm_blue"><img src="img/b_sm_blue.webp" alt="" width="46" height="120" loading="lazy" data-drink="sm_blue"><div><b>Blue Raspberry</b><small>New · <button type="button" class="nf-link sm" data-drink="sm_blue">Nutrition</button></small></div><span class="pkmix" id="mix-sm_blue"></span><div class="qty"><button type="button" data-dec="sm_blue" aria-label="Remove one Blue Raspberry">−</button><output id="q-sm_blue">0</output><button type="button" data-inc="sm_blue" aria-label="Add one Blue Raspberry">+</button></div></div><div class="pk" data-id="sm_ring"><img src="img/b_sm_ring.webp" alt="" width="46" height="120" loading="lazy" data-drink="sm_ring"><div><b>Peach Ring</b><small>New · <button type="button" class="nf-link sm" data-drink="sm_ring">Nutrition</button></small></div><span class="pkmix" id="mix-sm_ring"></span><div class="qty"><button type="button" data-dec="sm_ring" aria-label="Remove one Peach Ring">−</button><output id="q-sm_ring">0</output><button type="button" data-inc="sm_ring" aria-label="Add one Peach Ring">+</button></div></div></div></div>
   </div>
   <form class="summary" id="box-form" novalidate>
     <h3 id="box-title">12 bottles · 30g protein</h3>
@@ -612,7 +675,13 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   <p>Contains milk. © 2026 Swell.</p></div>
 </div></footer>
 <div class="mbar" id="mbar" role="region" aria-label="Your box"><div class="p"><b id="mb-t">Build a box</b><span id="mb-s">Mix any 12 or 24</span></div><a class="btn sm" href="shop.html#build">Open box <span class="boxcount" hidden>0</span></a></div>
-<div class="toast" id="toast" role="status" aria-live="polite"></div><script>var NAMES = {"cc": "Cookies & Cream", "cake": "Cake Batter", "choc": "Chocolate", "van": "Vanilla", "peach": "Peaches & Cream", "cinn": "Cinnamon Roll", "mint": "Mint Chocolate Chip", "pbc": "Peanut Butter Cup", "cbutter": "Cookie Butter", "matcha": "Matcha", "shortcake": "Strawberry Shortcake", "pumpkin": "Pumpkin Spice", "cobbler": "Blueberry Cobbler", "sm_pina": "Pina Colada", "sm_mango": "Mango", "sm_berry": "Berry Bliss", "sm_apple": "Sour Apple", "sm_blue": "Blue Raspberry", "sm_ring": "Peach Ring"};</script><script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="sheet-scrim" id="sheet-scrim" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-name" hidden>
+  <div class="sh-grab" id="sh-grab" aria-hidden="true"><span></span></div>
+  <button type="button" class="sh-x press" id="sh-x" aria-label="Close">×</button>
+  <div class="sh-body" id="sh-body"></div>
+</div><script>var NAMES = {"cc": "Cookies & Cream", "cake": "Cake Batter", "choc": "Chocolate", "van": "Vanilla", "peach": "Peaches & Cream", "cinn": "Cinnamon Roll", "mint": "Mint Chocolate Chip", "pbc": "Peanut Butter Cup", "cbutter": "Cookie Butter", "matcha": "Matcha", "shortcake": "Strawberry Shortcake", "pumpkin": "Pumpkin Spice", "cobbler": "Blueberry Cobbler", "sm_pina": "Pina Colada", "sm_mango": "Mango", "sm_berry": "Berry Bliss", "sm_apple": "Sour Apple", "sm_blue": "Blue Raspberry", "sm_ring": "Peach Ring"}; var DRINKS = {"cc": {"n": "Cookies & Cream", "t": "classic", "d": "Real cookie crumble in a sweet cream base. The closest thing to a drive-thru shake.", "l": "shakes"}, "cake": {"n": "Cake Batter", "t": "classic", "d": "Vanilla cake batter with rainbow sprinkle flavor. Birthday, any day.", "l": "shakes"}, "choc": {"n": "Chocolate", "t": "classic", "d": "Rich, fudgy chocolate with a thick, creamy finish.", "l": "shakes"}, "van": {"n": "Vanilla", "t": "classic", "d": "Vanilla bean ice cream in a bottle. The best Creami base.", "l": "shakes"}, "peach": {"n": "Peaches & Cream", "t": "new", "d": "Ripe peach swirled into sweet cream.", "l": "shakes"}, "cinn": {"n": "Cinnamon Roll", "t": "new", "d": "Brown-sugar cinnamon with a cream-cheese icing finish.", "l": "shakes"}, "mint": {"n": "Mint Chocolate Chip", "t": "new", "d": "Cool mint ice cream loaded with dark chocolate.", "l": "shakes"}, "pbc": {"n": "Peanut Butter Cup", "t": "new", "d": "Roasted peanut butter meets milk chocolate.", "l": "shakes"}, "cbutter": {"n": "Cookie Butter", "t": "new", "d": "Spiced speculoos cookie, blended creamy.", "l": "shakes"}, "matcha": {"n": "Matcha", "t": "new", "d": "Smooth green tea latte, lightly sweet.", "l": "shakes"}, "shortcake": {"n": "Strawberry Shortcake", "t": "new", "d": "Strawberries, sponge cake and whipped cream.", "l": "shakes"}, "pumpkin": {"n": "Pumpkin Spice", "t": "seasonal", "d": "Pumpkin pie spice, cinnamon and clove. Fall only.", "l": "shakes"}, "cobbler": {"n": "Blueberry Cobbler", "t": "new", "d": "Baked blueberries with a buttery crumble.", "l": "shakes"}, "sm_pina": {"n": "Pina Colada", "t": "classic", "d": "Pineapple and coconut, creamy and tropical.", "l": "smoothies"}, "sm_mango": {"n": "Mango", "t": "classic", "d": "Ripe, sunny mango blended smooth.", "l": "smoothies"}, "sm_berry": {"n": "Berry Bliss", "t": "classic", "d": "Strawberry, raspberry, blueberry and blackberry.", "l": "smoothies"}, "sm_apple": {"n": "Sour Apple", "t": "new", "d": "Tart green apple with a sweet-sour snap.", "l": "smoothies"}, "sm_blue": {"n": "Blue Raspberry", "t": "new", "d": "Bright blue raspberry, like the candy you grew up on.", "l": "smoothies"}, "sm_ring": {"n": "Peach Ring", "t": "new", "d": "Juicy peach with a gummy-candy twist.", "l": "smoothies"}};</script><script>
 (function () {
   var root = document.documentElement;
   function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k)); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
@@ -688,33 +757,46 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     }); });
   });
 
-  // ---------- box (shared across pages) ----------
+  // ---------- box (shared across pages): keys "cc" = Swell 30g, "cc~50" = Swoll 50g ----------
   var box = store("swell-box") || { size: 12, protein: 30, items: {} };
   function total() { var n = 0; for (var k in box.items) n += box.items[k]; return n; }
   function $(id) { return document.getElementById(id); }
+  function isW(k) { return /~50$/.test(k); }
+  function baseK(k) { return k.replace(/~50$/, ""); }
+  function keyFor(k, p) { return (p || box.protein) === 50 ? baseK(k) + "~50" : baseK(k); }
+  function imgFor(k) { return P + "img/" + (isW(k) ? "sw_" : "b_") + baseK(k) + ".webp"; }
+  function nameFor(k) { return NAMES[baseK(k)]; }
+  function count(k) { return (box.items[baseK(k)] || 0) + (box.items[baseK(k) + "~50"] || 0); }
   function render() {
     var n = total(), s = box.size, pct = Math.min(100, n / s * 100), save = s === 24 ? "Save 15%" : "Save 10%";
+    var nw = 0; for (var kk in box.items) if (isW(kk)) nw += box.items[kk]; var ns = n - nw;
     document.querySelectorAll(".boxcount").forEach(function (c) { c.hidden = !n; c.textContent = n; });
     if ($("mb-s")) { $("mb-s").textContent = n ? n + " of " + s + " in your box" : "Mix any 12 or 24"; $("mb-t").textContent = n ? "Your box" : "Build a box"; }
-    document.querySelectorAll("[data-add]").forEach(function (b) { var q = box.items[b.dataset.add] || 0; b.classList.toggle("in", q > 0);
+    document.querySelectorAll("button[data-protein]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.protein === box.protein)); });
+    document.querySelectorAll(".fl[id^='flavor-'] .pic img").forEach(function (im) { var id = im.closest(".fl").id.slice(7), w = P + "img/" + (box.protein === 50 ? "sw_" : "b_") + id + ".webp"; if (im.getAttribute("src") !== w) im.setAttribute("src", w); });
+    document.querySelectorAll("[data-add]").forEach(function (b) { var q = count(b.dataset.add); b.classList.toggle("in", q > 0);
       if (!b.dataset.busy) b.innerHTML = q ? CHECK + " " + q + " in box" : (b.dataset.label || "Add to box"); });
     if (!$("box-form")) { store("swell-box", box); return; }
     document.querySelectorAll("[data-size]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.size === s)); });
-    document.querySelectorAll("[data-protein]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.protein === box.protein)); });
-    $("box-title").textContent = s + " bottles · " + box.protein + "g protein";
+    document.querySelectorAll("button[data-protein]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.protein === box.protein)); });
+    $("box-title").textContent = s + " bottles" + (n ? " · " + (ns ? ns + " Swell" : "") + (ns && nw ? " + " : "") + (nw ? nw + " Swoll" : "") : "");
     $("box-count").textContent = n + " of " + s; $("box-save").textContent = save; $("box-bar").style.width = pct + "%";
     var sub = $("box-submit"), left = s - n;
     if (!sub.classList.contains("done")) { sub.disabled = left > 0; sub.textContent = left > 0 ? "Add " + left + " more to reserve" : "Reserve my box"; }
-    var productImg = function (k) { return P + (box.protein === 50 ? "img/swoll/" + k + ".png" : "img/b_" + k + ".webp"); };
     var list = []; Object.keys(box.items).forEach(function (k) { for (var i = 0; i < box.items[k]; i++) list.push(k); });
     var slots = $("slots"), prev = slots.querySelectorAll("i.f").length, h = "";
     for (var i = 0; i < s; i++) h += list[i]
-      ? '<i class="f"><span class="b"><img src="' + productImg(list[i]) + '" alt="' + NAMES[list[i]] + '"' + (i < prev ? ' style="animation:none"' : "") + '></span><small>' + NAMES[list[i]] + "</small></i>"
+      ? '<i class="f' + (isW(list[i]) ? " w" : "") + '"><span class="b"><img src="' + imgFor(list[i]) + '" alt="' + (isW(list[i]) ? "Swoll " : "Swell ") + nameFor(list[i]) + '"' + (i < prev ? ' style="animation:none"' : "") + '></span><small>' + nameFor(list[i]) + "</small></i>"
       : '<i><span class="b"></span><small></small></i>';
     slots.innerHTML = h; slots.classList.toggle("s24", s === 24); slots.style.gridTemplateColumns = "";
-    $("packtxt").textContent = s + " bottles · " + (box.protein === 50 ? "Swoll · 50g protein" : "14 fl oz · 30g protein");
-    $("tally").innerHTML = s !== 24 ? "" : Object.keys(box.items).map(function (k) { return '<span><img src="' + productImg(k) + '" alt="">' + NAMES[k] + " × " + box.items[k] + "</span>"; }).join("");
-    document.querySelectorAll(".pk").forEach(function (r) { var q = box.items[r.dataset.id] || 0, im = r.querySelector("img"); r.classList.toggle("on", q > 0); if (im) im.src = productImg(r.dataset.id); $("q-" + r.dataset.id).textContent = q; });
+    $("packtxt").textContent = s + " bottles · " + (ns && nw ? "Swell + Swoll mix" : nw ? "Swoll · 50g" : "Swell · 30g");
+    $("tally").innerHTML = s !== 24 ? "" : Object.keys(box.items).map(function (k) { return '<span class="' + (isW(k) ? "w" : "") + '"><img src="' + imgFor(k) + '" alt="">' + (isW(k) ? "Swoll " : "") + nameFor(k) + " × " + box.items[k] + "</span>"; }).join("");
+    document.querySelectorAll(".pk").forEach(function (r) {
+      var id = r.dataset.id, a = box.items[id] || 0, b = box.items[id + "~50"] || 0;
+      r.classList.toggle("on", a + b > 0); $("q-" + id).textContent = box.protein === 50 ? b : a;
+      var im = r.querySelector("img"), want = P + "img/" + (box.protein === 50 ? "sw_" : "b_") + id + ".webp"; if (im.getAttribute("src") !== want) im.setAttribute("src", want);
+      $("mix-" + id).innerHTML = (a ? "<i>" + a + " Swell</i>" : "") + (b ? '<i class="w">' + b + " Swoll</i>" : "");
+    });
     store("swell-box", box);
   }
   function add(k, n, src) {
@@ -726,34 +808,34 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     render();
     if (n > 0) {
       document.querySelectorAll(".boxcount").forEach(pop); if (src) burst(src);
-      var q = $("q-" + k); if (q) pop(q);
-      if (!$("box-form")) toast(NAMES[k] + " added · <a href='" + P + "shop.html#build'>View box</a>");
+      var q = $("q-" + baseK(k)); if (q) pop(q);
+      if (!$("box-form")) toast((isW(k) ? "Swoll " : "") + nameFor(k) + " added · <a href='" + P + "shop.html#build'>View box</a>");
     }
     return true;
   }
   document.querySelectorAll("[data-add]").forEach(function (b) {
     b.dataset.label = b.innerHTML;
     b.addEventListener("click", function () {
-      if (b.dataset.power) box.protein = 50;
-      if (add(b.dataset.add, 1, b)) { b.dataset.busy = 1; b.innerHTML = CHECK + " Added"; setTimeout(function () { delete b.dataset.busy; render(); }, 900); }
+      if (add(keyFor(b.dataset.add), 1, b)) { b.dataset.busy = 1; b.innerHTML = CHECK + " Added"; setTimeout(function () { delete b.dataset.busy; render(); }, 900); }
     });
   });
-  document.querySelectorAll("[data-inc]").forEach(function (b) { b.addEventListener("click", function () { add(b.dataset.inc, 1, b); }); });
-  document.querySelectorAll("[data-dec]").forEach(function (b) { b.addEventListener("click", function () { add(b.dataset.dec, -1); }); });
+  document.querySelectorAll("[data-inc]").forEach(function (b) { b.addEventListener("click", function () { add(keyFor(b.dataset.inc), 1, b); }); });
+  document.querySelectorAll("[data-dec]").forEach(function (b) { b.addEventListener("click", function () { add(keyFor(b.dataset.dec), -1); }); });
   document.querySelectorAll("[data-size]").forEach(function (b) { b.addEventListener("click", function () {
     var s = +b.dataset.size; if (s < total()) { toast("Remove " + (total() - s) + " first to switch to " + s); return; } box.size = s; render(); }); });
-  document.querySelectorAll("[data-protein]").forEach(function (b) { b.addEventListener("click", function () { box.protein = +b.dataset.protein; render(); }); });
   document.querySelectorAll("[data-preset]").forEach(function (b) { b.addEventListener("click", function () {
     var ks = b.dataset.preset.split(","), s = +b.dataset.n; box.size = s; box.items = {};
-    for (var i = 0; i < s; i++) { var k = ks[i % ks.length]; box.items[k] = (box.items[k] || 0) + 1; }
+    for (var i = 0; i < s; i++) { var k = keyFor(ks[i % ks.length]); box.items[k] = (box.items[k] || 0) + 1; }
     render(); burst(b); toast(b.textContent.trim() + " loaded"); var f = $("build"); if (f) f.scrollIntoView({ behavior: "smooth" });
   }); });
   if ($("fill")) $("fill").addEventListener("click", function (e) {
-    var pool = Object.keys(box.items).length ? Object.keys(box.items) : ["cc", "cake", "choc", "van", "pbc", "mint"], i = 0;
+    var pool = Object.keys(box.items).length ? Object.keys(box.items) : ["cc", "cake", "choc", "van", "pbc", "mint"].map(function (k) { return keyFor(k); }), i = 0;
     while (total() < box.size) { var k = pool[i++ % pool.length]; box.items[k] = (box.items[k] || 0) + 1; }
     render(); burst(e.currentTarget);
   });
   if ($("clear")) $("clear").addEventListener("click", function () { box.items = {}; render(); });
+  document.querySelectorAll("[data-protein]").forEach(function (b) { b.addEventListener("click", function () { box.protein = +b.dataset.protein; render();
+    if ($("box-form")) toast(box.protein === 50 ? "Adding <b>Swoll</b> bottles now. Your Swell picks stay in the box." : "Adding <b>Swell</b> bottles now. Your Swoll picks stay in the box."); }); });
   function btab(line) {
     document.querySelectorAll("[data-btab]").forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.btab === line)); });
     document.querySelectorAll("[data-bpanel]").forEach(function (p) { p.hidden = p.dataset.bpanel !== line; });
@@ -767,7 +849,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     msg.textContent = "We'll email you before your " + box.size + "-bottle box ships.";
   });
   document.querySelectorAll("form[data-simple]").forEach(function (f) { f.addEventListener("submit", function (e) {
-    e.preventDefault(); var em = f.querySelector("input"), b = f.querySelector("button"), m = f.parentNode.querySelector(".fmsg");
+    e.preventDefault(); var em = f.querySelector("input[type=email]"), b = f.querySelector("button"), m = f.parentNode.querySelector(".fmsg");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)) { m.textContent = "Enter a full email, like you@email.com."; em.focus(); return; }
     b.innerHTML = CHECK + " Sent"; confetti(b); m.textContent = f.dataset.simple;
   }); });
@@ -917,6 +999,50 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   document.querySelectorAll("[data-icf]").forEach(function (b) { b.addEventListener("click", function () {
     document.querySelectorAll("[data-icf]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
     document.querySelectorAll(".icc").forEach(function (c) { c.hidden = !(b.dataset.icf === "all" || c.dataset.ict === b.dataset.icf); }); }); });
+
+  // ---------- drink detail sheet (nutrition facts) ----------
+  var sheet = $("sheet"), shScrim = $("sheet-scrim"), shBody = $("sh-body"), shK = null, shP = 30, lastFocus = null;
+  var NUT = { // sample values (placeholder until lab results)
+    shakes:    { 30: [180, "3.5g", 4, "2g", 10, "20mg", 7, "240mg", 10, "8g", 3, "1g", 4, "4g", "0g", 0, "30g", 60, ["2mcg", 10], ["700mg", 50], ["1mg", 6], ["450mg", 10]],
+                 50: [290, "5g", 6, "3g", 15, "35mg", 12, "380mg", 17, "11g", 4, "2g", 7, "5g", "0g", 0, "50g", 100, ["3mcg", 15], ["1100mg", 85], ["1.6mg", 9], ["700mg", 15]] },
+    smoothies: { 30: [190, "1g", 1, "0.5g", 3, "10mg", 3, "150mg", 7, "16g", 6, "2g", 7, "9g", "2g", 4, "30g", 60, ["0mcg", 0], ["300mg", 25], ["0.5mg", 2], ["350mg", 8]],
+                 50: [310, "1.5g", 2, "1g", 5, "15mg", 5, "240mg", 10, "24g", 9, "3g", 11, "13g", "3g", 6, "50g", 100, ["0mcg", 0], ["480mg", 35], ["0.8mg", 4], ["560mg", 12]] } };
+  function nfHtml(v, sw) {
+    function r(lbl, amt, dv, cls) { return '<div class="r ' + (cls || "") + '"><span>' + lbl + " " + amt + "</span><b>" + (dv === null ? "" : dv + "%") + "</b></div>"; }
+    return '<section class="nf" aria-label="Nutrition Facts"><h3>Nutrition Facts</h3><div class="srv">1 serving per container<br><b>Serving size</b> <b style="float:right">1 bottle' + (sw ? "" : " (414 mL)") + "</b></div>" +
+      '<div class="cal"><span>Calories</span><span>' + v[0] + "</span></div>" + '<div class="dvh">% Daily Value*</div>' +
+      r("<b>Total Fat</b>", v[1], v[2]) + r("Saturated Fat", v[3], v[4], "i1") + r("<i>Trans</i> Fat", "0g", null, "i1") + r("<b>Cholesterol</b>", v[5], v[6]) + r("<b>Sodium</b>", v[7], v[8]) +
+      r("<b>Total Carbohydrate</b>", v[9], v[10]) + r("Dietary Fiber", v[11], v[12], "i1") + r("Total Sugars", v[13], null, "i1") + r("Includes " + v[14] + " Added Sugars", "", v[15], "i2") +
+      r("<b>Protein</b>", v[16], v[17], "thick") +
+      '<div class="vit">' + r("Vitamin D", v[18][0], v[18][1]) + r("Calcium", v[19][0], v[19][1]) + r("Iron", v[20][0], v[20][1]) + r("Potassium", v[21][0], v[21][1]) + "</div>" +
+      '<p class="foot">*The % Daily Value tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p></section>';
+  }
+  function drawSheet() {
+    var d = DRINKS[shK], sw = shP === 50, kind = d.l === "shakes" ? "protein shake" : "protein smoothie", key = sw ? shK + "~50" : shK, q = box.items[key] || 0;
+    shBody.innerHTML = '<div class="sh-top"><div class="bimg' + (sw ? " w" : "") + '"><img src="' + P + "img/" + (sw ? "sw_" + shK + "_lg" : "b_" + shK) + '.webp" alt="' + (sw ? "Swoll " : "Swell ") + d.n + '"></div>' +
+      '<div><h2 id="sh-name">' + d.n + '</h2><p class="kind">' + (sw ? "Swoll" : "Swell") + " " + kind + " · " + (sw ? "50g" : "30g") + " protein</p>" + '<p class="d">' + d.d + "</p></div></div>" +
+      '<div class="sh-size" role="group" aria-label="Bottle"><button type="button" data-shp="30" aria-pressed="' + !sw + '"><b>Swell · 30g</b><span>Pink bottle</span></button>' +
+      '<button type="button" class="w" data-shp="50" aria-pressed="' + sw + '"><b>Swoll · 50g</b><span>Blue bottle</span></button></div>' +
+      '<button type="button" class="btn sh-add" id="sh-add">' + (q ? CHECK + " " + q + " in box · add another" : "Add " + (sw ? "Swoll " : "Swell ") + d.n + " to box") + "</button>" +
+      nfHtml(NUT[d.l][shP], sw) +
+      '<div class="sh-extra"><p><b>Also in every bottle:</b> collagen peptides and bovine colostrum.</p><p><b>Contains:</b> milk.</p>' +
+      '<p><span class="ph">Sample nutrition for layout. Final values pending lab testing.</span></p></div>';
+    shBody.querySelectorAll("[data-shp]").forEach(function (b) { b.addEventListener("click", function () { shP = +b.dataset.shp; drawSheet(); }); });
+    $("sh-add").addEventListener("click", function (e) { if (add(key, 1, e.currentTarget)) drawSheet(); });
+  }
+  function openSheet(k) {
+    shK = k; shP = box.protein === 50 ? 50 : 30; lastFocus = document.activeElement; drawSheet();
+    sheet.hidden = false; shScrim.hidden = false; sheet.scrollTop = 0; sheet.style.transform = ""; root.classList.add("sheet-open"); $("sh-x").focus({ preventScroll: true });
+  }
+  function closeSheet() { if (sheet.hidden) return; sheet.hidden = true; shScrim.hidden = true; root.classList.remove("sheet-open"); if (lastFocus) lastFocus.focus({ preventScroll: true }); }
+  document.addEventListener("click", function (e) { var t = e.target.closest("[data-drink]"); if (t) { e.preventDefault(); openSheet(t.dataset.drink); } });
+  $("sh-x").addEventListener("click", closeSheet); shScrim.addEventListener("click", closeSheet);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeSheet(); });
+  (function () { var g = $("sh-grab"), y0 = null, dy = 0;
+    g.addEventListener("pointerdown", function (e) { y0 = e.clientY; dy = 0; g.setPointerCapture(e.pointerId); sheet.style.transition = "none"; });
+    g.addEventListener("pointermove", function (e) { if (y0 === null || window.innerWidth >= 760) return; dy = Math.max(0, e.clientY - y0); sheet.style.transform = "translateY(" + dy + "px)"; });
+    g.addEventListener("pointerup", function () { if (y0 === null) return; y0 = null; sheet.style.transition = "transform .3s"; if (dy > 110) closeSheet(); sheet.style.transform = ""; });
+  })();
   // ---------- #drinkswell page ----------
   document.querySelectorAll("[data-copy]").forEach(function (b) { b.addEventListener("click", function () {
     var t = b.dataset.copy, done = function () { var o = b.dataset.label || b.textContent; b.dataset.label = o; b.innerHTML = CHECK + " Copied"; b.classList.add("in"); burst(b);
