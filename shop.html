@@ -10,7 +10,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Swell">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Build a Box | Swell</title>
 <meta name="description" content="Build a 12- or 24-bottle box of Swell protein shakes and smoothies. Mix any flavors, choose 30g or 50g, pay when it ships.">
 <link rel="canonical" href="https://pdrayday.github.io/swell/shop.html">
@@ -46,7 +46,7 @@ html[data-line="smoothies"] {
 @keyframes vt-in { from { opacity: 0; transform: translateY(10px); } }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--bg); }
-body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; transition: background-color .45s, color .45s; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
 a { color: inherit; }
 img { max-width: 100%; height: auto; display: block; }
 button, input, select { font: inherit; color: inherit; }
@@ -88,7 +88,9 @@ p { margin: 0; }
 /* ---- header ---- */
 .promo { background: var(--ink); color: var(--on-ink); text-align: center; font: 600 13.5px/1.35 var(--body); padding: 9px 16px; }
 .promo a { color: inherit; font-weight: 700; }
-header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: background-color .45s; }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; z-index: 100; left: 0; right: 0; top: 0; height: env(safe-area-inset-top, 0px); background: var(--ink); pointer-events: none; }
+.promo { padding-top: calc(9px + env(safe-area-inset-top, 0px)) !important; }
 header.top .wrap { display: flex; align-items: center; gap: 20px; height: 66px; }
 .logo img { height: 34px; width: auto; }
 .tabs { display: flex; gap: 4px; margin-left: 10px; }
@@ -285,11 +287,11 @@ html[data-line="smoothies"] .packband img { filter: invert(1) sepia(.4) brightne
 .bar { height: 8px; border-radius: 4px; background: rgba(26,18,22,.12); overflow: hidden; } .bar span { display: block; height: 100%; width: 0; background: #1a1216; transition: width .4s var(--spring); }
 .summary .row { display: flex; justify-content: space-between; font-weight: 600; font-size: 14.5px; } .summary .ok { color: #1f6b33; }
 .summary input { width: 100%; padding: 14px 16px; border-radius: 999px; border: 1.5px solid rgba(26,18,22,.2); background: #fff; color: #1a1216; font-size: 16px; }
-.summary .btn { width: 100%; background: #1a1216; color: #fde6ec; }
+.summary .btn { width: 100%; background: var(--ink); color: var(--on-ink); }
 .summary .btn[disabled] { opacity: .45; cursor: not-allowed; }
 .summary .btn.done { background: #1f6b33; color: #fff; }
 .links { display: flex; gap: 14px; font: 600 14px var(--body); } .links button { border: 0; background: none; padding: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; color: inherit; }
-.assure { color: #6f5560; font-size: 13px; }
+.assure { color: var(--muted); font-size: 13px; }
 @media (max-width: 980px) { .builder { grid-template-columns: 1fr; } .summary { position: static; } }
 
 /* machines */
@@ -349,7 +351,7 @@ html[data-line="smoothies"] .mloc { background: #fffdf3; }
 #fmap { position: absolute; inset: 0; background: #f2ece6; }
 .fsearch { position: absolute; z-index: 500; top: 18px; left: 18px; width: min(420px, calc(100% - 36px)); display: flex; align-items: center; gap: 10px; padding: 0 10px 0 16px; height: 52px; border-radius: 999px; background: #fff; color: #2a121a; box-shadow: 0 10px 30px -10px rgba(40,10,20,.4); }
 .fsearch input { flex: 1; border: 0; background: none; font: 500 17px var(--display); color: #2a121a; outline: none; min-width: 0; }
-.fsearch button { border: 0; background: none; font-size: 26px; line-height: 1; color: #6f5560; cursor: pointer; padding: 4px 6px; }
+.fsearch button { border: 0; background: none; font-size: 26px; line-height: 1; color: var(--muted); cursor: pointer; padding: 4px 6px; }
 .fctl { position: absolute; z-index: 500; right: 18px; bottom: 92px; display: grid; border-radius: 16px; background: #fff; box-shadow: 0 10px 30px -10px rgba(40,10,20,.4); overflow: hidden; }
 .fctl button { width: 52px; height: 52px; border: 0; background: #fff; font-size: 28px; color: #2a121a; cursor: pointer; }
 .fctl button + button { border-top: 1px solid #eadde1; }
@@ -367,15 +369,15 @@ html[data-line="smoothies"] .pinb { background: radial-gradient(circle at 35% 30
 .plbl.left { left: auto; right: 48px; }
 .youdot { width: 18px; height: 18px; border-radius: 50%; background: #2f7bf6; border: 3px solid #fff; box-shadow: 0 0 0 8px rgba(47,123,246,.22); }
 .maplibregl-popup.spop { z-index: 6; }
-.spop .maplibregl-popup-content { border-radius: 22px; padding: 0; box-shadow: 0 20px 40px -14px rgba(40,10,20,.45); border: 2px solid #f6d3dc; width: 330px; }
+.spop .maplibregl-popup-content { border-radius: 22px; padding: 0; box-shadow: 0 20px 40px -14px rgba(40,10,20,.45); border: 2px solid var(--surface); width: 330px; }
 .spop.maplibregl-popup-anchor-bottom .maplibregl-popup-tip { border-top-color: #fff; }
-.spop .maplibregl-popup-close-button { top: 8px; right: 10px; font-size: 22px; color: #6f5560; background: none; }
-.pc { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 14px; align-items: center; color: #2a121a; }
+.spop .maplibregl-popup-close-button { top: 8px; right: 10px; font-size: 22px; color: var(--muted); background: none; }
+.pc { display: grid; grid-template-columns: 120px 1fr; gap: 14px; padding: 14px; align-items: center; color: var(--fg); }
 .pc img { width: 120px; height: 150px; object-fit: cover; border-radius: 12px; background: #f6e6ea; }
 .pc h3 { font: 700 19px/1.15 var(--display); margin: 0 0 6px; padding-right: 22px; }
-.pc .pa { font-size: 13.5px; color: #5f2f3d; line-height: 1.35; margin: 0 0 4px; }
-.pc .pv { font-size: 12.5px; color: #8a6470; margin: 0 0 10px; }
-.pc .dir { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; background: #c96b84; color: #fff !important; font-weight: 700; text-decoration: none; font-size: 15px; transition: transform .3s var(--spring); }
+.pc .pa { font-size: 13.5px; color: var(--muted); line-height: 1.35; margin: 0 0 4px; }
+.pc .pv { font-size: 12.5px; color: var(--muted); margin: 0 0 10px; }
+.pc .dir { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; background: var(--ink); color: var(--on-ink) !important; font-weight: 700; text-decoration: none; font-size: 15px; transition: transform .3s var(--spring); }
 .pc .dir:active { transform: scale(.95); }
 @media (max-width: 900px) {
   .finder2 { grid-template-columns: 1fr; height: auto; }
@@ -493,6 +495,61 @@ html[data-line="smoothies"] .icgrid { grid-template-columns: repeat(2, minmax(0,
 .bottle-view button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
 .bottle-view button.w[aria-pressed="true"] { background: #2f5aa8; color: #fff; }
 @media (max-width: 760px) { .bottle-view { align-items: flex-start; flex-direction: column; } }
+
+/* ---------- account: profile button, scan button, Swell Pass ---------- */
+.prof { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: var(--fg); text-decoration: none; flex: none; }
+.prof .pav { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--surface); overflow: hidden; font: 700 15px/1 var(--display); }
+.prof.in .pav { background: var(--ink); color: var(--on-ink); }
+.prof .pav img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 960px) { header.top .right { margin-left: auto; } }
+.scanfab { position: fixed; z-index: 45; right: 14px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); display: grid; place-items: center; gap: 0; width: 64px; height: 64px; border-radius: 50%; border: 3px solid var(--bg); background: var(--ink); color: var(--on-ink); cursor: pointer; box-shadow: 0 14px 30px -10px rgba(20,8,12,.55); font: 800 10px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; }
+.scanfab svg { margin-top: 6px; } .scanfab span { margin-top: -6px; }
+.scanfab::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; border: 2px solid var(--ink); opacity: 0; animation: ping 3.2s ease-out 1.2s 3; }
+@keyframes ping { 0% { transform: scale(1); opacity: .55; } 70%, 100% { transform: scale(1.45); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .scanfab::after { animation: none; } }
+@media (max-width: 960px) { .mbar { right: 88px !important; } }
+.drawer .pass-open { width: 100%; }
+.passsheet { z-index: 92; }
+.pass-card { margin: 4px auto 0; max-width: 380px; border-radius: 26px; overflow: hidden; background: var(--ink); color: var(--on-ink); box-shadow: 0 24px 50px -24px rgba(20,8,12,.6); }
+.pass-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 16px 18px 12px; }
+.pass-top img { height: 30px; width: auto; filter: invert(1) brightness(1.15); }
+html[data-line="smoothies"] .pass-top img { filter: invert(1) sepia(.35) brightness(1.1); }
+.pass-top span { font: 700 11px/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; opacity: .8; text-align: right; }
+.qrwrap { margin: 0 18px; padding: 16px; border-radius: 18px; background: #fff; display: grid; place-items: center; }
+.qrwrap svg { width: 100%; max-width: 260px; height: auto; display: block; }
+.pass-meta { display: flex; justify-content: space-between; align-items: end; gap: 10px; padding: 14px 18px 18px; }
+.pass-meta b { display: block; font: 700 19px/1.15 var(--display); } .pass-meta small { opacity: .75; font-size: 12.5px; }
+.pass-meta .mid { font: 700 13px/1 ui-monospace, Menlo, monospace; letter-spacing: .02em; text-align: right; white-space: nowrap; }
+.pass-meta > div:first-child { min-width: 0; }
+.pass-timer { height: 4px; background: color-mix(in srgb, var(--on-ink) 18%, transparent); } .pass-timer i { display: block; height: 100%; background: var(--on-ink); transition: width 1s linear; }
+.pass-tip { max-width: 380px; margin: 12px auto 0; text-align: center; font-size: 13.5px; color: var(--muted); }
+.pass-pay { max-width: 380px; margin: 14px auto 0; display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 16px; background: var(--surface); }
+.pass-pay .cc { width: 44px; height: 30px; border-radius: 6px; background: linear-gradient(135deg, #1d2a4a, #3b5998); flex: none; }
+.pass-pay div { flex: 1; min-width: 0; font-size: 14px; line-height: 1.3; } .pass-pay b { display: block; font-size: 15px; }
+.pass-pay button, .pass-pay a { flex: none; }
+.pass-actions { max-width: 380px; margin: 14px auto 0; display: grid; gap: 8px; }
+.signin { max-width: 380px; margin: 4px auto 0; display: grid; gap: 10px; text-align: center; }
+.signin h2 { font-size: clamp(28px, 6vw, 34px); padding: 0 36px; } .signin > p { color: var(--muted); font-size: 15px; }
+.sso { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 52px; border-radius: 999px; border: 1.5px solid rgba(0,0,0,.14); font: 600 16px/1 -apple-system, system-ui, "Segoe UI", Roboto, sans-serif; cursor: pointer; }
+.sso.google { background: #fff; color: #1f1f1f; } .sso.apple { background: #000; color: #fff; border-color: #000; }
+.sso svg { width: 20px; height: 20px; flex: none; }
+.or { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px; } .or::before, .or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.signin form { display: grid; gap: 8px; } .signin input { padding: 15px 18px; border-radius: 999px; border: 0; background: #fff; color: #1a1216; font: 500 16px var(--body); }
+.howpass { max-width: 380px; margin: 16px auto 0; list-style: none; padding: 0; display: grid; gap: 8px; counter-reset: h; text-align: left; }
+.howpass li { counter-increment: h; position: relative; padding: 10px 12px 10px 48px; border-radius: 14px; background: var(--surface); font-size: 14px; line-height: 1.35; }
+.howpass li::before { content: counter(h); position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--on-ink); font: 700 13px/1 var(--body); }
+.demo-note { max-width: 380px; margin: 12px auto 0; font-size: 12.5px; color: var(--muted); text-align: center; }
+/* account page */
+.acct-grid { display: grid; grid-template-columns: 400px 1fr; gap: clamp(20px, 4vw, 48px); align-items: start; }
+@media (max-width: 900px) { .acct-grid { grid-template-columns: 1fr; } }
+.acard { background: var(--surface); border-radius: 24px; padding: 22px; } .acard + .acard { margin-top: 16px; }
+.acard h2 { font-size: 26px; margin-bottom: 10px; }
+.arow { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; } .arow:first-of-type { border-top: 0; }
+.arow span { color: var(--muted); }
+.pulls { list-style: none; margin: 0; padding: 0; } .pulls li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 14.5px; }
+.pulls li:first-child { border-top: 0; } .pulls img { height: 46px; width: auto; } .pulls li div { flex: 1; } .pulls small { display: block; color: var(--muted); }
+.who-hi { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; } .who-hi .pav { width: 56px; height: 56px; border-radius: 50%; background: var(--ink); color: var(--on-ink); display: grid; place-items: center; font: 700 22px/1 var(--display); overflow: hidden; } .who-hi .pav img { width: 100%; height: 100%; object-fit: cover; }
+.who-hi b { display: block; font: 700 22px/1.1 var(--display); } .who-hi small { color: var(--muted); }
 /* ---------- drink sheet + nutrition facts ---------- */
 .fl .pic { border: 0; background: none; padding: 0; cursor: pointer; width: 100%; }
 .nlink { border: 0; background: none; padding: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; }
@@ -575,10 +632,10 @@ html[data-line="smoothies"] .post { background: #fffdf3; }
 @keyframes rise { from { opacity: 0; transform: translateY(14px) scale(.98); } }
 .ph-h { display: flex; align-items: center; gap: 10px; padding: 12px 14px; }
 .av img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; }
-.av { width: 36px; height: 36px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; font: 700 15px/1 var(--display); color: #fff; background: linear-gradient(135deg, #c96b84, #f2c94c); box-shadow: 0 0 0 2px #fff, 0 0 0 4px #e7a6b6; flex: none; }
+.av { width: 36px; height: 36px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; font: 700 15px/1 var(--display); color: #fff; background: linear-gradient(135deg, var(--em), #f2c94c); box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--bg); flex: none; }
 .pwho { display: grid; gap: 1px; min-width: 0; flex: 1 1 0; } .pwho b { display: block; min-width: 0; font-size: 14.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.pwho small { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: #7a5a64; }
-.sample { margin-left: auto; font: 700 10.5px/1 var(--body); letter-spacing: .04em; text-transform: uppercase; padding: 5px 7px; border-radius: 6px; border: 1.5px dashed #9e6b78; color: #6f3d4b; flex: none; }
+.pwho small { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--muted); }
+.sample { margin-left: auto; font: 700 10.5px/1 var(--body); letter-spacing: .04em; text-transform: uppercase; padding: 5px 7px; border-radius: 6px; border: 1.5px dashed color-mix(in srgb, var(--muted) 70%, transparent); color: var(--muted); flex: none; }
 .pimg { position: relative; background: var(--stage); }
 .pimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .pplay { position: absolute; right: 12px; top: 12px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; color: #fff; background: rgba(20,8,14,.5); backdrop-filter: blur(4px); }
@@ -587,7 +644,7 @@ html[data-line="smoothies"] .post { background: #fffdf3; }
 .like[aria-pressed="true"] { color: #d6345f; --hf: #d6345f; }
 .like[aria-pressed="true"] svg { animation: heart .45s var(--spring); }
 @keyframes heart { 30% { transform: scale(1.35); } 60% { transform: scale(.9); } }
-.pcap { padding: 2px 16px 16px; font-size: 14.5px; line-height: 1.45; } .pcap .ht { color: #9e2a4b; font-weight: 600; }
+.pcap { padding: 2px 16px 16px; font-size: 14.5px; line-height: 1.45; } .pcap .ht { color: var(--em); font-weight: 600; }
 html[data-line="smoothies"] .pcap .ht { color: #7a4e0c; }
 .tagband { align-items: center; } .tagband h2 { font-size: clamp(34px, 4vw, 52px); }
 .tagband-r { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
@@ -615,13 +672,14 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   <a class="logo" href="index.html" aria-label="Swell home"><img src="img/logo.png" alt="Swell" width="416" height="159"></a>
   <nav class="tabs" aria-label="Main"><a href="shop.html" aria-current="page">Shop</a><a href="icecream.html">Ice Cream</a><a href="index.html#machines">Find a machine</a><a href="creami/index.html">Recipes</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="faq.html">FAQ</a></nav>
-  <div class="right"><div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div></div>
+  <div class="right"><div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div><a class="prof press" href="account.html" aria-label="Your Swell account" data-acct><span class="pav" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.8 20c1.1-3.6 3.9-5.4 7.2-5.4s6.1 1.8 7.2 5.4"/></svg></span></a></div>
 </div></header>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Menu">
   <button type="button" class="x press" id="drawer-x" aria-label="Close menu">×</button>
   <div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div>
   <nav><a href="index.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg></i><b>Home</b><span></span></a><a href="shop.html" aria-current="page"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></i><b>Shop</b><span>Build a box</span></a><a href="icecream.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11h8l-4 10z"/><path d="M7.5 11a4.5 4.5 0 0 1 9 0"/></svg></i><b>Ice Cream</b><span>Protein pints</span></a><a href="index.html#machines"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></i><b>Find a machine</b><span>Utah County</span></a><a href="creami/index.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M9 7c0-1.5 1.5-1.5 1.5-3M13.5 7c0-1.5 1.5-1.5 1.5-3"/></svg></i><b>Recipes</b><span>Ninja Creami</span></a><a href="blog.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 7 20M17 4l-2 16M4.5 9h16M3.5 15h16"/></svg></i><b>Blog</b><span>#drinkswell</span></a><a href="about.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.1"/></svg></i><b>About</b><span>Our story</span></a><a href="faq.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4M12 16.6v.1"/></svg></i><b>FAQ</b><span>Questions</span></a></nav>
+  <button type="button" class="btn alt pass-open" data-pass>Show my Swell Pass</button>
   <a class="btn" href="shop.html#build">Build a box</a>
 </aside><main id="main">
 <section class="page-h"><div class="wrap">
@@ -676,6 +734,15 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 </div></footer>
 <div class="mbar" id="mbar" role="region" aria-label="Your box"><div class="p"><b id="mb-t">Build a box</b><span id="mb-s">Mix any 12 or 24</span></div><a class="btn sm" href="shop.html#build">Open box <span class="boxcount" hidden>0</span></a></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<button type="button" class="scanfab press" id="scanfab" data-pass aria-label="Show my Swell Pass to scan at a machine"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/><path d="M8 8h3v3H8zM13 13h3v3h-3zM13 8h3M8 16h3M13 10.5h1.5"/></svg><span>Scan</span></button>
+<div class="sheet-scrim" id="pass-scrim" hidden></div>
+<div class="sheet passsheet" id="pass" role="dialog" aria-modal="true" aria-labelledby="pass-h" hidden>
+  <div class="sh-grab" aria-hidden="true"><span></span></div>
+  <button type="button" class="sh-x press" id="pass-x" aria-label="Close">×</button>
+  <div class="sh-body" id="pass-body"></div>
+</div>
+<script>window.SWELL_AUTH = { googleClientId: "", appleClientId: "", appleRedirectURI: "" };</script>
+<script src="vendor/qrcode.js" defer></script>
 <div class="sheet-scrim" id="sheet-scrim" hidden></div>
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-name" hidden>
   <div class="sh-grab" id="sh-grab" aria-hidden="true"><span></span></div>
@@ -1043,6 +1110,124 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     g.addEventListener("pointermove", function (e) { if (y0 === null || window.innerWidth >= 760) return; dy = Math.max(0, e.clientY - y0); sheet.style.transform = "translateY(" + dy + "px)"; });
     g.addEventListener("pointerup", function () { if (y0 === null) return; y0 = null; sheet.style.transition = "transform .3s"; if (dy > 110) closeSheet(); sheet.style.transform = ""; });
   })();
+
+  // ---------- Swell account + Swell Pass ----------
+  // Sign-in uses real Google / Apple when SWELL_AUTH has client IDs, otherwise a clearly labeled demo.
+  // Card numbers are never collected here: a real build attaches cards through a payment processor.
+  var ACFG = window.SWELL_AUTH || {};
+  function me() { return store("swell-member"); }
+  function saveMe(m) { store("swell-member", m); paintProfile(); }
+  function newId() { var d = ""; for (var i = 0; i < 12; i++) d += Math.floor(Math.random() * 10); return "SW-" + d.slice(0, 4) + "-" + d.slice(4, 8) + "-" + d.slice(8); }
+  function initials(n) { return (n || "S").split(/\s+/).map(function (w) { return w[0]; }).join("").slice(0, 2).toUpperCase(); }
+  function signedIn(profile) {
+    var m = me() || {}; m.name = profile.name || m.name || "Swell member"; m.email = profile.email || m.email || ""; m.photo = profile.photo || m.photo || "";
+    m.provider = profile.provider; m.demo = !!profile.demo; m.id = m.id || newId(); m.since = m.since || new Date().toISOString().slice(0, 10); m.pulls = m.pulls || [];
+    saveMe(m); toast("Signed in" + (m.demo ? " (demo)" : "") + ". Your Swell Pass is ready."); confetti($("scanfab")); drawPass(); paintAccount();
+  }
+  function jwtPayload(t) { try { return JSON.parse(decodeURIComponent(escape(atob(t.split(".")[1].replace(/-/g, "+").replace(/_/g, "/"))))); } catch (e) { return {}; } }
+  function loadScript(src, cb) { var sc = document.createElement("script"); sc.src = src; sc.async = true; sc.onload = cb; sc.onerror = function () { toast("Couldn't reach the sign-in service"); }; document.head.appendChild(sc); }
+  function signGoogle() {
+    if (!ACFG.googleClientId) return signedIn({ name: "Demo Member", email: "demo@drinkswell.com", provider: "Google", demo: true });
+    loadScript("https://accounts.google.com/gsi/client", function () {
+      google.accounts.id.initialize({ client_id: ACFG.googleClientId, callback: function (r) { var j = jwtPayload(r.credential); signedIn({ name: j.name, email: j.email, photo: j.picture, provider: "Google" }); } });
+      google.accounts.id.prompt();
+    });
+  }
+  function signApple() {
+    if (!ACFG.appleClientId) return signedIn({ name: "Demo Member", email: "demo@privaterelay.appleid.com", provider: "Apple", demo: true });
+    loadScript("https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js", function () {
+      AppleID.auth.init({ clientId: ACFG.appleClientId, scope: "name email", redirectURI: ACFG.appleRedirectURI || location.href, usePopup: true });
+      AppleID.auth.signIn().then(function (r) { var j = jwtPayload(r.authorization.id_token), u = r.user || {};
+        signedIn({ name: u.name ? (u.name.firstName + " " + u.name.lastName) : "", email: j.email, provider: "Apple" }); }, function () {});
+    });
+  }
+  function signOut() { var m = me(); store("swell-member", null); try { localStorage.removeItem("swell-member"); } catch (e) {} paintProfile(); drawPass(); paintAccount(); toast("Signed out"); }
+  function addCard() {
+    var m = me(); if (!m) return;
+    m.card = { brand: "Visa", last4: "4242", demo: true }; saveMe(m); toast("Demo card attached. Real cards connect through a secure payment processor."); drawPass(); paintAccount();
+  }
+  var PRICE = { 30: 4.99, 50: 6.99 }; // sample prices
+  function simulatePull() {
+    var m = me(); if (!m || !m.card) return;
+    var keys = Object.keys(DRINKS), k = keys[Math.floor(Math.random() * keys.length)], p = Math.random() < .4 ? 50 : 30;
+    m.pulls = [{ k: k, p: p, at: new Date().toISOString(), where: ["Provo", "Orem", "Lehi", "American Fork"][Math.floor(Math.random() * 4)] }].concat(m.pulls || []).slice(0, 30);
+    saveMe(m); burst($("scanfab")); toast("Scanned at the machine: " + (p === 50 ? "Swoll " : "Swell ") + DRINKS[k].n + " · $" + PRICE[p].toFixed(2) + " charged to " + m.card.brand + " •••• " + m.card.last4 + " (demo)");
+    paintAccount();
+  }
+  function avatar(m) { return m && m.photo ? '<img src="' + m.photo + '" alt="">' : initials(m && m.name); }
+  function paintProfile() {
+    var m = me();
+    document.querySelectorAll(".prof").forEach(function (a) { a.classList.toggle("in", !!m); a.querySelector(".pav").innerHTML = m ? avatar(m) : a.querySelector(".pav").dataset.icon || a.querySelector(".pav").innerHTML;
+      a.setAttribute("aria-label", m ? "Your Swell account (" + m.name + ")" : "Sign in to Swell"); });
+  }
+  document.querySelectorAll(".prof .pav").forEach(function (p) { p.dataset.icon = p.innerHTML; });
+  // ---- the pass sheet ----
+  var pass = $("pass"), passScrim = $("pass-scrim"), passBody = $("pass-body"), qrTimer = null, passFocus = null;
+  var GLOGO = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
+  var ALOGO = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.4.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>';
+  function signinHtml(where) {
+    return '<div class="signin"><h2 id="' + where + '-h">Your Swell Pass</h2><p>Sign in once. Scan at any Swell machine, grab your drinks, and we charge the card on file. No wallet, no phone pay, no waiting.</p>' +
+      '<button type="button" class="sso google press" data-sso="google">' + GLOGO + 'Continue with Google</button>' +
+      '<button type="button" class="sso apple press" data-sso="apple">' + ALOGO + 'Continue with Apple</button>' +
+      '<div class="or">or</div><form data-emailsign novalidate><label class="sr" for="' + where + '-em">Email</label><input id="' + where + '-em" type="email" placeholder="you@email.com" autocomplete="email"><button class="btn" type="submit">Continue with email</button></form>' +
+      '<ol class="howpass"><li>Sign in and attach a card.</li><li>Tap <b>Scan</b> in front of any Swell machine.</li><li>Take what you want. Each bottle is charged automatically.</li></ol>' +
+      (ACFG.googleClientId || ACFG.appleClientId ? "" : '<p class="demo-note"><span class="ph">Demo mode: sign-in, cards and charges are simulated until Google, Apple and payment accounts are connected.</span></p>') + "</div>";
+  }
+  function wireSignin(root) {
+    root.querySelectorAll("[data-sso]").forEach(function (b) { b.addEventListener("click", function () { b.dataset.sso === "google" ? signGoogle() : signApple(); }); });
+    root.querySelectorAll("form[data-emailsign]").forEach(function (f) { f.addEventListener("submit", function (e) { e.preventDefault(); var v = f.querySelector("input").value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { toast("Enter a full email, like you@email.com"); return; }
+      signedIn({ name: v.split("@")[0].replace(/[._]/g, " ").replace(/\b\w/g, function (c) { return c.toUpperCase(); }), email: v, provider: "Email", demo: true }); }); });
+  }
+  function qrSvg(text) { if (!window.qrcode) return '<p style="color:#000">Loading code…</p>'; var q = qrcode(0, "M"); q.addData(text); q.make(); return q.createSvgTag({ cellSize: 6, margin: 2, scalable: true }); }
+  function passCode(m) { var slot = Math.floor(Date.now() / 30000); return "SWELL1:" + m.id + ":" + slot.toString(36); }
+  function drawPass() {
+    if (!passBody) return; clearInterval(qrTimer); var m = me();
+    if (!m) { passBody.innerHTML = signinHtml("pass"); wireSignin(passBody); return; }
+    var card = m.card ? '<span class="cc" aria-hidden="true"></span><div><b>' + m.card.brand + " •••• " + m.card.last4 + "</b>Charged per bottle you take" + (m.card.demo ? " (demo)" : "") + '</div><a class="btn sm alt" href="' + P + 'account.html#pay">Manage</a>'
+                       : '<span class="cc" aria-hidden="true" style="opacity:.35"></span><div><b>No card yet</b>Add one so the machine can charge you</div><button type="button" class="btn sm" data-addcard>Add card</button>';
+    passBody.innerHTML = '<h2 id="pass-h" class="sr">Your Swell Pass</h2><div class="pass-card"><div class="pass-top"><img src="' + P + 'img/logo.png" alt="Swell"><span>Member pass<br>Scan at the machine</span></div>' +
+      '<div class="qrwrap" id="qrwrap" role="img" aria-label="Swell Pass QR code for member ' + m.id + '">' + qrSvg(passCode(m)) + '</div>' +
+      '<div class="pass-meta"><div><b>' + m.name + '</b><small>Member since ' + new Date(m.since + "T12:00").toLocaleDateString(undefined, { month: "short", year: "numeric" }) + '</small></div><div class="mid">' + m.id + '</div></div><div class="pass-timer"><i id="qrbar" style="width:100%"></i></div></div>' +
+      '<p class="pass-tip">Turn your screen brightness up and hold the code to the scanner. It refreshes every 30 seconds so a screenshot can\'t be reused.</p>' +
+      '<div class="pass-pay">' + card + '</div>' +
+      '<div class="pass-actions">' + (m.card ? '<button type="button" class="btn alt" data-simpull>Simulate a machine scan (demo)</button>' : "") + '<a class="btn alt" href="' + P + 'account.html">Account, history and settings</a></div>';
+    passBody.querySelectorAll("[data-addcard]").forEach(function (b) { b.addEventListener("click", addCard); });
+    passBody.querySelectorAll("[data-simpull]").forEach(function (b) { b.addEventListener("click", simulatePull); });
+    var tick = function () { var left = 30 - Math.floor(Date.now() / 1000) % 30, bar = $("qrbar"); if (bar) bar.style.width = (left / 30 * 100) + "%";
+      if (left === 30 || !$("qrwrap").querySelector("svg")) $("qrwrap").innerHTML = qrSvg(passCode(m)); };
+    tick(); qrTimer = setInterval(tick, 1000);
+  }
+  function openPass() { passFocus = document.activeElement; menu(false); drawPass(); pass.hidden = false; passScrim.hidden = false; root.classList.add("sheet-open"); pass.scrollTop = 0; $("pass-x").focus({ preventScroll: true }); }
+  function closePass() { if (pass.hidden) return; pass.hidden = true; passScrim.hidden = true; clearInterval(qrTimer); root.classList.remove("sheet-open"); if (passFocus) passFocus.focus({ preventScroll: true }); }
+  document.querySelectorAll("[data-pass]").forEach(function (b) { b.addEventListener("click", openPass); });
+  $("pass-x").addEventListener("click", closePass); passScrim.addEventListener("click", closePass);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePass(); });
+  if (window.qrcode === undefined) window.addEventListener("load", function () { if (!pass.hidden) drawPass(); });
+  // ---- account page ----
+  function paintAccount() {
+    var host = $("acct"); if (!host) return; var m = me();
+    if (!m) { host.innerHTML = '<div class="acard">' + signinHtml("acct") + "</div>"; wireSignin(host); return; }
+    var pulls = (m.pulls || []).map(function (x) { var d = DRINKS[x.k] || { n: x.k }; return '<li><img src="' + P + "img/" + (x.p === 50 ? "sw_" : "b_") + x.k + '.webp" alt=""><div><b>' + (x.p === 50 ? "Swoll " : "Swell ") + d.n + "</b><small>" + x.where + " · " + new Date(x.at).toLocaleString() + "</small></div><b>$" + PRICE[x.p].toFixed(2) + "</b></li>"; }).join("");
+    var spent = (m.pulls || []).reduce(function (a, x) { return a + PRICE[x.p]; }, 0);
+    host.innerHTML = '<div class="acct-grid"><div><div class="acard"><div class="who-hi"><span class="pav">' + avatar(m) + '</span><div><b>' + m.name + '</b><small>' + (m.email || "") + " · " + m.provider + (m.demo ? " (demo)" : "") + '</small></div></div>' +
+      '<button type="button" class="btn" data-pass2 style="width:100%">Show my Swell Pass</button></div>' +
+      '<div class="acard" id="pay"><h2>Payment</h2>' + (m.card ? '<div class="arow"><b>' + m.card.brand + " •••• " + m.card.last4 + '</b><span>Default' + (m.card.demo ? " · demo" : "") + '</span></div><div class="arow"><button type="button" class="btn sm alt" data-rmcard>Remove card</button></div>'
+                                                     : '<p style="color:var(--muted);font-size:15px">Attach a card so Swell machines can charge you per bottle.</p><button type="button" class="btn" data-addcard>Add card</button>') +
+      '<p class="small" style="margin-top:12px"><span class="ph">Demo: no real card is collected. Live cards connect through a secure payment processor (for example Stripe, Apple Pay or Google Pay).</span></p></div>' +
+      '<div class="acard"><h2>Settings</h2><div class="arow"><span>Member ID</span><b style="font-family:ui-monospace,Menlo,monospace">' + m.id + '</b></div><div class="arow"><span>Member since</span><b>' + m.since + '</b></div>' +
+      '<div class="arow"><span>Favorite bottle</span><b>' + (box.protein === 50 ? "Swoll · 50g" : "Swell · 30g") + '</b></div><div class="arow"><button type="button" class="btn sm alt" data-signout>Sign out</button></div></div></div>' +
+      '<div><div class="acard"><h2>Machine history</h2><div class="arow"><span>Bottles from machines</span><b>' + (m.pulls || []).length + '</b></div><div class="arow"><span>Total charged</span><b>$' + spent.toFixed(2) + '</b></div>' +
+      (pulls ? '<ul class="pulls">' + pulls + "</ul>" : '<p style="color:var(--muted);font-size:15px;margin-top:10px">No machine scans yet. Tap <b>Scan</b> at any Swell machine and your drinks show up here.</p>') +
+      (m.card ? '<button type="button" class="btn alt" data-simpull style="margin-top:12px">Simulate a machine scan (demo)</button>' : "") + "</div></div></div>";
+    host.querySelectorAll("[data-pass2]").forEach(function (b) { b.addEventListener("click", openPass); });
+    host.querySelectorAll("[data-addcard]").forEach(function (b) { b.addEventListener("click", addCard); });
+    host.querySelectorAll("[data-rmcard]").forEach(function (b) { b.addEventListener("click", function () { var m = me(); delete m.card; saveMe(m); paintAccount(); toast("Card removed"); }); });
+    host.querySelectorAll("[data-signout]").forEach(function (b) { b.addEventListener("click", signOut); });
+    host.querySelectorAll("[data-simpull]").forEach(function (b) { b.addEventListener("click", simulatePull); });
+  }
+  paintProfile(); paintAccount();
+  if (location.hash === "#pass") openPass();
   // ---------- #drinkswell page ----------
   document.querySelectorAll("[data-copy]").forEach(function (b) { b.addEventListener("click", function () {
     var t = b.dataset.copy, done = function () { var o = b.dataset.label || b.textContent; b.dataset.label = o; b.innerHTML = CHECK + " Copied"; b.classList.add("in"); burst(b);
