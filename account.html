@@ -1139,9 +1139,9 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     var m = me(); if (!m) return;
     m.card = { brand: "Visa", last4: "4242", demo: true }; saveMe(m); toast("Demo card attached. Real cards connect through a secure payment processor."); drawPass(); paintAccount();
   }
-  var PRICE = { 30: 4.99, 50: 6.99 }; // sample prices
+  var PRICE = { 30: 3.99, 50: 5.99 }; // sample prices
   var PLANS = { // mock-up plans
-    payg:      { name: "Pay as you go", price: 0,  covers: 0,  line: "Pay per bottle: $4.99 Swell, $6.99 Swoll" },
+    payg:      { name: "Pay as you go", price: 0,  covers: 0,  line: "Pay per bottle: $3.99 Swell, $5.99 Swoll" },
     home:      { name: "Home Machine", price: 20, covers: 30, home: true, line: "Unlimited 30g Swell bottles at your one go-to Swell machine" },
     unlimited: { name: "Swell Unlimited", price: 30, covers: 30, line: "Unlimited 30g Swell bottles from any Swell machine" },
     swoll:     { name: "Swoll Unlimited", price: 45, covers: 50, line: "Unlimited Swell and 50g Swoll bottles from any machine" } };
