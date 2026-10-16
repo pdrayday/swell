@@ -121,12 +121,12 @@ header.top .wrap { display: flex; align-items: center; gap: 20px; height: 66px; 
 .menu-open .scrim { opacity: 1; pointer-events: auto; }
 .menu-open .drawer { transform: none; }
 .drawer .x { align-self: flex-start; width: 44px; height: 44px; border-radius: 12px; border: 0; background: var(--surface); font-size: 24px; line-height: 1; cursor: pointer; }
-.drawer nav { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.drawer nav a { display: grid; justify-items: center; align-content: center; gap: 6px; text-align: center; text-decoration: none; padding: 16px 8px 14px; border-radius: 26px; background: var(--surface); color: var(--fg); min-height: 112px;
+.drawer nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.drawer nav a { display: grid; justify-items: center; align-content: center; gap: 6px; text-align: center; text-decoration: none; padding: 12px 6px 10px; border-radius: 22px; background: var(--surface); color: var(--fg); min-height: 88px;
   opacity: 0; transform: translateX(-14px); transition: opacity .3s, transform .45s var(--spring); }
-.drawer nav a i { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; background: var(--bg); color: var(--fg); font-style: normal; }
-.drawer nav a b { font: 700 16px/1.1 var(--display); }
-.drawer nav a span { font: 500 11.5px/1.2 var(--body); color: var(--muted); }
+.drawer nav a i { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--bg); color: var(--fg); font-style: normal; }
+.drawer nav a b { font: 700 14.5px/1.1 var(--display); } .drawer nav a i svg { width: 17px; height: 17px; }
+.drawer nav a span { font: 500 10.5px/1.2 var(--body); color: var(--muted); }
 .drawer nav a:active { transform: scale(.94); }
 .drawer nav a[aria-current="page"] { background: var(--ink); color: var(--on-ink); } .drawer nav a[aria-current="page"] span { color: color-mix(in srgb, var(--on-ink) 75%, transparent); } .drawer nav a[aria-current="page"] i { background: color-mix(in srgb, var(--on-ink) 18%, transparent); color: var(--on-ink); }
 .menu-open .drawer nav a { opacity: 1; transform: none; }
@@ -378,6 +378,7 @@ html[data-line="smoothies"] .pinb { background: radial-gradient(circle at 35% 30
 .pc .pa { font-size: 13.5px; color: var(--muted); line-height: 1.35; margin: 0 0 4px; }
 .pc .pv { font-size: 12.5px; color: var(--muted); margin: 0 0 10px; }
 .pc .dir { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 999px; background: var(--ink); color: var(--on-ink) !important; font-weight: 700; text-decoration: none; font-size: 15px; transition: transform .3s var(--spring); }
+.sethome { display: block; margin: 0 0 8px; padding: 0; border: 0; background: none; font: 600 12.5px var(--body); color: var(--fg); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .pc .dir:active { transform: scale(.95); }
 @media (max-width: 900px) {
   .finder2 { grid-template-columns: 1fr; height: auto; }
@@ -546,9 +547,34 @@ html[data-line="smoothies"] .pass-top img { filter: invert(1) sepia(.35) brightn
 .acard h2 { font-size: 26px; margin-bottom: 10px; }
 .arow { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; } .arow:first-of-type { border-top: 0; }
 .arow span { color: var(--muted); }
+.plancur { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px; border-radius: 18px; background: var(--ink); color: var(--on-ink); margin-bottom: 6px; }
+.plancur.sm { background: var(--bg); color: var(--fg); } .plancur.sm small { color: var(--muted); }
+.plancur b { display: block; font: 700 21px/1.15 var(--display); margin-top: 6px; } .plancur small { display: block; opacity: .8; font-size: 13.5px; margin-top: 2px; }
+.plancur .pr { font: 700 30px/1 var(--display); white-space: nowrap; } .plancur .pr small, .planopt .pp small { font: 600 13px var(--body); opacity: .8; }
+.tagp { display: inline-block; padding: 4px 8px; border-radius: 6px; background: #c7ecce; color: #17431f; font: 800 10.5px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; }
+.tagp.off { background: var(--surface); color: var(--muted); }
+.pbar { height: 8px; border-radius: 4px; background: var(--bg); overflow: hidden; margin-top: 6px; } .pbar i { display: block; height: 100%; background: var(--ink); border-radius: 4px; }
+.subh { font: 700 15px/1 var(--body) !important; margin: 20px 0 10px; }
+.plans { display: grid; gap: 8px; }
+.planopt { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; text-align: left; padding: 12px 14px; border-radius: 16px; border: 2px solid transparent; background: var(--bg); color: var(--fg); cursor: pointer; }
+.planopt.on { border-color: var(--ink); } .planopt .pn { font-weight: 700; } .planopt .pp { font: 700 18px/1 var(--display); grid-row: span 2; align-self: center; } .planopt .pl { font-size: 13px; color: var(--muted); }
+.save2 { display: inline-block; margin-left: 6px; padding: 2px 7px; border-radius: 6px; background: #c7ecce; color: #17431f; font: 800 11px/1.4 var(--body); font-style: normal; }
+.homepick { display: grid; gap: 8px; margin-top: 10px; padding: 14px; border-radius: 16px; background: var(--bg); }
+.homepick label b { display: block; font-size: 15px; } .homepick label span { color: var(--muted); font-size: 13px; }
+.homepick select { padding: 12px 14px; border-radius: 12px; border: 0; background: #fff; color: #1a1216; font: 600 15px var(--body); }
+.subbtns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.pass-plan { max-width: 380px; margin: 12px auto 0; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 999px; background: #c7ecce; color: #17431f; text-decoration: none; font-size: 14px; }
+.pass-plan span { font-weight: 800; }
 .pulls { list-style: none; margin: 0; padding: 0; } .pulls li { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 14.5px; }
 .pulls li:first-child { border-top: 0; } .pulls img { height: 46px; width: auto; } .pulls li div { flex: 1; } .pulls small { display: block; color: var(--muted); }
 .who-hi { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; } .who-hi .pav { width: 56px; height: 56px; border-radius: 50%; background: var(--ink); color: var(--on-ink); display: grid; place-items: center; font: 700 22px/1 var(--display); overflow: hidden; } .who-hi .pav img { width: 100%; height: 100%; object-fit: cover; }
+.pavedit { position: relative; cursor: pointer; overflow: visible !important; }
+.pavedit img { border-radius: 50%; }
+.pavedit .cam { position: absolute; right: -4px; bottom: -4px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--bg); color: var(--fg); box-shadow: 0 0 0 2px var(--surface); }
+.photobtns { display: flex; gap: 12px; margin-top: 4px; } .photobtns .linkbtn { font-size: 13.5px; padding: 2px 0; }
+.pmav { flex: none; width: 40px; height: 40px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: color-mix(in srgb, var(--on-ink) 18%, transparent); font: 700 15px/1 var(--display); }
+.pmav img { width: 100%; height: 100%; object-fit: cover; }
+.pass-meta { align-items: center !important; flex-wrap: wrap; justify-content: flex-start !important; column-gap: 12px !important; } .pass-meta > div:nth-child(2) { flex: 1; min-width: 0; } .pass-meta .mid { flex-basis: 100%; text-align: left !important; padding-left: 52px; margin-top: 2px; opacity: .85; }
 .who-hi b { display: block; font: 700 22px/1.1 var(--display); } .who-hi small { color: var(--muted); }
 /* ---------- drink sheet + nutrition facts ---------- */
 .fl .pic { border: 0; background: none; padding: 0; cursor: pointer; width: 100%; }
@@ -712,7 +738,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   <div class="sh-grab" id="sh-grab" aria-hidden="true"><span></span></div>
   <button type="button" class="sh-x press" id="sh-x" aria-label="Close">×</button>
   <div class="sh-body" id="sh-body"></div>
-</div><script>var NAMES = {"cc": "Cookies & Cream", "cake": "Cake Batter", "choc": "Chocolate", "van": "Vanilla", "peach": "Peaches & Cream", "cinn": "Cinnamon Roll", "mint": "Mint Chocolate Chip", "pbc": "Peanut Butter Cup", "cbutter": "Cookie Butter", "matcha": "Matcha", "shortcake": "Strawberry Shortcake", "pumpkin": "Pumpkin Spice", "cobbler": "Blueberry Cobbler", "sm_pina": "Pina Colada", "sm_mango": "Mango", "sm_berry": "Berry Bliss", "sm_apple": "Sour Apple", "sm_blue": "Blue Raspberry", "sm_ring": "Peach Ring"}; var DRINKS = {"cc": {"n": "Cookies & Cream", "t": "classic", "d": "Real cookie crumble in a sweet cream base. The closest thing to a drive-thru shake.", "l": "shakes"}, "cake": {"n": "Cake Batter", "t": "classic", "d": "Vanilla cake batter with rainbow sprinkle flavor. Birthday, any day.", "l": "shakes"}, "choc": {"n": "Chocolate", "t": "classic", "d": "Rich, fudgy chocolate with a thick, creamy finish.", "l": "shakes"}, "van": {"n": "Vanilla", "t": "classic", "d": "Vanilla bean ice cream in a bottle. The best Creami base.", "l": "shakes"}, "peach": {"n": "Peaches & Cream", "t": "new", "d": "Ripe peach swirled into sweet cream.", "l": "shakes"}, "cinn": {"n": "Cinnamon Roll", "t": "new", "d": "Brown-sugar cinnamon with a cream-cheese icing finish.", "l": "shakes"}, "mint": {"n": "Mint Chocolate Chip", "t": "new", "d": "Cool mint ice cream loaded with dark chocolate.", "l": "shakes"}, "pbc": {"n": "Peanut Butter Cup", "t": "new", "d": "Roasted peanut butter meets milk chocolate.", "l": "shakes"}, "cbutter": {"n": "Cookie Butter", "t": "new", "d": "Spiced speculoos cookie, blended creamy.", "l": "shakes"}, "matcha": {"n": "Matcha", "t": "new", "d": "Smooth green tea latte, lightly sweet.", "l": "shakes"}, "shortcake": {"n": "Strawberry Shortcake", "t": "new", "d": "Strawberries, sponge cake and whipped cream.", "l": "shakes"}, "pumpkin": {"n": "Pumpkin Spice", "t": "seasonal", "d": "Pumpkin pie spice, cinnamon and clove. Fall only.", "l": "shakes"}, "cobbler": {"n": "Blueberry Cobbler", "t": "new", "d": "Baked blueberries with a buttery crumble.", "l": "shakes"}, "sm_pina": {"n": "Pina Colada", "t": "classic", "d": "Pineapple and coconut, creamy and tropical.", "l": "smoothies"}, "sm_mango": {"n": "Mango", "t": "classic", "d": "Ripe, sunny mango blended smooth.", "l": "smoothies"}, "sm_berry": {"n": "Berry Bliss", "t": "classic", "d": "Strawberry, raspberry, blueberry and blackberry.", "l": "smoothies"}, "sm_apple": {"n": "Sour Apple", "t": "new", "d": "Tart green apple with a sweet-sour snap.", "l": "smoothies"}, "sm_blue": {"n": "Blue Raspberry", "t": "new", "d": "Bright blue raspberry, like the candy you grew up on.", "l": "smoothies"}, "sm_ring": {"n": "Peach Ring", "t": "new", "d": "Juicy peach with a gummy-candy twist.", "l": "smoothies"}};</script><script>
+</div><script>var NAMES = {"cc": "Cookies & Cream", "cake": "Cake Batter", "choc": "Chocolate", "van": "Vanilla", "peach": "Peaches & Cream", "cinn": "Cinnamon Roll", "mint": "Mint Chocolate Chip", "pbc": "Peanut Butter Cup", "cbutter": "Cookie Butter", "matcha": "Matcha", "shortcake": "Strawberry Shortcake", "pumpkin": "Pumpkin Spice", "cobbler": "Blueberry Cobbler", "sm_pina": "Pina Colada", "sm_mango": "Mango", "sm_berry": "Berry Bliss", "sm_apple": "Sour Apple", "sm_blue": "Blue Raspberry", "sm_ring": "Peach Ring"}; var MACHS = [{"id": "provo", "city": "Provo", "venue": "Shopping center", "addr": "1200 Towne Centre Blvd"}, {"id": "orem", "city": "Orem", "venue": "Shopping center", "addr": "575 E University Pkwy"}, {"id": "lehi", "city": "Lehi", "venue": "Gym", "addr": "1230 E Main St"}, {"id": "af", "city": "American Fork", "venue": "Gym", "addr": "51 E 100 N"}, {"id": "pg", "city": "Pleasant Grove", "venue": "High school", "addr": "Address coming soon"}, {"id": "em", "city": "Eagle Mountain", "venue": "Gym", "addr": "Address coming soon"}, {"id": "ss", "city": "Saratoga Springs", "venue": "Gym", "addr": "Address coming soon"}, {"id": "sv", "city": "Springville", "venue": "High school", "addr": "Address coming soon"}, {"id": "sf", "city": "Spanish Fork", "venue": "Hotel", "addr": "Address coming soon"}]; var DRINKS = {"cc": {"n": "Cookies & Cream", "t": "classic", "d": "Real cookie crumble in a sweet cream base. The closest thing to a drive-thru shake.", "l": "shakes"}, "cake": {"n": "Cake Batter", "t": "classic", "d": "Vanilla cake batter with rainbow sprinkle flavor. Birthday, any day.", "l": "shakes"}, "choc": {"n": "Chocolate", "t": "classic", "d": "Rich, fudgy chocolate with a thick, creamy finish.", "l": "shakes"}, "van": {"n": "Vanilla", "t": "classic", "d": "Vanilla bean ice cream in a bottle. The best Creami base.", "l": "shakes"}, "peach": {"n": "Peaches & Cream", "t": "new", "d": "Ripe peach swirled into sweet cream.", "l": "shakes"}, "cinn": {"n": "Cinnamon Roll", "t": "new", "d": "Brown-sugar cinnamon with a cream-cheese icing finish.", "l": "shakes"}, "mint": {"n": "Mint Chocolate Chip", "t": "new", "d": "Cool mint ice cream loaded with dark chocolate.", "l": "shakes"}, "pbc": {"n": "Peanut Butter Cup", "t": "new", "d": "Roasted peanut butter meets milk chocolate.", "l": "shakes"}, "cbutter": {"n": "Cookie Butter", "t": "new", "d": "Spiced speculoos cookie, blended creamy.", "l": "shakes"}, "matcha": {"n": "Matcha", "t": "new", "d": "Smooth green tea latte, lightly sweet.", "l": "shakes"}, "shortcake": {"n": "Strawberry Shortcake", "t": "new", "d": "Strawberries, sponge cake and whipped cream.", "l": "shakes"}, "pumpkin": {"n": "Pumpkin Spice", "t": "seasonal", "d": "Pumpkin pie spice, cinnamon and clove. Fall only.", "l": "shakes"}, "cobbler": {"n": "Blueberry Cobbler", "t": "new", "d": "Baked blueberries with a buttery crumble.", "l": "shakes"}, "sm_pina": {"n": "Pina Colada", "t": "classic", "d": "Pineapple and coconut, creamy and tropical.", "l": "smoothies"}, "sm_mango": {"n": "Mango", "t": "classic", "d": "Ripe, sunny mango blended smooth.", "l": "smoothies"}, "sm_berry": {"n": "Berry Bliss", "t": "classic", "d": "Strawberry, raspberry, blueberry and blackberry.", "l": "smoothies"}, "sm_apple": {"n": "Sour Apple", "t": "new", "d": "Tart green apple with a sweet-sour snap.", "l": "smoothies"}, "sm_blue": {"n": "Blue Raspberry", "t": "new", "d": "Bright blue raspberry, like the candy you grew up on.", "l": "smoothies"}, "sm_ring": {"n": "Peach Ring", "t": "new", "d": "Juicy peach with a gummy-candy twist.", "l": "smoothies"}};</script><script>
 (function () {
   var root = document.documentElement;
   function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k)); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
@@ -912,6 +938,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     function popupHtml(m) {
       var d = you ? '<p class="pv">' + miles(you, m).toFixed(1) + " mi away · " + esc(m.venue) + "</p>" : '<p class="pv">' + esc(m.venue) + " · Shakes and smoothies</p>";
       return '<div class="pc"><img src="' + m.photo + '" alt=""><div><h3>Swell Vending — ' + esc(m.city) + '</h3><p class="pa">' + esc(m.address) + "<br>" + esc(m.csz) + "</p>" + d +
+        '<button type="button" class="sethome" data-sethome="' + m.id + '">Make this my go-to machine</button>' +
         '<a class="dir" href="' + dirUrl(m) + '" target="_blank" rel="noopener">Directions <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg></a></div></div>';
     }
     function select(id, fly, fromPin) {
@@ -1086,6 +1113,8 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   function signedIn(profile) {
     var m = me() || {}; m.name = profile.name || m.name || "Swell member"; m.email = profile.email || m.email || ""; m.photo = profile.photo || m.photo || "";
     m.provider = profile.provider; m.demo = !!profile.demo; m.id = m.id || newId(); m.since = m.since || new Date().toISOString().slice(0, 10); m.pulls = m.pulls || [];
+    if (!m.plan) { m.plan = "unlimited"; m.planStart = new Date().toISOString().slice(0, 10); }
+    if (!m.boxSub) m.boxSub = { status: "active", size: 12, every: 4, next: addMonth(new Date().toISOString().slice(0, 10)) };
     saveMe(m); toast("Signed in" + (m.demo ? " (demo)" : "") + ". Your Swell Pass is ready."); confetti($("scanfab")); drawPass(); paintAccount();
   }
   function jwtPayload(t) { try { return JSON.parse(decodeURIComponent(escape(atob(t.split(".")[1].replace(/-/g, "+").replace(/_/g, "/"))))); } catch (e) { return {}; } }
@@ -1111,11 +1140,26 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     m.card = { brand: "Visa", last4: "4242", demo: true }; saveMe(m); toast("Demo card attached. Real cards connect through a secure payment processor."); drawPass(); paintAccount();
   }
   var PRICE = { 30: 4.99, 50: 6.99 }; // sample prices
+  var PLANS = { // mock-up plans
+    payg:      { name: "Pay as you go", price: 0,  covers: 0,  line: "Pay per bottle: $4.99 Swell, $6.99 Swoll" },
+    home:      { name: "Home Machine", price: 20, covers: 30, home: true, line: "Unlimited 30g Swell bottles at your one go-to Swell machine" },
+    unlimited: { name: "Swell Unlimited", price: 30, covers: 30, line: "Unlimited 30g Swell bottles from any Swell machine" },
+    swoll:     { name: "Swoll Unlimited", price: 45, covers: 50, line: "Unlimited Swell and 50g Swoll bottles from any machine" } };
+  var DAILY = 2; // fair-use cap per day on Unlimited plans
+  function homeOf(m) { return MACHS.filter(function (x) { return x.id === m.home; })[0] || MACHS[0]; }
+  function planOf(m) { return PLANS[(m && m.plan) || "unlimited"] ? (m.plan || "unlimited") : "payg"; }
+  function addMonth(d) { var x = new Date(d + "T12:00"); x.setMonth(x.getMonth() + 1); return x.toISOString().slice(0, 10); }
+  function nice(d) { return new Date(d + "T12:00").toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }); }
+  function monthPulls(m) { var now = new Date(); return (m.pulls || []).filter(function (x) { var t = new Date(x.at); return t.getMonth() === now.getMonth() && t.getFullYear() === now.getFullYear(); }); }
   function simulatePull() {
     var m = me(); if (!m || !m.card) return;
     var keys = Object.keys(DRINKS), k = keys[Math.floor(Math.random() * keys.length)], p = Math.random() < .4 ? 50 : 30;
-    m.pulls = [{ k: k, p: p, at: new Date().toISOString(), where: ["Provo", "Orem", "Lehi", "American Fork"][Math.floor(Math.random() * 4)] }].concat(m.pulls || []).slice(0, 30);
-    saveMe(m); burst($("scanfab")); toast("Scanned at the machine: " + (p === 50 ? "Swoll " : "Swell ") + DRINKS[k].n + " · $" + PRICE[p].toFixed(2) + " charged to " + m.card.brand + " •••• " + m.card.last4 + " (demo)");
+    var pl = PLANS[planOf(m)], today = new Date().toDateString(), usedToday = (m.pulls || []).filter(function (x) { return x.inc && new Date(x.at).toDateString() === today; }).length;
+    var home = homeOf(m), where = pl.home && Math.random() < .75 ? home.city : MACHS[Math.floor(Math.random() * MACHS.length)].city;
+    var inc = pl.covers >= p && usedToday < DAILY && (!pl.home || where === home.city), amt = inc ? 0 : PRICE[p];
+    m.pulls = [{ k: k, p: p, at: new Date().toISOString(), inc: inc, amt: amt, where: where }].concat(m.pulls || []).slice(0, 30);
+    saveMe(m); burst($("scanfab"));
+    toast("Scanned: " + (p === 50 ? "Swoll " : "Swell ") + DRINKS[k].n + " · " + (inc ? "included in " + pl.name : "$" + amt.toFixed(2) + " charged to " + m.card.brand + " •••• " + m.card.last4) + " (demo)");
     paintAccount();
   }
   function avatar(m) { return m && m.photo ? '<img src="' + m.photo + '" alt="">' : initials(m && m.name); }
@@ -1130,7 +1174,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   var GLOGO = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>';
   var ALOGO = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.4.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>';
   function signinHtml(where) {
-    return '<div class="signin"><h2 id="' + where + '-h">Your Swell Pass</h2><p>Sign in once. Scan at any Swell machine, grab your drinks, and we charge the card on file. No wallet, no phone pay, no waiting.</p>' +
+    return '<div class="signin"><h2 id="' + where + '-h">Your Swell Pass</h2><p>Sign in once. Scan at any Swell machine, grab your drinks, and we charge the card on file, or cover it with Swell Unlimited for $30/month.</p>' +
       '<button type="button" class="sso google press" data-sso="google">' + GLOGO + 'Continue with Google</button>' +
       '<button type="button" class="sso apple press" data-sso="apple">' + ALOGO + 'Continue with Apple</button>' +
       '<div class="or">or</div><form data-emailsign novalidate><label class="sr" for="' + where + '-em">Email</label><input id="' + where + '-em" type="email" placeholder="you@email.com" autocomplete="email"><button class="btn" type="submit">Continue with email</button></form>' +
@@ -1148,11 +1192,12 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   function drawPass() {
     if (!passBody) return; clearInterval(qrTimer); var m = me();
     if (!m) { passBody.innerHTML = signinHtml("pass"); wireSignin(passBody); return; }
-    var card = m.card ? '<span class="cc" aria-hidden="true"></span><div><b>' + m.card.brand + " •••• " + m.card.last4 + "</b>Charged per bottle you take" + (m.card.demo ? " (demo)" : "") + '</div><a class="btn sm alt" href="' + P + 'account.html#pay">Manage</a>'
+    var card = m.card ? '<span class="cc" aria-hidden="true"></span><div><b>' + m.card.brand + " •••• " + m.card.last4 + "</b>" + (PLANS[planOf(m)].price ? "Plan $" + PLANS[planOf(m)].price + "/mo · extras per bottle" : "Charged per bottle you take") + (m.card.demo ? " (demo)" : "") + '</div><a class="btn sm alt" href="' + P + 'account.html#pay">Manage</a>'
                        : '<span class="cc" aria-hidden="true" style="opacity:.35"></span><div><b>No card yet</b>Add one so the machine can charge you</div><button type="button" class="btn sm" data-addcard>Add card</button>';
     passBody.innerHTML = '<h2 id="pass-h" class="sr">Your Swell Pass</h2><div class="pass-card"><div class="pass-top"><img src="' + P + 'img/logo.png" alt="Swell"><span>Member pass<br>Scan at the machine</span></div>' +
       '<div class="qrwrap" id="qrwrap" role="img" aria-label="Swell Pass QR code for member ' + m.id + '">' + qrSvg(passCode(m)) + '</div>' +
-      '<div class="pass-meta"><div><b>' + m.name + '</b><small>Member since ' + new Date(m.since + "T12:00").toLocaleDateString(undefined, { month: "short", year: "numeric" }) + '</small></div><div class="mid">' + m.id + '</div></div><div class="pass-timer"><i id="qrbar" style="width:100%"></i></div></div>' +
+      '<div class="pass-meta"><span class="pmav">' + avatar(m) + '</span><div><b>' + m.name + '</b><small>Member since ' + new Date(m.since + "T12:00").toLocaleDateString(undefined, { month: "short", year: "numeric" }) + '</small></div><div class="mid">' + m.id + '</div></div><div class="pass-timer"><i id="qrbar" style="width:100%"></i></div></div>' +
+      '<a class="pass-plan" href="' + P + 'account.html#plan"><span>' + PLANS[planOf(m)].name + (PLANS[planOf(m)].home ? " · " + homeOf(m).city : "") + '</span><b>' + (PLANS[planOf(m)].price ? "$" + PLANS[planOf(m)].price + "/mo · active" : "No plan") + "</b></a>" +
       '<p class="pass-tip">Turn your screen brightness up and hold the code to the scanner. It refreshes every 30 seconds so a screenshot can\'t be reused.</p>' +
       '<div class="pass-pay">' + card + '</div>' +
       '<div class="pass-actions">' + (m.card ? '<button type="button" class="btn alt" data-simpull>Simulate a machine scan (demo)</button>' : "") + '<a class="btn alt" href="' + P + 'account.html">Account, history and settings</a></div>';
@@ -1172,16 +1217,36 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
   function paintAccount() {
     var host = $("acct"); if (!host) return; var m = me();
     if (!m) { host.innerHTML = '<div class="acard">' + signinHtml("acct") + "</div>"; wireSignin(host); return; }
-    var pulls = (m.pulls || []).map(function (x) { var d = DRINKS[x.k] || { n: x.k }; return '<li><img src="' + P + "img/" + (x.p === 50 ? "sw_" : "b_") + x.k + '.webp" alt=""><div><b>' + (x.p === 50 ? "Swoll " : "Swell ") + d.n + "</b><small>" + x.where + " · " + new Date(x.at).toLocaleString() + "</small></div><b>$" + PRICE[x.p].toFixed(2) + "</b></li>"; }).join("");
-    var spent = (m.pulls || []).reduce(function (a, x) { return a + PRICE[x.p]; }, 0);
-    host.innerHTML = '<div class="acct-grid"><div><div class="acard"><div class="who-hi"><span class="pav">' + avatar(m) + '</span><div><b>' + m.name + '</b><small>' + (m.email || "") + " · " + m.provider + (m.demo ? " (demo)" : "") + '</small></div></div>' +
+    var pulls = (m.pulls || []).map(function (x) { var d = DRINKS[x.k] || { n: x.k }; return '<li><img src="' + P + "img/" + (x.p === 50 ? "sw_" : "b_") + x.k + '.webp" alt=""><div><b>' + (x.p === 50 ? "Swoll " : "Swell ") + d.n + "</b><small>" + x.where + " · " + new Date(x.at).toLocaleString() + "</small></div><b>" + (x.inc ? "Included" : "$" + (x.amt === undefined ? PRICE[x.p] : x.amt).toFixed(2)) + "</b></li>"; }).join("");
+    var spent = (m.pulls || []).reduce(function (a, x) { return a + (x.amt === undefined ? PRICE[x.p] : x.amt); }, 0);
+    var pk = planOf(m), pl = PLANS[pk], mp = monthPulls(m), incN = mp.filter(function (x) { return x.inc; }).length,
+        value = mp.filter(function (x) { return x.inc; }).reduce(function (a, x) { return a + PRICE[x.p]; }, 0), start = m.planStart || m.since, renew = start;
+    while (new Date(renew + "T12:00") <= new Date()) renew = addMonth(renew);
+    var bs = m.boxSub || { status: "off" };
+    var plans = Object.keys(PLANS).map(function (k) { var x = PLANS[k]; return '<button type="button" class="planopt' + (k === pk ? " on" : "") + '" data-plan="' + k + '" aria-pressed="' + (k === pk) + '"><span class="pn">' + x.name + '</span><span class="pp">' + (x.price ? "$" + x.price + "<small>/mo</small>" : "Free") + '</span><span class="pl">' + x.line + (x.price ? " · fair use " + DAILY + "/day" : "") + (x.home ? '<em class="save2">Save $10 vs. Unlimited</em>' : "") + "</span></button>"; }).join("");
+    var homePick = pl.home ? '<div class="homepick"><label for="homesel"><b>Your go-to machine</b><span>Bottles here are included. Other machines charge per bottle.</span></label><select id="homesel">' +
+      MACHS.map(function (x) { return '<option value="' + x.id + '"' + (x.id === homeOf(m).id ? " selected" : "") + ">" + x.city + " · " + x.venue + "</option>"; }).join("") + "</select></div>" : "";
+    var subCard = '<div class="acard" id="plan"><h2>Subscriptions</h2>' +
+      '<div class="plancur"><div><span class="tagp">' + (pl.price ? "Active" : "No plan") + '</span><b>' + pl.name + '</b><small>' + pl.line + (pl.home ? " · " + homeOf(m).city : "") + '</small></div><div class="pr">' + (pl.price ? "$" + pl.price + "<small>/mo</small>" : "$0") + "</div></div>" +
+      (pl.price ? '<div class="arow"><span>Renews</span><b>' + nice(renew) + '</b></div><div class="arow"><span>Billed to</span><b>' + (m.card ? m.card.brand + " •••• " + m.card.last4 : "Add a card") + '</b></div>' +
+        '<div class="arow"><span>This month</span><b>' + incN + " bottle" + (incN === 1 ? "" : "s") + " included</b></div>" +
+        '<div class="arow"><span>Value so far</span><b>$' + value.toFixed(2) + " of $" + pl.price + "</b></div>" +
+        '<div class="pbar" aria-hidden="true"><i style="width:' + Math.min(100, value / pl.price * 100) + '%"></i></div>' +
+        '<p class="small" style="margin-top:6px;color:var(--muted)">' + (value >= pl.price ? "Your plan has paid for itself this month." : "Break even after " + Math.ceil((pl.price - value) / PRICE[pl.covers]) + " more bottle" + (Math.ceil((pl.price - value) / PRICE[pl.covers]) === 1 ? "" : "s") + ".") + "</p>" : "") +
+      homePick + '<h3 class="subh">Change plan</h3><div class="plans">' + plans + "</div>" +
+      '<h3 class="subh">Box delivery</h3><div class="plancur sm"><div><span class="tagp' + (bs.status === "active" ? "" : " off") + '">' + (bs.status === "active" ? "Active" : bs.status === "paused" ? "Paused" : "Off") + '</span><b>' + (bs.size || 12) + "-bottle box every " + (bs.every || 4) + ' weeks</b><small>' + (bs.status === "active" ? "Next box ships " + nice(bs.next) + " · Save 10%" : "Mix any flavors, delivered on a schedule") + '</small></div></div>' +
+      '<div class="subbtns">' + (bs.status === "active" ? '<a class="btn sm alt" href="' + P + 'shop.html#build">Edit flavors</a><button type="button" class="btn sm alt" data-box="paused">Pause</button>'
+        : '<button type="button" class="btn sm" data-box="active">' + (bs.status === "paused" ? "Resume" : "Start box delivery") + "</button>") + "</div>" +
+      '<p class="small" style="margin-top:12px"><span class="ph">Mock-up plans and prices for layout. Nothing is billed.</span></p></div>';
+    host.innerHTML = '<div class="acct-grid"><div><div class="acard"><div class="who-hi"><label class="pav pavedit" for="photo-in" title="Change profile photo">' + avatar(m) + '<span class="cam" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.2"/></svg></span></label>' +
+      '<input type="file" id="photo-in" accept="image/*" class="sr" aria-label="Upload a profile photo"><div><b>' + m.name + '</b><small>' + (m.email || "") + " · " + m.provider + (m.demo ? " (demo)" : "") + '</small><span class="photobtns"><label for="photo-in" class="linkbtn">' + (m.photo ? "Change photo" : "Add a photo") + '</label>' + (m.photo ? '<button type="button" class="linkbtn" data-rmphoto>Remove</button>' : "") + '</span></div></div>' +
       '<button type="button" class="btn" data-pass2 style="width:100%">Show my Swell Pass</button></div>' +
       '<div class="acard" id="pay"><h2>Payment</h2>' + (m.card ? '<div class="arow"><b>' + m.card.brand + " •••• " + m.card.last4 + '</b><span>Default' + (m.card.demo ? " · demo" : "") + '</span></div><div class="arow"><button type="button" class="btn sm alt" data-rmcard>Remove card</button></div>'
                                                      : '<p style="color:var(--muted);font-size:15px">Attach a card so Swell machines can charge you per bottle.</p><button type="button" class="btn" data-addcard>Add card</button>') +
       '<p class="small" style="margin-top:12px"><span class="ph">Demo: no real card is collected. Live cards connect through a secure payment processor (for example Stripe, Apple Pay or Google Pay).</span></p></div>' +
       '<div class="acard"><h2>Settings</h2><div class="arow"><span>Member ID</span><b style="font-family:ui-monospace,Menlo,monospace">' + m.id + '</b></div><div class="arow"><span>Member since</span><b>' + m.since + '</b></div>' +
       '<div class="arow"><span>Favorite bottle</span><b>' + (box.protein === 50 ? "Swoll · 50g" : "Swell · 30g") + '</b></div><div class="arow"><button type="button" class="btn sm alt" data-signout>Sign out</button></div></div></div>' +
-      '<div><div class="acard"><h2>Machine history</h2><div class="arow"><span>Bottles from machines</span><b>' + (m.pulls || []).length + '</b></div><div class="arow"><span>Total charged</span><b>$' + spent.toFixed(2) + '</b></div>' +
+      '<div>' + subCard + '<div class="acard"><h2>Machine history</h2><div class="arow"><span>Bottles from machines</span><b>' + (m.pulls || []).length + '</b></div><div class="arow"><span>Total charged</span><b>$' + spent.toFixed(2) + '</b></div>' +
       (pulls ? '<ul class="pulls">' + pulls + "</ul>" : '<p style="color:var(--muted);font-size:15px;margin-top:10px">No machine scans yet. Tap <b>Scan</b> at any Swell machine and your drinks show up here.</p>') +
       (m.card ? '<button type="button" class="btn alt" data-simpull style="margin-top:12px">Simulate a machine scan (demo)</button>' : "") + "</div></div></div>";
     host.querySelectorAll("[data-pass2]").forEach(function (b) { b.addEventListener("click", openPass); });
@@ -1189,7 +1254,25 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     host.querySelectorAll("[data-rmcard]").forEach(function (b) { b.addEventListener("click", function () { var m = me(); delete m.card; saveMe(m); paintAccount(); toast("Card removed"); }); });
     host.querySelectorAll("[data-signout]").forEach(function (b) { b.addEventListener("click", signOut); });
     host.querySelectorAll("[data-simpull]").forEach(function (b) { b.addEventListener("click", simulatePull); });
+    host.querySelectorAll("[data-plan]").forEach(function (b) { b.addEventListener("click", function () { var m = me(), k = b.dataset.plan; if (planOf(m) === k) return;
+      m.plan = k; m.planStart = new Date().toISOString().slice(0, 10); if (PLANS[k].home && !m.home) m.home = MACHS[0].id; saveMe(m); paintAccount(); toast(k === "payg" ? "Switched to Pay as you go (demo)" : "Subscribed to " + PLANS[k].name + " · $" + PLANS[k].price + "/mo (demo)"); if (k !== "payg") confetti(b); }); });
+    var pin = host.querySelector("#photo-in");
+    if (pin) pin.addEventListener("change", function () { var f = pin.files && pin.files[0]; if (!f) return;
+      if (!/^image\//.test(f.type)) { toast("Pick an image file"); return; }
+      var img = new Image(), url = URL.createObjectURL(f);
+      img.onload = function () { var S = 256, c = document.createElement("canvas"); c.width = c.height = S; var x = c.getContext("2d"), side = Math.min(img.width, img.height);
+        x.drawImage(img, (img.width - side) / 2, (img.height - side) / 2, side, side, 0, 0, S, S); URL.revokeObjectURL(url);
+        var m = me(); m.photo = c.toDataURL("image/jpeg", .85); try { saveMe(m); paintAccount(); toast("Profile photo updated"); } catch (e) { toast("That photo couldn't be saved. Try a smaller one."); } };
+      img.onerror = function () { toast("Couldn't read that image"); }; img.src = url; });
+    host.querySelectorAll("[data-rmphoto]").forEach(function (b) { b.addEventListener("click", function () { var m = me(); m.photo = ""; saveMe(m); paintAccount(); toast("Photo removed"); }); });
+    var hs = host.querySelector("#homesel"); if (hs) hs.addEventListener("change", function () { var m = me(); m.home = hs.value; saveMe(m); paintAccount(); toast("Home machine set to " + homeOf(m).city); });
+    host.querySelectorAll("[data-box]").forEach(function (b) { b.addEventListener("click", function () { var m = me(); m.boxSub = m.boxSub || { size: 12, every: 4 }; m.boxSub.status = b.dataset.box;
+      if (b.dataset.box === "active") m.boxSub.next = addMonth(new Date().toISOString().slice(0, 10)); saveMe(m); paintAccount(); toast(b.dataset.box === "active" ? "Box delivery on (demo)" : "Box delivery paused"); }); });
   }
+  document.addEventListener("click", function (e) { var t = e.target.closest("[data-sethome]"); if (!t) return; var m = me();
+    if (!m) { toast("Sign in first to pick a go-to machine"); openPass(); return; }
+    m.home = t.dataset.sethome; m.plan = "home"; m.planStart = m.planStart || new Date().toISOString().slice(0, 10); saveMe(m);
+    toast(homeOf(m).city + " is your go-to machine · Home Machine plan $20/mo (demo)"); burst(t); });
   paintProfile(); paintAccount();
   if (location.hash === "#pass") openPass();
   // ---------- #drinkswell page ----------
