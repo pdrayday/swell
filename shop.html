@@ -773,6 +773,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     $("box-count").textContent = n + " of " + s; $("box-save").textContent = save; $("box-bar").style.width = pct + "%";
     var sub = $("box-submit"), left = s - n;
     if (!sub.classList.contains("done")) { sub.disabled = left > 0; sub.textContent = left > 0 ? "Add " + left + " more to reserve" : "Reserve my box"; }
+    var productImg = function (k) { return P + (box.protein === 50 ? "img/swoll/" + k + ".png" : "img/b_" + k + ".webp"); };
     var list = []; Object.keys(box.items).forEach(function (k) { for (var i = 0; i < box.items[k]; i++) list.push(k); });
     var slots = $("slots"), prev = slots.querySelectorAll("i.f").length, h = "";
     for (var i = 0; i < s; i++) h += list[i]

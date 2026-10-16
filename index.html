@@ -190,6 +190,56 @@ html[data-line="smoothies"] .lines-track { transform: translateX(-50%); }
 .add:active { transform: scale(.92); transition-duration: .08s; }
 .add.in { background: var(--em); color: #fff; }
 
+/* product gallery: Swell 30g / Swoll 50g + detail dialog */
+.bottle-view { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: -2px 0 16px; padding: 10px 12px 10px 16px; border-radius: 16px; background: color-mix(in srgb, var(--surface) 78%, white); }
+.bottle-view p { color: var(--muted); font-size: 14px; }
+.bottle-view p b { color: var(--fg); }
+.bottle-view .segline { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--bg); }
+.bottle-view button { border: 0; background: transparent; color: var(--muted); padding: 9px 13px; border-radius: 999px; font: 700 13px/1 var(--body); cursor: pointer; }
+.bottle-view button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+.fl .pic { position: relative; cursor: zoom-in; border-radius: 14px; }
+.fl .pic:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 3px; }
+.zoom-bottle { position: absolute; right: 6px; bottom: 2px; display: inline-flex; align-items: center; gap: 5px; border: 0; border-radius: 999px; padding: 7px 9px; background: color-mix(in srgb, var(--stage) 90%, transparent); color: var(--fg); box-shadow: 0 5px 18px rgba(40,10,20,.12); font: 700 11px/1 var(--body); cursor: zoom-in; backdrop-filter: blur(8px); }
+.zoom-bottle svg { width: 14px; height: 14px; }
+html[data-bottle-line="swoll"] .fl .pic img { height: 190px; }
+
+.product-dialog { width: min(1040px, calc(100vw - 24px)); max-height: min(900px, calc(100dvh - 24px)); padding: 0; border: 0; border-radius: 26px; background: #f8f5f2; color: #171316; box-shadow: 0 30px 90px rgba(30,10,20,.35); overflow: hidden; }
+.product-dialog::backdrop { background: rgba(25,12,18,.64); backdrop-filter: blur(7px); }
+.pd-close { position: absolute; z-index: 3; right: 14px; top: 14px; width: 42px; height: 42px; border: 0; border-radius: 50%; background: rgba(255,255,255,.9); color: #171316; font-size: 24px; line-height: 1; cursor: pointer; box-shadow: 0 8px 24px rgba(20,10,15,.15); }
+.pd-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(340px, .95fr); min-height: 650px; }
+.pd-product { position: relative; display: grid; grid-template-rows: auto 1fr auto; min-width: 0; padding: 34px clamp(22px,4vw,46px) 26px; background: radial-gradient(ellipse 90% 75% at 50% 35%, #fff 0%, #ece8e4 78%); }
+.pd-kicker { font: 700 12px/1 var(--body); letter-spacing: .15em; text-transform: uppercase; color: #5f5960; }
+.pd-bottle { display: grid; place-items: center; min-height: 0; padding: 18px 0 10px; }
+.pd-bottle img { max-height: 560px; width: auto; filter: drop-shadow(0 24px 22px rgba(25,15,20,.2)); }
+.pd-name { display: grid; gap: 6px; text-align: center; }
+.pd-name h2 { font-size: clamp(30px,4vw,48px); }
+.pd-name p { color: #5f5960; font-size: 15px; }
+.pd-side { padding: 66px clamp(22px,4vw,42px) 34px; overflow-y: auto; background: #fff; }
+.pd-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px; }
+.pd-switch button { padding: 12px 10px; border: 1.5px solid #d8d2ce; border-radius: 12px; background: #fff; color: #5f5960; font: 700 14px/1 var(--body); cursor: pointer; }
+.pd-switch button[aria-pressed="true"] { background: #171316; border-color: #171316; color: #fff; }
+.nf-label { border: 3px solid #111; padding: 7px 8px 9px; background: #fff; color: #050505; font: 600 13px/1.1 Arial, Helvetica, sans-serif; }
+.nf-label h3 { font: 900 36px/.9 Arial, Helvetica, sans-serif; letter-spacing: -1.8px; }
+.nf-rule { border-top: 1px solid #111; margin-top: 4px; padding-top: 3px; }
+.nf-rule.thick { border-top-width: 8px; }
+.nf-row { display: flex; justify-content: space-between; gap: 14px; padding: 3px 0; border-top: 1px solid #777; }
+.nf-row.first { border-top: 0; }
+.nf-row.cal { align-items: end; border-top: 5px solid #111; margin-top: 4px; padding: 5px 0 3px; }
+.nf-row.cal b:first-child { font-size: 20px; }
+.nf-row.cal b:last-child { font-size: 30px; }
+.nf-indent { padding-left: 16px; }
+.nf-dv { text-align: right; font-weight: 800; border-top: 4px solid #111; padding: 3px 0 2px; }
+.nf-protein { border-top: 8px solid #111; font-size: 16px; padding: 5px 0; }
+.nf-foot { border-top: 5px solid #111; padding-top: 5px; font-size: 10.5px; line-height: 1.25; }
+.concept-note { margin-top: 12px; color: #6a6267; font-size: 12px; line-height: 1.4; }
+@media (max-width: 760px) {
+  .bottle-view { align-items: flex-start; flex-direction: column; }
+  .pd-grid { grid-template-columns: 1fr; }
+  .pd-product { min-height: 560px; }
+  .pd-bottle img { max-height: 410px; }
+  .pd-side { padding-top: 28px; }
+}
+
 /* home: why */
 html[data-line="smoothies"] .for-shakes, html:not([data-line="smoothies"]) .for-smoothies { display: none !important; }
 .why { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(24px, 5vw, 70px); align-items: start; }
