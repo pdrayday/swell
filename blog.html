@@ -822,7 +822,15 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
     if (panels) Object.keys(panels).forEach(function (k) { if (k === line) panels[k].removeAttribute("inert"); else panels[k].setAttribute("inert", ""); });
     btab(line); fit(); if (save) store("swell-line", line);
   }
-  document.querySelectorAll("[data-go]").forEach(function (b) { b.addEventListener("click", function () { setLine(b.dataset.go, true); }); });
+  function nudge() { var y = window.scrollY; window.scrollTo({ top: y + 1, behavior: "instant" }); requestAnimationFrame(function () { window.scrollTo({ top: y, behavior: "instant" }); }); }
+  document.querySelectorAll("[data-go]").forEach(function (b) { b.addEventListener("click", function () {
+    var go = b.dataset.go;
+    if (b.closest(".drawer") && root.classList.contains("menu-open")) {
+      /* iOS Safari only re-tints its top bar once the menu overlay is gone, so close the menu first, then switch */
+      document.querySelectorAll(".drawer [data-go]").forEach(function (x) { x.setAttribute("aria-pressed", String(x.dataset.go === go)); });
+      setTimeout(function () { menu(false); setTimeout(function () { setLine(go, true); nudge(); }, 470); }, 160);
+    } else { setLine(go, true); nudge(); }
+  }); });
   if (lineWrap) {
     var sx = 0, sy = 0, tr = false;
     lineWrap.addEventListener("touchstart", function (e) { if (e.target.closest(".rail")) { tr = false; return; } var t = e.touches[0]; sx = t.clientX; sy = t.clientY; tr = true; }, { passive: true });
