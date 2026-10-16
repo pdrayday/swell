@@ -121,12 +121,12 @@ header.top .wrap { display: flex; align-items: center; gap: 20px; height: 66px; 
 .menu-open .scrim { opacity: 1; pointer-events: auto; }
 .menu-open .drawer { transform: none; }
 .drawer .x { align-self: flex-start; width: 40px; height: 40px; border-radius: 12px; border: 0; background: var(--surface); font-size: 24px; line-height: 1; cursor: pointer; }
-.drawer nav { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.drawer nav a { display: grid; justify-items: center; align-content: center; gap: 6px; text-align: center; text-decoration: none; padding: 9px 3px 8px; border-radius: 16px; background: var(--surface); color: var(--fg); min-height: 70px; gap: 3px;
+.drawer nav { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: minmax(92px, 1fr); gap: 8px; flex: 1 1 0; min-height: 392px; max-height: 640px; }
+.drawer nav a { display: grid; justify-items: center; align-content: center; gap: 6px; text-align: center; text-decoration: none; padding: 10px 4px; border-radius: 20px; background: var(--surface); color: var(--fg); min-height: 92px; gap: 5px;
   opacity: 0; transform: translateX(-14px); transition: opacity .3s, transform .45s var(--spring); }
-.drawer nav a i { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--bg); color: var(--fg); font-style: normal; }
-.drawer nav a b { font: 700 12.5px/1.1 var(--display); } .drawer nav a i svg { width: 16px; height: 16px; }
-.drawer nav a span { font: 500 9.5px/1.2 var(--body); color: var(--muted); }
+.drawer nav a i { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--bg); color: var(--fg); font-style: normal; }
+.drawer nav a b { font: 700 clamp(13px, 3.75vw, 15px)/1.1 var(--display); margin-top: 2px; white-space: nowrap; } .drawer nav a i svg { width: 21px; height: 21px; }
+.drawer nav a span { font: 500 11px/1.2 var(--body); color: var(--muted); }
 .drawer nav a:active { transform: scale(.94); }
 .drawer nav a[aria-current="page"] { background: var(--ink); color: var(--on-ink); } .drawer nav a[aria-current="page"] span { color: color-mix(in srgb, var(--on-ink) 75%, transparent); } .drawer nav a[aria-current="page"] i { background: color-mix(in srgb, var(--on-ink) 18%, transparent); color: var(--on-ink); }
 .menu-open .drawer nav a { opacity: 1; transform: none; }
@@ -509,7 +509,8 @@ html[data-line="smoothies"] .icgrid { grid-template-columns: repeat(2, minmax(0,
 @keyframes ping { 0% { transform: scale(1); opacity: .55; } 70%, 100% { transform: scale(1.45); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .scanfab::after { animation: none; } }
 @media (max-width: 960px) { .mbar { right: 88px !important; } }
-.drawer .pass-open, .drawer > .btn { width: 100%; padding: 11px 8px; font-size: 14px; }
+.drawer .pass-open, .drawer > .btn { width: 100%; padding: 13px 8px; font-size: 15px; flex: none; }
+.drawer .x, .drawer .line-sw { flex: none; }
 .drawer .line-sw button { padding: 7px 11px; font-size: 12.5px; }
 .passsheet { z-index: 92; }
 .pass-card { margin: 4px auto 0; max-width: 380px; border-radius: 26px; overflow: hidden; background: var(--ink); color: var(--on-ink); box-shadow: 0 24px 50px -24px rgba(20,8,12,.6); }
