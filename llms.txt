@@ -16,7 +16,7 @@
 - [Home](https://pdrayday.github.io/swell/)
 - [Shop](https://pdrayday.github.io/swell/shop.html)
 - [Ice Cream](https://pdrayday.github.io/swell/icecream.html)
-- [Find a machine](https://pdrayday.github.io/swell/#machines)
+- [Find a machine](https://pdrayday.github.io/swell/#find)
 - [Recipes](https://pdrayday.github.io/swell/creami/)
 - [Blog](https://pdrayday.github.io/swell/blog.html)
 - [About](https://pdrayday.github.io/swell/about.html)

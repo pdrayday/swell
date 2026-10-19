@@ -305,7 +305,7 @@ html[data-line="smoothies"] .packband img { filter: invert(1) sepia(.4) brightne
 .creami-top img { width: 100%; height: auto; border-radius: 28px; box-shadow: 0 30px 60px -24px rgba(40,10,20,.45); }
 @media (max-width: 860px) { .creami-top { grid-template-columns: 1fr; gap: 22px; } }
 .mach-sec { border-top: 1px solid var(--line); padding-top: clamp(40px, 6vw, 80px); scroll-margin-top: 70px; }
-#find, #host { scroll-margin-top: 80px; }
+#find, #host, #affiliate { scroll-margin-top: 80px; }
 h2.h1 { font-size: clamp(42px, 5.6vw, 76px); } .mach-top .lead { margin-top: 18px; }
 .mach-top { display: grid; grid-template-columns: 1fr 1.1fr; gap: 32px; align-items: center; }
 .mach-facts { display: flex; flex-wrap: wrap; gap: 10px 26px; margin: 22px 0 0; padding: 0; list-style: none; font-weight: 600; font-size: 15px; }
@@ -557,7 +557,7 @@ html[data-line="smoothies"] .pass-top img { filter: invert(1) sepia(.35) brightn
 .arow { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); font-size: 15px; } .arow:first-of-type { border-top: 0; }
 .arow span { color: var(--muted); }
 .plancur { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px; border-radius: 18px; background: var(--ink); color: var(--on-ink); margin-bottom: 6px; }
-.plancur.sm { background: var(--bg); color: var(--fg); } .plancur.sm small { color: var(--muted); }
+.plancur.sm { background: var(--bg); color: var(--fg); } .plancur.sm small { color: var(--muted); opacity: 1; }
 .plancur b { display: block; font: 700 21px/1.15 var(--display); margin-top: 6px; } .plancur small { display: block; opacity: .8; font-size: 13.5px; margin-top: 2px; }
 .plancur .pr { font: 700 30px/1 var(--display); white-space: nowrap; } .plancur .pr small, .planopt .pp small { font: 600 13px var(--body); opacity: .8; }
 .tagp { display: inline-block; padding: 4px 8px; border-radius: 6px; background: #c7ecce; color: #17431f; font: 800 10.5px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; }
@@ -723,19 +723,19 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 .cmp-sec .btn { margin-top: 16px; }
 .acc-h { font-size: clamp(26px, 3vw, 36px); margin-bottom: 14px; }
 
-/* ---- Swoll benefits band ---- */
-.swoll-sec { background: #2f5aa8; color: #fff; }
-.swoll-in { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.6fr); gap: clamp(20px, 4vw, 56px); align-items: center; }
-.swoll-pic { display: grid; place-items: center; } .swoll-pic img { width: auto; max-width: 100%; max-height: 500px; height: auto; filter: drop-shadow(0 30px 40px rgba(5,15,40,.45)); }
-.swoll-sec .kick { font: 700 13px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; opacity: .8; }
-.swoll-sec h2 { font-size: clamp(34px, 4.6vw, 58px); margin-top: 6px; color: #fff; } .swoll-sec .lead { color: #e6eeff; margin-top: 10px; max-width: 34em; }
-.sben { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 22px; }
-.sben div { background: rgba(10,30,80,.22); border: 1px solid rgba(255,255,255,.2); border-radius: 18px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; }
-.sben b { font: 700 28px/1 var(--display); color: #bcd3ff; } .sben h3 { font-size: 20px; color: #fff; } .sben p { font-size: 14.5px; color: #f3f7ff; }
-@media (max-width: 760px) { .swoll-in { grid-template-columns: 1fr; } .swoll-pic img { max-height: 280px; } .sben { grid-template-columns: 1fr; } }
-.sh-ben { margin: 14px 0 4px; padding: 14px 16px; border-radius: 16px; background: #dbe6f7; color: #10203f; display: grid; gap: 8px; }
+/* ---- "more in every bottle" band (theme colored) ---- */
+.every-sec { background: var(--surface); }
+.every-in { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr); gap: clamp(20px, 4vw, 56px); align-items: center; }
+.every-pic { display: grid; place-items: center; } .every-pic img { width: 100%; max-width: 440px; height: auto; filter: drop-shadow(0 26px 34px rgba(40,10,20,.25)); }
+.every-sec .kick { font: 700 13px/1.2 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.every-sec h2 { font-size: clamp(34px, 4.6vw, 58px); margin-top: 6px; } .every-sec .lead { margin-top: 10px; max-width: 34em; }
+.eben { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 22px; }
+.eben div { background: var(--bg); border-radius: 18px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; }
+.eben b { font: 700 28px/1 var(--display); color: var(--em); } .eben h3 { font-size: 20px; } .eben p { font-size: 14.5px; color: var(--muted); }
+@media (max-width: 760px) { .every-in { grid-template-columns: 1fr; } .every-pic img { max-width: 300px; } .eben { grid-template-columns: 1fr; } }
+.sh-ben { margin: 14px 0 4px; padding: 14px 16px; border-radius: 16px; background: var(--surface); color: var(--fg); display: grid; gap: 8px; }
 .sh-ben ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; } .sh-ben li { background: #fff; border-radius: 999px; padding: 6px 11px; font: 600 13px/1 var(--body); }
-.sh-ben li i { font-style: normal; font-weight: 800; color: #2f5aa8; margin-right: 4px; } .sh-ben a { color: #2f5aa8; font-weight: 700; font-size: 14px; }
+.sh-ben li { background: var(--bg) !important; } .sh-ben li i { font-style: normal; font-weight: 800; color: var(--em); margin-right: 4px; } .sh-ben a { color: var(--fg); font-weight: 700; font-size: 14px; }
 
 /* ---- affiliate page ---- */
 .aff-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(20px, 4vw, 56px); align-items: center; }
@@ -772,19 +772,64 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
 .aff-done { display: grid; gap: 12px; align-content: center; text-align: left; } .aff-done h3 { font-size: 30px; } .aff-done .code { font: 800 22px/1 var(--body); letter-spacing: .08em; background: var(--on-ink); color: var(--ink); padding: 12px 16px; border-radius: 12px; justify-self: start; }
 @media (max-width: 860px) { .aff-hero, .aff-apply { grid-template-columns: 1fr; } .steps, .tiers { grid-template-columns: 1fr; } .asks { grid-template-columns: 1fr 1fr; } .aff-stats { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .aff-form { grid-template-columns: 1fr; } .asks { grid-template-columns: 1fr; } .aff-pics img:last-child { margin-top: 24px; } }
+/* ---- affiliate dashboard (account page) ---- */
+.affdash { margin-top: 24px; }
+.ad-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
+.ad-head h2 { margin: 0; } .ad-head p { color: var(--muted); font-size: 14.5px; margin-top: 6px; } .ad-head p b { color: var(--fg); }
+.ad-range { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--bg); }
+.ad-range button { border: 0; background: transparent; padding: 8px 14px; border-radius: 999px; font: 700 13.5px/1 var(--body); color: var(--muted); cursor: pointer; }
+.ad-range button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+.ad-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+.ad-link { background: var(--bg); border-radius: 16px; padding: 12px 12px 12px 16px; display: flex; align-items: center; gap: 10px; min-width: 0; }
+.ad-link div { flex: 1; min-width: 0; } .ad-link small { display: block; font: 700 11.5px/1.2 var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.ad-link code { display: block; font: 700 15px/1.3 ui-monospace, Menlo, monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 3px; }
+.ad-link .btn { flex: none; }
+.ad-stats { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+.ad-stat { background: var(--bg); border-radius: 16px; padding: 14px 16px; display: grid; gap: 4px; align-content: start; }
+.ad-stat span { font-size: 13px; color: var(--muted); } .ad-stat b { font: 700 26px/1.05 var(--display); } .ad-stat small { font-size: 12.5px; color: var(--muted); }
+.ad-stat.hi { background: var(--ink); color: var(--on-ink); } .ad-stat.hi span, .ad-stat.hi small { color: color-mix(in srgb, var(--on-ink) 78%, transparent); }
+.ad-chart { position: relative; background: var(--bg); border-radius: 18px; padding: 16px 16px 10px; margin-top: 12px; }
+.ad-chart h3 { font: 700 15px/1.2 var(--body); } .ad-chart .sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.ad-chart svg { display: block; width: 100%; height: auto; margin-top: 10px; overflow: visible; }
+.ad-chart .grid line { stroke: var(--line); stroke-width: 1; } .ad-chart .grid text, .ad-chart .xl text { fill: var(--muted); font: 500 11px var(--body); }
+.ad-chart .bar { fill: var(--ink); } .ad-chart .bar.on { fill: var(--em); } .ad-chart .hit { fill: transparent; cursor: crosshair; }
+.ad-tip { position: absolute; pointer-events: none; background: var(--ink); color: var(--on-ink); border-radius: 10px; padding: 7px 10px; font: 600 12.5px/1.35 var(--body); white-space: nowrap; transform: translate(-50%, -100%); opacity: 0; transition: opacity .12s; z-index: 2; }
+.ad-tip.on { opacity: 1; } .ad-tip b { display: block; font-size: 14px; }
+.ad-cols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 12px; }
+.ad-box { background: var(--bg); border-radius: 18px; padding: 16px; } .ad-box h3 { font: 700 15px/1.2 var(--body); margin-bottom: 4px; }
+.ad-box .arow { padding: 10px 0; font-size: 14.5px; } .ad-box .arow.tot { font-weight: 800; border-top: 2px solid var(--fg); }
+.ad-box .big { font: 700 32px/1 var(--display); margin: 8px 0 2px; }
+.ad-team, .ad-orders { margin-top: 12px; }
+.ad-tbl { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.ad-tbl th { text-align: left; font: 700 12px/1.2 var(--body); color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.ad-tbl td { padding: 10px; border-bottom: 1px solid var(--line); white-space: nowrap; } .ad-tbl tr:last-child td { border-bottom: 0; }
+.ad-tbl .num { text-align: right; font-variant-numeric: tabular-nums; } .ad-tbl .ad-who { display: flex; align-items: center; gap: 10px; }
+.ad-tbl .ad-av { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--surface); font: 800 12px/1 var(--body); flex: none; }
+.ad-tbl small { display: block; color: var(--muted); font-size: 12px; }
+.pill { display: inline-block; padding: 4px 8px; border-radius: 999px; font: 700 11.5px/1 var(--body); background: var(--surface); }
+.pill.ok { background: #c7ecce; color: #17431f; }
+@media (max-width: 560px) { .ad-tbl .xs { display: none; } .ad-tbl td, .ad-tbl th { padding-inline: 6px; } .ad-tbl { font-size: 13.5px; } }
+.ad-scroll { overflow-x: auto; position: relative; }
+.ad-team-h { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.ad-team-h h3 { font: 700 15px/1.2 var(--body); }
+.affjoin { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+.affjoin .ctas { display: flex; gap: 8px; flex-wrap: wrap; }
+@media (max-width: 1100px) { .ad-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 900px) { .ad-links, .ad-cols { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .ad-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ad-stat b { font-size: 22px; } .affjoin { grid-template-columns: 1fr; } }
 </style>
 <div class="promo" role="region" aria-label="Announcement">Reserve a box today and pay nothing until it ships. <a href="../shop.html#build">Build yours</a></div>
 <header class="top"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   <a class="logo" href="../index.html" aria-label="Swell home"><img src="../img/logo.png" alt="Swell" width="416" height="159"></a>
-  <nav class="tabs" aria-label="Main"><a href="../shop.html">Shop</a><a href="../icecream.html">Ice Cream</a><a href="../index.html#machines">Find a machine</a><a href="../creami/index.html" aria-current="page">Recipes</a><a href="../blog.html">Blog</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../affiliate.html" class="aff">Become an affiliate</a></nav>
+  <nav class="tabs" aria-label="Main"><a href="../shop.html">Shop</a><a href="../icecream.html">Ice Cream</a><a href="../index.html#find">Find a machine</a><a href="../creami/index.html" aria-current="page">Recipes</a><a href="../blog.html">Blog</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../affiliate.html" class="aff">Become an affiliate</a></nav>
   <div class="right"><div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div><a class="prof press" href="../account.html" aria-label="Your Swell account" data-acct><span class="pav" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.8 20c1.1-3.6 3.9-5.4 7.2-5.4s6.1 1.8 7.2 5.4"/></svg></span></a></div>
 </div></header>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Menu">
   <button type="button" class="x press" id="drawer-x" aria-label="Close menu">×</button>
   <div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div>
-  <nav><a href="../index.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg></i><b>Home</b><span></span></a><a href="../shop.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></i><b>Shop</b><span>Build a box</span></a><a href="../icecream.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11h8l-4 10z"/><path d="M7.5 11a4.5 4.5 0 0 1 9 0"/></svg></i><b>Ice Cream</b><span>Protein pints</span></a><a href="../index.html#machines"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></i><b>Find a machine</b><span>Utah County</span></a><a href="../creami/index.html" aria-current="page"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M9 7c0-1.5 1.5-1.5 1.5-3M13.5 7c0-1.5 1.5-1.5 1.5-3"/></svg></i><b>Recipes</b><span>Ninja Creami</span></a><a href="../blog.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 7 20M17 4l-2 16M4.5 9h16M3.5 15h16"/></svg></i><b>Blog</b><span>#drinkswell</span></a><a href="../about.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.1"/></svg></i><b>About</b><span>Our story</span></a><a href="../faq.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4M12 16.6v.1"/></svg></i><b>FAQ</b><span>Questions</span></a><a href="../affiliate.html" class="aff"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.2v3.6a1 1 0 0 0 1 1H7l6 4.2V5L7 9.2H4.5a1 1 0 0 0-1 1z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/></svg></i><b>Become an affiliate</b><span>Get paid to post</span></a></nav>
+  <nav><a href="../index.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg></i><b>Home</b><span></span></a><a href="../shop.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></i><b>Shop</b><span>Build a box</span></a><a href="../icecream.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11h8l-4 10z"/><path d="M7.5 11a4.5 4.5 0 0 1 9 0"/></svg></i><b>Ice Cream</b><span>Protein pints</span></a><a href="../index.html#find"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></i><b>Find a machine</b><span>Utah County</span></a><a href="../creami/index.html" aria-current="page"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M9 7c0-1.5 1.5-1.5 1.5-3M13.5 7c0-1.5 1.5-1.5 1.5-3"/></svg></i><b>Recipes</b><span>Ninja Creami</span></a><a href="../blog.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 7 20M17 4l-2 16M4.5 9h16M3.5 15h16"/></svg></i><b>Blog</b><span>#drinkswell</span></a><a href="../about.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.1"/></svg></i><b>About</b><span>Our story</span></a><a href="../faq.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4M12 16.6v.1"/></svg></i><b>FAQ</b><span>Questions</span></a><a href="../affiliate.html" class="aff"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.2v3.6a1 1 0 0 0 1 1H7l6 4.2V5L7 9.2H4.5a1 1 0 0 0-1 1z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/></svg></i><b>Become an affiliate</b><span>Get paid to post</span></a></nav>
   <button type="button" class="btn alt pass-open" data-pass>Show my Swell Pass</button>
   <a class="btn" href="../shop.html#build">Build a box <span class="boxcount" hidden>0</span></a>
 </aside><main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Recipes</a> / <span>Cake Batter Protein Ice Cream</span></nav>
@@ -800,7 +845,7 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
   <div class="cols">
     <div><a class="logo" href="../index.html"><img src="../img/logo.png" alt="Swell" width="416" height="159" loading="lazy"></a><p class="small" style="margin-top:12px;max-width:22em">Protein shakes and smoothies that taste like dessert. Made in Utah County.</p></div>
     <div><h2>Shop</h2><ul><li><a href="../shop.html#build">Build a box</a></li><li><a href="../index.html#shelf-shakes">Shake flavors</a></li><li><a href="../index.html#smoothies">Smoothie flavors</a></li></ul></div>
-    <div><h2>Swell</h2><ul><li><a href="../index.html#machines">Find a machine</a></li><li><a href="../creami/index.html">Creami recipes</a></li><li><a href="../about.html">About</a></li></ul></div>
+    <div><h2>Swell</h2><ul><li><a href="../index.html#find">Find a machine</a></li><li><a href="../creami/index.html">Creami recipes</a></li><li><a href="../about.html">About</a></li></ul></div>
     <div><h2>Help</h2><ul><li><a href="../faq.html">FAQ</a></li><li><a href="../index.html#host">Host a machine</a></li><li><a href="../affiliate.html">Become an affiliate</a></li></ul></div>
   </div>
   <div class="fsocial"><ul class="social" aria-label="Swell on social media"><li><a class="press" href="https://www.instagram.com/drinkswell" target="_blank" rel="noopener" aria-label="Swell on Instagram"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></svg></a></li><li><a class="press" href="https://www.tiktok.com/@drinkswell" target="_blank" rel="noopener" aria-label="Swell on TikTok"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M14.5 3v11.2a3.6 3.6 0 1 1-3.6-3.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M14.5 3c.4 2.6 2.2 4.4 5 4.6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a></li><li><a class="press" href="https://www.youtube.com/@drinkswell" target="_blank" rel="noopener" aria-label="Swell on YouTube"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10.2 9.2v5.6l4.8-2.8z" fill="currentColor"/></svg></a></li><li><a class="press" href="https://www.facebook.com/drinkswell" target="_blank" rel="noopener" aria-label="Swell on Facebook"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M13.6 21v-7.6h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5H17V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8.2v3h2.6V21z" fill="currentColor"/></svg></a></li><li><a class="press" href="https://x.com/drinkswell" target="_blank" rel="noopener" aria-label="Swell on X"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/></svg></a></li></ul><p>Tag <b>@drinkswell</b> and use <a href="../blog.html"><b>#drinkswell</b></a> to get featured.</p></div>
@@ -808,7 +853,7 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
   <p>Nutrition, sizes, box discounts, reviews and machine locations are placeholders until launch. fairlife and Core Power are trademarks of fairlife, LLC; Naked and Ninja Creami are trademarks of their owners. Swell isn't affiliated with any of them.</p>
   <p>Contains milk. © 2026 Swell.</p></div>
 </div></footer>
-<nav class="mbar-nav" aria-label="Find a Swell machine"><a class="mbar pre" id="mbar" href="../index.html#machines"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></i><span class="p"><b>Find a machine</b><span id="mb-s">9 in Utah County</span></span><span class="go" aria-hidden="true">Map <span>→</span></span></a></nav>
+<nav class="mbar-nav" aria-label="Find a Swell machine"><a class="mbar pre" id="mbar" href="../index.html#find"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></i><span class="p"><b>Find a machine</b><span id="mb-s">9 in Utah County</span></span><span class="go" aria-hidden="true">Map <span>→</span></span></a></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <button type="button" class="scanfab press" id="scanfab" data-pass aria-label="Show my Swell Pass to scan at a machine"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/><path d="M8 8h3v3H8zM13 13h3v3h-3zM13 8h3M8 16h3M13 10.5h1.5"/></svg><span>Scan</span></button>
 <div class="sheet-scrim" id="pass-scrim" hidden></div>
@@ -1004,7 +1049,7 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
     b.innerHTML = CHECK + " Sent"; confetti(b); m.textContent = f.dataset.simple;
   }); });
   // ---------- Find a machine bar: tucks away while the machine finder itself is on screen ----------
-  var mbar = $("mbar"), mtop = $("machines"), mend = $("host");
+  var mbar = $("mbar"), mtop = $("find"), mend = $("host");
   function mbarState() { if (!mbar || !mtop) return; var a = mtop.getBoundingClientRect().top, b = (mend || mtop).getBoundingClientRect().bottom, H = window.innerHeight;
     mbar.classList.toggle("hide", a < H * .85 && b > H * .15); }
   function paintMbar() { var m = me(), t = $("mb-s"); if (!t) return; if (m && m.home) { var h = homeOf(m); t.textContent = "Your go-to: " + h.venue + " · " + h.city; } else t.textContent = MACHS.length + " in Utah County"; }
@@ -1021,7 +1066,7 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
   (function () { var f = $("aff-form"); if (!f) return;
     var m = me(); if (m) { if (m.name && !f.elements.name.value) f.elements.name.value = m.name; if (m.email && !f.elements.email.value) f.elements.email.value = m.email; }
     var prev = store("swell-aff"); if (prev) done(prev);
-    function done(a) { $("aff-box").innerHTML = '<div class="aff-done" tabindex="-1" id="aff-ok"><h3>Application in, ' + esc(a.name.split(" ")[0]) + '.</h3><p>We review every application within 5 business days and reply to ' + esc(a.email) + '. If you\'re approved, this is your code:</p><span class="code">' + esc(a.code) + '</span><p class="small" style="opacity:.75">Demo: this application was saved on this device only. Nothing was sent.</p><button type="button" class="btn alt sm" id="aff-redo">Start over</button></div>';
+    function done(a) { $("aff-box").innerHTML = '<div class="aff-done" tabindex="-1" id="aff-ok"><h3>Application in, ' + esc(a.name.split(" ")[0]) + '.</h3><p>We review every application within 5 business days and reply to ' + esc(a.email) + '. If you\'re approved, this is your code:</p><span class="code">' + esc(a.code) + '</span><p class="small" style="opacity:.75">Demo: this application was saved on this device only. Nothing was sent.</p><div class="ctas" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn sm" style="background:var(--on-ink);color:var(--ink)" href="' + P + 'account.html#affiliate">Open your dashboard</a><button type="button" class="btn alt sm" id="aff-redo">Start over</button></div></div>';
       $("aff-redo").addEventListener("click", function () { store("swell-aff", null); location.reload(); }); }
     function esc(t) { return String(t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
     f.addEventListener("submit", function (e) { e.preventDefault(); var el = f.elements, err = $("aff-err"), bad = null;
@@ -1168,9 +1213,9 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
   document.addEventListener("visibilitychange", function () { if (document.hidden) document.querySelectorAll("video.hv").forEach(function (v) { v.pause(); }); else vids(); });
 
   // ---------- scrollspy: "Find a machine" tab lights up over the machine section ----------
-  var msec = document.getElementById("machines");
+  var msec = document.getElementById("find");
   if (msec && window.IntersectionObserver) {
-    var mlinks = document.querySelectorAll('a[href$="#machines"]');
+    var mlinks = document.querySelectorAll('a[href$="#find"]');
     new IntersectionObserver(function (es) { mlinks.forEach(function (a) { if (a.closest(".tabs, .drawer")) { if (es[0].isIntersecting) a.setAttribute("aria-current", "location"); else a.removeAttribute("aria-current"); } }); },
       { rootMargin: "-45% 0px -45% 0px" }).observe(msec);
   }
@@ -1185,9 +1230,9 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
   // ---------- drink detail sheet (nutrition facts) ----------
   var sheet = $("sheet"), shScrim = $("sheet-scrim"), shBody = $("sh-body"), shK = null, shP = 30, lastFocus = null;
   var NUT = { // sample values (placeholder until lab results)
-    shakes:    { 30: [180, "3.5g", 4, "2g", 10, "20mg", 7, "240mg", 10, "8g", 3, "1g", 4, "4g", "0g", 0, "30g", 60, ["2mcg", 10], ["700mg", 50], ["1mg", 6], ["450mg", 10]],
+    shakes:    { 30: [180, "3.5g", 4, "2g", 10, "20mg", 7, "240mg", 10, "8g", 3, "1g", 4, "4g", "0g", 0, "30g", 60, ["2mcg", 10], ["700mg", 50], ["5mg", 28], ["450mg", 10]],
                  50: [290, "5g", 6, "3g", 15, "35mg", 12, "380mg", 17, "11g", 4, "2g", 7, "5g", "0g", 0, "50g", 100, ["3mcg", 15], ["1100mg", 85], ["8mg", 45], ["700mg", 15]] },
-    smoothies: { 30: [190, "1g", 1, "0.5g", 3, "10mg", 3, "150mg", 7, "16g", 6, "2g", 7, "9g", "2g", 4, "30g", 60, ["0mcg", 0], ["300mg", 25], ["0.5mg", 2], ["350mg", 8]],
+    smoothies: { 30: [190, "1g", 1, "0.5g", 3, "10mg", 3, "150mg", 7, "16g", 6, "2g", 7, "9g", "2g", 4, "30g", 60, ["0mcg", 0], ["300mg", 25], ["5mg", 28], ["350mg", 8]],
                  50: [310, "1.5g", 2, "1g", 5, "15mg", 5, "240mg", 10, "24g", 9, "3g", 11, "13g", "3g", 6, "50g", 100, ["0mcg", 0], ["480mg", 35], ["8mg", 45], ["560mg", 12]] } };
   function nfHtml(v, sw) {
     function r(lbl, amt, dv, cls) { return '<div class="r ' + (cls || "") + '"><span>' + lbl + " " + amt + "</span><b>" + (dv === null ? "" : dv + "%") + "</b></div>"; }
@@ -1206,9 +1251,9 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
       '<div class="sh-size" role="group" aria-label="Bottle"><button type="button" data-shp="30" aria-pressed="' + !sw + '"><b>Swell · 30g</b><span>Pink bottle</span></button>' +
       '<button type="button" class="w" data-shp="50" aria-pressed="' + sw + '"><b>Swoll · 50g</b><span>Blue bottle</span></button></div>' +
       '<button type="button" class="btn sh-add" id="sh-add">' + (q ? CHECK + " " + q + " in box · add another" : "Add " + (sw ? "Swoll " : "Swell ") + d.n + " to box") + "</button>" +
-      (sw ? '<div class="sh-ben"><b>In every Swoll</b><ul><li><i>50g</i>protein</li><li><i>+</i>collagen peptides</li><li><i>+</i>colostrum</li><li><i>+</i>iron</li></ul><a href="' + P + 'index.html#swoll">Why it matters →</a></div>' : "") +
+      '<div class="sh-ben"><b>In every bottle</b><ul><li><i>' + (sw ? "50g" : "30g") + '</i>protein</li><li><i>+</i>collagen peptides</li><li><i>+</i>colostrum</li><li><i>+</i>iron</li></ul><a href="' + P + 'index.html#every">Why it matters →</a></div>' +
       nfHtml(NUT[d.l][shP], sw) +
-      '<div class="sh-extra"><p><b>Also in every bottle:</b> collagen peptides and bovine colostrum' + (sw ? ", plus added iron in every Swoll" : "") + '.</p><p><b>Contains:</b> milk.</p>' +
+      '<div class="sh-extra"><p><b>Also in every bottle:</b> collagen peptides, bovine colostrum and added iron.</p><p><b>Contains:</b> milk.</p>' +
       '<p><span class="ph">Sample nutrition for layout. Final values pending lab testing.</span></p></div>';
     shBody.querySelectorAll("[data-shp]").forEach(function (b) { b.addEventListener("click", function () { shP = +b.dataset.shp; drawSheet(); }); });
     $("sh-add").addEventListener("click", function (e) { if (add(key, 1, e.currentTarget)) drawSheet(); });
@@ -1338,6 +1383,101 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
   $("pass-x").addEventListener("click", closePass); passScrim.addEventListener("click", closePass);
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePass(); });
   if (window.qrcode === undefined) window.addEventListener("load", function () { if (!pass.hidden) drawPass(); });
+
+  // ---------- affiliate dashboard (sample data, seeded from the affiliate code) ----------
+  var AFF_TIERS = { squad: { name: "Swell Squad", rate: .10 }, creator: { name: "Creator", rate: .15 }, athlete: { name: "Athlete & Team", rate: .15 } }, TEAM_RATE = .05;
+  var affRange = "30";
+  function affTier(a) { if (/Athlete|Coach|Gym/.test(a.kind || "")) return "athlete"; return /Under 1k|1k to 5k/.test(a.size || "") ? "squad" : "creator"; }
+  function seeded(str) { var h = 1779033703; for (var i = 0; i < str.length; i++) { h = Math.imul(h ^ str.charCodeAt(i), 3432918353); h = h << 13 | h >>> 19; }
+    return function () { h = Math.imul(h ^ h >>> 16, 2246822507); h = Math.imul(h ^ h >>> 13, 3266489909); h ^= h >>> 16; return (h >>> 0) / 4294967296; }; }
+  function money(n) { return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  function affData(a) {
+    var r = seeded(a.code), tier = affTier(a), rate = AFF_TIERS[tier].rate, today = new Date(); today.setHours(12, 0, 0, 0);
+    var BOX = [["Box of 12 · Swell", 43.09], ["Box of 24 · Swell", 81.40], ["Box of 12 · Swoll", 64.69], ["Box of 24 · Swoll", 122.20], ["Box of 24 · mixed", 101.80]];
+    var days = [], orders = [];
+    for (var i = 149; i >= 0; i--) { var d = new Date(today); d.setDate(d.getDate() - i); var grow = .55 + (149 - i) / 149 * .7;
+      var clicks = Math.round((22 + r() * 60) * grow * (d.getDay() === 0 || d.getDay() === 6 ? 1.25 : 1)), n = 0, sales = 0;
+      for (var c = 0; c < clicks; c++) if (r() < .034) { var b = BOX[Math.floor(r() * BOX.length)]; n++; sales += b[1]; orders.push({ d: d, what: b[0], amt: b[1], id: "SW-" + (10000 + Math.floor(r() * 89999)) }); }
+      days.push({ d: d, clicks: clicks, orders: n, sales: sales, com: sales * rate }); }
+    var names = ["kenz.lifts", "tylerruns", "maddie.eats", "coach.jbaker", "sam_on_campus", "liftwithlexi", "the.dunk.diaries", "rachfit", "nate.pt", "orem.crossfit", "bri.makes", "jakeyoked"];
+    var nTeam = 3 + Math.floor(r() * 6), team = [];
+    for (var t = 0; t < nTeam; t++) { var tt = r() < .3 ? "creator" : "squad", s30 = 120 + r() * (tt === "creator" ? 2400 : 900), months = 1 + Math.floor(r() * 4);
+      var jd = new Date(today); jd.setDate(jd.getDate() - months * 30 + Math.floor(r() * 20));
+      team.push({ h: "@sample." + names[(t * 5 + Math.floor(r() * 12)) % names.length], tier: tt, joined: jd, s30: s30, sAll: s30 * (months + r() * .8) }); }
+    team.sort(function (x, y) { return y.s30 - x.s30; });
+    return { tier: tier, rate: rate, days: days, orders: orders.reverse(), team: team, today: today };
+  }
+  function affSum(D, range) {
+    var ds = range === "30" ? D.days.slice(-30) : D.days, f = function (k) { return ds.reduce(function (a, x) { return a + x[k]; }, 0); };
+    var tSales = D.team.reduce(function (a, x) { return a + (range === "30" ? x.s30 : x.sAll); }, 0);
+    return { clicks: f("clicks"), orders: f("orders"), sales: f("sales"), com: f("com"), team: tSales * TEAM_RATE, teamSales: tSales, bonus: range === "30" ? 0 : 25 };
+  }
+  function affChart(D, range, Wpx) {
+    var pts;
+    if (range === "30") pts = D.days.slice(-30).map(function (x) { return { lab: (x.d.getMonth() + 1) + "/" + x.d.getDate(), v: x.com, o: x.orders, full: x.d.toLocaleDateString("en-US", { month: "short", day: "numeric" }) }; });
+    else { var by = {}; D.days.forEach(function (x) { var k = x.d.getFullYear() + "-" + x.d.getMonth(); by[k] = by[k] || { d: x.d, v: 0, o: 0 }; by[k].v += x.com; by[k].o += x.orders; });
+      pts = Object.keys(by).map(function (k) { var x = by[k]; return { lab: x.d.toLocaleDateString("en-US", { month: "short" }), v: x.v, o: x.o, full: x.d.toLocaleDateString("en-US", { month: "long", year: "numeric" }) }; }); }
+    var W = Math.max(280, Math.round(Wpx || 600)), H = W < 500 ? 150 : 170, L = 44, B = 22, T = 10, max = Math.max.apply(null, pts.map(function (p) { return p.v; })) || 1;
+    var raw = max / 4, mag = Math.pow(10, Math.floor(Math.log10(raw))), step = [1, 2, 2.5, 5, 10].map(function (f) { return f * mag; }).filter(function (x) { return x >= raw; })[0], top = Math.ceil(max / step) * step;
+    var bw = (W - L) / pts.length, g = "", bars = "", xl = "";
+    for (var v = 0; v <= top + .001; v += step) { var y = T + (H - T - B) * (1 - v / top); g += '<line x1="' + L + '" x2="' + W + '" y1="' + y + '" y2="' + y + '"/><text x="' + (L - 8) + '" y="' + (y + 4) + '" text-anchor="end">$' + (step < 1 ? v.toFixed(1) : Math.round(v)) + "</text>"; }
+    pts.forEach(function (p, i) { var h = (H - T - B) * p.v / top, x = L + i * bw + Math.min(2, bw * .15), w = Math.max(2, bw - Math.min(4, bw * .3)), y = H - B - h, rr = Math.min(4, w / 2, h);
+      bars += '<path class="bar" data-i="' + i + '" d="M' + x + "," + (H - B) + "V" + (y + rr) + "q0,-" + rr + " " + rr + ",-" + rr + "h" + (w - 2 * rr) + "q" + rr + ",0 " + rr + "," + rr + "V" + (H - B) + 'z"/>' +
+        '<rect class="hit" data-i="' + i + '" x="' + (L + i * bw) + '" y="' + T + '" width="' + bw + '" height="' + (H - T - B) + '"/>';
+      var every = W < 500 ? 7 : 5; if (range !== "30" || i % every === 0) xl += '<text x="' + (x + w / 2) + '" y="' + (H - 6) + '" text-anchor="middle">' + p.lab + "</text>"; });
+    var tot = pts.reduce(function (a, p) { return a + p.v; }, 0);
+    return { pts: pts, svg: '<svg viewBox="0 0 ' + W + " " + H + '" width="' + W + '" height="' + H + '" role="img" aria-label="Commission ' + (range === "30" ? "per day, last 30 days" : "per month") + ", " + money(tot) + ' total"><g class="grid">' + g + "</g>" + bars + '<g class="xl">' + xl + "</g></svg>" };
+  }
+  function affHtml(m, a) {
+    var D = affData(a), S = affSum(D, affRange), T = AFF_TIERS[D.tier], C = affChart(D, affRange), base = "https://pdrayday.github.io/swell/";
+    var thisMonth = D.days.filter(function (x) { return x.d.getMonth() === D.today.getMonth() && x.d.getFullYear() === D.today.getFullYear(); });
+    var pending = thisMonth.reduce(function (s, x) { return s + x.com; }, 0) + D.team.reduce(function (s, x) { return s + x.s30; }, 0) * TEAM_RATE * D.today.getDate() / 30;
+    var next = new Date(D.today.getFullYear(), D.today.getMonth() + 1, 1), prev = [];
+    for (var k = 1; k <= 3; k++) { var md = new Date(D.today.getFullYear(), D.today.getMonth() - k, 1); var amt = D.days.filter(function (x) { return x.d.getMonth() === md.getMonth() && x.d.getFullYear() === md.getFullYear(); }).reduce(function (s, x) { return s + x.com; }, 0);
+      if (amt > 0) prev.push('<div class="arow"><span>' + md.toLocaleDateString("en-US", { month: "long" }) + '</span><b>' + money(amt * 1.05) + ' <span class="pill ok">Paid</span></b></div>'); }
+    var month30 = affSum(D, "30").sales, goal = D.tier === "squad" ? 1000 : 5000, nextName = D.tier === "squad" ? "Creator (15%)" : "a custom Elite deal";
+    var stats = [["hi", "Earned", money(S.com + S.team + S.bonus), affRange === "30" ? "last 30 days" : "all time"], ["", "Pending payout", money(pending), "pays " + next.toLocaleDateString("en-US", { month: "short", day: "numeric" })],
+      ["", "Orders", S.orders, money(S.sales) + " in sales"], ["", "Link clicks", S.clicks.toLocaleString(), "from your code and link"], ["", "Conversion", (S.orders / Math.max(1, S.clicks) * 100).toFixed(1) + "%", "clicks to orders"], ["", "Team", D.team.length, "affiliates under you"]];
+    var team = D.team.map(function (t) { var sales = affRange === "30" ? t.s30 : t.sAll; return '<tr><td><div class="ad-who"><span class="ad-av" aria-hidden="true">' + t.h.replace("@sample.", "").slice(0, 2).toUpperCase() + "</span><div>" + t.h + "<small>Joined " + t.joined.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + "</small></div></div></td><td class=\"xs\">" + AFF_TIERS[t.tier].name + '</td><td class="num">' + money(sales) + '</td><td class="num"><b>' + money(sales * TEAM_RATE) + "</b></td></tr>"; }).join("");
+    var ord = D.orders.slice(0, 8).map(function (o) { var paidOut = o.d.getMonth() !== D.today.getMonth(); return "<tr><td>" + o.d.toLocaleDateString("en-US", { month: "short", day: "numeric" }) + "<small>#" + o.id + "</small></td><td>" + o.what + '</td><td class="num xs">' + money(o.amt) + '</td><td class="num"><b>' + money(o.amt * D.rate) + '</b></td><td><span class="pill' + (paidOut ? " ok" : "") + '">' + (paidOut ? "Paid" : "Pending") + "</span></td></tr>"; }).join("");
+    return '<div class="acard affdash" id="affiliate"><div class="ad-head"><div><h2>Affiliate dashboard</h2><p><span class="tagp">Approved · demo</span> &nbsp;<b>' + T.name + "</b> · " + Math.round(T.rate * 100) + "% on your sales · 5% on your team's</p></div>" +
+      '<div class="ad-range" role="group" aria-label="Time range"><button type="button" data-ar="30" aria-pressed="' + (affRange === "30") + '">30 days</button><button type="button" data-ar="all" aria-pressed="' + (affRange === "all") + '">All time</button></div></div>' +
+      '<div class="ad-links"><div class="ad-link"><div><small>Your code</small><code>' + a.code + '</code></div><button type="button" class="btn sm alt" data-adcopy="' + a.code + '">Copy</button></div>' +
+      '<div class="ad-link"><div><small>Your link</small><code>' + base.replace("https://", "") + "?ref=" + a.code + '</code></div><button type="button" class="btn sm alt" data-adcopy="' + base + "?ref=" + a.code + '">Copy</button></div>' +
+      '<div class="ad-link"><div><small>Recruit affiliates</small><code>' + base.replace("https://", "") + "affiliate.html?invite=" + a.code + '</code></div><button type="button" class="btn sm alt" data-adcopy="' + base + "affiliate.html?invite=" + a.code + '">Copy</button></div></div>' +
+      '<div class="ad-stats">' + stats.map(function (x) { return '<div class="ad-stat ' + x[0] + '"><span>' + x[1] + "</span><b>" + x[2] + "</b><small>" + x[3] + "</small></div>"; }).join("") + "</div>" +
+      '<div class="ad-chart"><h3>Commission ' + (affRange === "30" ? "per day" : "per month") + '</h3><p class="sub">Your own sales. Hover or tap a bar for details.</p>' + C.svg + '<div class="ad-tip" id="ad-tip" role="status"></div></div>' +
+      '<div class="ad-cols"><div class="ad-box"><h3>Earnings</h3><div class="arow"><span>Your sales · ' + Math.round(D.rate * 100) + "%</span><b>" + money(S.com) + '</b></div><div class="arow"><span>Team override · 5%</span><b>' + money(S.team) + '</b></div><div class="arow"><span>Bonuses</span><b>' + money(S.bonus) + '</b></div><div class="arow tot"><span>Total</span><b>' + money(S.com + S.team + S.bonus) + "</b></div></div>" +
+      '<div class="ad-box"><h3>Next payout</h3><p class="big">' + money(pending) + '</p><p class="small" style="color:var(--muted)">' + next.toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" }) + " · direct deposit</p>" + prev.join("") + "</div>" +
+      '<div class="ad-box"><h3>Level up</h3><p class="small" style="color:var(--muted);margin-top:4px">' + (month30 >= goal ? "You hit the bar. We'll reach out about " + nextName + "." : money(goal - month30) + " more in monthly sales to unlock " + nextName + ".") + '</p><div class="pbar" aria-hidden="true" style="margin-top:12px"><i style="width:' + Math.min(100, month30 / goal * 100) + '%"></i></div><div class="arow" style="margin-top:6px"><span>Last 30 days</span><b>' + money(month30) + " / " + money(goal).replace(".00", "") + '</b></div><div class="arow"><span>Free box</span><b>' + (D.tier === "squad" ? "At Creator" : "Ships the 1st") + "</b></div></div></div>" +
+      '<div class="ad-box ad-team"><div class="ad-team-h"><h3>Your team · ' + D.team.length + " affiliates</h3><span class=\"small\" style=\"color:var(--muted)\">You earn 5% of their sales for 12 months</span></div><div class=\"ad-scroll\" tabindex=\"0\" role=\"region\" aria-label=\"Your team\"><table class=\"ad-tbl\"><thead><tr><th>Affiliate</th><th class=\"xs\">Level</th><th class=\"num\">Their sales</th><th class=\"num\">Your 5%</th></tr></thead><tbody>" + team + "</tbody></table></div></div>" +
+      '<div class="ad-box ad-orders"><h3>Recent orders with your code</h3><div class="ad-scroll" tabindex="0" role="region" aria-label="Recent orders"><table class="ad-tbl"><thead><tr><th>Date</th><th>Order</th><th class="num xs">Total</th><th class="num">You earn</th><th>Status</th></tr></thead><tbody>' + ord + "</tbody></table></div></div>" +
+      '<p class="small" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center"><span class="ph">Sample affiliate data for layout. Real numbers come from orders once boxes launch.</span><button type="button" class="linkbtn" data-affleave>Leave the program (demo)</button></p></div>';
+  }
+  function affJoinHtml() {
+    return '<div class="acard affdash affjoin" id="affiliate"><div><h2>Affiliate dashboard</h2><p style="color:var(--muted);font-size:15px">Earn 10 to 15% on every box ordered with your code, plus 5% on sales from affiliates you recruit. Your stats, commissions and team show up here.</p></div>' +
+      '<div class="ctas"><a class="btn" href="' + P + 'affiliate.html#apply">Become an affiliate</a><button type="button" class="btn alt" data-affdemo>Preview with sample data</button></div></div>';
+  }
+  function wireAff(host) {
+    host.querySelectorAll("[data-ar]").forEach(function (b) { b.addEventListener("click", function () { affRange = b.dataset.ar; paintAccount(); var a = $("affiliate"); if (a) a.scrollIntoView({ block: "start" }); }); });
+    host.querySelectorAll("[data-adcopy]").forEach(function (b) { b.addEventListener("click", function () { var t = b.dataset.adcopy, done = function () { b.innerHTML = CHECK + " Copied"; burst(b); toast("Copied " + t.replace("https://", "")); setTimeout(function () { b.textContent = "Copy"; }, 1800); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, done); else done(); }); });
+    host.querySelectorAll("[data-affdemo]").forEach(function (b) { b.addEventListener("click", function () { var m = me(); var first = (m.name || "Swell").split(" ")[0];
+      store("swell-aff", { name: m.name, email: m.email || "", platform: "Instagram", handle: "@" + first.toLowerCase(), size: "5k to 25k", kind: "Creator", team: "", why: "", code: first.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 8) + "10", at: Date.now(), demo: true });
+      paintAccount(); var a = $("affiliate"); if (a) a.scrollIntoView({ block: "start" }); confetti(a); toast("Sample affiliate dashboard (demo)"); }); });
+    host.querySelectorAll("[data-affleave]").forEach(function (b) { b.addEventListener("click", function () { store("swell-aff", null); paintAccount(); toast("You left the affiliate program (demo)"); }); });
+    var svg = host.querySelector(".ad-chart svg"), tip = $("ad-tip"); if (!svg || !tip) return;
+    var a = store("swell-aff"), C = affChart(affData(a), affRange, svg.parentNode.clientWidth - 32);
+    svg.outerHTML = C.svg; svg = host.querySelector(".ad-chart svg");
+    function show(i) { var p = C.pts[i]; if (!p) return; svg.querySelectorAll(".bar").forEach(function (b) { b.classList.toggle("on", b.dataset.i == i); });
+      var hit = svg.querySelector('.hit[data-i="' + i + '"]').getBoundingClientRect(), box = svg.parentNode.getBoundingClientRect(), bar = svg.querySelector('.bar[data-i="' + i + '"]').getBoundingClientRect();
+      tip.innerHTML = "<b>" + money(p.v) + "</b>" + p.full + " · " + p.o + " order" + (p.o === 1 ? "" : "s");
+      var x = hit.left - box.left + hit.width / 2; x = Math.max(70, Math.min(box.width - 70, x)); tip.style.left = x + "px"; tip.style.top = (Math.min(bar.top, hit.bottom - 10) - box.top - 8) + "px"; tip.classList.add("on"); }
+    function hide() { tip.classList.remove("on"); svg.querySelectorAll(".bar.on").forEach(function (b) { b.classList.remove("on"); }); }
+    svg.addEventListener("pointermove", function (e) { var t = e.target.closest("[data-i]"); if (t) show(+t.dataset.i); });
+    svg.addEventListener("pointerdown", function (e) { var t = e.target.closest("[data-i]"); if (t) show(+t.dataset.i); });
+    svg.addEventListener("pointerleave", hide);
+  }
   // ---- account page ----
   function paintAccount() {
     var host = $("acct"); if (!host) return; var m = me();
@@ -1365,7 +1505,7 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
       '<p class="small" style="margin-top:12px"><span class="ph">Mock-up plans and prices for layout. Nothing is billed.</span></p></div>';
     host.innerHTML = '<div class="acct-grid"><div><div class="acard"><div class="who-hi"><label class="pav pavedit" for="photo-in" title="Change profile photo">' + avatar(m) + '<span class="cam" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.2"/></svg></span></label>' +
       '<input type="file" id="photo-in" accept="image/*" class="sr" aria-label="Upload a profile photo"><div><b>' + m.name + '</b><small>' + (m.email || "") + " · " + m.provider + (m.demo ? " (demo)" : "") + '</small><span class="photobtns"><label for="photo-in" class="linkbtn">' + (m.photo ? "Change photo" : "Add a photo") + '</label>' + (m.photo ? '<button type="button" class="linkbtn" data-rmphoto>Remove</button>' : "") + '</span></div></div>' +
-      '<button type="button" class="btn" data-pass2 style="width:100%">Show my Swell Pass</button></div>' +
+      '<button type="button" class="btn" data-pass2 style="width:100%">Show my Swell Pass</button>' + '<a class="btn alt" href="#affiliate" style="width:100%;margin-top:8px">' + (store("swell-aff") ? "Affiliate dashboard" : "Become an affiliate") + "</a></div>" +
       '<div class="acard" id="pay"><h2>Payment</h2>' + (m.card ? '<div class="arow"><b>' + m.card.brand + " •••• " + m.card.last4 + '</b><span>Default' + (m.card.demo ? " · demo" : "") + '</span></div><div class="arow"><button type="button" class="btn sm alt" data-rmcard>Remove card</button></div>'
                                                      : '<p style="color:var(--muted);font-size:15px">Attach a card so Swell machines can charge you per bottle.</p><button type="button" class="btn" data-addcard>Add card</button>') +
       '<p class="small" style="margin-top:12px"><span class="ph">Demo: no real card is collected. Live cards connect through a secure payment processor (for example Stripe, Apple Pay or Google Pay).</span></p></div>' +
@@ -1374,6 +1514,7 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
       '<div>' + subCard + '<div class="acard"><h2>Machine history</h2><div class="arow"><span>Bottles from machines</span><b>' + (m.pulls || []).length + '</b></div><div class="arow"><span>Total charged</span><b>$' + spent.toFixed(2) + '</b></div>' +
       (pulls ? '<ul class="pulls">' + pulls + "</ul>" : '<p style="color:var(--muted);font-size:15px;margin-top:10px">No machine scans yet. Tap <b>Scan</b> at any Swell machine and your drinks show up here.</p>') +
       (m.card ? '<button type="button" class="btn alt" data-simpull style="margin-top:12px">Simulate a machine scan (demo)</button>' : "") + "</div></div></div>";
+    var aff = store("swell-aff"); host.insertAdjacentHTML("beforeend", aff && aff.code ? affHtml(m, aff) : affJoinHtml()); wireAff(host);
     host.querySelectorAll("[data-pass2]").forEach(function (b) { b.addEventListener("click", openPass); });
     host.querySelectorAll("[data-addcard]").forEach(function (b) { b.addEventListener("click", addCard); });
     host.querySelectorAll("[data-rmcard]").forEach(function (b) { b.addEventListener("click", function () { var m = me(); delete m.card; saveMe(m); paintAccount(); toast("Card removed"); }); });
@@ -1399,6 +1540,7 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
     m.home = t.dataset.sethome; m.plan = "home"; m.planStart = m.planStart || new Date().toISOString().slice(0, 10); saveMe(m);
     toast(homeOf(m).city + " is your go-to machine · Home Machine plan $20/mo (demo)"); burst(t); });
   paintProfile(); paintAccount();
+  if (location.hash === "#affiliate" && $("affiliate")) setTimeout(function () { $("affiliate").scrollIntoView({ block: "start" }); }, 60);
   if (location.hash === "#pass") openPass();
   // ---------- #drinkswell page ----------
   document.querySelectorAll("[data-copy]").forEach(function (b) { b.addEventListener("click", function () {
