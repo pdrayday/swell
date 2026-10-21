@@ -18,7 +18,7 @@
 <meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Swell"><meta property="og:title" content="Strawberry Cheesecake Protein Ice Cream | Swell"><meta property="og:description" content="The most-copied Creami recipe online, made with a Swell Vanilla. Cheesecake pudding mix gives it the tang and the thick, scoopable texture."><meta property="og:url" content="https://pdrayday.github.io/swell/creami/strawberry-cheesecake-protein-ice-cream.html"><meta property="og:image" content="https://pdrayday.github.io/swell/img/splash_cc.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,600..700&family=Instrument+Sans:wght@400;500;600;700&display=swap">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Recipe", "name": "Strawberry Cheesecake Protein Ice Cream", "description": "The most-copied Creami recipe online, made with a Swell Vanilla. Cheesecake pudding mix gives it the tang and the thick, scoopable texture.", "image": "https://pdrayday.github.io/swell/img/b_van.webp", "author": {"@type": "Organization", "name": "Swell"}, "prepTime": "PT5M", "totalTime": "PT24H10M", "recipeYield": "1 pint", "recipeCategory": "Dessert", "keywords": "ninja creami protein ice cream, strawberry cheesecake protein ice cream", "nutrition": {"@type": "NutritionInformation", "proteinContent": "35 g"}, "recipeIngredient": ["1 bottle Swell Vanilla protein shake", "1 tbsp sugar-free cheesecake pudding mix", "1/4 cup plain Greek yogurt (optional, for extra tang and protein)", "1/2 cup chopped strawberries", "1 graham cracker, crumbled, for the mix-in"], "recipeInstructions": [{"@type": "HowToStep", "name": "Blend", "text": "Whisk the shake, pudding mix and yogurt in the pint until smooth. Stir in half the strawberries."}, {"@type": "HowToStep", "name": "Freeze", "text": "Freeze flat with the lid off for 24 hours."}, {"@type": "HowToStep", "name": "Spin", "text": "Spin on Lite Ice Cream."}, {"@type": "HowToStep", "name": "Re-spin", "text": "Add 1 to 2 tbsp milk and re-spin until creamy."}, {"@type": "HowToStep", "name": "Mix in", "text": "Make a well, add the graham cracker and remaining strawberries, and run Mix-in."}]}</script><script>try{var l=localStorage.getItem('swell-line');if(l){l=JSON.parse(l);document.documentElement.dataset.line=l;if(l==='smoothies')document.querySelector('meta[name=theme-color]').content='#2a1f0e';}}catch(e){}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Recipe", "name": "Strawberry Cheesecake Protein Ice Cream", "description": "The most-copied Creami recipe online, made with a Swell Vanilla. Cheesecake pudding mix gives it the tang and the thick, scoopable texture.", "image": "https://pdrayday.github.io/swell/img/b_van.webp", "author": {"@type": "Organization", "name": "Swell"}, "prepTime": "PT5M", "totalTime": "PT24H10M", "recipeYield": "1 pint", "recipeCategory": "Dessert", "keywords": "ninja creami protein ice cream, strawberry cheesecake protein ice cream", "nutrition": {"@type": "NutritionInformation", "proteinContent": "35 g"}, "recipeIngredient": ["1 bottle Swell Vanilla protein shake", "1 tbsp sugar-free cheesecake pudding mix", "1/4 cup plain Greek yogurt (optional, for extra tang and protein)", "1/2 cup chopped strawberries", "1 graham cracker, crumbled, for the mix-in"], "recipeInstructions": [{"@type": "HowToStep", "name": "Blend", "text": "Whisk the shake, pudding mix and yogurt in the pint until smooth. Stir in half the strawberries."}, {"@type": "HowToStep", "name": "Freeze", "text": "Freeze flat with the lid off for 24 hours."}, {"@type": "HowToStep", "name": "Spin", "text": "Spin on Lite Ice Cream."}, {"@type": "HowToStep", "name": "Re-spin", "text": "Add 1 to 2 tbsp milk and re-spin until creamy."}, {"@type": "HowToStep", "name": "Mix in", "text": "Make a well, add the graham cracker and remaining strawberries, and run Mix-in."}]}</script><script>try{var l=localStorage.getItem('swell-line');if(l){l=JSON.parse(l);document.documentElement.dataset.line=l;}}catch(e){}</script>
 </head>
 <body>
 <style>
@@ -34,12 +34,7 @@
   --spring: cubic-bezier(.34, 1.56, .64, 1);
   color-scheme: light dark; /* declared so browser auto-dark leaves our colors alone; no dark styles are defined */
 }
-html[data-line="smoothies"] {
-  --bg: #f0d47e; --bg-2: #e8c96c; --surface: #f7e3a2; --surface-2: #faebb8;
-  --fg: #2a1f0e; --muted: #5c4a22; --line: rgba(42, 31, 14, .18);
-  --ink: #2a1f0e; --ink-2: #4a3818; --on-ink: #fdf2bf; --em: #8a5a10;
-  --stage: #fdf2bf; --stage-muted: #7a6430;
-}
+/* Smoothies use the same pink theme as shakes (gold theme removed). */
 @view-transition { navigation: auto; }
 ::view-transition-old(root) { animation: vt-out .18s ease both; }
 ::view-transition-new(root) { animation: vt-in .32s cubic-bezier(.2,.8,.2,1) both; }
@@ -119,7 +114,6 @@ header.top .wrap { display: flex; align-items: center; gap: 20px; height: 66px; 
 }
 /* drawer */
 .scrim { position: fixed; inset: 0; z-index: 60; background: rgba(20, 8, 12, .38); opacity: 0; pointer-events: none; visibility: hidden; transition: opacity .3s, visibility 0s .3s; }
-html[data-line="smoothies"] .scrim { background: rgba(24, 17, 6, .38); }
 .drawer { position: fixed; z-index: 61; top: 0; bottom: 0; left: 0; width: min(66vw, 260px); background: var(--bg); padding: calc(14px + env(safe-area-inset-top, 0px)) 10px 18px;
   transform: translateX(-104%); visibility: hidden; transition: transform .45s cubic-bezier(.22,1,.36,1), visibility 0s .45s; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; box-shadow: 10px 0 40px rgba(20,8,12,.18); }
 .menu-open .scrim { opacity: 1; pointer-events: auto; visibility: visible; transition: opacity .3s; }
@@ -271,12 +265,10 @@ a.opt { color: inherit; text-decoration: none; margin-bottom: 12px; }
 .qty button:active { transform: scale(.82); }
 .qty output { min-width: 22px; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; display: inline-block; }
 .summary { position: sticky; top: 86px; background: var(--stage); color: #1a1216; border-radius: 24px; padding: 22px; display: grid; gap: 14px; }
-html[data-line="smoothies"] .summary { color: #2a1f0e; }
 .summary h3 { font-size: 26px; }
 .pack { border-radius: 20px; background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.35)); box-shadow: inset 0 0 0 2px rgba(255,255,255,.7), 0 14px 30px -20px rgba(40,10,20,.4); overflow: hidden; }
 .packband { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; background: var(--ink); color: var(--on-ink); }
 .packband img { height: 26px; width: auto; filter: invert(1) brightness(1.1); }
-html[data-line="smoothies"] .packband img { filter: invert(1) sepia(.4) brightness(1.05); }
 .packband span { font: 700 11.5px/1.2 var(--body); letter-spacing: .12em; text-transform: uppercase; text-align: right; }
 .slots { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px 8px; padding: 14px 12px 8px; }
 .slots i { display: flex; flex-direction: column; align-items: center; gap: 5px; font-style: normal; min-width: 0; }
@@ -317,7 +309,6 @@ h2.h1 { font-size: clamp(42px, 5.6vw, 76px); } .mach-top .lead { margin-top: 18p
 .maptools { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
 .maptools select { padding: 10px 14px; border-radius: 999px; background: var(--bg); color: var(--fg); border: 0; font-weight: 600; }
 .map { width: 100%; height: auto; display: block; border-radius: 16px; background: #f8e9ed; }
-html[data-line="smoothies"] .map { background: #fdf5d6; }
 .map .county { fill: #fff; stroke: #c7a3ae; stroke-width: 2.5; }
 .map .lake { fill: #a9d2ec; }
 .map .road { fill: none; stroke: #c7a3ae; stroke-width: 3; stroke-dasharray: 2 8; stroke-linecap: round; }
@@ -339,11 +330,10 @@ html[data-line="smoothies"] .map { background: #fdf5d6; }
 .finder2 { display: grid; grid-template-columns: 380px 1fr; height: 660px; border-radius: 28px; overflow: hidden; background: var(--surface); box-shadow: 0 30px 60px -30px rgba(40,10,20,.35); }
 .fside { display: flex; flex-direction: column; min-height: 0; padding: 26px 18px 14px; background: linear-gradient(180deg, var(--surface-2), var(--surface)); }
 .fhead h2 { font-size: 34px; } .fhead p { color: var(--muted); font-size: 17px; margin-top: 2px; }
-.ffilters { margin: 16px 0 10px; } .ffilters button { background: #fffafb; } html[data-line="smoothies"] .ffilters button { background: #fffdf3; } html[data-line="smoothies"] .ffilters button[aria-pressed="true"] { background: var(--ink); } .ffilters button[aria-pressed="true"] { background: var(--ink); }
+.ffilters { margin: 16px 0 10px; } .ffilters button { background: #fffafb; } .ffilters button[aria-pressed="true"] { background: var(--ink); }
 .flocate { display: inline-flex; gap: 8px; align-items: center; align-self: flex-start; margin-bottom: 12px; }
 .flist { overflow-y: auto; flex: 1; min-height: 0; display: grid; align-content: start; gap: 10px; padding: 2px 4px 8px 2px; margin-right: -6px; }
 .mloc { display: grid; grid-template-columns: 112px 1fr 18px; gap: 14px; align-items: center; padding: 12px; border-radius: 20px; border: 2px solid transparent; background: #fffafb; text-align: left; cursor: pointer; color: var(--fg); box-shadow: 0 6px 18px -12px rgba(40,10,20,.35); transition: transform .35s var(--spring), border-color .2s; }
-html[data-line="smoothies"] .mloc { background: #fffdf3; }
 .mloc:hover { transform: translateY(-2px); } .mloc:active { transform: scale(.97); }
 .mloc.sel { border-color: var(--ink); }
 .mloc img { width: 112px; height: 140px; object-fit: cover; border-radius: 16px; box-shadow: 0 6px 14px -8px rgba(40,10,20,.45); }
@@ -366,7 +356,6 @@ html[data-line="smoothies"] .mloc { background: #fffdf3; }
 .maplibregl-map { font-family: var(--body); }
 .spin { position: relative; width: 46px; height: 58px; padding: 0; border: 0; background: none; cursor: pointer; }
 .pinb { position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); transform-origin: 50% 50%; background: radial-gradient(circle at 35% 30%, #fde4ea, #f1a9ba 70%); border: 2px solid #fff; box-shadow: 0 8px 14px -4px rgba(120,30,60,.55); transition: transform .35s var(--spring); }
-html[data-line="smoothies"] .pinb { background: radial-gradient(circle at 35% 30%, #fff4cf, #f0cf6e 70%); box-shadow: 0 8px 14px -4px rgba(120,80,10,.5); }
 .pinb img { width: 21px; height: auto; transform: rotate(45deg); }
 .spin:hover .pinb { transform: rotate(-45deg) scale(1.1); }
 .spin.sel { z-index: 5; } .spin.sel .pinb { transform: rotate(-45deg) scale(1.25); box-shadow: 0 0 0 8px rgba(241,169,186,.35), 0 10px 18px -4px rgba(120,30,60,.6); }
@@ -483,7 +472,6 @@ html[data-line="smoothies"] .icgrid { grid-template-columns: repeat(2, minmax(0,
 .icc:hover .icpic img { transform: scale(1.04); }
 .ict { padding: 16px 18px 20px; display: grid; gap: 6px; } .ict h3 { font-size: 24px; } .ict p { color: var(--muted); font-size: 15px; }
 .ictag { justify-self: start; font: 700 11.5px/1 var(--body); padding: 6px 9px; border-radius: 6px; background: var(--ink); color: var(--on-ink); }
-.ictag.sh { background: #f0d47e; color: #2a1f0e; }
 .icwhy { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(24px, 4vw, 56px); align-items: center; }
 .icwhy-img img { width: 100%; height: auto; max-height: 620px; object-fit: cover; border-radius: 28px; box-shadow: 0 30px 60px -28px rgba(40,10,20,.45); display: block; }
 .icwhy h2 { font-size: clamp(32px, 4vw, 52px); }
@@ -523,7 +511,6 @@ html[data-line="smoothies"] .icgrid { grid-template-columns: repeat(2, minmax(0,
 .pass-card { margin: 4px auto 0; max-width: 380px; border-radius: 26px; overflow: hidden; background: var(--ink); color: var(--on-ink); box-shadow: 0 24px 50px -24px rgba(20,8,12,.6); }
 .pass-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 16px 18px 12px; }
 .pass-top img { height: 30px; width: auto; filter: invert(1) brightness(1.15); }
-html[data-line="smoothies"] .pass-top img { filter: invert(1) sepia(.35) brightness(1.1); }
 .pass-top span { font: 700 11px/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; opacity: .8; text-align: right; }
 .qrwrap { margin: 0 18px; padding: 16px; border-radius: 18px; background: #fff; display: grid; place-items: center; }
 .qrwrap svg { width: 100%; max-width: 260px; height: auto; display: block; }
@@ -664,7 +651,6 @@ html.sheet-open, html.sheet-open body { overflow: hidden; }
 .feed { columns: 4 220px; column-gap: 14px; }
 @media (max-width: 560px) { .feed { columns: 2; column-gap: 10px; } .feed .post { margin-bottom: 10px; border-radius: 16px; } .feed .ph-h { padding: 8px 10px; gap: 7px; } .feed .av { width: 26px; height: 26px; } .feed .pwho b { font-size: 12px; } .feed .pwho small { display: none; } .feed .sample { font-size: 8.5px; padding: 4px 5px; } .feed .pcap { font-size: 12.5px; padding: 2px 10px 12px; } .feed .pact { padding: 4px 4px 0; } .feed .pact button { width: 36px; height: 36px; } }
 .post { break-inside: avoid; margin: 0 0 16px; background: #fffafb; border-radius: 20px; overflow: hidden; color: #2a121a; box-shadow: 0 10px 30px -22px rgba(40,10,20,.5); animation: rise .5s var(--spring) both; }
-html[data-line="smoothies"] .post { background: #fffdf3; }
 .post[hidden] { display: none; }
 @keyframes rise { from { opacity: 0; transform: translateY(14px) scale(.98); } }
 .ph-h { display: flex; align-items: center; gap: 10px; padding: 12px 14px; }
@@ -682,7 +668,6 @@ html[data-line="smoothies"] .post { background: #fffdf3; }
 .like[aria-pressed="true"] svg { animation: heart .45s var(--spring); }
 @keyframes heart { 30% { transform: scale(1.35); } 60% { transform: scale(.9); } }
 .pcap { padding: 2px 16px 16px; font-size: 14.5px; line-height: 1.45; } .pcap .ht { color: var(--em); font-weight: 600; }
-html[data-line="smoothies"] .pcap .ht { color: #7a4e0c; }
 .tagband { align-items: center; } .tagband h2 { font-size: clamp(34px, 4vw, 52px); }
 .tagband-r { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
 .social.on-dark a, ul.social.on-dark a { background: var(--on-ink); color: var(--ink); }
@@ -769,7 +754,6 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 .aff-form .chk { display: flex; gap: 10px; align-items: flex-start; font: 500 14.5px/1.35 var(--body); } .aff-form .chk input { width: 20px; height: 20px; margin-top: 1px; accent-color: var(--bg); flex: none; }
 .aff-form .btn { background: var(--on-ink); color: var(--ink); justify-self: start; }
 .aff-form .err { color: #ffb4c4; font: 600 14px/1.3 var(--body); min-height: 1em; }
-html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
 .aff-apply .small { color: inherit; }
 .aff-done { display: grid; gap: 12px; align-content: center; text-align: left; } .aff-done h3 { font-size: 30px; } .aff-done .code { font: 800 22px/1 var(--body); letter-spacing: .08em; background: var(--on-ink); color: var(--ink); padding: 12px 16px; border-radius: 12px; justify-self: start; }
 @media (max-width: 860px) { .aff-hero, .aff-apply { grid-template-columns: 1fr; } .steps, .tiers { grid-template-columns: 1fr; } .asks { grid-template-columns: 1fr 1fr; } .aff-stats { grid-template-columns: 1fr 1fr; } }
@@ -940,7 +924,7 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
   function fit() { if (lineWrap) lineWrap.style.height = panels[root.dataset.line].offsetHeight + "px"; }
   function setLine(line, save) {
     root.dataset.line = line;
-    var tc = document.querySelector("meta[name=theme-color]"); if (tc) tc.content = line === "smoothies" ? "#2a1f0e" : "#2a121a";
+    var tc = document.querySelector("meta[name=theme-color]"); if (tc) tc.content = "#2a121a";
     document.querySelectorAll("[data-go]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.go === line)); });
     if (panels) Object.keys(panels).forEach(function (k) { if (k === line) panels[k].removeAttribute("inert"); else panels[k].setAttribute("inert", ""); });
     btab(line); fit(); if (save) store("swell-line", line);
@@ -955,10 +939,6 @@ html[data-line="smoothies"] .aff-form .err { color: #ffe08a; }
     } else { setLine(go, true); nudge(); }
   }); });
   if (lineWrap) {
-    var sx = 0, sy = 0, tr = false;
-    lineWrap.addEventListener("touchstart", function (e) { if (e.target.closest(".rail")) { tr = false; return; } var t = e.touches[0]; sx = t.clientX; sy = t.clientY; tr = true; }, { passive: true });
-    lineWrap.addEventListener("touchend", function (e) { if (!tr) return; tr = false; var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
-      if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) setLine(root.dataset.line === "shakes" ? "smoothies" : "shakes", true); }, { passive: true });
     if (window.ResizeObserver) { new ResizeObserver(fit).observe(panels.shakes); new ResizeObserver(fit).observe(panels.smoothies); }
     window.addEventListener("resize", fit);
   }
