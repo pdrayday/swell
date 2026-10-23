@@ -15,6 +15,7 @@
 ## Pages
 - [Home](https://pdrayday.github.io/swell/)
 - [Shop](https://pdrayday.github.io/swell/shop.html)
+- [Blended](https://pdrayday.github.io/swell/blended.html)
 - [Ice Cream](https://pdrayday.github.io/swell/icecream.html)
 - [Find a machine](https://pdrayday.github.io/swell/#find)
 - [Recipes](https://pdrayday.github.io/swell/creami/)

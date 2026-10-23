@@ -93,7 +93,7 @@ header.top .wrap { display: flex; align-items: center; gap: 20px; height: 66px; 
 .tabs a { position: relative; text-decoration: none; font: 600 15px/1 var(--body); padding: 10px 12px; border-radius: 999px; color: var(--muted); transition: color .2s, background-color .2s; }
 .tabs a:hover { color: var(--fg); background: var(--surface); }
 .tabs a { white-space: nowrap; }
-@media (max-width: 1240px) and (min-width: 961px) { .tabs { margin-left: 0; gap: 0; } .tabs a { padding: 9px 7px; font-size: 13.5px; } .tabs a.aff { padding-inline: 10px; } header.top .wrap { gap: 10px; } .logo img { height: 32px; } header.top .line-sw button { padding: 7px 10px; font-size: 12.5px; } }
+@media (max-width: 1440px) and (min-width: 1101px) { .tabs { margin-left: 0; gap: 0; } .tabs a { padding: 9px 7px; font-size: 13.5px; } .tabs a.aff { padding-inline: 10px; } header.top .wrap { gap: 10px; } .logo img { height: 32px; } header.top .line-sw button { padding: 7px 10px; font-size: 12.5px; } }
 .tabs a[aria-current="page"] { color: var(--fg); }
 .tabs a[aria-current="page"]::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 2px; height: 2.5px; border-radius: 2px; background: var(--fg); }
 .right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
@@ -104,7 +104,8 @@ header.top .wrap { display: flex; align-items: center; gap: 20px; height: 66px; 
 .line-sw button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
 .burger { display: none; width: 44px; height: 44px; border: 0; background: transparent; border-radius: 12px; cursor: pointer; margin-left: -8px; }
 .burger span { display: block; width: 22px; height: 2.5px; background: var(--fg); border-radius: 2px; margin: 5px auto; transition: transform .3s var(--spring), opacity .2s; }
-@media (max-width: 960px) {
+header.top .logo { flex: none; }
+@media (max-width: 1100px) {
   .tabs, header.top .line-sw { display: none; }
   .burger { display: block; }
   header.top .wrap { gap: 6px; height: 60px; }
@@ -119,7 +120,7 @@ header.top .wrap { display: flex; align-items: center; gap: 20px; height: 66px; 
 .menu-open .scrim { opacity: 1; pointer-events: auto; visibility: visible; transition: opacity .3s; }
 .menu-open .drawer { transform: none; visibility: visible; transition: transform .45s cubic-bezier(.22,1,.36,1); }
 .drawer .x { align-self: flex-start; width: 40px; height: 40px; border-radius: 12px; border: 0; background: var(--surface); font-size: 24px; line-height: 1; cursor: pointer; }
-.drawer nav { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, minmax(88px, 1fr)) auto; gap: 8px; flex: 1 1 0; min-height: 440px; max-height: 700px; }
+.drawer nav { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(5, minmax(78px, 1fr)); gap: 8px; flex: 1 1 0; min-height: 430px; max-height: 760px; }
 .drawer nav a { display: grid; justify-items: center; align-content: center; gap: 6px; text-align: center; text-decoration: none; padding: 10px 4px; border-radius: 20px; background: var(--surface); color: var(--fg); min-height: 92px; gap: 5px;
   opacity: 0; transform: translateX(-14px); transition: opacity .3s, transform .45s var(--spring); }
 .drawer nav a i { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--bg); color: var(--fg); font-style: normal; }
@@ -496,7 +497,7 @@ html[data-line="smoothies"] .icgrid { grid-template-columns: repeat(2, minmax(0,
 .prof .pav { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--surface); overflow: hidden; font: 700 15px/1 var(--display); }
 .prof.in .pav { background: var(--ink); color: var(--on-ink); }
 .prof .pav img { width: 100%; height: 100%; object-fit: cover; }
-@media (max-width: 960px) { header.top .right { margin-left: auto; } }
+@media (max-width: 1100px) { header.top .right { margin-left: auto; } }
 .scanfab { position: fixed; z-index: 45; right: 14px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); display: grid; place-items: center; gap: 0; width: 64px; height: 64px; border-radius: 50%; border: 3px solid var(--bg); background: var(--ink); color: var(--on-ink); cursor: pointer; box-shadow: 0 14px 30px -10px rgba(20,8,12,.55); font: 800 10px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; }
 .scanfab svg { margin-top: 6px; } .scanfab span { margin-top: -6px; }
 .scanfab::after { content: ""; position: absolute; inset: -3px; border-radius: 50%; border: 2px solid var(--ink); opacity: 0; animation: ping 3.2s ease-out 1.2s 3; }
@@ -694,9 +695,9 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 /* ---- affiliate tab + drawer tile ---- */
 .tabs a.aff { color: var(--fg); box-shadow: inset 0 0 0 1.5px var(--fg); margin-left: 4px; }
 .tabs a.aff[aria-current="page"] { background: var(--ink); color: var(--on-ink); box-shadow: none; } .tabs a.aff[aria-current="page"]::after { display: none; }
-.drawer nav a.aff { grid-column: 1 / -1; grid-template-columns: auto 1fr; justify-items: start; text-align: left; column-gap: 12px; padding: 10px 14px; min-height: 0; background: var(--ink); color: var(--on-ink); }
-.drawer nav a.aff i { grid-row: span 2; background: color-mix(in srgb, var(--on-ink) 18%, transparent); color: var(--on-ink); }
-.drawer nav a.aff b { margin: 0; align-self: end; } .drawer nav a.aff span { color: color-mix(in srgb, var(--on-ink) 75%, transparent); align-self: start; }
+.drawer nav a.aff { background: var(--ink); color: var(--on-ink); } .drawer nav a.aff b { white-space: normal; }
+.drawer nav a.aff i { background: color-mix(in srgb, var(--on-ink) 18%, transparent); color: var(--on-ink); }
+.drawer nav a.aff span { color: color-mix(in srgb, var(--on-ink) 75%, transparent); }
 .drawer nav a.aff[aria-current="page"] { outline: 2px solid var(--fg); outline-offset: 2px; }
 
 /* ---- comparison table ---- */
@@ -823,19 +824,50 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 .btn .swl, button .swl { vertical-align: -.16em; }
 .tagp, .save2 { font-family: var(--body); }
+/* ---- blended at the machine ---- */
+.blend-sec { background: var(--ink); color: var(--on-ink); }
+.blend-sec em, .blend-top em { color: var(--em); } .blend-sec em { color: #f8b4c8; }
+.blend-head { display: grid; grid-template-columns: minmax(0, 1.3fr) auto; gap: 20px 40px; align-items: end; margin-bottom: 26px; }
+.blend-head h2 { font-size: clamp(32px, 4.4vw, 54px); color: var(--on-ink); } .blend-head p { opacity: .82; margin-top: 10px; max-width: 36em; }
+.blend-head .ctas { display: flex; gap: 10px; flex-wrap: wrap; } .blend-sec .btn { background: var(--on-ink); color: var(--ink); } .blend-sec .btn.alt { background: transparent; color: var(--on-ink); box-shadow: inset 0 0 0 1.5px var(--on-ink); }
+.bcups { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.bcup { display: grid; gap: 8px; text-decoration: none; color: var(--on-ink); text-align: center; font: 700 14px/1.2 var(--body); }
+.bcup img { width: 100%; height: auto; aspect-ratio: 440 / 600; object-fit: cover; object-position: center 30%; border-radius: 18px; transition: transform .4s var(--spring); } .bcup:hover img { transform: translateY(-4px); }
+@media (max-width: 860px) { .blend-head { grid-template-columns: 1fr; } .bcups { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: -16px; padding: 0 16px 6px; } .bcup { flex: 0 0 38vw; scroll-snap-align: start; } }
+.blend-top { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(20px, 4vw, 56px); align-items: center; }
+.blend-top .ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; } .blend-top .mach-facts { margin-top: 18px; }
+.blend-machine { width: 100%; max-width: 380px; height: auto; justify-self: center; border-radius: 28px; box-shadow: 0 30px 60px -24px rgba(40,10,20,.45); }
+.bsteps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; counter-reset: bs; }
+.bsteps li { counter-increment: bs; background: var(--surface); border-radius: 20px; padding: 16px; display: grid; gap: 6px; align-content: start; }
+.bsteps li img { width: 100%; height: 240px; object-fit: cover; border-radius: 14px; margin-bottom: 6px; }
+.bsteps li h3::before { content: counter(bs) ". "; color: var(--em); } .bsteps h3 { font-size: 21px; } .bsteps p { color: var(--muted); font-size: 15px; }
+.bgroup { font: 700 15px/1.2 var(--body); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 6px 0 12px; }
+.bgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 26px; }
+.bcard { background: var(--bg); border-radius: 22px; overflow: hidden; display: grid; }
+.bcard img { width: 100%; height: 300px; object-fit: cover; object-position: center 35%; background: #111; }
+.bcard > div { padding: 16px 18px 18px; display: grid; gap: 6px; } .bcard h3 { font-size: 24px; } .bcard p { color: var(--muted); font-size: 15px; }
+.btag { justify-self: start; font: 700 11.5px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; padding: 5px 8px; border-radius: 6px; background: var(--surface); color: var(--muted); }
+.bsizes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 760px; }
+.bsizes > div { background: var(--surface); border-radius: 22px; padding: 22px; display: grid; gap: 6px; }
+.bsizes > div.w { background: #dbe6f7; color: #10203f; } .bsizes > div.w p, .bsizes > div.w small { color: #3a5a92; }
+.bsizes .g { font: 700 40px/1 var(--display); color: var(--em); } .bsizes > div.w .g { color: #2f5aa8; }
+.bsizes h3 { font-size: 24px; } .bsizes p { color: var(--muted); font-size: 15px; } .bsizes b { font: 700 30px/1 var(--display); margin-top: 6px; } .bsizes small { color: var(--muted); }
+@media (max-width: 960px) { .bsteps { grid-template-columns: 1fr 1fr; } .bgrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) { .blend-top { grid-template-columns: 1fr; } .blend-machine { max-width: 260px; } }
+@media (max-width: 560px) { .bsteps li img { height: 200px; } .bcard img { height: 230px; } .bcard h3 { font-size: 20px; } .bsizes { grid-template-columns: 1fr; } }
 </style>
 <div class="promo" role="region" aria-label="Announcement">Reserve a box today and pay nothing until it ships. <a href="../shop.html#build">Build yours</a></div>
 <header class="top"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   <a class="logo" href="../index.html" aria-label="Swell home"><img src="../img/logo.png" alt="Swell" width="416" height="159"></a>
-  <nav class="tabs" aria-label="Main"><a href="../shop.html">Shop</a><a href="../icecream.html">Ice Cream</a><a href="../index.html#find">Find a machine</a><a href="../creami/index.html" aria-current="page">Recipes</a><a href="../blog.html">Blog</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../affiliate.html" class="aff">Become an affiliate</a></nav>
+  <nav class="tabs" aria-label="Main"><a href="../shop.html">Shop</a><a href="../blended.html">Blended</a><a href="../icecream.html">Ice Cream</a><a href="../index.html#find">Find a machine</a><a href="../creami/index.html" aria-current="page">Recipes</a><a href="../blog.html">Blog</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a href="../affiliate.html" class="aff">Become an affiliate</a></nav>
   <div class="right"><div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div><a class="prof press" href="../account.html" aria-label="Your Swell account" data-acct><span class="pav" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.8 20c1.1-3.6 3.9-5.4 7.2-5.4s6.1 1.8 7.2 5.4"/></svg></span></a></div>
 </div></header>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Menu">
   <button type="button" class="x press" id="drawer-x" aria-label="Close menu">×</button>
   <div class="line-sw" role="group" aria-label="Product line"><button type="button" data-go="shakes" aria-pressed="true">Shakes</button><button type="button" data-go="smoothies" aria-pressed="false">Smoothies</button></div>
-  <nav><a href="../index.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg></i><b>Home</b><span></span></a><a href="../shop.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></i><b>Shop</b><span>Build a box</span></a><a href="../icecream.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11h8l-4 10z"/><path d="M7.5 11a4.5 4.5 0 0 1 9 0"/></svg></i><b>Ice Cream</b><span>Protein pints</span></a><a href="../index.html#find"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></i><b>Find a machine</b><span>Utah County</span></a><a href="../creami/index.html" aria-current="page"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M9 7c0-1.5 1.5-1.5 1.5-3M13.5 7c0-1.5 1.5-1.5 1.5-3"/></svg></i><b>Recipes</b><span>Ninja Creami</span></a><a href="../blog.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 7 20M17 4l-2 16M4.5 9h16M3.5 15h16"/></svg></i><b>Blog</b><span>#drinkswell</span></a><a href="../about.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.1"/></svg></i><b>About</b><span>Our story</span></a><a href="../faq.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4M12 16.6v.1"/></svg></i><b>FAQ</b><span>Questions</span></a><a href="../affiliate.html" class="aff"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.2v3.6a1 1 0 0 0 1 1H7l6 4.2V5L7 9.2H4.5a1 1 0 0 0-1 1z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/></svg></i><b>Become an affiliate</b><span>Get paid to post</span></a></nav>
+  <nav><a href="../index.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg></i><b>Home</b><span></span></a><a href="../shop.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></i><b>Shop</b><span>Build a box</span></a><a href="../blended.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8h11l-1.4 12.2a1 1 0 0 1-1 .8H8.9a1 1 0 0 1-1-.8z"/><path d="M6 8c0-2.2 2.7-3.5 6-3.5s6 1.3 6 3.5"/><path d="M13.5 4.5 15 1.8"/></svg></i><b>Blended</b><span>At the machine</span></a><a href="../icecream.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11h8l-4 10z"/><path d="M7.5 11a4.5 4.5 0 0 1 9 0"/></svg></i><b>Ice Cream</b><span>Protein pints</span></a><a href="../index.html#find"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></i><b>Find a machine</b><span>Utah County</span></a><a href="../creami/index.html" aria-current="page"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16a8 8 0 0 1-16 0z"/><path d="M9 7c0-1.5 1.5-1.5 1.5-3M13.5 7c0-1.5 1.5-1.5 1.5-3"/></svg></i><b>Recipes</b><span>Ninja Creami</span></a><a href="../blog.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 7 20M17 4l-2 16M4.5 9h16M3.5 15h16"/></svg></i><b>Blog</b><span>#drinkswell</span></a><a href="../about.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.1"/></svg></i><b>About</b><span>Our story</span></a><a href="../faq.html"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.4 2.3c-.6.3-1 .8-1 1.5v.4M12 16.6v.1"/></svg></i><b>FAQ</b><span>Questions</span></a><a href="../affiliate.html" class="aff"><i aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.2v3.6a1 1 0 0 0 1 1H7l6 4.2V5L7 9.2H4.5a1 1 0 0 0-1 1z"/><path d="M16.5 9a4 4 0 0 1 0 6M19 6.5a7.5 7.5 0 0 1 0 11"/></svg></i><b>Become an affiliate</b><span>Get paid to post</span></a></nav>
   <button type="button" class="btn alt pass-open" data-pass>Show my <span class="swl"><span>Swell</span></span> Pass</button>
   <a class="btn" href="../shop.html#build">Build a box <span class="boxcount" hidden>0</span></a>
 </aside><main id="main"><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Creami guide</a> / <span>Pineapple Whip Protein Sorbet</span></nav>
@@ -851,7 +883,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 <footer class="site"><div class="wrap">
   <div class="cols">
     <div><a class="logo" href="../index.html"><img src="../img/logo.png" alt="Swell" width="416" height="159" loading="lazy"></a><p class="small" style="margin-top:12px;max-width:22em">Protein shakes and smoothies that taste like dessert. Made in Utah County.</p></div>
-    <div><h2>Shop</h2><ul><li><a href="../shop.html#build">Build a box</a></li><li><a href="../index.html#shelf-shakes">Shake flavors</a></li><li><a href="../index.html#smoothies">Smoothie flavors</a></li></ul></div>
+    <div><h2>Shop</h2><ul><li><a href="../shop.html#build">Build a box</a></li><li><a href="../blended.html">Blended at the machine</a></li><li><a href="../index.html#shelf-shakes">Shake flavors</a></li><li><a href="../index.html#smoothies">Smoothie flavors</a></li></ul></div>
     <div><h2><span class="swl"><span>Swell</span></span></h2><ul><li><a href="../index.html#find">Find a machine</a></li><li><a href="../creami/index.html">Creami recipes</a></li><li><a href="../about.html">About</a></li></ul></div>
     <div><h2>Help</h2><ul><li><a href="../faq.html">FAQ</a></li><li><a href="../index.html#host">Host a machine</a></li><li><a href="../affiliate.html">Become an affiliate</a></li></ul></div>
   </div>
