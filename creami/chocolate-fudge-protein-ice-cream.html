@@ -17,7 +17,7 @@
 <meta name="theme-color" content="#2a121a">
 <meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Swell"><meta property="og:title" content="Chocolate Fudge Protein Ice Cream | Swell"><meta property="og:description" content="The viral &quot;protein shake plus pudding mix&quot; pint. Swell Chocolate and chocolate pudding mix spin into something that tastes like a fudge bar."><meta property="og:url" content="https://pdrayday.github.io/swell/creami/chocolate-fudge-protein-ice-cream.html"><meta property="og:image" content="https://pdrayday.github.io/swell/img/splash_cc.webp">
-<link rel="preload" href="../vendor/fonts/swell-script.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:"Swell Script";src:url("../vendor/fonts/swell-script.woff2") format("woff2");font-display:swap}</style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,600..700&family=Instrument+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap">
+<link rel="preload" href="../vendor/fonts/swell-italic-600.woff2" as="font" type="font/woff2" crossorigin><style>@font-face{font-family:"Swell Italic";font-style:italic;font-weight:600;src:url("../vendor/fonts/swell-italic-600.woff2") format("woff2");font-display:swap}@font-face{font-family:"Swell Italic";font-style:italic;font-weight:800;src:url("../vendor/fonts/swell-italic-800.woff2") format("woff2");font-display:swap}</style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,600..700&family=Instrument+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,600;1,800&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Recipe", "name": "Chocolate Fudge Protein Ice Cream", "description": "The viral \"protein shake plus pudding mix\" pint. Swell Chocolate and chocolate pudding mix spin into something that tastes like a fudge bar.", "image": "https://pdrayday.github.io/swell/img/b_choc.webp", "author": {"@type": "Organization", "name": "Swell"}, "prepTime": "PT5M", "totalTime": "PT24H10M", "recipeYield": "1 pint", "recipeCategory": "Dessert", "keywords": "ninja creami protein ice cream, chocolate fudge protein ice cream", "nutrition": {"@type": "NutritionInformation", "proteinContent": "30 g"}, "recipeIngredient": ["1 bottle Swell Chocolate protein shake", "1 tbsp sugar-free chocolate pudding mix", "Pinch of salt", "1 tbsp mini chocolate chips, for the mix-in"], "recipeInstructions": [{"@type": "HowToStep", "name": "Whisk", "text": "Whisk the shake, pudding mix and salt in the pint."}, {"@type": "HowToStep", "name": "Freeze", "text": "Freeze flat with the lid off for 24 hours."}, {"@type": "HowToStep", "name": "Spin", "text": "Spin on Lite Ice Cream."}, {"@type": "HowToStep", "name": "Re-spin", "text": "Add a splash of milk and re-spin."}, {"@type": "HowToStep", "name": "Mix in", "text": "Add chocolate chips and run Mix-in."}]}</script><script>try{var l=localStorage.getItem('swell-line');if(l){l=JSON.parse(l);document.documentElement.dataset.line=l;}}catch(e){}</script>
 </head>
 <body>
@@ -26,9 +26,9 @@
 :root {
   --bg: #f5e8eb; --bg-2: #fbf2f4; --surface: #efd3da; --surface-2: #f4dfe4;
   --fg: #2a121a; --muted: #6a3a47; --line: rgba(42, 18, 26, .14);
-  --ink: #2a121a; --ink-2: #4a2230; --on-ink: #fde6ec; --em: #b02c57;
+  --ink: #2a121a; --ink-2: #4a2230; --on-ink: #fde6ec; --em: #a62851;
   --stage: #f8e6ea; --stage-muted: #6f5560; --good: #c7ecce; --good-ink: #17431f;
-  --script: "Swell Script", "Great Vibes", "Snell Roundhand", cursive;
+  --script: "Swell Italic", "Playfair Display", "Bookman Old Style", Georgia, serif;
   --display: "Source Serif 4", "Source Serif Pro", Georgia, serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --max: 1180px; --r: 20px;
@@ -817,20 +817,18 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 .rc h3 { font-size: 22px; }
 @media (max-width: 960px) { .cbasics { grid-template-columns: 1fr 1fr; } .cfix { grid-template-columns: 1fr 1fr; } .cup { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .cbasics, .cfix { grid-template-columns: 1fr; } }
-/* ---- Swell script: italics, the word "Swell" in headings, eyebrows, signatures ---- */
-h1 em, h2 em, h3 em, .scr, .sw-word { font-family: var(--script); font-style: normal; font-weight: 400; letter-spacing: 0; -webkit-text-stroke: .012em currentColor; }
-h1 em, h2 em, h3 em { color: var(--em); font-size: 1.3em; line-height: .78; padding: 0 .06em; display: inline-block; vertical-align: -.04em; }
-.sw-word { font-size: 1.3em; line-height: .8; padding-right: .04em; display: inline-block; }
+/* ---- Swell italic (swash italic like the Swell logo): italics, the word "Swell" in headings, eyebrows, signatures ---- */
+h1 em, h2 em, h3 em, .scr, .sw-word { font-family: var(--script); font-style: italic; font-weight: 600; letter-spacing: -.01em; }
+h1 em, h2 em, h3 em { color: var(--em); font-size: 1.04em; padding-right: .04em; }
+.sw-word { font-size: 1.04em; padding-right: .03em; }
 h1 .sw-word, h2 .sw-word { color: var(--em); }
 footer.site h2 .sw-word, .acard h2 .sw-word { color: inherit; }
-.ds-head .hash, .tagline span { font-family: var(--script); font-style: normal; letter-spacing: 0; font-weight: 400; -webkit-text-stroke: .012em currentColor; }
-.ds-head .hash { font-size: 1.3em; } .tagline span { font-size: 1.25em; }
-.kick, .every-sec .kick { font: 400 clamp(30px, 3.2vw, 40px)/1 var(--script) !important; letter-spacing: 0 !important; text-transform: none !important; color: var(--em) !important; }
-.rev figcaption b { font: 400 26px/1 var(--script); letter-spacing: 0; color: var(--em); }
-.hero .lead::first-line { }
-.sig { font: 400 34px/1 var(--script); color: var(--em); display: block; margin-top: 10px; }
-footer.site .cols > div:first-child p.small { font: 400 30px/1.15 var(--script); color: var(--em); max-width: 12em !important; }
-.page-h .lead em { font-family: var(--script); font-style: normal; font-size: 1.45em; color: var(--em); line-height: .8; }
+.ds-head .hash, .tagline span { font-family: var(--script); font-style: italic; font-weight: 800; letter-spacing: -.02em; }
+.kick, .every-sec .kick { font: italic 600 clamp(20px, 2.2vw, 26px)/1.15 var(--script) !important; letter-spacing: 0 !important; text-transform: none !important; color: var(--em) !important; }
+.rev figcaption b { font: italic 600 18px/1.1 var(--script); letter-spacing: 0; color: var(--em); }
+.sig { font: italic 600 24px/1 var(--script); color: var(--em); display: block; margin-top: 10px; }
+footer.site .cols > div:first-child p.small { font: italic 600 21px/1.3 var(--script); color: var(--em); max-width: 14em !important; }
+.page-h .lead em { font-family: var(--script); font-style: italic; font-weight: 600; color: var(--em); }
 .tagp, .save2 { font-family: var(--body); }
 .host em, .host .sw-word, .aff-apply em, .aff-apply .sw-word, .door.dark em, .door.dark .sw-word, .tier.hot em, .cta-dark em, .cta-dark .sw-word, .on-ink em { color: #f8b4c8 !important; }
 </style>
