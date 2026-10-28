@@ -4,13 +4,15 @@
 
 ## Key facts
 - Protein: 30 g per Swell 14 fl oz bottle; 50 g per Swoll bottle (the bigger 50g version, branded SWOLL)
-- Added ingredients in shakes and smoothies: collagen peptides, colostrum
+- Added ingredients in shakes and smoothies: collagen peptides, colostrum, iron, lactase, vitamin D, vitamin C, folate, vitamin B12, magnesium
+- Sweeteners: allulose and monk fruit; 0 g added sugar
 - Shake flavors (13): Cookies & Cream, Cake Batter, Chocolate, Vanilla, Peaches & Cream, Cinnamon Roll, Mint Chocolate Chip, Peanut Butter Cup, Cookie Butter, Matcha, Strawberry Shortcake, Pumpkin Spice, Blueberry Cobbler
 - Smoothie flavors (6): Pina Colada, Mango, Berry Bliss, Sour Apple, Blue Raspberry, Peach Ring
 - Buy: build a 12- or 24-bottle mixed box (reserve now, pay when it ships); Swell vending machines at gyms, high schools and hotels in Utah County, Utah
 - For: people with a sweet tooth who want dessert with protein; people eating protein-first (including GLP-1 users); Ninja Creami owners
 - Ninja Creami: pour one bottle into a pint, freeze 24 hours, spin on Lite Ice Cream (shakes) or Sorbet (smoothies)
-- Contains milk
+- Allergens: shakes contain milk and tree nuts (almond extract); smoothies contain milk
+- Nutrition values are sample figures until lab testing
 
 ## Pages
 - [Home](https://pdrayday.github.io/swell/)

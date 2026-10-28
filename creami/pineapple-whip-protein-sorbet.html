@@ -1264,11 +1264,15 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 
   // ---------- drink detail sheet (nutrition facts) ----------
   var sheet = $("sheet"), shScrim = $("sheet-scrim"), shBody = $("sh-body"), shK = null, shP = 30, lastFocus = null;
-  var NUT = { // sample values (placeholder until lab results)
-    shakes:    { 30: [180, "3.5g", 4, "2g", 10, "20mg", 7, "240mg", 10, "8g", 3, "1g", 4, "4g", "0g", 0, "30g", 60, ["2mcg", 10], ["700mg", 50], ["5mg", 28], ["450mg", 10]],
-                 50: [290, "5g", 6, "3g", 15, "35mg", 12, "380mg", 17, "11g", 4, "2g", 7, "5g", "0g", 0, "50g", 100, ["3mcg", 15], ["1100mg", 85], ["8mg", 45], ["700mg", 15]] },
-    smoothies: { 30: [190, "1g", 1, "0.5g", 3, "10mg", 3, "150mg", 7, "16g", 6, "2g", 7, "9g", "2g", 4, "30g", 60, ["0mcg", 0], ["300mg", 25], ["5mg", 28], ["350mg", 8]],
-                 50: [310, "1.5g", 2, "1g", 5, "15mg", 5, "240mg", 10, "24g", 9, "3g", 11, "13g", "3g", 6, "50g", 100, ["0mcg", 0], ["480mg", 35], ["8mg", 45], ["560mg", 12]] } };
+  var NUT = { // sample values (placeholder until lab results). Protein %DV is PDCAAS-corrected (collagen counts as 0).
+    shakes:    { 30: [180, "4.5g", 6, "2.5g", 13, "20mg", 7, "230mg", 10, "13g", 5, "2g", 7, "3g", "0g", 0, "30g", 50, ["5mcg", 25], ["650mg", 50], ["4.5mg", 25], ["470mg", 10],
+                      [["Vitamin C", "18mg", 20], ["Folate", "100mcg DFE", 25], ["Vitamin B12", "1.2mcg", 50], ["Magnesium", "84mg", 20]]],
+                 50: [290, "7g", 9, "4g", 20, "35mg", 12, "380mg", 17, "20g", 7, "3g", 11, "5g", "0g", 0, "50g", 84, ["8mcg", 40], ["1000mg", 80], ["6.3mg", 35], ["700mg", 15],
+                      [["Vitamin C", "27mg", 30], ["Folate", "160mcg DFE", 40], ["Vitamin B12", "2.4mcg", 100], ["Magnesium", "126mg", 30]]] },
+    smoothies: { 30: [170, "1g", 1, "0.5g", 3, "10mg", 3, "150mg", 7, "17g", 6, "2g", 7, "9g", "0g", 0, "30g", 50, ["5mcg", 25], ["450mg", 35], ["4.5mg", 25], ["350mg", 8],
+                      [["Vitamin C", "45mg", 50], ["Folate", "100mcg DFE", 25], ["Vitamin B12", "1.2mcg", 50], ["Magnesium", "84mg", 20]]],
+                 50: [280, "1.5g", 2, "1g", 5, "15mg", 5, "240mg", 10, "25g", 9, "3g", 11, "13g", "0g", 0, "50g", 84, ["8mcg", 40], ["700mg", 50], ["6.3mg", 35], ["560mg", 10],
+                      [["Vitamin C", "68mg", 80], ["Folate", "160mcg DFE", 40], ["Vitamin B12", "2.4mcg", 100], ["Magnesium", "126mg", 30]]] } };
   function nfHtml(v, sw) {
     function r(lbl, amt, dv, cls) { return '<div class="r ' + (cls || "") + '"><span>' + lbl + " " + amt + "</span><b>" + (dv === null ? "" : dv + "%") + "</b></div>"; }
     return '<section class="nf" aria-label="Nutrition Facts"><h3>Nutrition Facts</h3><div class="srv">1 serving per container<br><b>Serving size</b> <b style="float:right">1 bottle' + (sw ? "" : " (414 mL)") + "</b></div>" +
@@ -1276,7 +1280,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
       r("<b>Total Fat</b>", v[1], v[2]) + r("Saturated Fat", v[3], v[4], "i1") + r("<i>Trans</i> Fat", "0g", null, "i1") + r("<b>Cholesterol</b>", v[5], v[6]) + r("<b>Sodium</b>", v[7], v[8]) +
       r("<b>Total Carbohydrate</b>", v[9], v[10]) + r("Dietary Fiber", v[11], v[12], "i1") + r("Total Sugars", v[13], null, "i1") + r("Includes " + v[14] + " Added Sugars", "", v[15], "i2") +
       r("<b>Protein</b>", v[16], v[17], "thick") +
-      '<div class="vit">' + r("Vitamin D", v[18][0], v[18][1]) + r("Calcium", v[19][0], v[19][1]) + r("Iron", v[20][0], v[20][1]) + r("Potassium", v[21][0], v[21][1]) + "</div>" +
+      '<div class="vit">' + r("Vitamin D", v[18][0], v[18][1]) + r("Calcium", v[19][0], v[19][1]) + r("Iron", v[20][0], v[20][1]) + r("Potassium", v[21][0], v[21][1]) + v[22].map(function (x) { return r(x[0], x[1], x[2]); }).join("") + "</div>" +
       '<p class="foot">*The % Daily Value tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p></section>';
   }
   function drawSheet() {
@@ -1286,9 +1290,9 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
       '<div class="sh-size" role="group" aria-label="Bottle"><button type="button" data-shp="30" aria-pressed="' + !sw + '"><b>Swell · 30g</b><span>Pink bottle</span></button>' +
       '<button type="button" class="w" data-shp="50" aria-pressed="' + sw + '"><b>Swoll · 50g</b><span>Blue bottle</span></button></div>' +
       '<button type="button" class="btn sh-add" id="sh-add">' + (q ? CHECK + " " + q + " in box · add another" : "Add " + (sw ? "Swoll " : "Swell ") + d.n + " to box") + "</button>" +
-      '<div class="sh-ben"><b>In every bottle</b><ul><li><i>' + (sw ? "50g" : "30g") + '</i>protein</li><li><i>+</i>collagen peptides</li><li><i>+</i>colostrum</li><li><i>+</i>iron</li></ul><a href="' + P + 'index.html#every">Why it matters →</a></div>' +
+      '<div class="sh-ben"><b>In every bottle</b><ul><li><i>' + (sw ? "50g" : "30g") + '</i>protein</li><li><i>+</i>collagen peptides</li><li><i>+</i>colostrum</li><li><i>+</i>iron</li><li><i>+</i>lactase</li><li><i>0g</i>added sugar</li></ul><a href="' + P + 'index.html#every">Why it matters →</a></div>' +
       nfHtml(NUT[d.l][shP], sw) +
-      '<div class="sh-extra"><p><b>Also in every bottle:</b> collagen peptides, bovine colostrum and added iron.</p><p><b>Contains:</b> milk.</p>' +
+      '<div class="sh-extra"><p><b>Also in every bottle:</b> collagen peptides, bovine colostrum, added iron and lactase. Sweetened with allulose and monk fruit, so there is 0g added sugar.</p><p><b>Contains:</b> ' + (d.l === "shakes" ? "milk, tree nuts (almond)" : "milk") + ".</p>" +
       '<p><span class="ph">Sample nutrition for layout. Final values pending lab testing.</span></p></div>';
     shBody.querySelectorAll("[data-shp]").forEach(function (b) { b.addEventListener("click", function () { shP = +b.dataset.shp; drawSheet(); }); });
     $("sh-add").addEventListener("click", function (e) { if (add(key, 1, e.currentTarget)) drawSheet(); });

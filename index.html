@@ -721,6 +721,14 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 .eben div { background: var(--bg); border-radius: 18px; padding: 16px 18px; display: grid; gap: 6px; align-content: start; }
 .eben b { font: 700 28px/1 var(--display); color: var(--em); } .eben h3 { font-size: 20px; } .eben p { font-size: 14.5px; color: var(--muted); }
 @media (max-width: 760px) { .every-in { grid-template-columns: 1fr; } .every-pic img { max-width: 300px; } .eben { grid-template-columns: 1fr; } }
+.every-label { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr); gap: clamp(20px, 4vw, 56px); align-items: center; margin-top: clamp(36px, 5vw, 64px); }
+.nf-fig { margin: 0; display: grid; place-items: center; } .nf-fig img { width: 100%; max-width: 380px; height: auto; border-radius: 10px; box-shadow: 0 18px 40px rgba(40,10,20,.16); background: #fff; }
+.nf-copy { display: grid; gap: 12px; align-content: start; } .nf-copy h3 { font: 700 clamp(26px, 3.2vw, 38px)/1.05 var(--display); }
+.nf-pts { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 8px; }
+.nf-pts li { display: flex; align-items: baseline; gap: 12px; background: var(--bg); border-radius: 14px; padding: 12px 16px; }
+.nf-pts b { font: 700 24px/1 var(--display); color: var(--em); min-width: 64px; } .nf-pts span { font-size: 15px; }
+.nf-copy .small { color: var(--muted); max-width: 36em; }
+@media (max-width: 760px) { .every-label { grid-template-columns: 1fr; } .nf-fig img { max-width: 320px; } }
 .sh-ben { margin: 14px 0 4px; padding: 14px 16px; border-radius: 16px; background: var(--surface); color: var(--fg); display: grid; gap: 8px; }
 .sh-ben ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; } .sh-ben li { background: #fff; border-radius: 999px; padding: 6px 11px; font: 600 13px/1 var(--body); }
 .sh-ben li { background: var(--bg) !important; } .sh-ben li i { font-style: normal; font-weight: 800; color: var(--em); margin-right: 4px; } .sh-ben a { color: var(--fg); font-weight: 700; font-size: 14px; }
@@ -883,9 +891,21 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 <section class="every-sec" id="every" aria-labelledby="h-every"><div class="wrap every-in">
   <div class="every-pic"><img class="for-shakes" src="img/size_compare.webp" alt="A Swell 30g and a Swoll 50g protein shake side by side" width="720" height="840" loading="lazy"><img class="for-smoothies" src="img/size_compare_sm.webp" alt="A Swell 30g and a Swoll 50g protein smoothie side by side" width="938" height="843" loading="lazy"></div>
   <div><p class="kick">Every <span class="swl"><span>Swell</span></span> and Swoll, shakes and smoothies</p><h2 id="h-every">More in every bottle</h2>
-    <p class="lead">Not just protein. Every bottle also has collagen peptides, colostrum and iron.</p>
-    <div class="eben"><div><b>30g</b><h3>Protein</h3><p>30g in every <span class="swl"><span>Swell</span></span> and 50g in every Swoll, so one bottle covers a post-workout shake or a light meal.</p></div><div><b>+</b><h3>Collagen peptides</h3><p>Hydrolyzed collagen that supports healthy skin, hair, nails and joints.* No taste, no grit.</p></div><div><b>+</b><h3>Colostrum</h3><p>The first milk after calving, naturally rich in immunoglobulins that support gut health and immune function.*</p></div><div><b>+</b><h3>Iron</h3><p>Helps your blood carry oxygen to working muscles, for steady energy and endurance.* Active people, especially women, are more likely to run low.</p></div></div>
+    <p class="lead">Not just protein. Every bottle also has collagen peptides, colostrum, iron and lactase, with zero added sugar.</p>
+    <div class="eben"><div><b>30g</b><h3>Protein</h3><p>30g in every <span class="swl"><span>Swell</span></span> and 50g in every Swoll, so one bottle covers a post-workout shake or a light meal.</p></div><div><b>+</b><h3>Collagen peptides</h3><p>Hydrolyzed collagen that supports healthy skin, hair, nails and joints.* No taste, no grit.</p></div><div><b>+</b><h3>Colostrum</h3><p>The first milk after calving, naturally rich in immunoglobulins that support gut health and immune function.*</p></div><div><b>+</b><h3>Iron</h3><p>Helps your blood carry oxygen to working muscles, for steady energy and endurance.* Active people, especially women, are more likely to run low.</p></div><div><b>+</b><h3>Lactase</h3><p>An enzyme that breaks down milk sugar, so a big dairy shake sits easier and won't leave you feeling bloated.</p></div><div><b>0g</b><h3>Added sugar</h3><p>Sweetened with allulose and monk fruit instead of sugar, so every flavor still tastes like dessert.</p></div></div>
     <p class="small" style="margin-top:12px">*These statements have not been evaluated by the FDA. Amounts are sample values until lab testing.</p></div>
+</div>
+<div class="wrap every-label">
+  <figure class="nf-fig"><img src="img/nf_choc.webp" alt="Nutrition Facts for a Swell Chocolate protein shake, 1 bottle (414 mL): 180 calories, 4.5g total fat, 2.5g saturated fat, 20mg cholesterol, 230mg sodium, 13g total carbohydrate, 2g fiber, 3g total sugars, 0g added sugars, 30g protein, vitamin D 25%, calcium 50%, iron 25%, potassium 10%, vitamin C 20%, folate 25%, vitamin B12 50%, magnesium 20%. Contains milk and tree nuts (almond)." width="1224" height="2631" loading="lazy"></figure>
+  <div class="nf-copy"><p class="kick">The label, Chocolate <span class="swl"><span>Swell</span></span> · 30g</p><h3>Read the back of the bottle</h3>
+    <ul class="nf-pts">
+      <li><b>180</b><span>calories, with 30g protein and 0g added sugar</span></li>
+      <li><b>25%</b><span>of your daily iron, plus folate and B12</span></li>
+      <li><b>50%</b><span>of your daily calcium, with vitamin D to help absorb it</span></li>
+      <li><b>20%</b><span>of your daily magnesium</span></li>
+    </ul>
+    <p class="small">Protein % Daily Value counts only the milk protein. Collagen is listed in the protein grams but scored at zero, the way the FDA requires. Shakes contain milk and almond; smoothies contain milk. Tap any flavor above for its full panel.</p>
+    <p><span class="ph">Sample label for layout. Final values pending lab testing.</span></p></div>
 </div></section>
 <section class="ds-sec" aria-labelledby="h-ds"><div class="wrap ds-head">
   <div><h2 id="h-ds"><span class="hash">#drinkswell</span></h2><p>Gym bags, school hallways, Creami nights. Tag <b>@drinkswell</b> and use <b>#drinkswell</b>, and your post could end up right here.</p></div>
@@ -1328,11 +1348,15 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 
   // ---------- drink detail sheet (nutrition facts) ----------
   var sheet = $("sheet"), shScrim = $("sheet-scrim"), shBody = $("sh-body"), shK = null, shP = 30, lastFocus = null;
-  var NUT = { // sample values (placeholder until lab results)
-    shakes:    { 30: [180, "3.5g", 4, "2g", 10, "20mg", 7, "240mg", 10, "8g", 3, "1g", 4, "4g", "0g", 0, "30g", 60, ["2mcg", 10], ["700mg", 50], ["5mg", 28], ["450mg", 10]],
-                 50: [290, "5g", 6, "3g", 15, "35mg", 12, "380mg", 17, "11g", 4, "2g", 7, "5g", "0g", 0, "50g", 100, ["3mcg", 15], ["1100mg", 85], ["8mg", 45], ["700mg", 15]] },
-    smoothies: { 30: [190, "1g", 1, "0.5g", 3, "10mg", 3, "150mg", 7, "16g", 6, "2g", 7, "9g", "2g", 4, "30g", 60, ["0mcg", 0], ["300mg", 25], ["5mg", 28], ["350mg", 8]],
-                 50: [310, "1.5g", 2, "1g", 5, "15mg", 5, "240mg", 10, "24g", 9, "3g", 11, "13g", "3g", 6, "50g", 100, ["0mcg", 0], ["480mg", 35], ["8mg", 45], ["560mg", 12]] } };
+  var NUT = { // sample values (placeholder until lab results). Protein %DV is PDCAAS-corrected (collagen counts as 0).
+    shakes:    { 30: [180, "4.5g", 6, "2.5g", 13, "20mg", 7, "230mg", 10, "13g", 5, "2g", 7, "3g", "0g", 0, "30g", 50, ["5mcg", 25], ["650mg", 50], ["4.5mg", 25], ["470mg", 10],
+                      [["Vitamin C", "18mg", 20], ["Folate", "100mcg DFE", 25], ["Vitamin B12", "1.2mcg", 50], ["Magnesium", "84mg", 20]]],
+                 50: [290, "7g", 9, "4g", 20, "35mg", 12, "380mg", 17, "20g", 7, "3g", 11, "5g", "0g", 0, "50g", 84, ["8mcg", 40], ["1000mg", 80], ["6.3mg", 35], ["700mg", 15],
+                      [["Vitamin C", "27mg", 30], ["Folate", "160mcg DFE", 40], ["Vitamin B12", "2.4mcg", 100], ["Magnesium", "126mg", 30]]] },
+    smoothies: { 30: [170, "1g", 1, "0.5g", 3, "10mg", 3, "150mg", 7, "17g", 6, "2g", 7, "9g", "0g", 0, "30g", 50, ["5mcg", 25], ["450mg", 35], ["4.5mg", 25], ["350mg", 8],
+                      [["Vitamin C", "45mg", 50], ["Folate", "100mcg DFE", 25], ["Vitamin B12", "1.2mcg", 50], ["Magnesium", "84mg", 20]]],
+                 50: [280, "1.5g", 2, "1g", 5, "15mg", 5, "240mg", 10, "25g", 9, "3g", 11, "13g", "0g", 0, "50g", 84, ["8mcg", 40], ["700mg", 50], ["6.3mg", 35], ["560mg", 10],
+                      [["Vitamin C", "68mg", 80], ["Folate", "160mcg DFE", 40], ["Vitamin B12", "2.4mcg", 100], ["Magnesium", "126mg", 30]]] } };
   function nfHtml(v, sw) {
     function r(lbl, amt, dv, cls) { return '<div class="r ' + (cls || "") + '"><span>' + lbl + " " + amt + "</span><b>" + (dv === null ? "" : dv + "%") + "</b></div>"; }
     return '<section class="nf" aria-label="Nutrition Facts"><h3>Nutrition Facts</h3><div class="srv">1 serving per container<br><b>Serving size</b> <b style="float:right">1 bottle' + (sw ? "" : " (414 mL)") + "</b></div>" +
@@ -1340,7 +1364,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
       r("<b>Total Fat</b>", v[1], v[2]) + r("Saturated Fat", v[3], v[4], "i1") + r("<i>Trans</i> Fat", "0g", null, "i1") + r("<b>Cholesterol</b>", v[5], v[6]) + r("<b>Sodium</b>", v[7], v[8]) +
       r("<b>Total Carbohydrate</b>", v[9], v[10]) + r("Dietary Fiber", v[11], v[12], "i1") + r("Total Sugars", v[13], null, "i1") + r("Includes " + v[14] + " Added Sugars", "", v[15], "i2") +
       r("<b>Protein</b>", v[16], v[17], "thick") +
-      '<div class="vit">' + r("Vitamin D", v[18][0], v[18][1]) + r("Calcium", v[19][0], v[19][1]) + r("Iron", v[20][0], v[20][1]) + r("Potassium", v[21][0], v[21][1]) + "</div>" +
+      '<div class="vit">' + r("Vitamin D", v[18][0], v[18][1]) + r("Calcium", v[19][0], v[19][1]) + r("Iron", v[20][0], v[20][1]) + r("Potassium", v[21][0], v[21][1]) + v[22].map(function (x) { return r(x[0], x[1], x[2]); }).join("") + "</div>" +
       '<p class="foot">*The % Daily Value tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p></section>';
   }
   function drawSheet() {
@@ -1350,9 +1374,9 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
       '<div class="sh-size" role="group" aria-label="Bottle"><button type="button" data-shp="30" aria-pressed="' + !sw + '"><b>Swell · 30g</b><span>Pink bottle</span></button>' +
       '<button type="button" class="w" data-shp="50" aria-pressed="' + sw + '"><b>Swoll · 50g</b><span>Blue bottle</span></button></div>' +
       '<button type="button" class="btn sh-add" id="sh-add">' + (q ? CHECK + " " + q + " in box · add another" : "Add " + (sw ? "Swoll " : "Swell ") + d.n + " to box") + "</button>" +
-      '<div class="sh-ben"><b>In every bottle</b><ul><li><i>' + (sw ? "50g" : "30g") + '</i>protein</li><li><i>+</i>collagen peptides</li><li><i>+</i>colostrum</li><li><i>+</i>iron</li></ul><a href="' + P + 'index.html#every">Why it matters →</a></div>' +
+      '<div class="sh-ben"><b>In every bottle</b><ul><li><i>' + (sw ? "50g" : "30g") + '</i>protein</li><li><i>+</i>collagen peptides</li><li><i>+</i>colostrum</li><li><i>+</i>iron</li><li><i>+</i>lactase</li><li><i>0g</i>added sugar</li></ul><a href="' + P + 'index.html#every">Why it matters →</a></div>' +
       nfHtml(NUT[d.l][shP], sw) +
-      '<div class="sh-extra"><p><b>Also in every bottle:</b> collagen peptides, bovine colostrum and added iron.</p><p><b>Contains:</b> milk.</p>' +
+      '<div class="sh-extra"><p><b>Also in every bottle:</b> collagen peptides, bovine colostrum, added iron and lactase. Sweetened with allulose and monk fruit, so there is 0g added sugar.</p><p><b>Contains:</b> ' + (d.l === "shakes" ? "milk, tree nuts (almond)" : "milk") + ".</p>" +
       '<p><span class="ph">Sample nutrition for layout. Final values pending lab testing.</span></p></div>';
     shBody.querySelectorAll("[data-shp]").forEach(function (b) { b.addEventListener("click", function () { shP = +b.dataset.shp; drawSheet(); }); });
     $("sh-add").addEventListener("click", function (e) { if (add(key, 1, e.currentTarget)) drawSheet(); });
