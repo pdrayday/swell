@@ -4,22 +4,19 @@
 
 ## Key facts
 - Protein: 30 g per Swell 14 fl oz bottle; 50 g per Swoll bottle (the bigger 50g version, branded SWOLL)
-- Added ingredients in shakes and smoothies: collagen peptides, colostrum, iron, lactase, vitamin D, vitamin C, folate, vitamin B12, magnesium
-- Sweeteners: allulose and monk fruit; 0 g added sugar
+- Added ingredients in shakes and smoothies: collagen peptides, colostrum
 - Shake flavors (13): Cookies & Cream, Cake Batter, Chocolate, Vanilla, Peaches & Cream, Cinnamon Roll, Mint Chocolate Chip, Peanut Butter Cup, Cookie Butter, Matcha, Strawberry Shortcake, Pumpkin Spice, Blueberry Cobbler
 - Smoothie flavors (6): Pina Colada, Mango, Berry Bliss, Sour Apple, Blue Raspberry, Peach Ring
 - Buy: build a 12- or 24-bottle mixed box (reserve now, pay when it ships); Swell vending machines at gyms, high schools and hotels in Utah County, Utah
 - For: people with a sweet tooth who want dessert with protein; people eating protein-first (including GLP-1 users); Ninja Creami owners
 - Ninja Creami: pour one bottle into a pint, freeze 24 hours, spin on Lite Ice Cream (shakes) or Sorbet (smoothies)
-- Allergens: shakes contain milk and tree nuts (almond extract); smoothies contain milk
-- Nutrition values are sample figures until lab testing
+- Contains milk
 
 ## Pages
 - [Home](https://pdrayday.github.io/swell/)
 - [Shop](https://pdrayday.github.io/swell/shop.html)
-- [Blended](https://pdrayday.github.io/swell/blended.html)
 - [Ice Cream](https://pdrayday.github.io/swell/icecream.html)
-- [Find a machine](https://pdrayday.github.io/swell/#find)
+- [Find a fridge](https://pdrayday.github.io/swell/#find)
 - [Recipes](https://pdrayday.github.io/swell/creami/)
 - [Blog](https://pdrayday.github.io/swell/blog.html)
 - [About](https://pdrayday.github.io/swell/about.html)
@@ -27,6 +24,5 @@
 - [Become an affiliate](https://pdrayday.github.io/swell/affiliate.html)
 - [Strawberry Cheesecake Protein Ice Cream](https://pdrayday.github.io/swell/creami/strawberry-cheesecake-protein-ice-cream.html)
 - [Chocolate Fudge Protein Ice Cream](https://pdrayday.github.io/swell/creami/chocolate-fudge-protein-ice-cream.html)
-- [Cookie Butter Swirl Protein Ice Cream](https://pdrayday.github.io/swell/creami/cookie-butter-swirl-protein-ice-cream.html)
-- [Pineapple Whip Protein Sorbet](https://pdrayday.github.io/swell/creami/pineapple-whip-protein-sorbet.html)
+- [Matcha Latte Protein Ice Cream](https://pdrayday.github.io/swell/creami/matcha-latte-protein-ice-cream.html)
 - [Thick Protein Milkshake from Any Pint](https://pdrayday.github.io/swell/creami/protein-milkshake-from-a-pint.html)
