@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """Render the silent, seamless Swell/SWOLL homepage hero loops.
 
-The approved bottle renders are kept unchanged. Only isolated transparent
-ingredient photography and studio light move behind the stationary products.
+Bottles stay stationary against a still studio background. Flavors crossfade
+without floating ingredients, animated splashes, particles, or moving lights.
 """
 
 from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
+from functools import lru_cache
 import math
 import os
 import subprocess
@@ -72,34 +73,6 @@ def studio_background(line: str) -> Image.Image:
     return Image.fromarray(np.clip(arr, 0, 255).astype(np.uint8), "RGB").convert("RGBA")
 
 
-def ingredient_layers(root: Path, flavor: str) -> tuple[Image.Image, Image.Image]:
-    art = Image.open(root / "img" / f"splash_{flavor}.webp").convert("RGBA")
-    w, h = art.size
-    band = round(w * .26)
-    left = art.crop((0, 0, band, h))
-    right = art.crop((w - band, 0, w, h))
-
-    # Feather each strip to zero before it reaches the original bottle area.
-    # Therefore no cap, label, logo, or product-silhouette pixel can survive.
-    left_a = np.asarray(left.getchannel("A"), np.float32)
-    right_a = np.asarray(right.getchannel("A"), np.float32)
-    # Ingredient photography is strongest in the lower two-thirds. Removing the
-    # upper band guarantees that long script-logo swashes cannot enter either strip.
-    left_a[:round(h * .37), :] = 0
-    right_a[:round(h * .37), :] = 0
-    x = np.linspace(0, 1, band, dtype=np.float32)
-    left_fade = np.clip((.62 - x) / .22, 0, 1)[None, :]
-    right_fade = np.clip((x - .38) / .22, 0, 1)[None, :]
-    left.putalpha(Image.fromarray(np.clip(left_a * left_fade, 0, 255).astype(np.uint8), "L"))
-    right.putalpha(Image.fromarray(np.clip(right_a * right_fade, 0, 255).astype(np.uint8), "L"))
-
-    left = fit_height(trim_alpha(left), 920)
-    right = fit_height(trim_alpha(right), 920)
-    left = left.resize((round(left.width * 1.35), left.height), Image.Resampling.LANCZOS)
-    right = right.resize((round(right.width * 1.35), right.height), Image.Resampling.LANCZOS)
-    return left, right
-
-
 def approved_bottles(root: Path, flavor: str) -> tuple[Image.Image, Image.Image]:
     swell = trim_alpha(Image.open(root / "img" / f"b_{flavor}.webp"))
     swoll_path = root / "img" / f"sw_{flavor}_lg.webp"
@@ -111,19 +84,16 @@ def approved_bottles(root: Path, flavor: str) -> tuple[Image.Image, Image.Image]
     return fit_height(swell, swell_h), fit_height(swoll, swoll_h)
 
 
-@dataclass
+@dataclass(eq=False)
 class Scene:
     flavor: str
     swell: Image.Image
     swoll: Image.Image
-    ingredients_left: Image.Image
-    ingredients_right: Image.Image
 
 
 def make_scene(root: Path, flavor: str) -> Scene:
     swell, swoll = approved_bottles(root, flavor)
-    left, right = ingredient_layers(root, flavor)
-    return Scene(flavor, swell, swoll, left, right)
+    return Scene(flavor, swell, swoll)
 
 
 def composite(canvas: Image.Image, im: Image.Image, x: float, y: float, amount: float = 1) -> None:
@@ -142,29 +112,11 @@ def stationary_bottle(canvas: Image.Image, bottle: Image.Image, center_x: float,
     composite(canvas, bottle, x, y, amount)
 
 
-def scene_layer(scene: Scene, theta: float, amount: float) -> Image.Image:
+@lru_cache(maxsize=12)
+def scene_layer(scene: Scene) -> Image.Image:
+    """A still product composition: flavor artwork stays on the bottle label."""
     layer = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
-
-    # Independent slow parallax prevents the ingredient art from reading as one flat panel.
-    lx = -8 + math.sin(theta * 1.05 + .4) * 11
-    ly = 150 + math.cos(theta * 1.30 + .8) * 13
-    rx = WIDTH - scene.ingredients_right.width + 8 + math.sin(theta * .92 + 2.2) * 12
-    ry = 137 + math.cos(theta * 1.18 + 2.8) * 15
-    composite(layer, scene.ingredients_left, lx, ly, amount * .72)
-    composite(layer, scene.ingredients_right, rx, ry, amount * .72)
-
-    # A few real-looking cream beads tie the photographed ingredients into the studio space.
-    beads = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
-    bd = ImageDraw.Draw(beads)
-    seed = sum((i + 1) * ord(c) for i, c in enumerate(scene.flavor))
-    rng = np.random.default_rng(seed)
-    for i in range(16):
-        bx, by = rng.uniform(18, WIDTH - 18), rng.uniform(270, 975)
-        r = rng.uniform(2.5, 7)
-        x = bx + math.sin(theta * (1 + i % 3) + i * .9) * rng.uniform(5, 15)
-        y = by + math.cos(theta * (1 + i % 2) + i * .7) * rng.uniform(6, 18)
-        bd.ellipse((x - r, y - r, x + r, y + r), fill=(255, 253, 246, round(100 * amount)), outline=(255, 255, 255, round(150 * amount)), width=1)
-    layer = Image.alpha_composite(layer, beads)
+    amount = 1.0
 
     ground = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
     gd = ImageDraw.Draw(ground)
@@ -178,7 +130,6 @@ def scene_layer(scene: Scene, theta: float, amount: float) -> Image.Image:
 
 def frame_for(scenes: list[Scene], bg: Image.Image, index: int) -> Image.Image:
     t = index / FPS
-    theta = math.tau * t / DURATION
     phase = t / (DURATION / len(scenes))
     current = int(math.floor(phase)) % len(scenes)
     frac = phase - math.floor(phase)
@@ -192,22 +143,17 @@ def frame_for(scenes: list[Scene], bg: Image.Image, index: int) -> Image.Image:
 
     frame = bg.copy()
     if current_weight > .001:
-        frame = Image.alpha_composite(frame, scene_layer(scenes[current], theta, current_weight))
+        frame = Image.alpha_composite(frame, opacity(scene_layer(scenes[current]), current_weight))
     if next_weight > .001:
-        frame = Image.alpha_composite(frame, scene_layer(scenes[nxt], theta, next_weight))
+        frame = Image.alpha_composite(frame, opacity(scene_layer(scenes[nxt]), next_weight))
 
-    # A single scene-wide light pass makes products and ingredients share one exposure.
-    light = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0))
-    ld = ImageDraw.Draw(light)
-    sx = WIDTH * .5 + math.sin(theta) * 78
-    ld.ellipse((sx - 275, 70, sx + 275, 955), fill=(255, 255, 255, 15))
-    light = light.filter(ImageFilter.GaussianBlur(88))
-    return Image.alpha_composite(frame, light).convert("RGB")
+    return frame.convert("RGB")
 
 
 def render_mp4(root: Path, line: str, output: Path, ffmpeg: str, qa_dir: Path) -> None:
     scenes = [make_scene(root, flavor) for flavor in SCENES[line]]
     bg = studio_background(line)
+    frame_for(scenes, bg, 0).save(root / "img" / f"poster_{line}.jpg", quality=91)
     output.parent.mkdir(parents=True, exist_ok=True)
     qa_dir.mkdir(parents=True, exist_ok=True)
     cmd = [
