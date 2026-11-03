@@ -302,7 +302,7 @@ h2.h1 { font-size: clamp(42px, 5.6vw, 76px); } .mach-top .lead { margin-top: 18p
 .mach-top { display: grid; grid-template-columns: 1fr 1.1fr; gap: 32px; align-items: center; }
 .mach-facts { display: flex; flex-wrap: wrap; gap: 10px 26px; margin: 22px 0 0; padding: 0; list-style: none; font-weight: 600; font-size: 15px; }
 .mach-facts li::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--em); margin-right: 9px; vertical-align: middle; }
-.mach-top img { width: 100%; max-width: 520px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 0%; justify-self: end; border-radius: 28px; box-shadow: 0 30px 60px -24px rgba(40,10,20,.45); }
+.mach-top img { width: 100%; max-width: 520px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: 100% 0%; justify-self: end; border-radius: 28px; box-shadow: 0 30px 60px -24px rgba(40,10,20,.45); }
 @media (max-width: 760px) { .mach-top { grid-template-columns: 1fr; } .mach-top img { width: 100%; max-width: 460px; aspect-ratio: 4 / 5; justify-self: center; } }
 .finder { display: grid; grid-template-columns: 1.45fr 1fr; gap: 16px; align-items: start; }
 .mapcard { background: var(--surface); border-radius: 24px; padding: 14px; min-width: 0; }
@@ -837,7 +837,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 .pass-shot { margin: 0; display: grid; grid-template-rows: 1fr auto; gap: 10px; min-width: 0; }
 .pass-shot img { width: 100%; height: 100%; border-radius: 24px; box-shadow: 0 22px 44px -26px rgba(40,10,20,.5); object-fit: cover; }
 .pass-shot.phone img { aspect-ratio: 540 / 760; height: auto; }
-.pass-shot.wide img { object-position: 50% 18%; aspect-ratio: 0.96; height: auto; }
+.pass-shot.wide img { object-position: 62% 30%; aspect-ratio: 0.96; height: auto; }
 .pass-shot figcaption { font-size: 14px; color: var(--muted); }
 .psteps { list-style: none; padding: 0; margin: 22px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .psteps li { background: var(--bg); border-radius: 20px; padding: 18px; display: grid; gap: 6px; align-content: start; }
@@ -863,7 +863,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 .subq input { width: 20px !important; height: 20px; margin-top: 2px; flex: none; accent-color: var(--ink); padding: 0 !important; }
 .subq b { display: block; font-size: 14.5px; } .subq small { font-size: 13px; color: #5a3a45; }
 .soon + h2.h1 { margin-top: 10px; }
-.door img.mimg { height: 44%; width: auto; right: 16px; bottom: 16px; border-radius: 16px; filter: none; box-shadow: 0 14px 26px -16px rgba(40,10,20,.5); }
+.door img.mimg { height: 44%; object-fit: cover; width: auto; right: 16px; bottom: 16px; border-radius: 16px; filter: none; box-shadow: 0 14px 26px -16px rgba(40,10,20,.5); }
 @media (max-width: 1100px) and (min-width: 861px) { .door img.mimg { height: 38%; } }
 </style>
 <div class="promo" role="region" aria-label="Announcement">Reserve a box today and pay nothing until it ships. <a href="../shop.html#build">Build yours</a></div>

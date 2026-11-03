@@ -302,7 +302,7 @@ h2.h1 { font-size: clamp(42px, 5.6vw, 76px); } .mach-top .lead { margin-top: 18p
 .mach-top { display: grid; grid-template-columns: 1fr 1.1fr; gap: 32px; align-items: center; }
 .mach-facts { display: flex; flex-wrap: wrap; gap: 10px 26px; margin: 22px 0 0; padding: 0; list-style: none; font-weight: 600; font-size: 15px; }
 .mach-facts li::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--em); margin-right: 9px; vertical-align: middle; }
-.mach-top img { width: 100%; max-width: 520px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 0%; justify-self: end; border-radius: 28px; box-shadow: 0 30px 60px -24px rgba(40,10,20,.45); }
+.mach-top img { width: 100%; max-width: 520px; height: auto; aspect-ratio: 3 / 4; object-fit: cover; object-position: 100% 0%; justify-self: end; border-radius: 28px; box-shadow: 0 30px 60px -24px rgba(40,10,20,.45); }
 @media (max-width: 760px) { .mach-top { grid-template-columns: 1fr; } .mach-top img { width: 100%; max-width: 460px; aspect-ratio: 4 / 5; justify-self: center; } }
 .finder { display: grid; grid-template-columns: 1.45fr 1fr; gap: 16px; align-items: start; }
 .mapcard { background: var(--surface); border-radius: 24px; padding: 14px; min-width: 0; }
@@ -837,7 +837,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 .pass-shot { margin: 0; display: grid; grid-template-rows: 1fr auto; gap: 10px; min-width: 0; }
 .pass-shot img { width: 100%; height: 100%; border-radius: 24px; box-shadow: 0 22px 44px -26px rgba(40,10,20,.5); object-fit: cover; }
 .pass-shot.phone img { aspect-ratio: 540 / 760; height: auto; }
-.pass-shot.wide img { object-position: 50% 18%; aspect-ratio: 0.96; height: auto; }
+.pass-shot.wide img { object-position: 62% 30%; aspect-ratio: 0.96; height: auto; }
 .pass-shot figcaption { font-size: 14px; color: var(--muted); }
 .psteps { list-style: none; padding: 0; margin: 22px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .psteps li { background: var(--bg); border-radius: 20px; padding: 18px; display: grid; gap: 6px; align-content: start; }
@@ -863,7 +863,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 .subq input { width: 20px !important; height: 20px; margin-top: 2px; flex: none; accent-color: var(--ink); padding: 0 !important; }
 .subq b { display: block; font-size: 14.5px; } .subq small { font-size: 13px; color: #5a3a45; }
 .soon + h2.h1 { margin-top: 10px; }
-.door img.mimg { height: 44%; width: auto; right: 16px; bottom: 16px; border-radius: 16px; filter: none; box-shadow: 0 14px 26px -16px rgba(40,10,20,.5); }
+.door img.mimg { height: 44%; object-fit: cover; width: auto; right: 16px; bottom: 16px; border-radius: 16px; filter: none; box-shadow: 0 14px 26px -16px rgba(40,10,20,.5); }
 @media (max-width: 1100px) and (min-width: 861px) { .door img.mimg { height: 38%; } }
 </style>
 <div class="promo" role="region" aria-label="Announcement">Reserve a box today and pay nothing until it ships. <a href="shop.html#build">Build yours</a></div>
@@ -905,7 +905,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   <div class="pass-grid">
     <figure class="pass-shot phone"><img src="img/shot_pass.webp" alt="The Swell Pass on a phone: a member QR code that refreshes every 30 seconds" width="540" height="760" loading="lazy"><figcaption>Your pass: a QR code that refreshes every 30 seconds, card on file.</figcaption></figure>
     <figure class="pass-shot phone"><img src="img/shot_map.webp" alt="The Find a Swell map on a phone, with Swell pins around Utah County" width="540" height="760" loading="lazy"><figcaption>Find a <span class="swl"><span>Swell</span></span>: every fridge on a map.</figcaption></figure>
-    <figure class="pass-shot wide"><img src="img/fridge.webp" alt="Three women with yoga mats line up at a pink Swell fridge in a Pilates studio; one taps her phone to open it" width="900" height="1163" loading="lazy"><figcaption>After class: tap the pass, the door opens, grab a shake.</figcaption></figure>
+    <figure class="pass-shot wide"><img src="img/fridge_studio.webp" srcset="img/fridge_studio_sm.webp 720w, img/fridge_studio.webp 1199w" sizes="(max-width: 900px) 92vw, 40vw" alt="Women line up after Pilates class at a pink Swell protein shake fridge stocked with 30g Vanilla bottles; one taps the screen to shop" width="1199" height="1312" loading="lazy"><figcaption>After class: tap your pass, the door opens, grab a shake. Auto checkout in seconds.</figcaption></figure>
   </div>
   <ol class="psteps"><li><b>1</b><h3>Join <span class="swl"><span>Swell</span></span> Pass</h3><p>$19 a month with 5 fridge Swells included. Your account, card on file and a scannable pass.</p></li><li><b>2</b><h3>Box at home</h3><p>Build your own subscription of <span class="swl"><span>Swell</span></span> and Swoll. Skip, swap or pause anytime.</p></li><li><b>3</b><h3>Grab at the fridge</h3><p>Scan your pass, the door unlocks, take what you want. Extras are $3.99 for members, $4.99 without.</p></li><li><b>4</b><h3>Earn a free <span class="swl"><span>Swell</span></span></h3><p>1 point per $1 at home or at the fridge. 50 points is a free <span class="swl"><span>Swell</span></span>. Box subscribers earn double.</p></li></ol>
   <div class="ctas" style="margin-top:22px"><button type="button" class="btn" data-pass>Get my <span class="swl"><span>Swell</span></span> Pass</button><a class="btn alt" href="faq.html">How it works</a></div>
@@ -940,7 +940,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 <section class="mach-sec" id="machines" aria-labelledby="h-machines"><div class="wrap mach-top">
   <div><span class="soon">Coming after launch</span><h2 id="h-machines" class="h1"><span class="swl"><span>Swell</span></span> fridges</h2><p class="lead">After the online launch, <span class="swl"><span>Swell</span></span> goes into smart fridges in Pilates studios, gyms, hotels and campus rec centers. Tap your <span class="swl"><span>Swell</span></span> Pass, the door unlocks, and you grab a cold shake. <a href="#swellpass">How <span class="swl"><span>Swell</span></span> Pass works</a>.</p>
   <ul class="mach-facts"><li>Tap your pass</li><li>Door unlocks</li><li>$3.99 for members</li></ul></div>
-  <img class="mach-photo" src="img/fridge.webp" alt="Women line up at a pink Swell fridge in a Pilates studio; one taps her phone to unlock it" width="900" height="1163" loading="lazy">
+  <img class="mach-photo" src="img/fridge_studio.webp" srcset="img/fridge_studio_sm.webp 720w, img/fridge_studio.webp 1199w" sizes="(max-width: 760px) 92vw, 45vw" alt="A pink Swell protein shake fridge in a Pilates studio, with members lined up to tap and grab a shake" width="1199" height="1312" loading="lazy">
 </div></section>
 <section style="padding-top:10px" id="find" class="find-sec"><div class="wrap">
 <link rel="stylesheet" href="vendor/maplibre-gl.css">
