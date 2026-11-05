@@ -16,7 +16,7 @@
 <link rel="canonical" href="https://pdrayday.github.io/swell/shop.html">
 <meta name="theme-color" content="#2a121a">
 <meta name="color-scheme" content="light dark">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Swell"><meta property="og:title" content="Build a Box | Swell"><meta property="og:description" content="Build a 12- or 24-bottle box of Swell protein shakes: $3.75 a Swell, $4.25 a Swoll, free shipping on 24. Mix any flavors, pay when it ships."><meta property="og:url" content="https://pdrayday.github.io/swell/shop.html"><meta property="og:image" content="https://pdrayday.github.io/swell/img/splash_cc.webp">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Swell"><meta property="og:title" content="Build a Box | Swell"><meta property="og:description" content="Build a 12- or 24-bottle box of Swell protein shakes: $3.75 a Swell, $4.25 a Swoll, free shipping on 24. Mix any flavors, pay when it ships."><meta property="og:url" content="https://pdrayday.github.io/swell/shop.html"><meta property="og:image" content="https://pdrayday.github.io/swell/img/pack_choc.webp">
 <style>:root{--logo:url("img/logo.svg")}</style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,500..700&family=Instrument+Sans:wght@400;500;600;700&display=swap"><script>try{localStorage.removeItem('swell-line');}catch(e){}</script>
 </head>
 <body>
@@ -458,8 +458,8 @@ footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8p
 .fan img:nth-child(3) { transform: translate(8%, -48%) rotate(9deg); }
 .fan:hover img:nth-child(1) { transform: translate(-118%, -48%) rotate(-12deg); } .fan:hover img:nth-child(3) { transform: translate(18%, -48%) rotate(12deg); }
 @media (max-width: 860px) { .ictop { grid-template-columns: 1fr; } .fan { order: -1; height: 92vw; max-height: 460px; } .fan img { width: 44%; } }
-.icgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-@media (max-width: 1000px) { .icgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.icgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1000px; gap: 16px; }
+@media (max-width: 700px) { .icgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .icc:last-child { grid-column: 1 / -1; max-width: calc(50% - 5px); justify-self: center; } }
 @media (max-width: 520px) { .icgrid { gap: 10px; } .ict { padding: 12px 12px 14px; } .ict h3 { font-size: 18px; } .ict p { font-size: 13.5px; } .icc { border-radius: 18px; } }
 .icc { background: var(--surface); border-radius: 24px; overflow: hidden; display: grid; transition: transform .4s var(--spring); }
 .icc[hidden] { display: none; }
@@ -880,13 +880,13 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   <a class="btn" href="shop.html#build">Build a box <span class="boxcount" hidden>0</span></a>
 </aside><main id="main">
 <section class="page-h shop-top"><div class="wrap shop-hero">
-  <img class="shop-img" src="img/pack_matcha.webp" srcset="img/pack_matcha_sm.webp 768w, img/pack_matcha.webp 1536w" sizes="(max-width: 900px) 92vw, 52vw" alt="Swell 30g Matcha protein shake: a pink 12-bottle pack and bottle with green matcha accents" width="1536" height="1024" fetchpriority="high">
+  <img class="shop-img" src="img/pack_matcha.webp" srcset="img/pack_matcha_sm.webp 768w, img/pack_matcha.webp 1536w" sizes="(max-width: 900px) 92vw, 52vw" alt="Swell 30g Matcha protein shake: a pink 12-bottle pack and bottle with matcha powder and tea leaves" width="1536" height="1024" fetchpriority="high">
   <div><h1>Build your box</h1>
   <p class="lead">Pick 12 or 24 shakes, any mix of flavors, <span class="swl"><span>Swell</span></span> or Swoll. Reserve now and you won't be charged until your box ships.</p>
   <ul class="pricepts"><li><b>$3.75</b>a <span class="swl"><span>Swell</span></span></li><li><b>$4.25</b>a Swoll</li><li><b>Free</b>shipping on 24</li></ul>
   <div class="presets"><span class="small" style="align-self:center">Not sure where to start?</span>
-    <button type="button" class="btn sm alt" data-preset="choc,van,cc,matcha" data-n="12">One of each · 12</button>
-    <button type="button" class="btn sm alt" data-preset="choc,van,cc" data-n="24">The classics · 24</button>
+    <button type="button" class="btn sm alt" data-preset="choc,van,cbutter,matcha" data-n="12">One of each · 12</button>
+    <button type="button" class="btn sm alt" data-preset="choc,van,cbutter" data-n="24">The classics · 24</button>
     <button type="button" class="btn sm alt" data-preset="choc,van" data-n="12" data-p="50">Swoll heavy days · 12</button></div></div>
 </div></section>
 <section id="build" style="padding-top:20px"><div class="wrap builder">
@@ -899,7 +899,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
       <button type="button" data-protein="50" aria-pressed="false" class="swollbtn"><b>Swoll · 50g</b><span>Blue bottle · $4.25</span></button></div>
       <p class="mixnote">Mix both in one box. Switching keeps every bottle you've already picked.</p></div>
     <div class="step"><h2>3. Flavors</h2>
-      <div class="picks"><div class="pk" data-id="choc"><img src="img/b_choc.webp" alt="" width="46" height="120" loading="lazy" data-drink="choc"><div><b>Chocolate</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="choc">Nutrition</button></small></div><span class="pkmix" id="mix-choc"></span><div class="qty"><button type="button" data-dec="choc" aria-label="Remove one Chocolate">−</button><output id="q-choc">0</output><button type="button" data-inc="choc" aria-label="Add one Chocolate">+</button></div></div><div class="pk" data-id="van"><img src="img/b_van.webp" alt="" width="46" height="120" loading="lazy" data-drink="van"><div><b>Vanilla</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="van">Nutrition</button></small></div><span class="pkmix" id="mix-van"></span><div class="qty"><button type="button" data-dec="van" aria-label="Remove one Vanilla">−</button><output id="q-van">0</output><button type="button" data-inc="van" aria-label="Add one Vanilla">+</button></div></div><div class="pk" data-id="cc"><img src="img/b_cc.webp" alt="" width="46" height="120" loading="lazy" data-drink="cc"><div><b>Cookies &amp; Cream</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="cc">Nutrition</button></small></div><span class="pkmix" id="mix-cc"></span><div class="qty"><button type="button" data-dec="cc" aria-label="Remove one Cookies &amp; Cream">−</button><output id="q-cc">0</output><button type="button" data-inc="cc" aria-label="Add one Cookies &amp; Cream">+</button></div></div><div class="pk" data-id="matcha"><img src="img/b_matcha.webp" alt="" width="46" height="120" loading="lazy" data-drink="matcha"><div><b>Matcha</b><small>New · <button type="button" class="nf-link sm" data-drink="matcha">Nutrition</button></small></div><span class="pkmix" id="mix-matcha"></span><div class="qty"><button type="button" data-dec="matcha" aria-label="Remove one Matcha">−</button><output id="q-matcha">0</output><button type="button" data-inc="matcha" aria-label="Add one Matcha">+</button></div></div></div></div>
+      <div class="picks"><div class="pk" data-id="choc"><img src="img/b_choc.webp" alt="" width="46" height="120" loading="lazy" data-drink="choc"><div><b>Chocolate</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="choc">Nutrition</button></small></div><span class="pkmix" id="mix-choc"></span><div class="qty"><button type="button" data-dec="choc" aria-label="Remove one Chocolate">−</button><output id="q-choc">0</output><button type="button" data-inc="choc" aria-label="Add one Chocolate">+</button></div></div><div class="pk" data-id="van"><img src="img/b_van.webp" alt="" width="46" height="120" loading="lazy" data-drink="van"><div><b>Vanilla</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="van">Nutrition</button></small></div><span class="pkmix" id="mix-van"></span><div class="qty"><button type="button" data-dec="van" aria-label="Remove one Vanilla">−</button><output id="q-van">0</output><button type="button" data-inc="van" aria-label="Add one Vanilla">+</button></div></div><div class="pk" data-id="cbutter"><img src="img/b_cbutter.webp" alt="" width="46" height="120" loading="lazy" data-drink="cbutter"><div><b>Cookie Butter</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="cbutter">Nutrition</button></small></div><span class="pkmix" id="mix-cbutter"></span><div class="qty"><button type="button" data-dec="cbutter" aria-label="Remove one Cookie Butter">−</button><output id="q-cbutter">0</output><button type="button" data-inc="cbutter" aria-label="Add one Cookie Butter">+</button></div></div><div class="pk" data-id="matcha"><img src="img/b_matcha.webp" alt="" width="46" height="120" loading="lazy" data-drink="matcha"><div><b>Matcha</b><small>New · <button type="button" class="nf-link sm" data-drink="matcha">Nutrition</button></small></div><span class="pkmix" id="mix-matcha"></span><div class="qty"><button type="button" data-dec="matcha" aria-label="Remove one Matcha">−</button><output id="q-matcha">0</output><button type="button" data-inc="matcha" aria-label="Add one Matcha">+</button></div></div></div></div>
   </div>
   <form class="summary" id="box-form" novalidate>
     <h3 id="box-title">12 shakes · 30g protein</h3>
@@ -948,7 +948,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   <div class="sh-grab" id="sh-grab" aria-hidden="true"><span></span></div>
   <button type="button" class="sh-x press" id="sh-x" aria-label="Close">×</button>
   <div class="sh-body" id="sh-body"></div>
-</div><script>var NAMES = {"choc": "Chocolate", "van": "Vanilla", "cc": "Cookies & Cream", "matcha": "Matcha"}; var MACHS = [{"id": "provo", "city": "Provo", "venue": "Pilates studio", "addr": "1200 Towne Centre Blvd"}, {"id": "orem", "city": "Orem", "venue": "Pilates studio", "addr": "575 E University Pkwy"}, {"id": "lehi", "city": "Lehi", "venue": "Gym", "addr": "1230 E Main St"}, {"id": "af", "city": "American Fork", "venue": "Gym", "addr": "51 E 100 N"}, {"id": "pg", "city": "Pleasant Grove", "venue": "Pilates studio", "addr": "Address coming soon"}, {"id": "em", "city": "Eagle Mountain", "venue": "Gym", "addr": "Address coming soon"}, {"id": "ss", "city": "Saratoga Springs", "venue": "Pilates studio", "addr": "Address coming soon"}, {"id": "sv", "city": "Springville", "venue": "College rec center", "addr": "Address coming soon"}, {"id": "sf", "city": "Spanish Fork", "venue": "Hotel", "addr": "Address coming soon"}]; var DRINKS = {"choc": {"n": "Chocolate", "t": "classic", "d": "Like a chocolate milkshake. Cocoa hides protein flavor best, so it's the easiest to love.", "l": "shakes"}, "van": {"n": "Vanilla", "t": "classic", "d": "The everyday base. Great on its own, in coffee or in a Ninja Creami.", "l": "shakes"}, "cc": {"n": "Cookies & Cream", "t": "classic", "d": "The dessert. Cookies & cream flavor in a sweet cream base.", "l": "shakes"}, "matcha": {"n": "Matcha", "t": "new", "d": "The coffee-shop order, now with 30g protein. Has natural caffeine from matcha.", "l": "shakes"}};</script><script>
+</div><script>var NAMES = {"choc": "Chocolate", "van": "Vanilla", "cbutter": "Cookie Butter", "matcha": "Matcha"}; var MACHS = [{"id": "provo", "city": "Provo", "venue": "Pilates studio", "addr": "1200 Towne Centre Blvd"}, {"id": "orem", "city": "Orem", "venue": "Pilates studio", "addr": "575 E University Pkwy"}, {"id": "lehi", "city": "Lehi", "venue": "Gym", "addr": "1230 E Main St"}, {"id": "af", "city": "American Fork", "venue": "Gym", "addr": "51 E 100 N"}, {"id": "pg", "city": "Pleasant Grove", "venue": "Pilates studio", "addr": "Address coming soon"}, {"id": "em", "city": "Eagle Mountain", "venue": "Gym", "addr": "Address coming soon"}, {"id": "ss", "city": "Saratoga Springs", "venue": "Pilates studio", "addr": "Address coming soon"}, {"id": "sv", "city": "Springville", "venue": "College rec center", "addr": "Address coming soon"}, {"id": "sf", "city": "Spanish Fork", "venue": "Hotel", "addr": "Address coming soon"}]; var DRINKS = {"choc": {"n": "Chocolate", "t": "classic", "d": "Like a chocolate milkshake. Cocoa hides protein flavor best, so it's the easiest to love.", "l": "shakes"}, "van": {"n": "Vanilla", "t": "classic", "d": "The everyday base. Great on its own, in coffee or in a Ninja Creami.", "l": "shakes"}, "cbutter": {"n": "Cookie Butter", "t": "classic", "d": "The dessert. Spiced speculoos cookie butter in a sweet cream base.", "l": "shakes"}, "matcha": {"n": "Matcha", "t": "new", "d": "The coffee-shop order, now with 30g protein. Has natural caffeine from matcha.", "l": "shakes"}};</script><script>
 (function () {
   var root = document.documentElement;
   function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem(k)); localStorage.setItem(k, JSON.stringify(v)); } catch (e) { return null; } }
@@ -1006,7 +1006,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
     }); });
   });
 
-  // ---------- box (shared across pages): keys "cc" = Swell 30g, "cc~50" = Swoll 50g ----------
+  // ---------- box (shared across pages): keys "choc" = Swell 30g, "choc~50" = Swoll 50g ----------
   var box = store("swell-box") || { size: 12, protein: 30, items: {} };
   for (var bk in box.items) if (!NAMES[bk.replace(/~50$/, "")]) delete box.items[bk];
   if (box.sub === undefined) box.sub = true;
@@ -1084,7 +1084,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
     render(); burst(b); toast(b.textContent.trim() + " loaded"); var f = $("build"); if (f) f.scrollIntoView({ behavior: "smooth" });
   }); });
   if ($("fill")) $("fill").addEventListener("click", function (e) {
-    var pool = Object.keys(box.items).length ? Object.keys(box.items) : ["choc", "van", "cc", "matcha"].map(function (k) { return keyFor(k); }), i = 0;
+    var pool = Object.keys(box.items).length ? Object.keys(box.items) : ["choc", "van", "cbutter", "matcha"].map(function (k) { return keyFor(k); }), i = 0;
     while (total() < box.size) { var k = pool[i++ % pool.length]; box.items[k] = (box.items[k] || 0) + 1; }
     render(); burst(e.currentTarget);
   });
@@ -1293,8 +1293,8 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   var NUT = { // target formula (Swell 30g Chocolate panel; Swoll 50g is a target until its label is set)
     30: [170, "3g", 4, "2g", 10, "30mg", 10, "230mg", 10, "14g", 5, "2g", 7, "4g", "0g", 0, "30g", 60, ["5mcg", 25], ["650mg", 50], ["4.5mg", 25], ["470mg", 10], ["60mg", 67], ["100mcg DFE (60mcg folic acid)", 25], ["1.2mcg", 50], ["135mcg", 15]],
     50: [260, "3.5g", 4, "2g", 10, "45mg", 15, "320mg", 14, "15g", 5, "2g", 7, "5g", "0g", 0, "50g", 100, ["5mcg", 25], ["1000mg", 77], ["4.5mg", 25], ["650mg", 14], ["60mg", 67], ["100mcg DFE (60mcg folic acid)", 25], ["1.2mcg", 50], ["135mcg", 15]] };
-  var ING = { choc: "cocoa (processed with alkali)", cc: "cocoa (processed with alkali)", matcha: "matcha green tea powder", van: "" };
-  var CAF = { matcha: "Contains naturally occurring caffeine from matcha. Best as a morning or afternoon drink.", choc: "Contains a small amount of naturally occurring caffeine from cocoa.", cc: "Contains a trace of caffeine from cocoa." };
+  var ING = { choc: "cocoa (processed with alkali)", cbutter: "cinnamon", matcha: "matcha green tea powder", van: "" };
+  var CAF = { matcha: "Contains naturally occurring caffeine from matcha. Best as a morning or afternoon drink.", choc: "Contains a small amount of naturally occurring caffeine from cocoa." };
   function ingText(k) { return "Ultra-filtered nonfat milk, milk protein isolate, allulose, cream, " + (ING[k] ? ING[k] + ", " : "") + "hydrolyzed bovine collagen peptides (VERISOL®). Contains 2% or less of: natural flavors, potassium citrate, sea salt, gellan gum, monk fruit extract, stevia leaf extract (Reb M), lactase enzyme, ascorbic acid (vitamin C), ferric pyrophosphate (iron), vitamin A palmitate, vitamin D3, folic acid, vitamin B12."; }
   function nfHtml(v, sw) {
     function r(lbl, amt, dv, cls) { return '<div class="r ' + (cls || "") + '"><span>' + lbl + " " + amt + "</span><b>" + (dv === null ? "" : dv + "%") + "</b></div>"; }
