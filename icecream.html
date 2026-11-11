@@ -135,7 +135,8 @@ html, body { background-color: var(--bg); }
 }
 @media (max-width: 900px) {
   .promo { display: none !important; }
-  header.top { top: 0 !important; }
+  header.top { top: 0 !important; padding-top: env(safe-area-inset-top, 0px); }
+  body::before { background: var(--bg) !important; }
 }
 /* Creami photos */
 .rc .stage.rphoto { height: auto; aspect-ratio: 4 / 5; padding: 0; display: block; background: none; }

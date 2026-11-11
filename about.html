@@ -126,7 +126,8 @@ html, body { background-color: var(--bg); }
 }
 @media (max-width: 900px) {
   .promo { display: none !important; }
-  header.top { top: 0 !important; }
+  header.top { top: 0 !important; padding-top: env(safe-area-inset-top, 0px); }
+  body::before { background: var(--bg) !important; }
 }
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,500..700&family=Instrument+Sans:wght@400;500;600;700&display=swap"><script>try{localStorage.removeItem('swell-line');}catch(e){}</script>
 </head>
