@@ -92,6 +92,18 @@ html.cart-open, html.cart-open body { overflow: hidden; }
 @media (max-width: 860px) { #cartpage { grid-template-columns: minmax(0, 1fr); } #cartpage .cside { position: static; } }
 body:has(#cartpage) .mbar-nav, body:has(#cartpage) .scanfab { display: none !important; }
 /* end cart */
+/* Swell 50g: light blue like the bottle */
+.pkmix .w { color: #5d93c4 !important; }
+.bottle-view button.w[aria-pressed="true"] { background: #a9d0f0 !important; color: #fff !important; text-shadow: 0 1px 2px rgba(60,110,160,.35); }
+.bottle-view button.w[aria-pressed="true"] * { color: #fff !important; }
+.seg button.swollbtn[aria-pressed="true"] { background: #d6eaf9 !important; border-color: #a9d0f0 !important; color: var(--fg) !important; }
+.seg button.swollbtn[aria-pressed="true"] * { color: var(--fg) !important; }
+.sh-size button.w[aria-pressed="true"] { border-color: #a9d0f0 !important; background: #e3f0fb !important; color: var(--fg) !important; }
+.cmp2 .us.w { background: #e3f0fb !important; color: var(--fg) !important; }
+.cmp2 .us.w * { color: var(--fg) !important; }
+.cmp2 thead th.us.w small { color: var(--muted) !important; }
+/* toast fix */
+.toast { display: block !important; width: max-content; max-width: min(92vw, 440px); text-align: center; border-radius: 22px !important; line-height: 1.35; }
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,500..700&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Recipe", "name": "Matcha Latte Protein Ice Cream", "description": "The coffee-shop matcha latte as a pint. Swell Matcha plus a little extra matcha powder for a deeper green-tea flavor.", "image": "https://pdrayday.github.io/swell/img/b_matcha.webp", "author": {"@type": "Organization", "name": "Swell"}, "prepTime": "PT5M", "totalTime": "PT24H10M", "recipeYield": "1 pint", "recipeCategory": "Dessert", "keywords": "ninja creami protein ice cream, matcha latte protein ice cream", "nutrition": {"@type": "NutritionInformation", "proteinContent": "30 g"}, "recipeIngredient": ["1 bottle Swell Matcha protein shake", "1/2 tsp matcha powder (optional, for a stronger flavor)", "1 tbsp sugar-free vanilla pudding mix", "White chocolate chips, for the mix-in"], "recipeInstructions": [{"@type": "HowToStep", "name": "Whisk", "text": "Whisk the shake, matcha powder and pudding mix in the pint until smooth."}, {"@type": "HowToStep", "name": "Freeze", "text": "Freeze flat with the lid off for 24 hours."}, {"@type": "HowToStep", "name": "Spin", "text": "Spin on Lite Ice Cream."}, {"@type": "HowToStep", "name": "Re-spin", "text": "Add a splash of milk and re-spin until creamy."}, {"@type": "HowToStep", "name": "Mix in", "text": "Add white chocolate chips and run Mix-in."}]}</script><script>try{localStorage.removeItem('swell-line');}catch(e){}</script>
 </head>
