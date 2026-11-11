@@ -114,6 +114,20 @@ body:has(#cartpage) .mbar-nav, body:has(#cartpage) .scanfab { display: none !imp
 *, *::before, *::after { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
 header.top { background: var(--bg) !important; }
 .eben > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+/* phone + app: solid top, no floating bars */
+html, body { background-color: var(--bg); }
+.drawer nav { grid-template-rows: repeat(4, minmax(70px, 1fr)) !important; max-height: none !important; min-height: 0 !important; }
+.drawer nav a { min-height: 0 !important; }
+.hscan { display: none; }
+@media (max-width: 1100px) {
+  .hscan { display: grid; place-items: center; width: 44px; height: 44px; border: 0; padding: 0; background: transparent; color: var(--pink); cursor: pointer; flex: none; }
+  .hscan .cav { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #fff; }
+  .mbar-nav, .scanfab { display: none !important; }
+}
+@media (max-width: 900px) {
+  .promo { display: none !important; }
+  header.top { top: 0 !important; }
+}
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,500..700&family=Instrument+Sans:wght@400;500;600;700&display=swap"><script>try{localStorage.removeItem('swell-line');}catch(e){}</script>
 </head>
 <body>
@@ -1027,7 +1041,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
 </style>
 <div class="promo" role="region" aria-label="Announcement">Reserve a box today and pay nothing until it ships. <a href="shop.html#build">Build yours</a></div>
 <header class="top"><div class="wrap">
-  <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+  <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button><button type="button" class="hscan press" data-pass aria-label="Scan my Swell Pass"><span class="cav" aria-hidden="true"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/><path d="M8 8h3v3H8zM13 13h3v3h-3zM13 8h3M8 16h3M13 10.5h1.5"/></svg></span></button>
   <a class="logo" href="index.html" aria-label="Swell home"><img src="img/logo.png" alt="Swell" width="416" height="159"></a>
   <nav class="tabs" aria-label="Main"><a href="shop.html">Shop</a><a href="icecream.html">Ice Cream &amp; Recipes</a><a href="index.html#find">Find a fridge</a><a href="blog.html">Blog</a><a href="about.html" aria-current="page">About</a><a href="faq.html">FAQ</a><a href="affiliate.html" class="aff">Become an affiliate</a></nav>
   <div class="right"><a class="cart press" href="cart.html" data-cart-open aria-label="Your cart"><span class="cav" aria-hidden="true"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.1 10.6a1.6 1.6 0 0 0 1.6 1.3h7.9a1.6 1.6 0 0 0 1.6-1.2L20 8H6.1"/><circle cx="9.5" cy="19.6" r="1.3"/><circle cx="17" cy="19.6" r="1.3"/></svg></span><span class="cartcount" hidden>0</span></a><a class="prof press" href="account.html" aria-label="Your Swell account" data-acct><span class="pav" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.8 20c1.1-3.6 3.9-5.4 7.2-5.4s6.1 1.8 7.2 5.4"/></svg></span></a></div>
