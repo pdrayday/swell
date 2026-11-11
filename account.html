@@ -1042,6 +1042,12 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   function imgFor(k) { return P + "img/" + (isW(k) ? "sw_" : "b_") + baseK(k) + ".webp"; }
   function nameFor(k) { return NAMES[baseK(k)]; }
   function count(k) { return (box.items[baseK(k)] || 0) + (box.items[baseK(k) + "~50"] || 0); }
+  // Swell 30g / 50g: $4.25 / $4.99 a bottle on subscription, $5 / $7 one time; unfilled slots count as the size being added
+  function boxPrice(s, sub, ns, nw) { var u30 = sub ? 4.25 : 5, u50 = sub ? 4.99 : 7, a = ns, b = nw, rest = Math.max(0, s - ns - nw);
+    if (box.protein === 50) b += rest; else a += rest;
+    var t = Math.round((a * u30 + b * u50) * 100) / 100; if (Math.abs(t - Math.round(t)) < 0.001) t -= 0.01;
+    return { total: Math.round(t * 100) / 100, u30: u30, u50: u50 }; }
+  function money0(v) { return "$" + (v % 1 ? v.toFixed(2) : String(v)); }
   function render() {
     var n = total(), s = box.size, pct = Math.min(100, n / s * 100), ship = s === 24 ? 0 : (box.sub ? 4.99 : 7.99), save = s === 24 ? "Free shipping" : "+ $" + ship.toFixed(2) + " shipping";
     var nw = 0; for (var kk in box.items) if (isW(kk)) nw += box.items[kk]; var ns = n - nw;
@@ -1056,8 +1062,12 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     $("box-title").textContent = s + " bottles" + (n ? " · " + (ns ? ns + " × 30g" : "") + (ns && nw ? " + " : "") + (nw ? nw + " × 50g" : "") : "");
     $("box-count").textContent = n + " of " + s; $("box-save").textContent = save; $("box-bar").style.width = pct + "%";
     var bw = 0; for (var kw in box.items) if (isW(kw)) bw += box.items[kw];
-    $("bp-total").textContent = "$" + ((s === 24 ? 89.99 : 44.99) + bw * 0.5).toFixed(2);
-    $("bp-per").textContent = (ns ? "$3.75 a 30g" : "") + (ns && bw ? " · " : "") + (bw ? "$4.25 a 50g" : "") || "$3.75 a 30g · $4.25 a 50g";
+    var bp = boxPrice(s, box.sub, ns, bw), u30 = bp.u30, u50 = bp.u50;
+    $("bp-total").textContent = "$" + bp.total.toFixed(2);
+    $("bp-per").textContent = (ns ? money0(u30) + " a 30g" : "") + (ns && bw ? " · " : "") + (bw ? money0(u50) + " a 50g" : "") || money0(u30) + " a 30g · " + money0(u50) + " a 50g";
+    document.querySelectorAll("button[data-size] > span").forEach(function (sp) { var z = +sp.parentNode.dataset.size, t = boxPrice(z, box.sub, box.protein === 50 ? 0 : z, box.protein === 50 ? z : 0).total; sp.textContent = "$" + t.toFixed(2) + (z === 24 ? " · free shipping" : " + shipping"); });
+    document.querySelectorAll("button[data-protein] > span").forEach(function (sp) { var p = +sp.parentNode.dataset.protein; sp.textContent = (p === 50 ? "Light-blue bottle · " : "Pink bottle · ") + money0(p === 50 ? u50 : u30); });
+    if ($("box-every")) $("box-every").value = String(box.every || 4);
     $("bp-ship").textContent = s === 24 ? "Free shipping" + (box.sub ? " · double points" : "") : "+ $" + ship.toFixed(2) + " shipping" + (box.sub ? " · subscriber rate" : "");
     $("box-sub").checked = !!box.sub;
     var sub = $("box-submit"), left = s - n;
@@ -1114,6 +1124,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   });
   if ($("clear")) $("clear").addEventListener("click", function () { box.items = {}; render(); });
   if ($("box-sub")) $("box-sub").addEventListener("change", function (e) { box.sub = e.target.checked; render(); });
+  if ($("box-every")) { $("box-every").addEventListener("change", function (e) { box.every = +e.target.value; box.sub = true; render(); }); }
   document.querySelectorAll("[data-protein]").forEach(function (b) { b.addEventListener("click", function () { box.protein = +b.dataset.protein; render();
     if ($("box-form")) toast(box.protein === 50 ? "Adding light-blue <b>50g</b> bottles now. Your 30g picks stay in the box." : "Adding pink <b>30g</b> bottles now. Your 50g picks stay in the box."); }); });
   function btab(line) {
@@ -1314,12 +1325,12 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
 
   // ---------- drink detail sheet (nutrition facts) ----------
   var sheet = $("sheet"), shScrim = $("sheet-scrim"), shBody = $("sh-body"), shK = null, shP = 30, lastFocus = null;
-  var NUT = { // target formula (Swell 30g Chocolate panel; Swell 50g is a target until its label is set)
-    30: [170, "3g", 4, "2g", 10, "30mg", 10, "230mg", 10, "14g", 5, "2g", 7, "4g", "0g", 0, "30g", 60, ["5mcg", 25], ["650mg", 50], ["4.5mg", 25], ["470mg", 10], ["60mg", 67], ["100mcg DFE (60mcg folic acid)", 25], ["1.2mcg", 50], ["135mcg", 15]],
-    50: [260, "3.5g", 4, "2g", 10, "45mg", 15, "320mg", 14, "15g", 5, "2g", 7, "5g", "0g", 0, "50g", 100, ["5mcg", 25], ["1000mg", 77], ["4.5mg", 25], ["650mg", 14], ["60mg", 67], ["100mcg DFE (60mcg folic acid)", 25], ["1.2mcg", 50], ["135mcg", 15]] };
+  var NUT = { // target formula from the pitch deck (Swell 30g Chocolate panel; Swell 50g is a target until its label is set). Protein %DV is PDCAAS-corrected for collagen
+    30: [170, "3g", 4, "2g", 10, "30mg", 10, "230mg", 10, "16g", 6, "4g", 14, "4g", "0g", 0, "30g", 55, ["5mcg", 25], ["650mg", 50], ["4.5mg", 25], ["470mg", 10], ["60mg", 67], null, ["1.2mcg", 50], ["135mcg", 15]],
+    50: [260, "3.5g", 4, "2g", 10, "45mg", 15, "320mg", 14, "17g", 6, "4g", 14, "5g", "0g", 0, "50g", 95, ["5mcg", 25], ["1000mg", 77], ["4.5mg", 25], ["650mg", 14], ["60mg", 67], null, ["1.2mcg", 50], ["135mcg", 15]] };
   var ING = { choc: "cocoa (processed with alkali)", cbutter: "cinnamon", matcha: "matcha green tea powder", van: "" };
-  var CAF = { matcha: "Contains naturally occurring caffeine from matcha. Best as a morning or afternoon drink.", choc: "Contains a small amount of naturally occurring caffeine from cocoa." };
-  function ingText(k) { return "Ultra-filtered nonfat milk, milk protein isolate, allulose, cream, " + (ING[k] ? ING[k] + ", " : "") + "hydrolyzed bovine collagen peptides (VERISOL®). Contains 2% or less of: natural flavors, potassium citrate, sea salt, gellan gum, monk fruit extract, stevia leaf extract (Reb M), lactase enzyme, ascorbic acid (vitamin C), ferric pyrophosphate (iron), vitamin A palmitate, vitamin D3, folic acid, vitamin B12."; }
+  var CAF = { matcha: "Contains about 50mg of naturally occurring caffeine from matcha. Best as a morning or afternoon drink.", choc: "Contains a small amount of naturally occurring caffeine from cocoa." };
+  function ingText(k) { return "Ultra-filtered nonfat milk, milk protein concentrate, allulose, cream, " + (ING[k] ? ING[k] + ", " : "") + "hydrolyzed bovine collagen peptides (VERISOL®). Contains 2% or less of: acacia gum (fiber), natural flavors, cellulose gel, cellulose gum, potassium citrate, sea salt, gellan gum, monk fruit extract, stevia leaf extract (Reb M), sucralose, lactase enzyme, ascorbic acid (vitamin C), ferric pyrophosphate (iron), vitamin A palmitate, vitamin D3, vitamin B12."; }
   function nfHtml(v, sw) {
     function r(lbl, amt, dv, cls) { return '<div class="r ' + (cls || "") + '"><span>' + lbl + " " + amt + "</span><b>" + (dv === null ? "" : dv + "%") + "</b></div>"; }
     return '<section class="nf" aria-label="Nutrition Facts"><h3>Nutrition Facts</h3><div class="srv">1 serving per container<br><b>Serving size</b> <b style="float:right">1 bottle (' + (sw ? "473" : "414") + ' mL)</b></div>' +
@@ -1328,7 +1339,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
       r("<b>Total Carbohydrate</b>", v[9], v[10]) + r("Dietary Fiber", v[11], v[12], "i1") + r("Total Sugars", v[13], null, "i1") + r("Includes " + v[14] + " Added Sugars", "", v[15], "i2") +
       r("<b>Protein</b>", v[16], v[17], "thick") +
       '<div class="vit">' + r("Vitamin D", v[18][0], v[18][1]) + r("Calcium", v[19][0], v[19][1]) + r("Iron", v[20][0], v[20][1]) + r("Potassium", v[21][0], v[21][1]) +
-      r("Vitamin C", v[22][0], v[22][1]) + r("Folate", v[23][0], v[23][1]) + r("Vitamin B12", v[24][0], v[24][1]) + r("Vitamin A", v[25][0], v[25][1]) + "</div>" +
+      r("Vitamin C", v[22][0], v[22][1]) + (v[23] ? r("Folate", v[23][0], v[23][1]) : "") + r("Vitamin B12", v[24][0], v[24][1]) + r("Vitamin A", v[25][0], v[25][1]) + "</div>" +
       '<p class="foot">*The % Daily Value tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</p></section>';
   }
   function drawSheet() {
@@ -1398,10 +1409,10 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     var m = me(); if (!m) return;
     m.card = { brand: "Visa", last4: "4242", demo: true }; saveMe(m); toast("Demo card attached. Real cards connect through a secure payment processor."); drawPass(); paintAccount();
   }
-  var PRICE = { 30: 4.99, 50: 5.49 }, MPRICE = { 30: 3.99, 50: 4.49 }; // fridge prices: everyone / Swell Pass members
+  var PRICE = { 30: 5, 50: 7 }, MPRICE = { 30: 4.25, 50: 4.99 }; // fridge prices: everyone / Swell Pass members
   var PLANS = {
-    pass: { name: "Swell Pass", price: 19, incl: 5, badge: "Best for regulars", line: "5 fridge Swells a month included, then $3.99 a Swell and $4.49 a Swell 50g" },
-    payg: { name: "Pay as you go", price: 0, incl: 0, line: "No membership: $4.99 a Swell, $5.49 a Swell 50g at the fridge" } };
+    pass: { name: "Swell Pass", price: 19, incl: 5, badge: "Best for regulars", line: "5 fridge Swells a month included, then $4.25 a Swell and $4.99 a Swell 50g" },
+    payg: { name: "Pay as you go", price: 0, incl: 0, line: "No membership: $5 a Swell, $7 a Swell 50g at the fridge" } };
   function homeOf(m) { return MACHS.filter(function (x) { return x.id === m.home; })[0] || MACHS[0]; }
   function planOf(m) { return m && m.plan === "payg" ? "payg" : "pass"; }
   function pts(m) { return (m && m.points) || 0; }
@@ -1450,7 +1461,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   function drawPass() {
     if (!passBody) return; clearInterval(qrTimer); var m = me();
     var guest = !m; if (guest) m = { name: "Your name here", id: "SW-0000-0000-0000", since: new Date().toISOString().slice(0, 10), pulls: [], plan: "pass", points: 0 };
-    var card = m.card ? '<span class="cc" aria-hidden="true"></span><div><b>' + m.card.brand + " •••• " + m.card.last4 + "</b>" + (PLANS[planOf(m)].price ? "Swell Pass $19/mo · extras $3.99" : "Charged per bottle you take") + (m.card.demo ? " (demo)" : "") + '</div><a class="btn sm alt" href="' + P + 'account.html#pay">Manage</a>'
+    var card = m.card ? '<span class="cc" aria-hidden="true"></span><div><b>' + m.card.brand + " •••• " + m.card.last4 + "</b>" + (PLANS[planOf(m)].price ? "Swell Pass $19/mo · extras $4.25" : "Charged per bottle you take") + (m.card.demo ? " (demo)" : "") + '</div><a class="btn sm alt" href="' + P + 'account.html#pay">Manage</a>'
                        : '<span class="cc" aria-hidden="true" style="opacity:.35"></span><div><b>No card yet</b>Add one so the fridge can charge you</div><button type="button" class="btn sm" data-addcard>Add card</button>';
     passBody.innerHTML = '<h2 id="pass-h" class="sr">Your Swell Pass</h2><div class="pass-card"><div class="pass-top"><img src="' + P + 'img/logo.png" alt="Swell"><span>Member pass<br>Scan at the fridge</span></div>' +
       '<div class="qrwrap" id="qrwrap" role="img" aria-label="Swell Pass QR code for member ' + m.id + '">' + qrSvg(passCode(m)) + '</div>' +
@@ -1499,7 +1510,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   function money(n) { return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
   function affData(a) {
     var r = seeded(a.code), tier = affTier(a), rate = AFF_TIERS[tier].rate, today = new Date(); today.setHours(12, 0, 0, 0);
-    var BOX = [["12 · Swell", 44.99], ["24 · Swell", 89.99], ["12 · 50g", 50.99], ["24 · 50g", 101.99], ["24 · mixed", 95.99]];
+    var BOX = [["12 · Swell", 50.99], ["24 · Swell", 101.99], ["12 · 50g", 59.88], ["24 · 50g", 119.76], ["24 · mixed", 110.88]];
     var days = [], orders = [];
     for (var i = 149; i >= 0; i--) { var d = new Date(today); d.setDate(d.getDate() - i); var grow = .55 + (149 - i) / 149 * .7;
       var clicks = Math.round((22 + r() * 60) * grow * (d.getDay() === 0 || d.getDay() === 6 ? 1.25 : 1)), n = 0, sales = 0;
