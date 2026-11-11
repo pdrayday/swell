@@ -917,6 +917,7 @@ img[src$="logo.png"] { filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgb
 .cmp th, .cmp td { color: #7d4558; }
 .cmp thead th b, .cmp thead th { color: #fff; }
 /* Premium Protein look 3 */
+body:has(#box-form) .mbar-nav { display: none !important; }
 :is(.pass-card, .summary .pack, .host, .aff-apply, .post) img[src$="logo.png"] { filter: brightness(0) invert(45%) sepia(55%) saturate(900%) hue-rotate(300deg) brightness(97%); }
 .drawer nav a, .drawer nav a small, .drawer nav a span { color: var(--pink) !important; text-shadow: none; }
 .drawer nav a { background: rgba(255,255,255,.55); }
@@ -1083,11 +1084,11 @@ img[src$="logo.png"] { filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgb
     if (!$("box-form")) { store("swell-box", box); return; }
     document.querySelectorAll("[data-size]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.size === s)); });
     document.querySelectorAll("button[data-protein]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.protein === box.protein)); });
-    $("box-title").textContent = s + " bottles" + (n ? " · " + (ns ? ns + " Swell" : "") + (ns && nw ? " + " : "") + (nw ? nw + " × 50g" : "") : "");
+    $("box-title").textContent = s + " bottles" + (n ? " · " + (ns ? ns + " × 30g" : "") + (ns && nw ? " + " : "") + (nw ? nw + " × 50g" : "") : "");
     $("box-count").textContent = n + " of " + s; $("box-save").textContent = save; $("box-bar").style.width = pct + "%";
     var bw = 0; for (var kw in box.items) if (isW(kw)) bw += box.items[kw];
     $("bp-total").textContent = "$" + ((s === 24 ? 89.99 : 44.99) + bw * 0.5).toFixed(2);
-    $("bp-per").textContent = "$3.75 a Swell" + (bw ? " · $4.25 a Swell 50g" : "");
+    $("bp-per").textContent = (ns ? "$3.75 a 30g" : "") + (ns && bw ? " · " : "") + (bw ? "$4.25 a 50g" : "") || "$3.75 a 30g · $4.25 a 50g";
     $("bp-ship").textContent = s === 24 ? "Free shipping" + (box.sub ? " · double points" : "") : "+ $" + ship.toFixed(2) + " shipping" + (box.sub ? " · subscriber rate" : "");
     $("box-sub").checked = !!box.sub;
     var sub = $("box-submit"), left = s - n;
@@ -1104,7 +1105,7 @@ img[src$="logo.png"] { filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgb
       var id = r.dataset.id, a = box.items[id] || 0, b = box.items[id + "~50"] || 0;
       r.classList.toggle("on", a + b > 0); $("q-" + id).textContent = box.protein === 50 ? b : a;
       var im = r.querySelector("img"), want = P + "img/" + (box.protein === 50 ? "sw_" : "b_") + id + ".webp"; if (im.getAttribute("src") !== want) im.setAttribute("src", want);
-      $("mix-" + id).innerHTML = (a ? "<i>" + a + " Swell</i>" : "") + (b ? '<i class="w">' + b + " Swell 50g</i>" : "");
+      $("mix-" + id).innerHTML = (a ? "<i>" + a + " × 30g</i>" : "") + (b ? '<i class="w">' + b + " × 50g</i>" : "");
     });
     store("swell-box", box);
   }
@@ -1133,7 +1134,7 @@ img[src$="logo.png"] { filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgb
   document.querySelectorAll("[data-size]").forEach(function (b) { b.addEventListener("click", function () {
     var s = +b.dataset.size; if (s < total()) { toast("Remove " + (total() - s) + " first to switch to " + s); return; } box.size = s; render(); }); });
   document.querySelectorAll("[data-preset]").forEach(function (b) { b.addEventListener("click", function () {
-    var ks = b.dataset.preset.split(","), s = +b.dataset.n, pp = +b.dataset.p || 30; box.size = s; box.items = {}; box.protein = pp;
+    var ks = b.dataset.preset.split(","), s = +b.dataset.n, pp = +b.dataset.p || box.protein || 30; box.size = s; box.items = {}; box.protein = pp;
     for (var i = 0; i < s; i++) { var k = keyFor(ks[i % ks.length], pp); box.items[k] = (box.items[k] || 0) + 1; }
     render(); burst(b); toast(b.textContent.trim() + " loaded"); var f = $("build"); if (f) f.scrollIntoView({ behavior: "smooth" });
   }); });
@@ -1145,7 +1146,7 @@ img[src$="logo.png"] { filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgb
   if ($("clear")) $("clear").addEventListener("click", function () { box.items = {}; render(); });
   if ($("box-sub")) $("box-sub").addEventListener("change", function (e) { box.sub = e.target.checked; render(); });
   document.querySelectorAll("[data-protein]").forEach(function (b) { b.addEventListener("click", function () { box.protein = +b.dataset.protein; render();
-    if ($("box-form")) toast(box.protein === 50 ? "Adding <b>Swell</b> bottles now. Your Swell picks stay in the box." : "Adding <b>Swell</b> bottles now. Your 50g picks stay in the box."); }); });
+    if ($("box-form")) toast(box.protein === 50 ? "Adding light-blue <b>50g</b> bottles now. Your 30g picks stay in the box." : "Adding pink <b>30g</b> bottles now. Your 50g picks stay in the box."); }); });
   function btab(line) {
     document.querySelectorAll("[data-btab]").forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.btab === line)); });
     document.querySelectorAll("[data-bpanel]").forEach(function (p) { p.hidden = p.dataset.bpanel !== line; });
