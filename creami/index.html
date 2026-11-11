@@ -14,7 +14,7 @@
 <title>Ninja Creami Protein Ice Cream Guide | Swell</title>
 <meta name="description" content="How to make Ninja Creami protein ice cream with Swell: settings, fixes for icy or crumbly pints, add-ins, and the popular recipes worth making.">
 <link rel="canonical" href="https://pdrayday.github.io/swell/creami/">
-<meta name="theme-color" content="#2a121a">
+<meta name="theme-color" content="#f4cddb">
 <meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Swell"><meta property="og:title" content="Ninja Creami Protein Ice Cream Guide | Swell"><meta property="og:description" content="How to make Ninja Creami protein ice cream with Swell: settings, fixes for icy or crumbly pints, add-ins, and the popular recipes worth making."><meta property="og:url" content="https://pdrayday.github.io/swell/creami/"><meta property="og:image" content="https://pdrayday.github.io/swell/img/pack_choc.webp">
 <style>:root{--logo:url("../img/logo.svg")}</style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,500..700&family=Instrument+Sans:wght@400;500;600;700&display=swap">
@@ -24,10 +24,10 @@
 <style>
 /* Swell: light pink on every page and device. */
 :root {
-  --bg: #f5e8eb; --bg-2: #fbf2f4; --surface: #efd3da; --surface-2: #f4dfe4;
-  --fg: #2a121a; --muted: #6a3a47; --line: rgba(42, 18, 26, .14);
-  --ink: #2a121a; --ink-2: #4a2230; --on-ink: #fde6ec; --em: #a62851;
-  --stage: #f8e6ea; --stage-muted: #6f5560; --good: #c7ecce; --good-ink: #17431f;
+  --bg: #f4cddb; --bg-2: #efc2d3; --surface: #efc0d1; --surface-2: #ecb8cb;
+  --fg: #7d4558; --muted: #874f62; --line: rgba(255, 255, 255, .7);
+  --ink: #ffffff; --ink-2: #fff5f8; --on-ink: #c9577f; --em: #ffffff; --pink: #c9577f;
+  --stage: #f7d6e2; --stage-muted: #874f62; --good: #c7ecce; --good-ink: #17431f;
   --display: "Source Serif 4", "Source Serif Pro", Georgia, serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --max: 1180px; --r: 20px;
@@ -481,7 +481,7 @@ footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8p
 .icdiy h2 { font-size: clamp(32px, 4vw, 52px); } .icdiy .lead { margin-top: 12px; }
 @media (max-width: 860px) { .icwhy, .icdiy { grid-template-columns: 1fr; } .icwhy-img img { max-height: 420px; } }
 
-/* ---------- shelf Swell/Swoll toggle ---------- */
+/* ---------- shelf 30g/50g toggle ---------- */
 .bottle-view { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: -2px 0 16px; padding: 10px 12px 10px 16px; border-radius: 16px; background: color-mix(in srgb, var(--surface) 78%, white); }
 .bottle-view p { color: var(--muted); font-size: 14px; } .bottle-view p b { color: var(--fg); }
 .bottle-view .segline { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--bg); flex: none; }
@@ -865,6 +865,63 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 .soon + h2.h1 { margin-top: 10px; }
 .door img.mimg { height: 44%; object-fit: cover; width: auto; right: 16px; bottom: 16px; border-radius: 16px; filter: none; box-shadow: 0 14px 26px -16px rgba(40,10,20,.5); }
 @media (max-width: 1100px) and (min-width: 861px) { .door img.mimg { height: 38%; } }
+
+/* ==== Premium Protein look: light pink + white, like the new bottle ==== */
+h1, h2, h3, .h1 { color: #fff; text-shadow: 0 1px 1px rgba(185,80,118,.28), 0 2px 18px rgba(201,87,127,.22); }
+h1 em, h2 em, h3 em, em:not([class]) { color: #fff; }
+.lead, p { color: var(--fg); }
+:focus-visible { outline-color: var(--pink) !important; }
+.swl { color: inherit; }
+header.top { background: rgba(244,205,219,.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+header.top .logo, header.top .logo * { color: #fff; }
+.promo { background: #fff; color: var(--pink); }
+.promo a { color: var(--pink); }
+.btn, .add { box-shadow: 0 8px 22px -12px rgba(185,80,118,.55); }
+.btn.alt { background: transparent; color: #fff; box-shadow: inset 0 0 0 2px #fff; }
+.add.in { background: var(--pink); color: #fff; }
+/* white "label" panels: pink text inside, like the logo box on the bottle */
+:is(.host, .aff-apply, .pass-card, .door.dark, .tier.hot, .ad-stat.hi, .toast, .mbar, .scanfab, .soon, .summary, .post, .fnotiles, .fsearch) :is(h1, h2, h3, h4, p, b, em, small, span, li, label) { color: var(--pink); text-shadow: none; }
+:is(.host, .aff-apply) .btn { background: var(--pink); color: #fff; }
+.host input, .host select, .aff-apply input, .aff-apply select, .aff-apply textarea, .hsel { box-shadow: inset 0 0 0 1.5px #f2b9cc; color: #7d4558; }
+.summary { background: #fff; color: #7d4558; }
+.summary .btn { background: var(--pink); color: #fff; }
+.bar span { background: var(--pink); }
+.packband { background: var(--pink) !important; }
+.packband span, .packband b { color: #fff !important; }
+.post { background: #fff; color: #7d4558; }
+.bprice span, .subq small { color: #874f62; }
+.mbar i { background: var(--bg) !important; color: var(--pink) !important; }
+.scanfab { color: var(--pink); border-color: var(--bg); }
+.pin circle { stroke: var(--pink); } .pin text, .plbl, .fsearch input, .fctl button, .fctl.fme { fill: var(--pink); color: var(--pink); }
+.ad-chart .bar { fill: #fff; } .ad-chart .bar.on { fill: var(--pink); }
+.rev .stars, .mach-facts li::before { color: #fff; }
+.eben b, .inside b, .aff-stats b, .phases .pn, .why .big b, .sh-ben li i, .pcap .ht, .tagline span, .ds-head .hash { color: #fff; text-shadow: 0 1px 1px rgba(185,80,118,.3); }
+.fl .tag, .ictag { background: #fff; color: var(--pink); }
+.nf, .nf * { color: #000 !important; text-shadow: none !important; }
+footer.site { background: var(--bg-2); }
+footer.site h2, footer.site h3, footer.site b { color: #fff; }
+.drawer { background: var(--bg); }
+.subq { background: #fff; }
+.pricepts li, .psteps li, .phases div { background: rgba(255,255,255,.28); }
+/* Premium Protein look 2 */
+img[src$="logo.png"] { filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgba(185,80,118,.35)); }
+.summary img[src$="logo.png"] { filter: brightness(0) invert(1); }
+.burger span { background: #fff !important; }
+.tabs a { color: #fff; text-shadow: 0 1px 1px rgba(185,80,118,.35); }
+.tabs a:hover, .tabs a[aria-current="page"] { background: #fff; color: var(--pink); text-shadow: none; }
+.tabs a.aff { box-shadow: inset 0 0 0 1.5px #fff; color: #fff; }
+.prof .pav { background: #fff; color: var(--pink); }
+.seg button, .opt, .pk, .planopt { border-color: rgba(255,255,255,.75); }
+.seg button[aria-pressed="true"], .opt[aria-pressed="true"], .pk.on, .mloc.sel, .planopt.on, .sh-size button[aria-pressed="true"] { border-color: #fff; background: rgba(255,255,255,.35); }
+.filters button[aria-pressed="true"], .ffilters button[aria-pressed="true"], .drawer nav a[aria-current="page"], .btabs button[aria-selected="true"], .bottle-view button[aria-pressed="true"], .ad-range button[aria-pressed="true"] { background: #fff; color: var(--pink); }
+.drawer nav a { color: #fff; } .drawer nav a i { color: var(--pink); }
+.cmp th, .cmp td { color: #7d4558; }
+.cmp thead th b, .cmp thead th { color: #fff; }
+/* Premium Protein look 3 */
+:is(.pass-card, .summary .pack, .host, .aff-apply, .post) img[src$="logo.png"] { filter: brightness(0) invert(45%) sepia(55%) saturate(900%) hue-rotate(300deg) brightness(97%); }
+.drawer nav a, .drawer nav a small, .drawer nav a span { color: var(--pink) !important; text-shadow: none; }
+.drawer nav a { background: rgba(255,255,255,.55); }
+.drawer nav a[aria-current="page"] { background: #fff; }
 </style>
 <div class="promo" role="region" aria-label="Announcement">Reserve a box today and pay nothing until it ships. <a href="../shop.html#build">Build yours</a></div>
 <header class="top"><div class="wrap">
@@ -883,7 +940,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   <ul class="mach-facts"><li>One bottle per pint</li><li>Lite Ice Cream setting</li><li>30g protein a pint</li></ul></div>
   <img src="../img/posts/ugc_creami.webp" alt="A pint of protein ice cream made from a bottle of Swell in a Ninja Creami" width="720" height="900"></div></section>
 <section style="padding-top:10px" aria-labelledby="h-basics"><div class="wrap">
-  <div class="sec-h"><h2 id="h-basics">The basics</h2><p>Any <span class="swl"><span>Swell</span></span> flavor works. One 14 oz bottle makes one pint with 30g protein (50g with a Swoll).</p></div>
+  <div class="sec-h"><h2 id="h-basics">The basics</h2><p>Any <span class="swl"><span>Swell</span></span> flavor works. One 14 oz bottle makes one pint with 30g protein (50g with a 50g bottle).</p></div>
   <ol class="cbasics"><li><b>Pour and freeze.</b> Shake the bottle, pour it into the pint, and freeze it flat with the lid off for a full 24 hours.</li>
     <li><b>Pick the setting.</b> Lite Ice Cream works for every flavor. Most protein bases come out crumbly the first time, and that's expected.</li>
     <li><b>Re-spin.</b> Add 1 to 2 tbsp milk and re-spin. This is the step that makes protein ice cream creamy.</li>
@@ -987,7 +1044,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
     }); });
   });
 
-  // ---------- box (shared across pages): keys "choc" = Swell 30g, "choc~50" = Swoll 50g ----------
+  // ---------- box (shared across pages): keys "choc" = Swell 30g, "choc~50" = Swell 50g ----------
   var box = store("swell-box") || { size: 12, protein: 30, items: {} };
   for (var bk in box.items) if (!NAMES[bk.replace(/~50$/, "")]) delete box.items[bk];
   if (box.sub === undefined) box.sub = true;
@@ -1010,11 +1067,11 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
     if (!$("box-form")) { store("swell-box", box); return; }
     document.querySelectorAll("[data-size]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.size === s)); });
     document.querySelectorAll("button[data-protein]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.protein === box.protein)); });
-    $("box-title").textContent = s + " bottles" + (n ? " · " + (ns ? ns + " Swell" : "") + (ns && nw ? " + " : "") + (nw ? nw + " Swoll" : "") : "");
+    $("box-title").textContent = s + " bottles" + (n ? " · " + (ns ? ns + " Swell" : "") + (ns && nw ? " + " : "") + (nw ? nw + " × 50g" : "") : "");
     $("box-count").textContent = n + " of " + s; $("box-save").textContent = save; $("box-bar").style.width = pct + "%";
     var bw = 0; for (var kw in box.items) if (isW(kw)) bw += box.items[kw];
     $("bp-total").textContent = "$" + ((s === 24 ? 89.99 : 44.99) + bw * 0.5).toFixed(2);
-    $("bp-per").textContent = "$3.75 a Swell" + (bw ? " · $4.25 a Swoll" : "");
+    $("bp-per").textContent = "$3.75 a Swell" + (bw ? " · $4.25 a Swell 50g" : "");
     $("bp-ship").textContent = s === 24 ? "Free shipping" + (box.sub ? " · double points" : "") : "+ $" + ship.toFixed(2) + " shipping" + (box.sub ? " · subscriber rate" : "");
     $("box-sub").checked = !!box.sub;
     var sub = $("box-submit"), left = s - n;
@@ -1022,16 +1079,16 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
     var list = []; Object.keys(box.items).forEach(function (k) { for (var i = 0; i < box.items[k]; i++) list.push(k); });
     var slots = $("slots"), prev = slots.querySelectorAll("i.f").length, h = "";
     for (var i = 0; i < s; i++) h += list[i]
-      ? '<i class="f' + (isW(list[i]) ? " w" : "") + '"><span class="b"><img src="' + imgFor(list[i]) + '" alt="' + (isW(list[i]) ? "Swoll " : "Swell ") + nameFor(list[i]) + '"' + (i < prev ? ' style="animation:none"' : "") + '></span><small>' + nameFor(list[i]) + "</small></i>"
+      ? '<i class="f' + (isW(list[i]) ? " w" : "") + '"><span class="b"><img src="' + imgFor(list[i]) + '" alt="' + (isW(list[i]) ? "Swell 50g " : "Swell ") + nameFor(list[i]) + '"' + (i < prev ? ' style="animation:none"' : "") + '></span><small>' + nameFor(list[i]) + "</small></i>"
       : '<i><span class="b"></span><small></small></i>';
     slots.innerHTML = h; slots.classList.toggle("s24", s === 24); slots.style.gridTemplateColumns = "";
-    $("packtxt").textContent = s + " bottles · " + (ns && nw ? "Swell + Swoll mix" : nw ? "Swoll · 50g" : "Swell · 30g");
-    $("tally").innerHTML = s !== 24 ? "" : Object.keys(box.items).map(function (k) { return '<span class="' + (isW(k) ? "w" : "") + '"><img src="' + imgFor(k) + '" alt="">' + (isW(k) ? "Swoll " : "") + nameFor(k) + " × " + box.items[k] + "</span>"; }).join("");
+    $("packtxt").textContent = s + " bottles · " + (ns && nw ? "30g + 50g mix" : nw ? "Swell · 50g" : "Swell · 30g");
+    $("tally").innerHTML = s !== 24 ? "" : Object.keys(box.items).map(function (k) { return '<span class="' + (isW(k) ? "w" : "") + '"><img src="' + imgFor(k) + '" alt="">' + (isW(k) ? "Swell 50g " : "") + nameFor(k) + " × " + box.items[k] + "</span>"; }).join("");
     document.querySelectorAll(".pk").forEach(function (r) {
       var id = r.dataset.id, a = box.items[id] || 0, b = box.items[id + "~50"] || 0;
       r.classList.toggle("on", a + b > 0); $("q-" + id).textContent = box.protein === 50 ? b : a;
       var im = r.querySelector("img"), want = P + "img/" + (box.protein === 50 ? "sw_" : "b_") + id + ".webp"; if (im.getAttribute("src") !== want) im.setAttribute("src", want);
-      $("mix-" + id).innerHTML = (a ? "<i>" + a + " Swell</i>" : "") + (b ? '<i class="w">' + b + " Swoll</i>" : "");
+      $("mix-" + id).innerHTML = (a ? "<i>" + a + " Swell</i>" : "") + (b ? '<i class="w">' + b + " Swell 50g</i>" : "");
     });
     store("swell-box", box);
   }
@@ -1045,7 +1102,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
     if (n > 0) {
       document.querySelectorAll(".boxcount").forEach(pop); if (src) burst(src);
       var q = $("q-" + baseK(k)); if (q) pop(q);
-      if (!$("box-form")) toast((isW(k) ? "Swoll " : "") + nameFor(k) + " added · <a href='" + P + "shop.html#build'>View box</a>");
+      if (!$("box-form")) toast((isW(k) ? "Swell 50g " : "") + nameFor(k) + " added · <a href='" + P + "shop.html#build'>View box</a>");
     }
     return true;
   }
@@ -1072,7 +1129,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   if ($("clear")) $("clear").addEventListener("click", function () { box.items = {}; render(); });
   if ($("box-sub")) $("box-sub").addEventListener("change", function (e) { box.sub = e.target.checked; render(); });
   document.querySelectorAll("[data-protein]").forEach(function (b) { b.addEventListener("click", function () { box.protein = +b.dataset.protein; render();
-    if ($("box-form")) toast(box.protein === 50 ? "Adding <b>Swoll</b> bottles now. Your Swell picks stay in the box." : "Adding <b>Swell</b> bottles now. Your Swoll picks stay in the box."); }); });
+    if ($("box-form")) toast(box.protein === 50 ? "Adding <b>Swell</b> bottles now. Your Swell picks stay in the box." : "Adding <b>Swell</b> bottles now. Your 50g picks stay in the box."); }); });
   function btab(line) {
     document.querySelectorAll("[data-btab]").forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.btab === line)); });
     document.querySelectorAll("[data-bpanel]").forEach(function (p) { p.hidden = p.dataset.bpanel !== line; });
@@ -1271,7 +1328,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
 
   // ---------- drink detail sheet (nutrition facts) ----------
   var sheet = $("sheet"), shScrim = $("sheet-scrim"), shBody = $("sh-body"), shK = null, shP = 30, lastFocus = null;
-  var NUT = { // target formula (Swell 30g Chocolate panel; Swoll 50g is a target until its label is set)
+  var NUT = { // target formula (Swell 30g Chocolate panel; Swell 50g is a target until its label is set)
     30: [170, "3g", 4, "2g", 10, "30mg", 10, "230mg", 10, "14g", 5, "2g", 7, "4g", "0g", 0, "30g", 60, ["5mcg", 25], ["650mg", 50], ["4.5mg", 25], ["470mg", 10], ["60mg", 67], ["100mcg DFE (60mcg folic acid)", 25], ["1.2mcg", 50], ["135mcg", 15]],
     50: [260, "3.5g", 4, "2g", 10, "45mg", 15, "320mg", 14, "15g", 5, "2g", 7, "5g", "0g", 0, "50g", 100, ["5mcg", 25], ["1000mg", 77], ["4.5mg", 25], ["650mg", 14], ["60mg", 67], ["100mcg DFE (60mcg folic acid)", 25], ["1.2mcg", 50], ["135mcg", 15]] };
   var ING = { choc: "cocoa (processed with alkali)", cbutter: "cinnamon", matcha: "matcha green tea powder", van: "" };
@@ -1290,17 +1347,17 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   }
   function drawSheet() {
     var d = DRINKS[shK], sw = shP === 50, kind = "protein shake", key = sw ? shK + "~50" : shK, q = box.items[key] || 0;
-    shBody.innerHTML = '<div class="sh-top"><div class="bimg' + (sw ? " w" : "") + '"><img src="' + P + "img/" + (sw ? "sw_" + shK + "_lg" : "b_" + shK) + '.webp" alt="' + (sw ? "Swoll " : "Swell ") + d.n + '"></div>' +
-      '<div><h2 id="sh-name">' + d.n + '</h2><p class="kind">' + (sw ? "Swoll" : "Swell") + " " + kind + " · " + (sw ? "50g" : "30g") + " protein</p>" + '<p class="d">' + d.d + "</p></div></div>" +
+    shBody.innerHTML = '<div class="sh-top"><div class="bimg' + (sw ? " w" : "") + '"><img src="' + P + "img/" + (sw ? "sw_" + shK + "_lg" : "b_" + shK) + '.webp" alt="' + (sw ? "Swell 50g " : "Swell ") + d.n + '"></div>' +
+      '<div><h2 id="sh-name">' + d.n + '</h2><p class="kind">' + (sw ? "Swell 50g" : "Swell") + " " + kind + " · " + (sw ? "50g" : "30g") + " protein</p>" + '<p class="d">' + d.d + "</p></div></div>" +
       '<div class="sh-size" role="group" aria-label="Bottle"><button type="button" data-shp="30" aria-pressed="' + !sw + '"><b>Swell · 30g</b><span>Pink bottle</span></button>' +
-      '<button type="button" class="w" data-shp="50" aria-pressed="' + sw + '"><b>Swoll · 50g</b><span>Blue bottle</span></button></div>' +
-      '<button type="button" class="btn sh-add" id="sh-add">' + (q ? CHECK + " " + q + " in box · add another" : "Add " + (sw ? "Swoll " : "Swell ") + d.n + " to box") + "</button>" +
+      '<button type="button" class="w" data-shp="50" aria-pressed="' + sw + '"><b>Swell · 50g</b><span>Light-blue bottle</span></button></div>' +
+      '<button type="button" class="btn sh-add" id="sh-add">' + (q ? CHECK + " " + q + " in box · add another" : "Add " + (sw ? "Swell 50g " : "Swell ") + d.n + " to box") + "</button>" +
       '<div class="sh-ben"><b>In every bottle</b><ul><li><i>' + (sw ? "50g" : "30g") + '</i>protein</li><li><i>25%</i>iron + vitamin C</li><li><i>2.5g</i>collagen</li><li><i>0g</i>added sugar</li><li><i>0</i>lactose</li></ul><a href="' + P + 'index.html#every">Why it matters →</a></div>' +
       nfHtml(NUT[shP], sw) +
       '<div class="sh-extra"><p><b>Ingredients:</b> ' + ingText(shK) + '</p><p><b>Contains:</b> milk.</p>' +
       '<p>Total carbohydrate includes 8g allulose (0.4 calories per gram; not counted as sugar). Lactose-free. 2.5g collagen peptides per bottle. Shelf stable. Refrigerate after opening. Shake well, serve cold.</p>' +
       (CAF[shK] ? "<p><b>" + CAF[shK] + "</b></p>" : "") +
-      '<p><span class="ph">' + (sw ? "Swoll 50g is a target formula; its final label follows once the formula is set." : "Target formula. Final numbers come from the co-packer's lab tests.") + '</span></p></div>';
+      '<p><span class="ph">' + (sw ? "Swell 50g is a target formula; its final label follows once the formula is set." : "Target formula. Final numbers come from the co-packer's lab tests.") + '</span></p></div>';
     shBody.querySelectorAll("[data-shp]").forEach(function (b) { b.addEventListener("click", function () { shP = +b.dataset.shp; drawSheet(); }); });
     $("sh-add").addEventListener("click", function (e) { if (add(key, 1, e.currentTarget)) drawSheet(); });
   }
@@ -1357,8 +1414,8 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   }
   var PRICE = { 30: 4.99, 50: 5.49 }, MPRICE = { 30: 3.99, 50: 4.49 }; // fridge prices: everyone / Swell Pass members
   var PLANS = {
-    pass: { name: "Swell Pass", price: 19, incl: 5, badge: "Best for regulars", line: "5 fridge Swells a month included, then $3.99 a Swell and $4.49 a Swoll" },
-    payg: { name: "Pay as you go", price: 0, incl: 0, line: "No membership: $4.99 a Swell, $5.49 a Swoll at the fridge" } };
+    pass: { name: "Swell Pass", price: 19, incl: 5, badge: "Best for regulars", line: "5 fridge Swells a month included, then $3.99 a Swell and $4.49 a Swell 50g" },
+    payg: { name: "Pay as you go", price: 0, incl: 0, line: "No membership: $4.99 a Swell, $5.49 a Swell 50g at the fridge" } };
   function homeOf(m) { return MACHS.filter(function (x) { return x.id === m.home; })[0] || MACHS[0]; }
   function planOf(m) { return m && m.plan === "payg" ? "payg" : "pass"; }
   function pts(m) { return (m && m.points) || 0; }
@@ -1374,7 +1431,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
     m.points = pts(m) + earned;
     m.pulls = [{ k: k, p: p, at: new Date().toISOString(), inc: inc, amt: amt, where: where }].concat(m.pulls || []).slice(0, 30);
     saveMe(m); burst($("scanfab"));
-    toast("Scanned: " + (p === 50 ? "Swoll " : "Swell ") + DRINKS[k].n + " · " + (inc ? (usedMonth + 1) + " of " + pl.incl + " included this month" : "$" + amt.toFixed(2) + " charged to " + m.card.brand + " •••• " + m.card.last4 + " · +" + earned + " points") + " (demo)");
+    toast("Scanned: " + (p === 50 ? "Swell 50g " : "Swell ") + DRINKS[k].n + " · " + (inc ? (usedMonth + 1) + " of " + pl.incl + " included this month" : "$" + amt.toFixed(2) + " charged to " + m.card.brand + " •••• " + m.card.last4 + " · +" + earned + " points") + " (demo)");
     paintAccount();
   }
   function avatar(m) { return m && m.photo ? '<img src="' + m.photo + '" alt="">' : initials(m && m.name); }
@@ -1454,7 +1511,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   function money(n) { return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
   function affData(a) {
     var r = seeded(a.code), tier = affTier(a), rate = AFF_TIERS[tier].rate, today = new Date(); today.setHours(12, 0, 0, 0);
-    var BOX = [["12 · Swell", 44.99], ["24 · Swell", 89.99], ["12 · Swoll", 50.99], ["24 · Swoll", 101.99], ["24 · mixed", 95.99]];
+    var BOX = [["12 · Swell", 44.99], ["24 · Swell", 89.99], ["12 · 50g", 50.99], ["24 · 50g", 101.99], ["24 · mixed", 95.99]];
     var days = [], orders = [];
     for (var i = 149; i >= 0; i--) { var d = new Date(today); d.setDate(d.getDate() - i); var grow = .55 + (149 - i) / 149 * .7;
       var clicks = Math.round((22 + r() * 60) * grow * (d.getDay() === 0 || d.getDay() === 6 ? 1.25 : 1)), n = 0, sales = 0;
@@ -1543,7 +1600,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   function paintAccount() {
     var host = $("acct"); if (!host) return; var m = me();
     if (!m) { host.innerHTML = '<div class="acard">' + signinHtml("acct") + "</div>"; wireSignin(host); return; }
-    var pulls = (m.pulls || []).map(function (x) { var d = DRINKS[x.k] || { n: x.k }; return '<li><img src="' + P + "img/" + (x.p === 50 ? "sw_" : "b_") + x.k + '.webp" alt=""><div><b>' + (x.p === 50 ? "Swoll " : "Swell ") + d.n + "</b><small>" + x.where + " · " + new Date(x.at).toLocaleString() + "</small></div><b>" + (x.inc ? "Included" : "$" + (x.amt === undefined ? PRICE[x.p] : x.amt).toFixed(2)) + "</b></li>"; }).join("");
+    var pulls = (m.pulls || []).map(function (x) { var d = DRINKS[x.k] || { n: x.k }; return '<li><img src="' + P + "img/" + (x.p === 50 ? "sw_" : "b_") + x.k + '.webp" alt=""><div><b>' + (x.p === 50 ? "Swell 50g " : "Swell ") + d.n + "</b><small>" + x.where + " · " + new Date(x.at).toLocaleString() + "</small></div><b>" + (x.inc ? "Included" : "$" + (x.amt === undefined ? PRICE[x.p] : x.amt).toFixed(2)) + "</b></li>"; }).join("");
     var spent = (m.pulls || []).reduce(function (a, x) { return a + (x.amt === undefined ? PRICE[x.p] : x.amt); }, 0);
     var pk = planOf(m), pl = PLANS[pk], mp = monthPulls(m), incN = mp.filter(function (x) { return x.inc; }).length,
         value = mp.filter(function (x) { return x.inc; }).reduce(function (a, x) { return a + PRICE[x.p]; }, 0), start = m.planStart || m.since, renew = start;
@@ -1570,7 +1627,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
                                                      : '<p style="color:var(--muted);font-size:15px">Attach a card for your box and for Swell fridges.</p><button type="button" class="btn" data-addcard>Add card</button>') +
       '<p class="small" style="margin-top:12px"><span class="ph">Demo: no real card is collected. Live cards connect through a secure payment processor (for example Stripe, Apple Pay or Google Pay).</span></p></div>' +
       '<div class="acard"><h2>Settings</h2><div class="arow"><span>Member ID</span><b style="font-family:ui-monospace,Menlo,monospace">' + m.id + '</b></div><div class="arow"><span>Member since</span><b>' + m.since + '</b></div>' +
-      '<div class="arow"><span>Favorite bottle</span><b>' + (box.protein === 50 ? "Swoll · 50g" : "Swell · 30g") + '</b></div><div class="arow"><button type="button" class="btn sm alt" data-signout>Sign out</button></div></div></div>' +
+      '<div class="arow"><span>Favorite bottle</span><b>' + (box.protein === 50 ? "Swell · 50g" : "Swell · 30g") + '</b></div><div class="arow"><button type="button" class="btn sm alt" data-signout>Sign out</button></div></div></div>' +
       '<div>' + subCard + '<div class="acard" id="points"><h2>Points</h2><div class="arow"><span>Balance</span><b>' + pts(m) + ' points</b></div><div class="pbar" aria-hidden="true"><i style="width:' + (pts(m) % 50 / 50 * 100) + '%"></i></div>' +
       '<p class="small" style="margin-top:6px;color:var(--muted)">' + (50 - pts(m) % 50) + ' more to a free Swell. 1 point per $1 at home or at the fridge; box subscribers earn double.</p></div>' +
       '<div class="acard"><h2>Fridge history</h2><div class="arow"><span>Bottles from fridges</span><b>' + (m.pulls || []).length + '</b></div><div class="arow"><span>Total charged</span><b>$' + spent.toFixed(2) + '</b></div>' +
