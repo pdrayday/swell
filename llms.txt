@@ -17,7 +17,7 @@
 - [Shop](https://pdrayday.github.io/swell/shop.html)
 - [Ice Cream](https://pdrayday.github.io/swell/icecream.html)
 - [Find a fridge](https://pdrayday.github.io/swell/#find)
-- [Recipes](https://pdrayday.github.io/swell/creami/)
+- [Ice Cream & Recipes](https://pdrayday.github.io/swell/icecream.html)
 - [Blog](https://pdrayday.github.io/swell/blog.html)
 - [About](https://pdrayday.github.io/swell/about.html)
 - [FAQ](https://pdrayday.github.io/swell/faq.html)
