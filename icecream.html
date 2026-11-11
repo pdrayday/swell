@@ -27,6 +27,14 @@
 .fl h3 .nlink[data-drink="matcha"], .pk[data-id="matcha"] b { color: #4a7a1f; }
 .fan img { aspect-ratio: 4 / 5 !important; width: 50%; }
 @media (max-width: 720px) { .fan img { width: 48%; } }
+/* ice cream: four pints + lineup, text-only Creami section */
+.icgrid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; max-width: none !important; }
+@media (max-width: 900px) { .icgrid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+.icc:last-child { grid-column: auto !important; max-width: none !important; justify-self: stretch !important; }
+.iclineup { display: block; width: 100%; height: auto; border-radius: 24px; margin: 0 0 16px; }
+.icdiy { grid-template-columns: 1fr !important; max-width: 760px; margin-inline: auto; text-align: center; }
+.icc { align-content: start; }
+.icdiy .ctas { justify-content: center; }
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,500..700&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Swell protein ice cream pints", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Swell Chocolate protein ice cream", "image": "https://pdrayday.github.io/swell/img/ic/chocolate.webp"}, {"@type": "ListItem", "position": 2, "name": "Swell Vanilla protein ice cream", "image": "https://pdrayday.github.io/swell/img/ic/vanilla.webp"}, {"@type": "ListItem", "position": 3, "name": "Swell Cookie Butter protein ice cream", "image": "https://pdrayday.github.io/swell/img/ic/cookie_butter.webp"}]}</script><script>try{localStorage.removeItem('swell-line');}catch(e){}</script>
 </head>
@@ -963,24 +971,22 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <div class="fan" aria-hidden="true"><img src="img/ic/ic2_beach.webp" alt="" width="720" height="900"><img src="img/ic/ic2_fridge.webp" alt="" width="720" height="900"><img src="img/ic/ic2_choc_girl.webp" alt="" width="720" height="900"></div>
 </div></section>
 <section id="pints" style="padding-top:20px"><div class="wrap">
-  <div class="sec-h"><h2>Three dessert pints</h2><p>Every pint is protein ice cream.</p></div>
-  <div class="icgrid"><article class="icc"><div class="icpic"><img src="img/ic/pint2_choc.webp" alt="A woman by the window eating a pint of Swell Chocolate protein ice cream" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Chocolate</h3><p>Deep cocoa with fudge ribbons and chocolate chunks.</p></div></article><article class="icc"><div class="icpic"><img src="img/ic/pint2_van.webp" alt="Friends laughing on the beach with a pint of Swell Vanilla protein ice cream" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Vanilla</h3><p>Vanilla bean, speckled and creamy. Goes with everything.</p></div></article><article class="icc"><div class="icpic"><img src="img/ic/pint2_cbutter.webp" alt="A pint of Swell Cookie Butter protein ice cream at the beach at sunset" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Cookie Butter</h3><p>Spiced speculoos cookie with a caramel cookie-butter swirl.</p></div></article></div>
+  <div class="sec-h"><h2>Four dessert pints</h2><p>Every pint is protein ice cream, with 30g of protein.</p></div><img class="iclineup" src="img/ic/pints2_lineup.webp" alt="Swell Premium Protein Ice Cream pints in Vanilla, Chocolate, Cookie Butter and Matcha, 30g protein per pint" width="1600" height="533">
+  <div class="icgrid"><article class="icc"><div class="icpic"><img src="img/ic/pint2_choc.webp" alt="A woman by the window eating a pint of Swell Chocolate protein ice cream" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Chocolate</h3><p>Deep cocoa with fudge ribbons and chocolate chunks.</p></div></article><article class="icc"><div class="icpic"><img src="img/ic/pint2_van.webp" alt="Friends laughing on the beach with a pint of Swell Vanilla protein ice cream" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Vanilla</h3><p>Vanilla bean, speckled and creamy. Goes with everything.</p></div></article><article class="icc"><div class="icpic"><img src="img/ic/pint2_cbutter.webp" alt="A pint of Swell Cookie Butter protein ice cream at the beach at sunset" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Cookie Butter</h3><p>Spiced speculoos cookie with a caramel cookie-butter swirl.</p></div></article><article class="icc"><div class="icpic"><img src="img/ic/pint2_matcha.webp" alt="A woman at a Pilates studio eating a pint of Swell Matcha protein ice cream" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Matcha</h3><p>Smooth matcha green tea, creamy and lightly sweet.</p></div></article></div>
 </div></section>
 <section class="alt-bg"><div class="wrap icwhy">
   <div class="icwhy-img"><img src="img/ic/ic2_fridge.webp" alt="Two women at a Pilates studio picking Swell protein ice cream pints from a pink Swell fridge" width="720" height="900" loading="lazy"></div>
   <div>
     <h2>Dessert first. Protein included.</h2>
     <ul class="icpoints">
-      <li><b>Real dessert flavors</b><span>Chocolate, vanilla and cookie butter, the same flavors as the shakes.</span></li>
+      <li><b>Real dessert flavors</b><span>Chocolate, vanilla, cookie butter and matcha, the same flavors as the shakes.</span></li>
       <li><b>Protein in every pint</b><span>Built on the same milk protein as the shakes, so it's a snack that holds you over.</span></li>
       <li><b>Less sugar</b><span>Sweet enough for 9pm, without the crash.</span></li>
     </ul>
     <p class="small" style="margin-top:14px"><span class="ph">Nutrition and pint sizes are placeholders until the recipes are final.</span></p>
   </div>
 </div></section>
-<section><div class="wrap icdiy">
-  <img src="img/posts/ugc_creami.webp" alt="A pint of protein ice cream made from a bottle of Swell in a Ninja Creami" width="720" height="900" loading="lazy">
-  <div><h2>Make it at home tonight.</h2><p class="lead">Until pints drop, pour a bottle of <span class="swl"><span>Swell</span></span> into a Ninja Creami pint, freeze it for 24 hours and spin. One bottle makes a pint with 30g of protein.</p>
+<section><div class="wrap icdiy"> <div><h2>Make it at home tonight.</h2><p class="lead">Until pints drop, pour a bottle of <span class="swl"><span>Swell</span></span> into a Ninja Creami pint, freeze it for 24 hours and spin. One bottle makes a pint with 30g of protein.</p>
     <div class="ctas"><a class="btn" href="creami/index.html">Get the Creami guide</a><a class="btn alt" href="shop.html#build">Build a box</a></div></div>
 </div></section>
 <section id="notify" style="padding-top:0"><div class="wrap"><div class="host">
