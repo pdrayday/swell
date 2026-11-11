@@ -1288,7 +1288,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   function ingText(k) { return "Ultra-filtered nonfat milk, milk protein isolate, allulose, cream, " + (ING[k] ? ING[k] + ", " : "") + "hydrolyzed bovine collagen peptides (VERISOL®). Contains 2% or less of: natural flavors, potassium citrate, sea salt, gellan gum, monk fruit extract, stevia leaf extract (Reb M), lactase enzyme, ascorbic acid (vitamin C), ferric pyrophosphate (iron), vitamin A palmitate, vitamin D3, folic acid, vitamin B12."; }
   function nfHtml(v, sw) {
     function r(lbl, amt, dv, cls) { return '<div class="r ' + (cls || "") + '"><span>' + lbl + " " + amt + "</span><b>" + (dv === null ? "" : dv + "%") + "</b></div>"; }
-    return '<section class="nf" aria-label="Nutrition Facts"><h3>Nutrition Facts</h3><div class="srv">1 serving per container<br><b>Serving size</b> <b style="float:right">1 bottle (414 mL)</b></div>' +
+    return '<section class="nf" aria-label="Nutrition Facts"><h3>Nutrition Facts</h3><div class="srv">1 serving per container<br><b>Serving size</b> <b style="float:right">1 bottle (' + (sw ? "473" : "414") + ' mL)</b></div>' +
       '<div class="cal"><span>Calories</span><span>' + v[0] + "</span></div>" + '<div class="dvh">% Daily Value*</div>' +
       r("<b>Total Fat</b>", v[1], v[2]) + r("Saturated Fat", v[3], v[4], "i1") + r("<i>Trans</i> Fat", "0g", null, "i1") + r("<b>Cholesterol</b>", v[5], v[6]) + r("<b>Sodium</b>", v[7], v[8]) +
       r("<b>Total Carbohydrate</b>", v[9], v[10]) + r("Dietary Fiber", v[11], v[12], "i1") + r("Total Sugars", v[13], null, "i1") + r("Includes " + v[14] + " Added Sugars", "", v[15], "i2") +

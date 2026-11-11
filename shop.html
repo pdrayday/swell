@@ -903,7 +903,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   </div>
   <form class="summary" id="box-form" novalidate>
     <h3 id="box-title">12 shakes · 30g protein</h3>
-    <div class="pack"><div class="packband"><img src="img/logo.png" alt="Swell"><span id="packtxt">12 bottles · 14 fl oz each</span></div><div class="slots" id="slots" role="group" aria-label="Bottles in your box"></div><div class="tally" id="tally" aria-live="polite"></div></div>
+    <div class="pack"><div class="packband"><img src="img/logo.png" alt="Swell"><span id="packtxt">12 bottles · Swell 14 fl oz, Swoll 16 fl oz</span></div><div class="slots" id="slots" role="group" aria-label="Bottles in your box"></div><div class="tally" id="tally" aria-live="polite"></div></div>
     <div><div class="row"><span id="box-count">0 of 12</span><span class="ok" id="box-save">+ $4.99 shipping</span></div><div class="bar" style="margin-top:8px"><span id="box-bar"></span></div></div>
     <div class="links"><button type="button" id="fill">Fill the rest for me</button><button type="button" id="clear">Clear</button></div>
     <div class="bprice"><div><b id="bp-total">$44.99</b><span id="bp-per">$3.75 a <span class="swl"><span>Swell</span></span></span></div><span id="bp-ship">+ $4.99 shipping</span></div>
@@ -918,7 +918,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   <div class="stage"><img src="img/size_compare.webp" alt="Swell shake with 30g protein next to the Swoll shake with 50g" width="720" height="840" loading="lazy"></div>
   <div><div class="sec-h" style="margin-bottom:20px"><h2>Two bottles, one recipe</h2><p>Same flavors and the same lactose-free base. Choose how much protein you want.</p></div>
     <button type="button" class="opt" data-protein="30" aria-pressed="true"><span class="g">30g</span><span class="t"><b><span class="swl"><span>Swell</span></span></b><span>14 fl oz, 170 calories. Before Pilates, a snack or a dessert swap.</span></span><span class="dot"></span></button>
-    <button type="button" class="opt" data-protein="50" aria-pressed="false"><span class="g">50g</span><span class="t"><b>Swoll</b><span>14 fl oz, about 250 calories. Heavy days, or when it's replacing a meal.</span></span><span class="dot"></span></button></div>
+    <button type="button" class="opt" data-protein="50" aria-pressed="false"><span class="g">50g</span><span class="t"><b>Swoll</b><span>16 fl oz, about 250 calories. Heavy days, or when it's replacing a meal.</span></span><span class="dot"></span></button></div>
 </div></section></main>
 <footer class="site"><div class="wrap">
   <div class="cols">
@@ -1298,7 +1298,7 @@ h1 .swl, h2 .swl { height: 1.2em; vertical-align: -.15em; }
   function ingText(k) { return "Ultra-filtered nonfat milk, milk protein isolate, allulose, cream, " + (ING[k] ? ING[k] + ", " : "") + "hydrolyzed bovine collagen peptides (VERISOL®). Contains 2% or less of: natural flavors, potassium citrate, sea salt, gellan gum, monk fruit extract, stevia leaf extract (Reb M), lactase enzyme, ascorbic acid (vitamin C), ferric pyrophosphate (iron), vitamin A palmitate, vitamin D3, folic acid, vitamin B12."; }
   function nfHtml(v, sw) {
     function r(lbl, amt, dv, cls) { return '<div class="r ' + (cls || "") + '"><span>' + lbl + " " + amt + "</span><b>" + (dv === null ? "" : dv + "%") + "</b></div>"; }
-    return '<section class="nf" aria-label="Nutrition Facts"><h3>Nutrition Facts</h3><div class="srv">1 serving per container<br><b>Serving size</b> <b style="float:right">1 bottle (414 mL)</b></div>' +
+    return '<section class="nf" aria-label="Nutrition Facts"><h3>Nutrition Facts</h3><div class="srv">1 serving per container<br><b>Serving size</b> <b style="float:right">1 bottle (' + (sw ? "473" : "414") + ' mL)</b></div>' +
       '<div class="cal"><span>Calories</span><span>' + v[0] + "</span></div>" + '<div class="dvh">% Daily Value*</div>' +
       r("<b>Total Fat</b>", v[1], v[2]) + r("Saturated Fat", v[3], v[4], "i1") + r("<i>Trans</i> Fat", "0g", null, "i1") + r("<b>Cholesterol</b>", v[5], v[6]) + r("<b>Sodium</b>", v[7], v[8]) +
       r("<b>Total Carbohydrate</b>", v[9], v[10]) + r("Dietary Fiber", v[11], v[12], "i1") + r("Total Sugars", v[13], null, "i1") + r("Includes " + v[14] + " Added Sugars", "", v[15], "i2") +
