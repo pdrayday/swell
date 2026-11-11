@@ -49,8 +49,6 @@ header.top .right { display: flex; align-items: center; gap: 6px; }
 .host > * { min-width: 0; }
 @media (max-width: 760px) { .host { grid-template-columns: minmax(0, 1fr); } }
 /* floating Find-a-fridge bar and Scan button: never sit on top of content */
-@media (min-width: 900px) { .mbar-nav, .scanfab { display: none !important; } }
-body:has(.acct-grid) .mbar-nav, body:has(.aff-apply) .mbar-nav, body:has(#box-form) .scanfab, body:has(.acct-grid) .scanfab { display: none !important; }
 .scanfab { transition: transform .22s ease, opacity .18s ease, visibility 0s; }
 html.bars-away .mbar, html.bars-away .scanfab { transform: translateY(14px) scale(.96) !important; opacity: 0 !important; visibility: hidden; pointer-events: none; transition: transform .22s ease, opacity .18s ease, visibility 0s .22s; }
 /* cart: slide-out drawer + cart page */
@@ -99,7 +97,6 @@ html.cart-open, html.cart-open body { overflow: hidden; }
 .cmsg { font-size: 13px; color: #874f62; margin: 0; }
 .ckeep { text-align: center; color: var(--pink); font: 600 14px var(--body); }
 @media (max-width: 860px) { #cartpage { grid-template-columns: minmax(0, 1fr); } #cartpage .cside { position: static; } }
-body:has(#cartpage) .mbar-nav, body:has(#cartpage) .scanfab { display: none !important; }
 /* end cart */
 /* Swell 50g: light blue like the bottle */
 .pkmix .w { color: #5d93c4 !important; }
@@ -131,7 +128,6 @@ html, body { background-color: var(--bg); }
 @media (max-width: 1100px) {
   .hscan { display: grid; place-items: center; width: 44px; height: 44px; border: 0; padding: 0; background: transparent; color: var(--pink); cursor: pointer; flex: none; }
   .hscan .cav { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #fff; }
-  .mbar-nav, .scanfab { display: none !important; }
 }
 @media (max-width: 900px) {
   .promo { display: none !important; }
@@ -146,6 +142,27 @@ html, body { background-color: var(--bg); }
 .recipes { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
 @media (max-width: 1100px) { .recipes { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
 @media (max-width: 600px) { .recipes { grid-template-columns: minmax(0, 1fr) !important; } }
+/* bars back: Find a fridge + Scan at the bottom, never covering content at rest */
+.hscan { display: none !important; }
+@media (min-width: 900px) { .mbar-nav, .scanfab { display: none !important; } }
+@media (max-width: 899px) {
+  .scanfab { display: grid !important; visibility: visible !important; opacity: 1 !important; transform: none !important; pointer-events: auto !important; }
+  /* solid dock behind the two buttons, like an app tab bar: content scrolls behind it, never under the buttons in view */
+  body::after { content: ""; position: fixed; left: 0; right: 0; bottom: 0; z-index: 39; height: calc(88px + env(safe-area-inset-bottom, 0px)); background: var(--bg); border-top: 1px solid rgba(201,87,127,.18); pointer-events: none; }
+  .mbar { bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important; }
+  .scanfab { bottom: calc(12px + env(safe-area-inset-bottom, 0px)) !important; }
+  body { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+  .hero.hbgw .wrap { padding-bottom: 26px !important; }
+  .hero.hbgw .wrap { padding-top: clamp(36px, 12svh, 120px) !important; }
+  .hero.hbgw { min-height: calc(100svh - 62px - 88px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important; }
+}
+@media (max-width: 899px) and (max-height: 720px) {
+  .hero.hbgw h1 { font-size: 34px !important; }
+  .hero.hbgw .lead { font-size: 14.5px !important; line-height: 1.4 !important; margin-top: 8px !important; }
+  .hero.hbgw .ctas { margin-top: 14px !important; }
+}
+.sheet, .cdrawer, .drawer { z-index: 95; }
+.sheet-scrim, .cscrim, .scrim { z-index: 94; }
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,500..700&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Swell protein ice cream pints", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Swell Chocolate protein ice cream", "image": "https://pdrayday.github.io/swell/img/ic/chocolate.webp"}, {"@type": "ListItem", "position": 2, "name": "Swell Vanilla protein ice cream", "image": "https://pdrayday.github.io/swell/img/ic/vanilla.webp"}, {"@type": "ListItem", "position": 3, "name": "Swell Cookie Butter protein ice cream", "image": "https://pdrayday.github.io/swell/img/ic/cookie_butter.webp"}]}</script><script>try{localStorage.removeItem('swell-line');}catch(e){}</script>
 </head>
@@ -1047,7 +1064,6 @@ img[src$="logo.png"] { filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgb
 .cmp th, .cmp td { color: #7d4558; }
 .cmp thead th b, .cmp thead th { color: #fff; }
 /* Premium Protein look 3 */
-body:has(#box-form) .mbar-nav { display: none !important; }
 :is(.pass-card, .summary .pack, .host, .aff-apply, .post) img[src$="logo.png"] { filter: brightness(0) invert(64%) sepia(72%) saturate(2197%) hue-rotate(300deg) brightness(79%); }
 .drawer nav a, .drawer nav a small, .drawer nav a span { color: var(--pink) !important; text-shadow: none; }
 .drawer nav a { background: rgba(255,255,255,.55); }
@@ -1859,9 +1875,9 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
 </script>
 <script>/* hide the floating bar and Scan button while scrolling down, bring them back on scroll up */
 (function () { var last = scrollY, H = document.documentElement, raf = 0;
-  var home = !!document.querySelector(".hero.hbgw"); if (!home && scrollY < 400) H.classList.add("bars-away");
+  var home = !!document.querySelector(".hero.hbgw"); 
   addEventListener("scroll", function () { if (raf) return; raf = requestAnimationFrame(function () { raf = 0; var y = scrollY, d = y - last; if (Math.abs(d) < 8) return;
-    H.classList.toggle("bars-away", (d > 0 && y > 80) || (!home && y < 400)); last = y; }); }, { passive: true });
+     last = y; }); }, { passive: true });
   /* map: hide a place label when it would sit on another label or pin */
   function declutter() { var ls = document.querySelectorAll(".plbl"); if (!ls.length) return; var pins = [].map.call(document.querySelectorAll(".maplibregl-marker"), function (m) { return m.getBoundingClientRect(); }), placed = [];
     function hits(r) { return placed.concat(pins).some(function (q) { return !(r.right < q.left + 2 || r.left > q.right - 2 || r.bottom < q.top + 2 || r.top > q.bottom - 2); }); }
