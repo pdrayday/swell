@@ -44,6 +44,54 @@ header.top .right { display: flex; align-items: center; gap: 6px; }
 body:has(.acct-grid) .mbar-nav, body:has(.aff-apply) .mbar-nav, body:has(#box-form) .scanfab, body:has(.acct-grid) .scanfab { display: none !important; }
 .scanfab { transition: transform .22s ease, opacity .18s ease, visibility 0s; }
 html.bars-away .mbar, html.bars-away .scanfab { transform: translateY(14px) scale(.96) !important; opacity: 0 !important; visibility: hidden; pointer-events: none; transition: transform .22s ease, opacity .18s ease, visibility 0s .22s; }
+/* cart: slide-out drawer + cart page */
+.cart .cartcount { position: absolute; top: 1px; right: -1px; min-width: 19px; height: 19px; padding: 0 5px; border-radius: 10px; background: var(--pink); color: #fff; font: 700 11px/19px var(--body); text-align: center; box-shadow: 0 0 0 2px var(--bg); }
+.cart .cartcount[hidden] { display: none; }
+.cscrim { position: fixed; inset: 0; z-index: 90; background: rgba(125,69,88,.28); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s .25s; }
+.cscrim.on { opacity: 1; visibility: visible; transition: opacity .25s ease; }
+.cdrawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 91; width: min(420px, 100vw); display: flex; flex-direction: column; background: #fff; color: #7d4558;
+  transform: translateX(104%); transition: transform .34s cubic-bezier(.2,.8,.2,1); box-shadow: -24px 0 60px -24px rgba(125,40,70,.4);
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.cdrawer.on { transform: none; }
+html.cart-open, html.cart-open body { overflow: hidden; }
+.chead { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #f6dbe5; }
+.chead h2 { font: 700 26px/1.1 var(--display); color: var(--pink); margin: 0; text-shadow: none; }
+.chead h2 small { font: 600 15px var(--body); color: #874f62; }
+.cx { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0; background: #fbe9ef; color: var(--pink); font: 400 26px/1 var(--body); cursor: pointer; }
+.clist { list-style: none; margin: 0; padding: 4px 20px; overflow: auto; flex: 1; }
+.cline { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 12px; padding: 14px 0; border-bottom: 1px solid #f6dbe5; align-items: start; }
+.cline:last-child { border-bottom: 0; }
+.cimg { width: 64px; height: 82px; border-radius: 12px; background: #fff; box-shadow: inset 0 0 0 1px #f6dbe5; display: flex; align-items: flex-end; justify-content: center; padding: 6px 4px 4px; overflow: hidden; }
+.cimg img { height: 64px; width: auto; max-width: none; margin: 0 -6px; }
+.cinfo { min-width: 0; }
+.cinfo b { display: block; color: var(--pink); font: 700 15px/1.3 var(--body); }
+.cinfo span { display: block; font-size: 13px; line-height: 1.4; color: #874f62; margin-top: 3px; }
+.cqty { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
+.cqty button { width: 30px; height: 30px; border-radius: 50%; border: 0; box-shadow: inset 0 0 0 1.5px #f2b9cc; background: #fff; color: var(--pink); font: 700 16px/1 var(--body); cursor: pointer; }
+.cqty output { min-width: 18px; text-align: center; font-weight: 700; color: var(--pink); }
+.cqty .crm { width: auto; height: auto; box-shadow: none; background: none; text-decoration: underline; font: 600 13px var(--body); margin-left: 6px; padding: 4px 0; color: #874f62; }
+.cprice { color: var(--pink); font-weight: 700; white-space: nowrap; }
+.cfoot { padding: 14px 20px 20px; border-top: 1px solid #f6dbe5; display: grid; gap: 10px; background: #fff; }
+.csum > div { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; padding: 3px 0; color: #874f62; }
+.csum .ctot { font-size: 18px; color: var(--pink); font-weight: 700; border-top: 1px solid #f6dbe5; margin-top: 6px; padding-top: 9px; }
+.csum p { font-size: 12.5px; line-height: 1.45; color: #874f62; margin: 6px 0 0; }
+.cdrawer .btn, #cartpage .btn { width: 100%; justify-content: center; text-align: center; background: var(--pink); color: #fff; box-shadow: none; }
+.cdrawer .btn.alt, #cartpage .btn.alt { background: #fff; color: var(--pink); box-shadow: inset 0 0 0 1.5px var(--pink); }
+.cempty { padding: 44px 22px; text-align: center; display: grid; gap: 14px; justify-items: center; color: #874f62; }
+.cempty .btn { width: auto !important; padding-inline: 28px; }
+.cempty h2 { color: var(--pink); text-shadow: none; }
+#cartpage { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 22px; align-items: start; }
+#cartpage .clist { background: #fff; border-radius: 24px; padding: 6px 22px; overflow: visible; }
+#cartpage .cside { background: #fff; border-radius: 24px; padding: 22px; display: grid; gap: 12px; position: sticky; top: 90px; }
+#cartpage .cempty { background: #fff; border-radius: 24px; grid-column: 1 / -1; }
+#cform { display: grid; gap: 10px; }
+#cform label { font: 700 13px var(--body); color: var(--pink); }
+#cform input { padding: 14px 18px; border-radius: 999px; border: 0; box-shadow: inset 0 0 0 1.5px #f2b9cc; color: #7d4558; font: 16px var(--body); background: #fff; }
+.cmsg { font-size: 13px; color: #874f62; margin: 0; }
+.ckeep { text-align: center; color: var(--pink); font: 600 14px var(--body); }
+@media (max-width: 860px) { #cartpage { grid-template-columns: minmax(0, 1fr); } #cartpage .cside { position: static; } }
+body:has(#cartpage) .mbar-nav, body:has(#cartpage) .scanfab { display: none !important; }
+/* end cart */
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,500..700&family=Instrument+Sans:wght@400;500;600;700&display=swap"><script>try{localStorage.removeItem('swell-line');}catch(e){}</script>
 </head>
 <body>
@@ -960,7 +1008,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   <a class="logo" href="index.html" aria-label="Swell home"><img src="img/logo.png" alt="Swell" width="416" height="159"></a>
   <nav class="tabs" aria-label="Main"><a href="shop.html">Shop</a><a href="icecream.html">Ice Cream</a><a href="index.html#find">Find a fridge</a><a href="creami/index.html">Recipes</a><a href="blog.html" aria-current="page">Blog</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="affiliate.html" class="aff">Become an affiliate</a></nav>
-  <div class="right"><a class="cart press" href="shop.html#build" aria-label="Your box"><span class="cav" aria-hidden="true"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.1 10.6a1.6 1.6 0 0 0 1.6 1.3h7.9a1.6 1.6 0 0 0 1.6-1.2L20 8H6.1"/><circle cx="9.5" cy="19.6" r="1.3"/><circle cx="17" cy="19.6" r="1.3"/></svg></span><span class="boxcount" hidden>0</span></a><a class="prof press" href="account.html" aria-label="Your Swell account" data-acct><span class="pav" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.8 20c1.1-3.6 3.9-5.4 7.2-5.4s6.1 1.8 7.2 5.4"/></svg></span></a></div>
+  <div class="right"><a class="cart press" href="cart.html" data-cart-open aria-label="Your cart"><span class="cav" aria-hidden="true"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.1 10.6a1.6 1.6 0 0 0 1.6 1.3h7.9a1.6 1.6 0 0 0 1.6-1.2L20 8H6.1"/><circle cx="9.5" cy="19.6" r="1.3"/><circle cx="17" cy="19.6" r="1.3"/></svg></span><span class="cartcount" hidden>0</span></a><a class="prof press" href="account.html" aria-label="Your Swell account" data-acct><span class="pav" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.8 20c1.1-3.6 3.9-5.4 7.2-5.4s6.1 1.8 7.2 5.4"/></svg></span></a></div>
 </div></header>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Menu">
@@ -1119,7 +1167,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     $("bp-ship").textContent = s === 24 ? "Free shipping" + (box.sub ? " · double points" : "") : "+ $" + ship.toFixed(2) + " shipping" + (box.sub ? " · subscriber rate" : "");
     $("box-sub").checked = !!box.sub;
     var sub = $("box-submit"), left = s - n;
-    if (!sub.classList.contains("done")) { sub.disabled = left > 0; sub.textContent = left > 0 ? "Add " + left + " more to reserve" : "Reserve my box"; }
+    if (!sub.classList.contains("done")) { sub.disabled = left > 0; sub.textContent = left > 0 ? "Add " + left + " more" : "Add to cart"; }
     var list = []; Object.keys(box.items).forEach(function (k) { for (var i = 0; i < box.items[k]; i++) list.push(k); });
     var slots = $("slots"), prev = slots.querySelectorAll("i.f").length, h = "";
     for (var i = 0; i < s; i++) h += list[i]
@@ -1182,10 +1230,11 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   document.querySelectorAll("[data-btab]").forEach(function (t) { t.addEventListener("click", function () { btab(t.dataset.btab); }); });
   if ($("box-form")) $("box-form").addEventListener("submit", function (e) {
     e.preventDefault();
-    var em = $("box-email"), msg = $("box-msg"), sub = $("box-submit");
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)) { msg.textContent = "Enter a full email, like you@email.com."; em.focus(); return; }
-    sub.classList.add("done"); sub.innerHTML = CHECK + " Reserved"; confetti(sub);
-    msg.textContent = "We'll email you before your " + box.size + "-bottle box ships.";
+    var msg = $("box-msg"), sub = $("box-submit"); if (total() < box.size) return;
+    var added = { size: box.size, sub: !!box.sub, every: box.every || 4, items: JSON.parse(JSON.stringify(box.items)) };
+    confetti(sub); box.items = {}; store("swell-box", box); render();
+    msg.textContent = "Added to your cart. Build another box or check out.";
+    if (window.SwellCart) window.SwellCart.add(added); else location.href = P + "cart.html";
   });
   document.querySelectorAll("form[data-simple]").forEach(function (f) { f.addEventListener("submit", function (e) {
     e.preventDefault(); var em = f.querySelector("input[type=email]"), b = f.querySelector("button"), m = f.parentNode.querySelector(".fmsg");
@@ -1738,6 +1787,60 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
       if (hits(r)) { l.classList.toggle("left"); r = l.getBoundingClientRect(); if (hits(r)) { l.classList.toggle("left"); l.style.visibility = "hidden"; return; } } placed.push(r); }); }
   var mapEl = document.getElementById("find"), tick = 0;
   if (mapEl && "IntersectionObserver" in window) new IntersectionObserver(function (es) { es.forEach(function (e) { clearInterval(tick); if (e.isIntersecting) tick = setInterval(declutter, 300); }); }).observe(mapEl);
+})();</script>
+<script>/* Swell cart: slide-out drawer + cart page (localStorage "swell-cart") */
+(function () {
+  var P = document.documentElement.getAttribute("data-prefix") || "", NM = { choc: "Chocolate", van: "Vanilla", cbutter: "Cookie Butter", matcha: "Matcha" };
+  function get() { try { return JSON.parse(localStorage.getItem("swell-cart")) || []; } catch (e) { return []; } }
+  function put(c) { try { localStorage.setItem("swell-cart", JSON.stringify(c)); } catch (e) {} paint(); }
+  function w(k) { return /~50$/.test(k); } function bk(k) { return k.replace(/~50$/, ""); }
+  function counts(b) { var a = 0, z = 0; for (var k in b.items) { if (w(k)) z += b.items[k]; else a += b.items[k]; } return [a, z]; }
+  function price(b) { var c = counts(b), t = Math.round((c[0] * (b.sub ? 4.25 : 5) + c[1] * (b.sub ? 4.99 : 7)) * 100) / 100; if (Math.abs(t - Math.round(t)) < 0.001) t -= 0.01; return Math.round(t * 100) / 100; }
+  function ship(b) { return b.size === 24 ? 0 : (b.sub ? 4.99 : 7.99); }
+  function money(v) { return "$" + v.toFixed(2); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (m) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[m]; }); }
+  function title(b) { var c = counts(b); return b.size + " bottles · " + (c[0] && c[1] ? "30g + 50g mix" : c[1] ? "50g protein" : "30g protein"); }
+  function mix(b) { return Object.keys(b.items).filter(function (k) { return b.items[k]; }).map(function (k) { return NM[bk(k)] + (w(k) ? " 50g" : "") + " × " + b.items[k]; }).join(", "); }
+  function plan(b) { return b.sub ? "Subscription · every " + (b.every || 4) + " weeks" : "One-time order"; }
+  function pics(b) { return Object.keys(b.items).filter(function (k) { return b.items[k]; }).slice(0, 3).map(function (k) { return '<img src="' + P + "img/" + (w(k) ? "sw_" : "b_") + bk(k) + '.webp" alt="">'; }).join(""); }
+  function totals(c) { var s = 0, h = 0, n = 0; c.forEach(function (b) { s += price(b) * b.qty; h += ship(b) * b.qty; n += b.qty; }); return { sub: s, ship: h, total: s + h, n: n }; }
+  function line(b, i) { return '<li class="cline"><div class="cimg">' + pics(b) + '</div><div class="cinfo"><b>' + title(b) + "</b><span>" + mix(b) + "</span><span>" + plan(b) + '</span><div class="cqty"><button type="button" data-cdec="' + i + '" aria-label="One fewer box">−</button><output>' + b.qty + '</output><button type="button" data-cinc="' + i + '" aria-label="One more box">+</button><button type="button" class="crm" data-crm="' + i + '">Remove</button></div></div><b class="cprice">' + money(price(b) * b.qty) + "</b></li>"; }
+  function sum(t) { return '<div class="csum"><div><span>Subtotal</span><b>' + money(t.sub) + "</b></div><div><span>Shipping</span><b>" + (t.ship ? money(t.ship) : "Free") + '</b></div><div class="ctot"><span>Total</span><b>' + money(t.total) + "</b></div><p>No payment today. Your card is charged when your box ships. First box comes with a free shaker.</p></div>"; }
+  var EMPTY = '<div class="cempty"><p>Your cart is empty.</p><a class="btn" href="' + P + 'shop.html#build">Build a box</a></div>';
+  var sc = document.createElement("div"), dr = document.createElement("aside");
+  sc.className = "cscrim"; dr.className = "cdrawer"; dr.id = "cdrawer"; dr.setAttribute("aria-label", "Your cart"); dr.setAttribute("aria-hidden", "true"); dr.setAttribute("inert", "");
+  document.body.appendChild(sc); document.body.appendChild(dr);
+  function paint() { var c = get(), t = totals(c);
+    document.querySelectorAll(".cartcount").forEach(function (x) { x.hidden = !t.n; x.textContent = t.n; });
+    dr.innerHTML = '<div class="chead"><h2>Your cart' + (t.n ? " <small>(" + t.n + (t.n > 1 ? " boxes" : " box") + ")</small>" : "") + '</h2><button type="button" class="cx" data-cclose aria-label="Close cart">×</button></div>' +
+      (c.length ? '<ul class="clist">' + c.map(line).join("") + '</ul><div class="cfoot">' + sum(t) + '<a class="btn" href="' + P + 'cart.html#checkout">Checkout</a><a class="btn alt" href="' + P + 'cart.html">View cart</a></div>' : EMPTY);
+    var pg = document.getElementById("cartpage");
+    if (pg && !pg.classList.contains("done")) pg.innerHTML = c.length ? '<ul class="clist">' + c.map(line).join("") + '</ul><div class="cside">' + sum(t) +
+      '<form id="cform" novalidate><label for="c-email">Email for your reservation</label><input type="email" id="c-email" placeholder="you@email.com" autocomplete="email" required><button class="btn" type="submit">Reserve my order</button><p class="cmsg" id="c-msg" aria-live="polite"></p></form><a class="ckeep" href="' + P + 'shop.html#build">Keep shopping</a></div>' : EMPTY; }
+  function open() { paint(); dr.removeAttribute("inert"); dr.setAttribute("aria-hidden", "false"); dr.classList.add("on"); sc.classList.add("on"); document.documentElement.classList.add("cart-open"); var x = dr.querySelector(".cx"); if (x) setTimeout(function () { x.focus({ preventScroll: true }); }, 60); }
+  function close() { dr.classList.remove("on"); sc.classList.remove("on"); dr.setAttribute("aria-hidden", "true"); dr.setAttribute("inert", ""); document.documentElement.classList.remove("cart-open"); }
+  sc.addEventListener("click", close);
+  addEventListener("keydown", function (e) { if (e.key === "Escape" && dr.classList.contains("on")) close(); });
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest && e.target.closest("[data-cart-open],[data-cclose],[data-cinc],[data-cdec],[data-crm]"); if (!t) return;
+    if (t.hasAttribute("data-cart-open")) { if (document.getElementById("cartpage")) return; e.preventDefault(); open(); return; }
+    if (t.hasAttribute("data-cclose")) { close(); return; }
+    var c = get(), i;
+    if ((i = t.getAttribute("data-cinc")) !== null) c[i].qty = Math.min(9, c[i].qty + 1);
+    else if ((i = t.getAttribute("data-cdec")) !== null) { c[i].qty--; if (c[i].qty < 1) c.splice(i, 1); }
+    else if ((i = t.getAttribute("data-crm")) !== null) c.splice(i, 1);
+    put(c);
+  });
+  document.addEventListener("submit", function (e) { if (e.target.id !== "cform") return; e.preventDefault();
+    var em = document.getElementById("c-email"), m = document.getElementById("c-msg");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value)) { m.textContent = "Enter a full email, like you@email.com."; em.focus(); return; }
+    var c = get(), n = totals(c).n, o; try { o = JSON.parse(localStorage.getItem("swell-orders")) || []; o.push({ at: Date.now(), email: em.value, cart: c }); localStorage.setItem("swell-orders", JSON.stringify(o)); } catch (x) {}
+    var pg = document.getElementById("cartpage"); pg.classList.add("done"); put([]);
+    pg.innerHTML = '<div class="cempty"><h2>You\'re on the list.</h2><p>We\'ll email ' + esc(em.value) + " before your " + (n > 1 ? n + " boxes ship" : "box ships") + '. No payment until then.</p><a class="btn" href="' + P + 'index.html">Back home</a></div>'; });
+  addEventListener("storage", function (e) { if (e.key === "swell-cart") paint(); });
+  window.SwellCart = { add: function (b) { var c = get(); b.qty = 1; c.push(b); put(c); open(); }, open: open, close: close };
+  paint();
+  if (document.getElementById("cartpage") && location.hash === "#checkout") setTimeout(function () { var x = document.getElementById("c-email"); if (x) x.focus(); }, 300);
 })();</script>
 </body>
 </html>
