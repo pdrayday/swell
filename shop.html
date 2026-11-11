@@ -28,6 +28,23 @@
 .fl h3 .nlink[data-drink="matcha"], .pk[data-id="matcha"] b { color: #4a7a1f; }
 .fan img { aspect-ratio: 4 / 5 !important; width: 50%; }
 @media (max-width: 720px) { .fan img { width: 48%; } }
+/* header cart with item count */
+header.top .right { display: flex; align-items: center; gap: 6px; }
+.cart { position: relative; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: var(--pink); text-decoration: none; flex: none; }
+.cart .cav { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #fff; }
+.cart .boxcount { position: absolute; top: 1px; right: -1px; min-width: 19px; height: 19px; padding: 0 5px; border-radius: 10px; background: var(--pink); color: #fff; font: 700 11px/19px var(--body); text-align: center; box-shadow: 0 0 0 2px var(--bg); margin: 0; }
+.cart .boxcount[hidden] { display: none; }
+/* audit fixes: overlaps (v2) */
+.pwho { grid-template-columns: minmax(0, 1fr); overflow: hidden; }
+@media (max-width: 700px) { .ph-h .sample { display: none; } }
+.host { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.host > * { min-width: 0; }
+@media (max-width: 760px) { .host { grid-template-columns: minmax(0, 1fr); } }
+/* floating Find-a-fridge bar and Scan button: never sit on top of content */
+@media (min-width: 900px) { .mbar-nav, .scanfab { display: none !important; } }
+body:has(.acct-grid) .mbar-nav, body:has(.aff-apply) .mbar-nav, body:has(#box-form) .scanfab, body:has(.acct-grid) .scanfab { display: none !important; }
+.scanfab { transition: transform .22s ease, opacity .18s ease, visibility 0s; }
+html.bars-away .mbar, html.bars-away .scanfab { transform: translateY(14px) scale(.96) !important; opacity: 0 !important; visibility: hidden; pointer-events: none; transition: transform .22s ease, opacity .18s ease, visibility 0s .22s; }
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,500..700&family=Instrument+Sans:wght@400;500;600;700&display=swap"><script>try{localStorage.removeItem('swell-line');}catch(e){}</script>
 </head>
 <body>
@@ -944,7 +961,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   <a class="logo" href="index.html" aria-label="Swell home"><img src="img/logo.png" alt="Swell" width="416" height="159"></a>
   <nav class="tabs" aria-label="Main"><a href="shop.html" aria-current="page">Shop</a><a href="icecream.html">Ice Cream</a><a href="index.html#find">Find a fridge</a><a href="creami/index.html">Recipes</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="affiliate.html" class="aff">Become an affiliate</a></nav>
-  <div class="right"><a class="prof press" href="account.html" aria-label="Your Swell account" data-acct><span class="pav" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.8 20c1.1-3.6 3.9-5.4 7.2-5.4s6.1 1.8 7.2 5.4"/></svg></span></a></div>
+  <div class="right"><a class="cart press" href="shop.html#build" aria-label="Your box"><span class="cav" aria-hidden="true"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.1 10.6a1.6 1.6 0 0 0 1.6 1.3h7.9a1.6 1.6 0 0 0 1.6-1.2L20 8H6.1"/><circle cx="9.5" cy="19.6" r="1.3"/><circle cx="17" cy="19.6" r="1.3"/></svg></span><span class="boxcount" hidden>0</span></a><a class="prof press" href="account.html" aria-label="Your Swell account" data-acct><span class="pav" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.8"/><path d="M4.8 20c1.1-3.6 3.9-5.4 7.2-5.4s6.1 1.8 7.2 5.4"/></svg></span></a></div>
 </div></header>
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Menu">
@@ -957,7 +974,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <img class="shop-img" src="img/pack_matcha.webp" srcset="img/pack_matcha_sm.webp 768w, img/pack_matcha.webp 1536w" sizes="(max-width: 900px) 92vw, 52vw" alt="Swell 30g Matcha protein shake: a pink 12-bottle pack and bottle with matcha powder and tea leaves" width="1536" height="1024" fetchpriority="high">
   <div><h1>Build your box</h1>
   <p class="lead">Pick 12 or 24 shakes, any mix of flavors, <span class="swl"><span>Swell</span></span> or 50g. Reserve now and you won't be charged until your box ships.</p>
-  <ul class="pricepts"><li><b>$4.25</b>a <span class="swl"><span>Swell</span></span>, subscribed</li><li><b>$4.99</b>a Swell 50g, subscribed</li><li><b>Free</b>shipping on 24</li></ul>
+  <ul class="pricepts"><li><b>$4.25</b><span>a <span class="swl"><span>Swell</span></span>, subscribed</span></li><li><b>$4.99</b><span>a Swell 50g, subscribed</span></li><li><b>Free</b>shipping on 24</li></ul>
   <div class="presets"><span class="small" style="align-self:center">Not sure where to start?</span>
     <button type="button" class="btn sm alt" data-preset="choc,van,cbutter,matcha" data-n="12">One of each · 12</button>
     <button type="button" class="btn sm alt" data-preset="choc,van,cbutter" data-n="24">The classics · 24</button>
@@ -1116,7 +1133,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     $("bp-total").textContent = "$" + bp.total.toFixed(2);
     $("bp-per").textContent = (ns ? money0(u30) + " a 30g" : "") + (ns && bw ? " · " : "") + (bw ? money0(u50) + " a 50g" : "") || money0(u30) + " a 30g · " + money0(u50) + " a 50g";
     document.querySelectorAll("button[data-size] > span").forEach(function (sp) { var z = +sp.parentNode.dataset.size, t = boxPrice(z, box.sub, box.protein === 50 ? 0 : z, box.protein === 50 ? z : 0).total; sp.textContent = "$" + t.toFixed(2) + (z === 24 ? " · free shipping" : " + shipping"); });
-    document.querySelectorAll("button[data-protein] > span").forEach(function (sp) { var p = +sp.parentNode.dataset.protein; sp.textContent = (p === 50 ? "Light-blue bottle · " : "Pink bottle · ") + money0(p === 50 ? u50 : u30); });
+    document.querySelectorAll("button[data-protein]:not(.opt) > b + span").forEach(function (sp) { var p = +sp.parentNode.dataset.protein; sp.textContent = (p === 50 ? "Light-blue bottle · " : "Pink bottle · ") + money0(p === 50 ? u50 : u30); });
     if ($("box-every")) $("box-every").value = String(box.every || 4);
     $("bp-ship").textContent = s === 24 ? "Free shipping" + (box.sub ? " · double points" : "") : "+ $" + ship.toFixed(2) + " shipping" + (box.sub ? " · subscriber rate" : "");
     $("box-sub").checked = !!box.sub;
@@ -1729,5 +1746,17 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   if (h && document.getElementById(h)) window.addEventListener("load", function () { document.getElementById(h).scrollIntoView(); });
 })();
 </script>
+<script>/* hide the floating bar and Scan button while scrolling down, bring them back on scroll up */
+(function () { var last = scrollY, H = document.documentElement, raf = 0;
+  addEventListener("scroll", function () { if (raf) return; raf = requestAnimationFrame(function () { raf = 0; var y = scrollY, d = y - last; if (Math.abs(d) < 8) return;
+    H.classList.toggle("bars-away", d > 0 && y > 80); last = y; }); }, { passive: true });
+  /* map: hide a place label when it would sit on another label or pin */
+  function declutter() { var ls = document.querySelectorAll(".plbl"); if (!ls.length) return; var pins = [].map.call(document.querySelectorAll(".maplibregl-marker"), function (m) { return m.getBoundingClientRect(); }), placed = [];
+    function hits(r) { return placed.concat(pins).some(function (q) { return !(r.right < q.left + 2 || r.left > q.right - 2 || r.bottom < q.top + 2 || r.top > q.bottom - 2); }); }
+    [].forEach.call(ls, function (l) { l.style.visibility = ""; var r = l.getBoundingClientRect(); if (!r.width) return;
+      if (hits(r)) { l.classList.toggle("left"); r = l.getBoundingClientRect(); if (hits(r)) { l.classList.toggle("left"); l.style.visibility = "hidden"; return; } } placed.push(r); }); }
+  var mapEl = document.getElementById("find"), tick = 0;
+  if (mapEl && "IntersectionObserver" in window) new IntersectionObserver(function (es) { es.forEach(function (e) { clearInterval(tick); if (e.isIntersecting) tick = setInterval(declutter, 300); }); }).observe(mapEl);
+})();</script>
 </body>
 </html>
