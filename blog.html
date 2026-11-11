@@ -1465,7 +1465,7 @@ body:has(#box-form) .mbar-nav { display: none !important; }
   function passCode(m) { var slot = Math.floor(Date.now() / 30000); return "SWELL1:" + m.id + ":" + slot.toString(36); }
   function drawPass() {
     if (!passBody) return; clearInterval(qrTimer); var m = me();
-    if (!m) { passBody.innerHTML = signinHtml("pass"); wireSignin(passBody); return; }
+    var guest = !m; if (guest) m = { name: "Your name here", id: "SW-0000-0000-0000", since: new Date().toISOString().slice(0, 10), pulls: [], plan: "pass", points: 0 };
     var card = m.card ? '<span class="cc" aria-hidden="true"></span><div><b>' + m.card.brand + " •••• " + m.card.last4 + "</b>" + (PLANS[planOf(m)].price ? "Swell Pass $19/mo · extras $3.99" : "Charged per bottle you take") + (m.card.demo ? " (demo)" : "") + '</div><a class="btn sm alt" href="' + P + 'account.html#pay">Manage</a>'
                        : '<span class="cc" aria-hidden="true" style="opacity:.35"></span><div><b>No card yet</b>Add one so the fridge can charge you</div><button type="button" class="btn sm" data-addcard>Add card</button>';
     passBody.innerHTML = '<h2 id="pass-h" class="sr">Your Swell Pass</h2><div class="pass-card"><div class="pass-top"><img src="' + P + 'img/logo.png" alt="Swell"><span>Member pass<br>Scan at the fridge</span></div>' +
@@ -1476,6 +1476,8 @@ body:has(#box-form) .mbar-nav { display: none !important; }
       '<p class="pass-tip">Turn your screen brightness up and hold the code to the scanner. It refreshes every 30 seconds so a screenshot can\'t be reused.</p>' +
       '<div class="pass-pay">' + card + '</div>' +
       '<div class="pass-actions">' + (m.card ? '<button type="button" class="btn alt" data-simpull>Simulate a fridge scan (demo)</button>' : "") + '<a class="btn alt" href="' + P + 'account.html">Account, history and settings</a></div>';
+    if (guest) { passBody.querySelectorAll(".pass-plan, .pass-tip, .pass-pay, .pass-actions").forEach(function (e) { e.remove(); });
+      passBody.insertAdjacentHTML("beforeend", '<p class="pass-tip pass-guest">This is a sample pass. Sign in to make it yours, then tap <b>Scan</b> at any Swell fridge.</p>' + signinHtml("pass").replace('<h2 id="pass-h">Your Swell Pass</h2>', "")); wireSignin(passBody); }
     passBody.querySelectorAll("[data-addcard]").forEach(function (b) { b.addEventListener("click", addCard); });
     passBody.querySelectorAll("[data-simpull]").forEach(function (b) { b.addEventListener("click", simulatePull); });
     var tick = function () { var left = 30 - Math.floor(Date.now() / 1000) % 30, bar = $("qrbar"); if (bar) bar.style.width = (left / 30 * 100) + "%";
