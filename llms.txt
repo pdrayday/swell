@@ -9,15 +9,14 @@
 - Smoothie flavors (6): Pina Colada, Mango, Berry Bliss, Sour Apple, Blue Raspberry, Peach Ring
 - Buy: build a 12- or 24-bottle mixed box (reserve now, pay when it ships); Swell vending machines at gyms, high schools and hotels in Utah County, Utah
 - For: people with a sweet tooth who want dessert with protein; people eating protein-first (including GLP-1 users); Ninja Creami owners
-- Ninja Creami: pour one bottle into a pint, freeze 24 hours, spin on Lite Ice Cream (shakes) or Sorbet (smoothies)
+- Ninja Creami: pour one bottle into a pint, freeze 24 hours, spin on Lite Ice Cream (shakes)
 - Contains milk
 
 ## Pages
 - [Home](https://pdrayday.github.io/swell/)
 - [Shop](https://pdrayday.github.io/swell/shop.html)
-- [Ice Cream](https://pdrayday.github.io/swell/icecream.html)
+- [All Products: Swell Creatine, ice cream pints, Creami recipes](https://pdrayday.github.io/swell/products.html)
 - [Find a fridge](https://pdrayday.github.io/swell/#find)
-- [Ice Cream & Recipes](https://pdrayday.github.io/swell/icecream.html)
 - [Blog](https://pdrayday.github.io/swell/blog.html)
 - [About](https://pdrayday.github.io/swell/about.html)
 - [FAQ](https://pdrayday.github.io/swell/faq.html)
