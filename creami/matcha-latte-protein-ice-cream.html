@@ -152,6 +152,13 @@ html, body { background-color: var(--bg); }
 }
 .sheet, .cdrawer, .drawer { z-index: 95; }
 .sheet-scrim, .cscrim, .scrim { z-index: 94; }
+/* bottom bar = Build a box; hero text right above it; crisp header logo */
+@media (max-width: 899px) {
+  .hero.hbgw { min-height: calc(100svh - 62px - env(safe-area-inset-top, 0px)) !important; min-height: calc(100dvh - 62px - env(safe-area-inset-top, 0px)) !important; }
+  .hero.hbgw .wrap { padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px)) !important; }
+  header.top { padding-top: calc(env(safe-area-inset-top, 0px) + 4px) !important; }
+}
+header.top .logo img[src$="logo.png"] { filter: brightness(0) invert(64%) sepia(72%) saturate(2197%) hue-rotate(300deg) brightness(79%) !important; }
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,500..700&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Recipe", "name": "Matcha Latte Protein Ice Cream", "description": "The coffee-shop matcha latte as a pint. Swell Matcha plus a little extra matcha powder for a deeper green-tea flavor.", "image": "https://pdrayday.github.io/swell/img/b_matcha.webp", "author": {"@type": "Organization", "name": "Swell"}, "prepTime": "PT5M", "totalTime": "PT24H10M", "recipeYield": "1 pint", "recipeCategory": "Dessert", "keywords": "ninja creami protein ice cream, matcha latte protein ice cream", "nutrition": {"@type": "NutritionInformation", "proteinContent": "30 g"}, "recipeIngredient": ["1 bottle Swell Matcha protein shake", "1/2 tsp matcha powder (optional, for a stronger flavor)", "1 tbsp sugar-free vanilla pudding mix", "White chocolate chips, for the mix-in"], "recipeInstructions": [{"@type": "HowToStep", "name": "Whisk", "text": "Whisk the shake, matcha powder and pudding mix in the pint until smooth."}, {"@type": "HowToStep", "name": "Freeze", "text": "Freeze flat with the lid off for 24 hours."}, {"@type": "HowToStep", "name": "Spin", "text": "Spin on Lite Ice Cream."}, {"@type": "HowToStep", "name": "Re-spin", "text": "Add a splash of milk and re-spin until creamy."}, {"@type": "HowToStep", "name": "Mix in", "text": "Add white chocolate chips and run Mix-in."}]}</script><script>try{localStorage.removeItem('swell-line');}catch(e){}</script>
 </head>
@@ -1097,7 +1104,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <p>Nutrition is a target formula until lab testing. Reviews and fridge locations are placeholders until launch. fairlife and Core Power are trademarks of fairlife, LLC; Ninja Creami is a trademark of its owner. <span class="swl"><span>Swell</span></span> isn't affiliated with either.</p>
   <p>© 2026 <span class="swl"><span>Swell</span></span>.</p></div>
 </div></footer>
-<nav class="mbar-nav" aria-label="Find a Swell fridge"><a class="mbar pre" id="mbar" href="../index.html#find"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg></i><span class="p"><b>Find a fridge</b><span id="mb-s">Coming to Utah County</span></span><span class="go" aria-hidden="true">Map <span>→</span></span></a></nav>
+<nav class="mbar-nav" aria-label="Build a box"><a class="mbar pre" id="mbar" href="../shop.html#build"><i><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="8" width="17" height="4" rx="1"/><path d="M5 12v7.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V12"/><path d="M12 8v12.5"/><path d="M12 8c-1.2-2.6-4.6-3.4-4.6-1.3C7.4 8 10 8 12 8z"/><path d="M12 8c1.2-2.6 4.6-3.4 4.6-1.3C16.6 8 14 8 12 8z"/></svg></i><span class="p"><b>Build a box</b><span id="mb-box">From $4.25 a shake</span></span><span class="go" aria-hidden="true">Start <span>→</span></span></a></nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <button type="button" class="scanfab press" id="scanfab" data-pass aria-label="Show my Swell Pass to scan at a fridge"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8V5.5A1.5 1.5 0 0 1 5.5 4H8M16 4h2.5A1.5 1.5 0 0 1 20 5.5V8M20 16v2.5a1.5 1.5 0 0 1-1.5 1.5H16M8 20H5.5A1.5 1.5 0 0 1 4 18.5V16"/><path d="M8 8h3v3H8zM13 13h3v3h-3zM13 8h3M8 16h3M13 10.5h1.5"/></svg><span>Scan</span></button>
 <div class="sheet-scrim" id="pass-scrim" hidden></div>
@@ -1287,12 +1294,12 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     b.innerHTML = CHECK + " Sent"; confetti(b); m.textContent = f.dataset.simple;
   }); });
   // ---------- Find a machine bar: tucks away while the machine finder itself is on screen ----------
-  var mbar = $("mbar"), mtop = $("find"), mend = $("host");
+  var mbar = $("mbar"), mtop = $("build") || $("box-form"), mend = null;
   function mbarState() { if (!mbar || !mtop) return; var a = mtop.getBoundingClientRect().top, b = (mend || mtop).getBoundingClientRect().bottom, H = window.innerHeight;
     mbar.classList.toggle("hide", a < H * .85 && b > H * .15); }
   function paintMbar() { var m = me(), t = $("mb-s"); if (!t) return; if (m && m.home) { var h = homeOf(m); t.textContent = "Your go-to: " + h.venue + " · " + h.city; } else t.textContent = "Coming to Utah County"; }
   if (mbar) {
-    if (mtop && /^#(machines|find|host)$/.test(location.hash)) mbar.classList.add("hide");
+    if (mtop && /^#build$/.test(location.hash)) mbar.classList.add("hide");
     mbarState(); paintMbar();
     var mraf = 0; window.addEventListener("scroll", function () { if (!mraf) mraf = requestAnimationFrame(function () { mraf = 0; mbarState(); }); }, { passive: true });
     window.addEventListener("resize", mbarState);
