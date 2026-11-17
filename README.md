@@ -1,6 +1,6 @@
 # Swell
 
-Launch site for **Swell** ready-to-drink protein shakes (Cookies & Cream, Cake Batter, Chocolate, Vanilla) and protein smoothies (Pina Colada, Mango, Berry Bliss). Tap or swipe between the two lines.
+Launch site for **Swell** ready-to-drink protein shakes: Swell 30g (pink, 14 fl oz) and Swell 50g (light blue, 16 fl oz) in Chocolate, Vanilla, Cookie Butter, Matcha and Peanut Butter.
 
 Live: https://pdrayday.github.io/swell/
 

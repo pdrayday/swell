@@ -1,16 +1,20 @@
 # Swell
 
-> Swell makes ready-to-drink protein shakes and protein smoothies that taste like dessert. Positioning: "Your dessert, minus the damage." Core Power is positioned for post-workout recovery and Premier Protein for nutrition; Swell is for before the gym, after the gym, filling nutrition gaps, and dessert cravings, in one bottle that tastes like a milkshake.
+> Swell makes premium ready-to-drink protein shakes that taste like a milkshake. Positioning: "The protein shake she actually wants to drink." Swell 30g comes in a pink 14 fl oz bottle; Swell 50g comes in a bigger light-blue 16 fl oz bottle for heavy days. Both have collagen peptides, iron with vitamin C, and zero lactose.
 
 ## Key facts
-- Protein: 30 g per Swell 14 fl oz bottle; 50 g per Swell 50g bottle (the bigger 50g version, branded SWOLL)
-- Added ingredients in shakes and smoothies: collagen peptides, colostrum
-- Shake flavors (5): Chocolate, Vanilla, Cookie Butter, Matcha, Peanut Butter
-- Smoothie flavors (6): Pina Colada, Mango, Berry Bliss, Sour Apple, Blue Raspberry, Peach Ring
-- Buy: build a 12- or 24-bottle mixed box (reserve now, pay when it ships); Swell vending machines at gyms, high schools and hotels in Utah County, Utah
-- For: people with a sweet tooth who want dessert with protein; people eating protein-first (including GLP-1 users); Ninja Creami owners
-- Ninja Creami: pour one bottle into a pint, freeze 24 hours, spin on Lite Ice Cream (shakes)
-- Contains milk
+- Swell 30g: 30 g protein, 170 calories, 0 g added sugar, 14 fl oz, pink bottle
+- Swell 50g: 50 g protein, about 250 calories, 16 fl oz, light-blue bottle
+- In every bottle: 25% of daily iron with 60 mg vitamin C, 2.5 g collagen peptides, lactose-free milk base
+- Sweetened with allulose, monk fruit, stevia and a little sucralose; no ace-K, no carrageenan
+- Flavors (5): Chocolate, Vanilla, Cookie Butter, Matcha, Peanut Butter. Matcha has natural caffeine.
+- Price: $4.25 a Swell 30g and $4.99 a Swell 50g on subscription (every 2 or 4 weeks); $5 and $7 one time
+- Buy: build a 12- or 24-bottle mixed box (reserve now, pay when it ships); free shipping on 24
+- Swell Pass: a membership for Swell fridges, $19 a month with 5 fridge Swells included, member prices and points toward free Swells
+- Swell fridges come after the online launch: smart fridges in Pilates studios, gyms, hotels and on campus
+- Swell Creatine: single-serve sticks (Monohydrate, or Creatine + Electrolytes) to stir into a shake or water
+- Ninja Creami: pour one bottle into a pint, freeze 24 hours, spin on Lite Ice Cream
+- Contains milk. Peanut Butter contains peanuts.
 
 ## Pages
 - [Home](https://pdrayday.github.io/swell/)
