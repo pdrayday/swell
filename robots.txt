@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# AI answer engines are welcome to crawl and cite Swell
+# AI answer engines are welcome to crawl and cite Lovely
 User-agent: GPTBot
 Allow: /
 User-agent: OAI-SearchBot

@@ -1,7 +1,7 @@
 {
-  "name": "Swell Premium Protein",
-  "short_name": "Swell",
-  "description": "The protein shake she actually wants to drink. Build a box, show your Swell Pass, find a Swell fridge.",
+  "name": "Lovely Premium Protein",
+  "short_name": "Lovely",
+  "description": "The protein shake you actually want to drink. Build a box, show your Lovely Pass, find a Lovely fridge.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

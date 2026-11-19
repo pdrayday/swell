@@ -1,6 +1,6 @@
-# Swell
+# Lovely
 
-Launch site for **Swell** ready-to-drink protein shakes: Swell 30g (pink, 14 fl oz) and Swell 50g (light blue, 16 fl oz) in Chocolate, Vanilla, Cookie Butter, Matcha and Peanut Butter.
+Launch site for **Lovely** ready-to-drink protein shakes: Lovely 30g (pink, 14 fl oz) and Lovely 50g (light blue, 16 fl oz) in Chocolate, Vanilla, Cookie Butter, Matcha and Peanut Butter.
 
 Live: https://pdrayday.github.io/swell/
 
@@ -15,4 +15,4 @@ Replace `https://pdrayday.github.io/swell` in `index.html`, `robots.txt`, `sitem
 
 ## Before launch
 - Connect the two email forms to Klaviyo, Mailchimp or Shopify (they only show a thank-you message today).
-- Fill in Swell's calories and sugar in the comparison table once lab numbers are final.
+- Fill in Lovely's calories and sugar in the comparison table once lab numbers are final.
