@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<link rel="icon" href="favicon.ico?v=3" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32.png?v=3">
-<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png?v=3">
-<link rel="manifest" href="manifest.webmanifest?v=3">
+<link rel="icon" href="favicon.ico?v=4" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32.png?v=4">
+<link rel="apple-touch-icon" href="img/icons/apple-touch-icon.png?v=4">
+<link rel="manifest" href="manifest.webmanifest?v=4">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Lovely">
@@ -16,7 +16,7 @@
 <link rel="canonical" href="https://pdrayday.github.io/swell/">
 <meta name="theme-color" content="#f4cddb">
 <meta name="color-scheme" content="light dark">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Lovely"><meta property="og:title" content="Lovely Protein Shakes"><meta property="og:description" content="The protein shake you actually want to drink. Tastes like a milkshake: 30g protein, iron with vitamin C, collagen peptides and zero lactose. Chocolate, Vanilla, Cookie Butter, Matcha and Peanut Butter."><meta property="og:url" content="https://pdrayday.github.io/swell/"><meta property="og:image" content="https://pdrayday.github.io/swell/img/og-lovely.jpg">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Lovely"><meta property="og:title" content="Lovely Protein Shakes"><meta property="og:description" content="The protein shake you actually want to drink. Tastes like a milkshake: 30g protein, iron with vitamin C, collagen peptides and zero lactose. Chocolate, Vanilla, Cookie Butter, Matcha and Peanut Butter."><meta property="og:url" content="https://pdrayday.github.io/swell/"><meta property="og:image" content="https://pdrayday.github.io/swell/img/og-lovely.jpg?v=2">
 <style>:root{--logo:url("img/logo.svg")}/* flavor names in the bottle label colors, centered under the bottle */
 .fl h3 { text-align: center; min-height: 0; margin-top: -2px; }
 .fl h3 .nlink { text-align: center; width: 100%; }
@@ -215,6 +215,12 @@ header.top .logo img[src$="logo.png"] { filter: brightness(0) invert(1) !importa
 .every-sec .never li::before { content: ""; flex: 0 0 18px; height: 18px; border-radius: 50%; background: var(--pink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center/11px no-repeat; }
 @media (min-width: 1100px) { .every-sec .never ul { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .every-sec .never ul { display: flex; flex-wrap: wrap; gap: 7px; } .every-sec .never li { white-space: nowrap; font-size: 14.5px; padding: 7px 11px 7px 8px; gap: 7px; border-radius: 999px; } }
+/* bigger Lovely logo: header keeps its height */
+header.top .logo img { height: 52px !important; margin-block: -9px; }
+@media (max-width: 1440px) and (min-width: 1101px) { header.top .logo img { height: 48px !important; margin-block: -8px; } }
+@media (max-width: 1100px) { header.top .logo img { height: 48px !important; margin-block: -9px; } }
+@media (max-width: 380px) { header.top .logo img { height: 44px !important; margin-block: -8px; } }
+footer.site .logo img { height: 66px !important; }
 </style><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,600..800;1,8..60,500..700&family=Instrument+Sans:wght@400;500;600;700&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://pdrayday.github.io/swell/#org", "name": "Lovely", "url": "https://pdrayday.github.io/swell/", "logo": "https://pdrayday.github.io/swell/img/logo.png", "sameAs": ["https://www.instagram.com/drinklovely", "https://www.tiktok.com/@drinklovely", "https://www.facebook.com/drinklovely"], "description": "Lovely makes dessert-flavored protein shakes, made with women in mind: 30g protein in 170 calories (50g in the light-blue bottle), 0g added sugar, lactose-free, with iron, vitamin C and collagen peptides. Sold by the box online."}, {"@type": "WebSite", "url": "https://pdrayday.github.io/swell/", "name": "Lovely"}, {"@type": "ProductGroup", "name": "Lovely Protein Shake", "brand": {"@type": "Brand", "name": "Lovely"}, "variesBy": ["https://schema.org/flavor", "https://schema.org/size"], "hasVariant": [{"@type": "Product", "name": "Lovely Protein Shake, Chocolate", "image": "https://pdrayday.github.io/swell/img/b_choc.webp", "description": "Like a chocolate milkshake. Cocoa hides protein flavor best, so it's the easiest to love."}, {"@type": "Product", "name": "Lovely Protein Shake, Vanilla", "image": "https://pdrayday.github.io/swell/img/b_van.webp", "description": "The everyday base. Great on its own, in coffee or in a Ninja Creami."}, {"@type": "Product", "name": "Lovely Protein Shake, Cookie Butter", "image": "https://pdrayday.github.io/swell/img/b_cbutter.webp", "description": "The dessert. Spiced speculoos cookie butter in a sweet cream base."}, {"@type": "Product", "name": "Lovely Protein Shake, Matcha", "image": "https://pdrayday.github.io/swell/img/b_matcha.webp", "description": "The coffee-shop order, now with 30g protein. Has natural caffeine from matcha."}, {"@type": "Product", "name": "Lovely Protein Shake, Peanut Butter", "image": "https://pdrayday.github.io/swell/img/b_pb.webp", "description": "Tastes like a peanut butter milkshake. Salty-sweet and creamy."}]}]}</script><script>try{localStorage.removeItem('swell-line');}catch(e){}</script>
 </head>
