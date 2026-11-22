@@ -1089,7 +1089,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <button type="button" class="btn alt pass-open" data-pass>Show my <span class="swl"><span>Lovely</span></span> Pass</button>
   <a class="btn" href="shop.html">Build a box <span class="boxcount" hidden>0</span></a>
 </aside><main id="main">
-<section class="page-h"><div class="wrap"><h1>Your <span class="swl"><span>Lovely</span></span> account</h1><p class="lead">Your <span class="swl"><span>Lovely</span></span> Pass, membership, points, box delivery, the card on file and your affiliate dashboard. Basically your whole lovely life. Basically your whole lovely life.</p></div></section>
+<section class="page-h"><div class="wrap"><h1>Your <span class="swl"><span>Lovely</span></span> account</h1><p class="lead">Your <span class="swl"><span>Lovely</span></span> Pass, membership, points, box delivery, the card on file and your affiliate dashboard. Basically your whole lovely life.</p></div></section>
 <section style="padding-top:10px"><div class="wrap" id="acct"></div></section></main>
 <footer class="site"><div class="wrap">
   <div class="cols">
@@ -1527,8 +1527,8 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   var ACFG = window.SWELL_AUTH || {};
   function me() { return store("swell-member"); }
   function saveMe(m) { store("swell-member", m); paintProfile(); if (typeof paintMbar === "function") paintMbar(); }
-  function newId() { var d = ""; for (var i = 0; i < 12; i++) d += Math.floor(Math.random() * 10); return "SW-" + d.slice(0, 4) + "-" + d.slice(4, 8) + "-" + d.slice(8); }
-  function initials(n) { return (n || "S").split(/\s+/).map(function (w) { return w[0]; }).join("").slice(0, 2).toUpperCase(); }
+  function newId() { var d = ""; for (var i = 0; i < 12; i++) d += Math.floor(Math.random() * 10); return "LV-" + d.slice(0, 4) + "-" + d.slice(4, 8) + "-" + d.slice(8); }
+  function initials(n) { return (n || "L").split(/\s+/).map(function (w) { return w[0]; }).join("").slice(0, 2).toUpperCase(); }
   function signedIn(profile) {
     var m = me() || {}; m.name = profile.name || m.name || "Lovely member"; m.email = profile.email || m.email || ""; m.photo = profile.photo || m.photo || "";
     m.provider = profile.provider; m.demo = !!profile.demo; m.id = m.id || newId(); m.since = m.since || new Date().toISOString().slice(0, 10); m.pulls = m.pulls || [];
@@ -1609,7 +1609,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   function passCode(m) { var slot = Math.floor(Date.now() / 30000); return "LOVELY1:" + m.id + ":" + slot.toString(36); }
   function drawPass() {
     if (!passBody) return; clearInterval(qrTimer); var m = me();
-    var guest = !m; if (guest) m = { name: "Your name here", id: "SW-0000-0000-0000", since: new Date().toISOString().slice(0, 10), pulls: [], plan: "pass", points: 0 };
+    var guest = !m; if (guest) m = { name: "Your name here", id: "LV-0000-0000-0000", since: new Date().toISOString().slice(0, 10), pulls: [], plan: "pass", points: 0 };
     var card = m.card ? '<span class="cc" aria-hidden="true"></span><div><b>' + m.card.brand + " •••• " + m.card.last4 + "</b>" + (PLANS[planOf(m)].price ? "Lovely Pass $19/mo · extras $4.25" : "Charged per bottle you take") + (m.card.demo ? " (demo)" : "") + '</div><a class="btn sm alt" href="' + P + 'account.html#pay">Manage</a>'
                        : '<span class="cc" aria-hidden="true" style="opacity:.35"></span><div><b>No card yet</b>Add one so the fridge can charge you</div><button type="button" class="btn sm" data-addcard>Add card</button>';
     passBody.innerHTML = '<h2 id="pass-h" class="sr">Your Lovely Pass</h2><div class="pass-card"><div class="pass-top"><img src="' + P + 'img/logo.png" alt="Lovely"><span>Member pass<br>Scan at the fridge</span></div>' +
@@ -1663,7 +1663,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     var days = [], orders = [];
     for (var i = 149; i >= 0; i--) { var d = new Date(today); d.setDate(d.getDate() - i); var grow = .55 + (149 - i) / 149 * .7;
       var clicks = Math.round((22 + r() * 60) * grow * (d.getDay() === 0 || d.getDay() === 6 ? 1.25 : 1)), n = 0, sales = 0;
-      for (var c = 0; c < clicks; c++) if (r() < .034) { var b = BOX[Math.floor(r() * BOX.length)]; n++; sales += b[1]; orders.push({ d: d, what: b[0], amt: b[1], id: "SW-" + (10000 + Math.floor(r() * 89999)) }); }
+      for (var c = 0; c < clicks; c++) if (r() < .034) { var b = BOX[Math.floor(r() * BOX.length)]; n++; sales += b[1]; orders.push({ d: d, what: b[0], amt: b[1], id: "LV-" + (10000 + Math.floor(r() * 89999)) }); }
       days.push({ d: d, clicks: clicks, orders: n, sales: sales, com: sales * rate }); }
     var names = ["kenz.lifts", "tylerruns", "maddie.eats", "coach.jbaker", "sam_on_campus", "liftwithlexi", "the.dunk.diaries", "rachfit", "nate.pt", "orem.crossfit", "bri.makes", "jakeyoked"];
     var nTeam = 3 + Math.floor(r() * 6), team = [];
@@ -1859,7 +1859,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   function totals(c) { var s = 0, h = 0, n = 0; c.forEach(function (b) { s += price(b) * b.qty; h += ship(b) * b.qty; n += b.qty; }); return { sub: s, ship: h, total: s + h, n: n }; }
   function line(b, i) { return '<li class="cline"><div class="cimg">' + pics(b) + '</div><div class="cinfo"><b>' + title(b) + "</b><span>" + mix(b) + "</span><span>" + plan(b) + '</span><div class="cqty"><button type="button" data-cdec="' + i + '" aria-label="One fewer box">−</button><output>' + b.qty + '</output><button type="button" data-cinc="' + i + '" aria-label="One more box">+</button><button type="button" class="crm" data-crm="' + i + '">Remove</button></div></div><b class="cprice">' + money(price(b) * b.qty) + "</b></li>"; }
   function sum(t) { return '<div class="csum"><div><span>Subtotal</span><b>' + money(t.sub) + "</b></div><div><span>Shipping</span><b>" + (t.ship ? money(t.ship) : "Free") + '</b></div><div class="ctot"><span>Total</span><b>' + money(t.total) + "</b></div><p>No payment today. Your card is charged when your box ships. First box comes with a free shaker.</p></div>"; }
-  var EMPTY = '<div class="cempty"><p>Your cart is empty. Tragic, but fixable. Tragic, but fixable.</p><a class="btn" href="' + P + 'shop.html">Build a box</a></div>';
+  var EMPTY = '<div class="cempty"><p>Your cart is empty. Tragic, but fixable.</p><a class="btn" href="' + P + 'shop.html">Build a box</a></div>';
   var sc = document.createElement("div"), dr = document.createElement("aside");
   sc.className = "cscrim"; dr.className = "cdrawer"; dr.id = "cdrawer"; dr.setAttribute("aria-label", "Your cart"); dr.setAttribute("aria-hidden", "true"); dr.setAttribute("inert", "");
   document.body.appendChild(sc); document.body.appendChild(dr);
