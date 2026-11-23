@@ -1530,6 +1530,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   function newId() { var d = ""; for (var i = 0; i < 12; i++) d += Math.floor(Math.random() * 10); return "LV-" + d.slice(0, 4) + "-" + d.slice(4, 8) + "-" + d.slice(8); }
   function initials(n) { return (n || "L").split(/\s+/).map(function (w) { return w[0]; }).join("").slice(0, 2).toUpperCase(); }
   function signedIn(profile) {
+    store("swell-aff-off", null);
     var m = me() || {}; m.name = profile.name || m.name || "Lovely member"; m.email = profile.email || m.email || ""; m.photo = profile.photo || m.photo || "";
     m.provider = profile.provider; m.demo = !!profile.demo; m.id = m.id || newId(); m.since = m.since || new Date().toISOString().slice(0, 10); m.pulls = m.pulls || [];
     if (!m.plan || (m.plan !== "pass" && m.plan !== "payg")) { m.plan = "pass"; m.planStart = new Date().toISOString().slice(0, 10); }
@@ -1720,6 +1721,8 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
       '<div class="ad-box ad-orders"><h3>Recent orders with your code</h3><div class="ad-scroll" tabindex="0" role="region" aria-label="Recent orders"><table class="ad-tbl"><thead><tr><th>Date</th><th>Order</th><th class="num xs">Total</th><th class="num">You earn</th><th>Status</th></tr></thead><tbody>' + ord + "</tbody></table></div></div>" +
       '<p class="small" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap;align-items:center"><span class="ph">Sample affiliate data for layout. Real numbers come from orders once boxes launch.</span><button type="button" class="linkbtn" data-affleave>Leave the program (demo)</button></p></div>';
   }
+  function demoAff(m) { var first = (m.name || "Lovely").split(" ")[0];
+    store("swell-aff", { name: m.name, email: m.email || "", platform: "Instagram", handle: "@" + first.toLowerCase(), size: "5k to 25k", kind: "Creator", team: "", why: "", code: first.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 8) + "10", at: Date.now(), demo: true }); }
   function affJoinHtml() {
     return '<div class="acard affdash affjoin" id="affiliate"><div><h2>Affiliate dashboard</h2><p style="color:var(--muted);font-size:15px">Earn 15% on every box ordered with your code (20% for founding instructors), plus 5% on sales from affiliates you recruit. Your stats, commissions and team show up here.</p></div>' +
       '<div class="ctas"><a class="btn" href="' + P + 'affiliate.html#apply">Become an affiliate</a><button type="button" class="btn alt" data-affdemo>Preview with sample data</button></div></div>';
@@ -1729,9 +1732,9 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     host.querySelectorAll("[data-adcopy]").forEach(function (b) { b.addEventListener("click", function () { var t = b.dataset.adcopy, done = function () { b.innerHTML = CHECK + " Copied"; burst(b); toast("Copied " + t.replace("https://", "")); setTimeout(function () { b.textContent = "Copy"; }, 1800); };
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(done, done); else done(); }); });
     host.querySelectorAll("[data-affdemo]").forEach(function (b) { b.addEventListener("click", function () { var m = me(); var first = (m.name || "Lovely").split(" ")[0];
-      store("swell-aff", { name: m.name, email: m.email || "", platform: "Instagram", handle: "@" + first.toLowerCase(), size: "5k to 25k", kind: "Creator", team: "", why: "", code: first.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 8) + "10", at: Date.now(), demo: true });
+      demoAff(m); store("swell-aff-off", null);
       paintAccount(); var a = $("affiliate"); if (a) a.scrollIntoView({ block: "start" }); confetti(a); toast("Sample affiliate dashboard (demo)"); }); });
-    host.querySelectorAll("[data-affleave]").forEach(function (b) { b.addEventListener("click", function () { store("swell-aff", null); paintAccount(); toast("You left the affiliate program (demo)"); }); });
+    host.querySelectorAll("[data-affleave]").forEach(function (b) { b.addEventListener("click", function () { store("swell-aff", null); store("swell-aff-off", 1); paintAccount(); toast("You left the affiliate program (demo)"); }); });
     var svg = host.querySelector(".ad-chart svg"), tip = $("ad-tip"); if (!svg || !tip) return;
     var a = store("swell-aff"), C = affChart(affData(a), affRange, svg.parentNode.clientWidth - 32);
     svg.outerHTML = C.svg; svg = host.querySelector(".ad-chart svg");
@@ -1781,7 +1784,8 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
       '<div class="acard"><h2>Fridge history</h2><div class="arow"><span>Bottles from fridges</span><b>' + (m.pulls || []).length + '</b></div><div class="arow"><span>Total charged</span><b>$' + spent.toFixed(2) + '</b></div>' +
       (pulls ? '<ul class="pulls">' + pulls + "</ul>" : '<p style="color:var(--muted);font-size:15px;margin-top:10px">No fridge scans yet. Lovely fridges come after launch; once they\'re in, tap <b>Scan</b> at one and your shakes show up here.</p>') +
       (m.card ? '<button type="button" class="btn alt" data-simpull style="margin-top:12px">Simulate a fridge scan (demo)</button>' : "") + "</div></div></div>";
-    var aff = store("swell-aff"); host.insertAdjacentHTML("beforeend", aff && aff.code ? affHtml(m, aff) : affJoinHtml()); wireAff(host);
+    var aff = store("swell-aff"); if (!(aff && aff.code) && m.demo && !store("swell-aff-off")) { demoAff(m); aff = store("swell-aff"); }
+    host.insertAdjacentHTML("beforeend", aff && aff.code ? affHtml(m, aff) : affJoinHtml()); wireAff(host);
     host.querySelectorAll("[data-pass2]").forEach(function (b) { b.addEventListener("click", openPass); });
     host.querySelectorAll("[data-addcard]").forEach(function (b) { b.addEventListener("click", addCard); });
     host.querySelectorAll("[data-rmcard]").forEach(function (b) { b.addEventListener("click", function () { var m = me(); delete m.card; saveMe(m); paintAccount(); toast("Card removed"); }); });
