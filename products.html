@@ -12,11 +12,11 @@
 <meta name="apple-mobile-web-app-title" content="Lovely">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>All Products | Lovely</title>
-<meta name="description" content="Lovely Creatine sticks to stir into your shake, protein ice cream pints and Ninja Creami recipes.">
+<meta name="description" content="Lovely Creatine sticks to stir into your shake, Lovely Creatine Gummies in five flavors, protein ice cream pints and Ninja Creami recipes.">
 <link rel="canonical" href="https://pdrayday.github.io/swell/products.html">
 <meta name="theme-color" content="#f4cddb">
 <meta name="color-scheme" content="light dark">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Lovely"><meta property="og:title" content="All Products | Lovely"><meta property="og:description" content="Lovely Creatine sticks to stir into your shake, protein ice cream pints and Ninja Creami recipes."><meta property="og:url" content="https://pdrayday.github.io/swell/products.html"><meta property="og:image" content="https://pdrayday.github.io/swell/img/og-lovely.jpg?v=2">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Lovely"><meta property="og:title" content="All Products | Lovely"><meta property="og:description" content="Lovely Creatine sticks to stir into your shake, Lovely Creatine Gummies in five flavors, protein ice cream pints and Ninja Creami recipes."><meta property="og:url" content="https://pdrayday.github.io/swell/products.html"><meta property="og:image" content="https://pdrayday.github.io/swell/img/og-lovely.jpg?v=2">
 <style>:root{--logo:url("img/logo.svg")}/* flavor names in the bottle label colors, centered under the bottle */
 .fl h3 { text-align: center; min-height: 0; margin-top: -2px; }
 .fl h3 .nlink { text-align: center; width: 100%; }
@@ -180,6 +180,32 @@ header.top .logo img[src$="logo.png"] { filter: brightness(0) invert(1) !importa
 /* ice cream top: compact fan on phones */
 @media (max-width: 860px) { .ic-top .fan { height: clamp(140px, 23svh, 300px) !important; max-height: none !important; } .ic-top .fan img { height: 94% !important; width: auto !important; } .ic-top { padding-top: 6px !important; } }
 @media (max-width: 860px) and (max-height: 720px) { .ic-top h1 { font-size: 36px !important; } .ic-top .lead { font-size: 15px !important; margin-top: 10px !important; } .ic-top .ctas { margin-top: 16px !important; } }
+
+/* creatine gummies */
+.gm-sec .matcha-in > img, .gm-sec .gm-shot img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 26px; box-shadow: 0 28px 54px -30px rgba(40,10,20,.5); display: block; }
+.gm-sec .gm-shot { display: block; max-width: 460px; width: 100%; justify-self: center; }
+.gm-sec .tag.new { background: #fff !important; color: var(--pink) !important; }
+.gm-flv { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.gm-flv button { border: 0; border-radius: 999px; padding: 9px 14px; font: 700 13.5px/1 var(--body); background: rgba(255,255,255,.5); color: var(--fc); cursor: pointer; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.75); transition: background .2s, transform .3s; }
+.gm-flv button[aria-pressed="true"] { background: #fff; box-shadow: 0 8px 18px -10px rgba(125,40,70,.45); }
+.gm-flv button:active { transform: scale(.95); }
+.gm-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; margin-top: 26px; }
+.gm-grid figure { grid-column: span 2; margin: 0; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 18px 36px -22px rgba(125,40,70,.45); }
+.gm-grid figure:nth-child(4) { grid-column: 2 / span 2; }
+.gm-grid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .5s ease; }
+.gm-grid figure:hover img { transform: scale(1.03); }
+.gm-grid figcaption { padding: 14px 18px 16px; }
+.gm-grid figcaption b { display: block; color: var(--fc); font: 600 21px var(--display, Georgia, serif); }
+.gm-grid figcaption span { display: block; color: var(--muted); font-size: 14px; margin-top: 2px; }
+@media (max-width: 860px) {
+  .gm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .gm-grid figure, .gm-grid figure:nth-child(4) { grid-column: auto; border-radius: 18px; }
+  .gm-grid figure:last-child { grid-column: 1 / -1; max-width: calc(50% - 5px); justify-self: center; }
+  .gm-grid figcaption { padding: 10px 12px 12px; }
+  .gm-grid figcaption b { font-size: 16px; }
+  .gm-grid figcaption span { font-size: 12.5px; }
+  .gm-sec .gm-shot { max-width: 340px; }
+}
 /* products page: creatine */
 .cr-top { padding-bottom: 10px; }
 .cr-top .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(20px, 4vw, 56px); align-items: center; }
@@ -187,7 +213,7 @@ header.top .logo img[src$="logo.png"] { filter: brightness(0) invert(1) !importa
 .cr-h { font-size: clamp(40px, 5.6vw, 76px); line-height: 1.02; }
 .cr-h em { color: var(--em); }
 .cr-head .lead { margin-top: 16px; }
-.cr-lineup img { width: 100%; height: auto; display: block; filter: drop-shadow(0 26px 30px rgba(125,40,70,.22)); }
+.cr-lineup img { width: 100%; height: auto; display: block; border-radius: 26px; box-shadow: 0 28px 54px -30px rgba(40,10,20,.5); }
 .cr-how { padding-top: 26px; }
 .cr-how h2 { text-align: center; }
 .cr-steps { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
@@ -1177,7 +1203,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     <h2 class="cr-h">Lovely Creatine. <em>One stick, any shake.</em></h2>
     <p class="lead">Tear a <b>Flavorless</b> stick into any <span class="swl"><span>Lovely</span></span>, shake it, and your protein shake is a creatine shake too. No taste, no grit, nothing extra to drink. Like your creatine in water instead? Bold. Pick a flavor.</p>
   </div>
-  <div class="cr-lineup"><img src="img/creatine/elec_lineup.webp" alt="Lovely Creatine + Electrolytes sticks in Flavorless, Blue Raspberry, Piña Colada, Sour Apple and Watermelon" width="958" height="949" fetchpriority="high"></div>
+  <div class="cr-lineup"><img src="img/creatine/elec_lineup.webp" srcset="img/creatine/elec_lineup_sm.webp 560w, img/creatine/elec_lineup.webp 1100w" sizes="(max-width: 860px) 330px, 460px" alt="Lovely Creatine + Electrolytes sticks in Flavorless, Blue Raspberry, Piña Colada, Sour Apple and Watermelon" width="1100" height="1375" fetchpriority="high"></div>
 </div></section>
 <section class="cr-how" aria-labelledby="h-crhow"><div class="wrap">
   <h2 id="h-crhow">Better together</h2>
@@ -1197,6 +1223,16 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <div class="cr-sticks"><figure class="stick on" data-f="flavorless"><img src="img/creatine/elec_flavorless.webp" data-mono="img/creatine/mono_flavorless.webp" data-elec="img/creatine/elec_flavorless.webp" alt="Lovely Creatine + Electrolytes stick, Flavorless" loading="lazy"><figcaption style="--fc:#d0809c">Flavorless</figcaption></figure><figure class="stick" data-f="blue"><img src="img/creatine/elec_blue.webp" data-mono="img/creatine/mono_blue.webp" data-elec="img/creatine/elec_blue.webp" alt="Lovely Creatine + Electrolytes stick, Blue Raspberry" loading="lazy"><figcaption style="--fc:#3a8ad6">Blue Raspberry</figcaption></figure><figure class="stick" data-f="pina"><img src="img/creatine/elec_pina.webp" data-mono="img/creatine/mono_pina.webp" data-elec="img/creatine/elec_pina.webp" alt="Lovely Creatine + Electrolytes stick, Piña Colada" loading="lazy"><figcaption style="--fc:#e8a21a">Piña Colada</figcaption></figure><figure class="stick" data-f="apple"><img src="img/creatine/elec_apple.webp" data-mono="img/creatine/mono_apple.webp" data-elec="img/creatine/elec_apple.webp" alt="Lovely Creatine + Electrolytes stick, Sour Apple" loading="lazy"><figcaption style="--fc:#7cb342">Sour Apple</figcaption></figure><figure class="stick" data-f="melon"><img src="img/creatine/elec_melon.webp" data-mono="img/creatine/mono_melon.webp" data-elec="img/creatine/elec_melon.webp" alt="Lovely Creatine + Electrolytes stick, Watermelon" loading="lazy"><figcaption style="--fc:#e0525c">Watermelon</figcaption></figure></div>
   <p class="cr-note small">Flavorless is made for mixing into your shake. Blue Raspberry, Piña Colada, Sour Apple and Watermelon are for water. Creatine is one of the most studied supplements for strength training.*</p>
   <div class="ctas" style="justify-content:center"><a class="btn" href="#notify">Get first dibs</a><a class="btn alt" href="shop.html">Build a box of shakes</a></div>
+</div></section>
+<section class="gm-sec" id="gummies" aria-labelledby="h-gm"><div class="wrap">
+  <div class="cr-head" style="max-width:760px">
+    <span class="soon">New · chew it, don't stir it</span>
+    <h2 class="cr-h" id="h-gm">Lovely Creatine Gummies. <em>Sweet hearts, real creatine.</em></h2>
+    <p class="lead">Not a stick person? Same daily creatine habit, in heart-shaped gummies you'll actually remember to take. Keep a jar in your bag, your car and your desk. We won't judge.</p>
+    <ul class="mach-facts"><li>60 gummies a jar</li><li>5 candy flavors</li><li>No shaker needed</li></ul>
+  </div>
+  <div class="gm-grid"><figure><img src="img/gummies/strawberry.webp" srcset="img/gummies/strawberry_sm.webp 560w, img/gummies/strawberry.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Strawberry: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#b3123f"><b>Strawberry</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/blue.webp" srcset="img/gummies/blue_sm.webp 560w, img/gummies/blue.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Blue Raspberry: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#2236c9"><b>Blue Raspberry</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/watermelon.webp" srcset="img/gummies/watermelon_sm.webp 560w, img/gummies/watermelon.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Watermelon: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#d81f2a"><b>Watermelon</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/pina.webp" srcset="img/gummies/pina_sm.webp 560w, img/gummies/pina.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Piña Colada: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#d27a12"><b>Piña Colada</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/apple.webp" srcset="img/gummies/apple_sm.webp 560w, img/gummies/apple.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Sour Apple: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#3f7a1f"><b>Sour Apple</b><span>60 gummies · dietary supplement</span></figcaption></figure></div>
+  <div class="ctas" style="justify-content:center;margin-top:24px"><a class="btn" href="#notify">Get first dibs</a><a class="btn alt" href="#creatine">Prefer sticks? See Lovely Creatine</a></div>
 </div></section>
 <section class="page-h ic-top" id="icecream"><div class="wrap ictop">
   <div>
@@ -1244,7 +1280,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <div class="recipes"><a class="rc" href="creami/strawberry-cheesecake-protein-ice-cream.html"><div class="stage rphoto"><img src="img/creami/van_sm.webp" alt="Vanilla protein ice cream in a Ninja Creami pint next to a pink Lovely 30g Vanilla bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Lite Ice Cream</span><h3>Strawberry Cheesecake Protein Ice Cream</h3><p>The most-copied Creami recipe online, made with a <span class="swl"><span>Lovely</span></span> Vanilla. Cheesecake pudding mix gives it the tang and the thick, scoopable texture.</p><span class="go">Get the recipe →</span></div></a><a class="rc" href="creami/chocolate-fudge-protein-ice-cream.html"><div class="stage rphoto"><img src="img/creami/choc_sm.webp" alt="Chocolate protein ice cream in a Ninja Creami pint next to a light-blue Lovely 50g Chocolate bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Lite Ice Cream</span><h3>Chocolate Fudge Protein Ice Cream</h3><p>The viral &quot;protein shake plus pudding mix&quot; pint. <span class="swl"><span>Lovely</span></span> Chocolate and chocolate pudding mix spin into something that tastes like a fudge bar.</p><span class="go">Get the recipe →</span></div></a><a class="rc" href="creami/matcha-latte-protein-ice-cream.html"><div class="stage rphoto"><img src="img/creami/matcha_sm.webp" alt="Matcha protein ice cream in a Ninja Creami pint next to a pink Lovely 30g Matcha bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Lite Ice Cream</span><h3>Matcha Latte Protein Ice Cream</h3><p>The coffee-shop matcha latte as a pint. <span class="swl"><span>Lovely</span></span> Matcha plus a little extra matcha powder for a deeper green-tea flavor.</p><span class="go">Get the recipe →</span></div></a><a class="rc" href="creami/protein-milkshake-from-a-pint.html"><div class="stage rphoto"><img src="img/creami/cbutter_sm.webp" alt="Cookie butter protein ice cream in a Ninja Creami pint next to a light-blue Lovely 50g Cookie Butter bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Milkshake</span><h3>Thick Protein Milkshake from Any Pint</h3><p>Turn a frozen pint back into a spoon-thick shake. This works with any <span class="swl"><span>Lovely</span></span> flavor, and it&#x27;s the fastest way to use up a leftover pint.</p><span class="go">Get the recipe →</span></div></a></div>
 </div></section>
 <section id="notify" style="padding-top:0"><div class="wrap"><div class="host">
-  <div><h2>Be first in line.</h2><p>We'll email you once when <span class="swl"><span>Lovely</span></span> Creatine and ice cream pints drop. Once. We're not that brand.</p></div>
+  <div><h2>Be first in line.</h2><p>We'll email you once when <span class="swl"><span>Lovely</span></span> Creatine, the gummies and ice cream pints drop. Once. We're not that brand.</p></div>
   <div><form data-simple="You're on the list. We'll email you when they drop." novalidate><label class="sr" for="ic-email">Email</label><input type="email" id="ic-email" placeholder="you@email.com" autocomplete="email"><button class="btn" type="submit">Notify me</button></form><p class="fmsg small" style="color:inherit;opacity:.8;margin-top:10px" aria-live="polite"></p></div>
 </div></div></section></main>
 <footer class="site"><div class="wrap">
@@ -2059,7 +2095,19 @@ document.querySelectorAll(".cr-type").forEach(function (b) { b.addEventListener(
   document.querySelectorAll(".cr-type").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
   var t = b.dataset.t, name = t === "mono" ? "Creatine Monohydrate" : "Creatine + Electrolytes";
   document.querySelectorAll(".stick img").forEach(function (i) { i.src = i.dataset[t]; i.alt = i.alt.replace(/Creatine (Monohydrate|\+ Electrolytes)/, name); });
-  var l = document.querySelector(".cr-lineup img"); if (l) l.src = "img/creatine/" + t + "_lineup.webp";
+  var l = document.querySelector(".cr-lineup img"); if (l) { l.src = "img/creatine/" + t + "_lineup.webp"; l.srcset = t === "elec" ? "img/creatine/elec_lineup_sm.webp 560w, img/creatine/elec_lineup.webp 1100w" : ""; }
 }); });</script>
+<script>/* creatine gummies flavor switch */
+document.querySelectorAll(".gm-flv").forEach(function (g) {
+  g.addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    var img = document.querySelector(g.dataset.for);
+    g.querySelectorAll("button").forEach(function (x) { x.setAttribute("aria-pressed", x === b); });
+    img.src = "img/gummies/" + b.dataset.g + ".webp"; img.srcset = "img/gummies/" + b.dataset.g + "_sm.webp 560w, img/gummies/" + b.dataset.g + ".webp 1100w";
+    img.alt = "Lovely Creatine Gummies, " + b.textContent + ": two pink jars of heart-shaped gummies";
+  });
+});
+</script>
+
 </body>
 </html>
