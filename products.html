@@ -1258,6 +1258,21 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   .st-btn { min-height: 40px; font-size: 13.5px; }
   .st-perks { gap: 6px 14px; font-size: 12.5px; }
 }
+/* products: simpler */
+.st-img.mixfit img { object-fit: contain; background: #f3d3e1; }
+.gm-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.gm-grid figure, .gm-grid figure:nth-child(4) { grid-column: auto; }
+.gm-grid figcaption { padding: 10px 14px 12px; } .gm-grid figcaption b { font-size: 17px; }
+.cmore { display: grid; gap: 10px; max-width: 860px; margin-left: 0; }
+.icdiy .lead { text-align: center; margin-inline: auto; }
+.cmore details { background: var(--surface); border-radius: 16px; padding: 0 18px; }
+.cmore summary { cursor: pointer; padding: 16px 0; font: 700 17px/1.2 var(--body); color: var(--fg); list-style: none; display: flex; justify-content: space-between; }
+.cmore summary::-webkit-details-marker { display: none; }
+.cmore summary::after { content: "+"; font-size: 22px; line-height: .8; }
+.cmore details[open] summary::after { content: "\2212"; }
+.cmore .cups { padding-bottom: 16px; } .cmore .cups li { background: rgba(255,255,255,.4); }
+@media (max-width: 560px) { .cbasics { grid-template-columns: 1fr 1fr; gap: 8px; } .cbasics li { padding: 14px; font-size: 14px; } .cbasics b { font-size: 15px; } .recipes { grid-template-columns: 1fr 1fr !important; gap: 10px !important; } .rc .t { padding: 10px 12px 12px !important; } .rc h3 { font-size: 15px !important; } .rc .rset { font-size: 10px; } }
+@media (max-width: 860px) { .gm-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .gm-grid figure:last-child { grid-column: 1 / -1; max-width: calc(50% - 5px); justify-self: center; } }
 </style>
 <header class="top"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
@@ -1275,68 +1290,67 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
 <section class="st-top" aria-labelledby="h-all"><div class="wrap">
   <nav class="st-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Shop all</span></nav>
   <div class="st-head"><h1 id="h-all">Shop all</h1><p class="st-count" id="st-count">11 products</p></div>
-  <ul class="st-perks"><li>Free shipping on 24-packs</li><li>Subscribe and save 15%</li><li>Skip or cancel anytime</li><li>Charged when your order ships</li></ul>
   <div class="st-bar">
     <div class="st-cats" role="group" aria-label="Category"><button type="button" data-cat="all" aria-pressed="true">All <small>11</small></button><button type="button" data-cat="shakes" aria-pressed="false">Protein shakes <small>6</small></button><button type="button" data-cat="creatine" aria-pressed="false">Creatine <small>2</small></button><button type="button" data-cat="gummies" aria-pressed="false">Gummies <small>1</small></button><button type="button" data-cat="icecream" aria-pressed="false">Ice cream <small>1</small></button><button type="button" data-cat="membership" aria-pressed="false">Membership <small>1</small></button></div>
     <label class="st-sort"><span>Sort</span><select id="st-sort"><option value="featured">Featured</option><option value="new">Newest</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></label>
   </div>
   <div class="st-grid" id="st-grid">
 <article class="st-card" data-cat="shakes" data-price="101.99" data-order="0" data-new="0" data-k="choc" data-p="30">
-  <a class="st-img bottle" href="shop.html?f=choc" aria-label="Chocolate protein shake"><img class="alt" src="img/pack_choc_sm.webp" data-30="img/pack_choc_sm.webp" data-50="img/pack_swoll_choc_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_choc.webp" data-30="img/b_choc.webp" data-50="img/sw_choc_lg.webp" alt="Chocolate protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="sv">Save 15%</em></span></a>
+  <a class="st-img bottle" href="shop.html?f=choc" aria-label="Chocolate protein shake"><img class="alt" src="img/pack_choc_sm.webp" data-30="img/pack_choc_sm.webp" data-50="img/pack_swoll_choc_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_choc.webp" data-30="img/b_choc.webp" data-50="img/sw_choc_lg.webp" alt="Chocolate protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"></span></a>
   <div class="st-body">
     <h3><a href="shop.html?f=choc">Chocolate Protein Shake</a></h3>
     <p class="st-var"><span data-var>24 bottles · 30g protein</span></p>
     <div class="st-size" role="group" aria-label="Protein per bottle"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div>
-    <p class="st-price"><b data-now>$101.99</b> <s data-was>$119.99</s> <span data-per>$4.25/bottle</span></p>
+    <p class="st-price"><b data-now>$101.99</b></p>
     <button type="button" class="st-btn" data-quick>Add to cart</button>
   </div>
 </article>
 <article class="st-card" data-cat="shakes" data-price="101.99" data-order="1" data-new="0" data-k="van" data-p="30">
-  <a class="st-img bottle" href="shop.html?f=van" aria-label="Vanilla protein shake"><img class="alt" src="img/pack_van_sm.webp" data-30="img/pack_van_sm.webp" data-50="img/pack_swoll_van_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_van.webp" data-30="img/b_van.webp" data-50="img/sw_van_lg.webp" alt="Vanilla protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="sv">Save 15%</em></span></a>
+  <a class="st-img bottle" href="shop.html?f=van" aria-label="Vanilla protein shake"><img class="alt" src="img/pack_van_sm.webp" data-30="img/pack_van_sm.webp" data-50="img/pack_swoll_van_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_van.webp" data-30="img/b_van.webp" data-50="img/sw_van_lg.webp" alt="Vanilla protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"></span></a>
   <div class="st-body">
     <h3><a href="shop.html?f=van">Vanilla Protein Shake</a></h3>
     <p class="st-var"><span data-var>24 bottles · 30g protein</span></p>
     <div class="st-size" role="group" aria-label="Protein per bottle"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div>
-    <p class="st-price"><b data-now>$101.99</b> <s data-was>$119.99</s> <span data-per>$4.25/bottle</span></p>
+    <p class="st-price"><b data-now>$101.99</b></p>
     <button type="button" class="st-btn" data-quick>Add to cart</button>
   </div>
 </article>
 <article class="st-card" data-cat="shakes" data-price="101.99" data-order="2" data-new="0" data-k="cbutter" data-p="30">
-  <a class="st-img bottle" href="shop.html?f=cbutter" aria-label="Cookie Butter protein shake"><img class="alt" src="img/pack_cbutter_sm.webp" data-30="img/pack_cbutter_sm.webp" data-50="img/pack_swoll_cbutter_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_cbutter.webp" data-30="img/b_cbutter.webp" data-50="img/sw_cbutter_lg.webp" alt="Cookie Butter protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="sv">Save 15%</em></span></a>
+  <a class="st-img bottle" href="shop.html?f=cbutter" aria-label="Cookie Butter protein shake"><img class="alt" src="img/pack_cbutter_sm.webp" data-30="img/pack_cbutter_sm.webp" data-50="img/pack_swoll_cbutter_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_cbutter.webp" data-30="img/b_cbutter.webp" data-50="img/sw_cbutter_lg.webp" alt="Cookie Butter protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"></span></a>
   <div class="st-body">
     <h3><a href="shop.html?f=cbutter">Cookie Butter Protein Shake</a></h3>
     <p class="st-var"><span data-var>24 bottles · 30g protein</span></p>
     <div class="st-size" role="group" aria-label="Protein per bottle"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div>
-    <p class="st-price"><b data-now>$101.99</b> <s data-was>$119.99</s> <span data-per>$4.25/bottle</span></p>
+    <p class="st-price"><b data-now>$101.99</b></p>
     <button type="button" class="st-btn" data-quick>Add to cart</button>
   </div>
 </article>
 <article class="st-card" data-cat="shakes" data-price="101.99" data-order="3" data-new="1" data-k="matcha" data-p="30">
-  <a class="st-img bottle" href="shop.html?f=matcha" aria-label="Matcha protein shake"><img class="alt" src="img/pack_matcha_sm.webp" data-30="img/pack_matcha_sm.webp" data-50="img/pack_swoll_matcha_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_matcha.webp" data-30="img/b_matcha.webp" data-50="img/sw_matcha_lg.webp" alt="Matcha protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="nw">New</em><em class="sv">Save 15%</em></span></a>
+  <a class="st-img bottle" href="shop.html?f=matcha" aria-label="Matcha protein shake"><img class="alt" src="img/pack_matcha_sm.webp" data-30="img/pack_matcha_sm.webp" data-50="img/pack_swoll_matcha_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_matcha.webp" data-30="img/b_matcha.webp" data-50="img/sw_matcha_lg.webp" alt="Matcha protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="nw">New</em></span></a>
   <div class="st-body">
     <h3><a href="shop.html?f=matcha">Matcha Protein Shake</a></h3>
     <p class="st-var"><span data-var>24 bottles · 30g protein</span></p>
     <div class="st-size" role="group" aria-label="Protein per bottle"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div>
-    <p class="st-price"><b data-now>$101.99</b> <s data-was>$119.99</s> <span data-per>$4.25/bottle</span></p>
+    <p class="st-price"><b data-now>$101.99</b></p>
     <button type="button" class="st-btn" data-quick>Add to cart</button>
   </div>
 </article>
 <article class="st-card" data-cat="shakes" data-price="101.99" data-order="4" data-new="1" data-k="pb" data-p="30">
-  <a class="st-img bottle" href="shop.html?f=pb" aria-label="Peanut Butter protein shake"><img class="alt" src="img/pack_pb_sm.webp" data-30="img/pack_pb_sm.webp" data-50="img/pack_swoll_pb_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_pb.webp" data-30="img/b_pb.webp" data-50="img/sw_pb_lg.webp" alt="Peanut Butter protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="nw">New</em><em class="sv">Save 15%</em></span></a>
+  <a class="st-img bottle" href="shop.html?f=pb" aria-label="Peanut Butter protein shake"><img class="alt" src="img/pack_pb_sm.webp" data-30="img/pack_pb_sm.webp" data-50="img/pack_swoll_pb_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_pb.webp" data-30="img/b_pb.webp" data-50="img/sw_pb_lg.webp" alt="Peanut Butter protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="nw">New</em></span></a>
   <div class="st-body">
     <h3><a href="shop.html?f=pb">Peanut Butter Protein Shake</a></h3>
     <p class="st-var"><span data-var>24 bottles · 30g protein</span></p>
     <div class="st-size" role="group" aria-label="Protein per bottle"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div>
-    <p class="st-price"><b data-now>$101.99</b> <s data-was>$119.99</s> <span data-per>$4.25/bottle</span></p>
+    <p class="st-price"><b data-now>$101.99</b></p>
     <button type="button" class="st-btn" data-quick>Add to cart</button>
   </div>
 </article>
 <article class="st-card" data-cat="shakes" data-price="101.99" data-order="5" data-new="0">
-  <a class="st-img photo" href="shop.html#build"><img src="img/lineup_mix_sm.webp" srcset="img/lineup_mix_sm.webp 660w, img/lineup_mix.webp 1315w" sizes="(max-width: 700px) 46vw, 280px" alt="Protein shakes in all five flavors, 30g pink and 50g blue bottles" width="1315" height="867" loading="lazy"><span class="st-badges"><em class="sv">Save 15%</em></span></a>
+  <a class="st-img photo mixfit" href="shop.html#build"><img src="img/lineup_mix_sm.webp" srcset="img/lineup_mix_sm.webp 660w, img/lineup_mix.webp 1315w" sizes="(max-width: 700px) 46vw, 280px" alt="Protein shakes in all five flavors, 30g pink and 50g blue bottles" width="1315" height="867" loading="lazy"><span class="st-badges"></span></a>
   <div class="st-body">
     <h3><a href="shop.html#build">Mix &amp; Match 24-Pack</a></h3>
     <p class="st-var">Pick any flavors · 30g, 50g or both</p>
-    <p class="st-price"><span class="from">From</span> <b>$101.99</b> <span>$4.25/bottle</span></p>
+    <p class="st-price"><span class="from">From</span> <b>$101.99</b></p>
     <a class="st-btn" href="shop.html#build">Build your box</a>
   </div>
 </article>
@@ -1346,7 +1360,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     <h3><a href="#creatine-info">Creatine + Electrolytes Sticks</a></h3>
     <p class="st-var"><span data-var>Flavorless</span> · 30 sticks</p>
     <div class="st-sw" role="group" aria-label="Flavor"><button type="button" data-img="img/creatine/elec_flavorless.webp" data-v="Flavorless" aria-label="Flavorless" aria-pressed="true" style="--c:#f1d3dc"></button><button type="button" data-img="img/creatine/elec_blue.webp" data-v="Blue Raspberry" aria-label="Blue Raspberry" aria-pressed="false" style="--c:#3a8ad6"></button><button type="button" data-img="img/creatine/elec_pina.webp" data-v="Piña Colada" aria-label="Piña Colada" aria-pressed="false" style="--c:#e8a21a"></button><button type="button" data-img="img/creatine/elec_apple.webp" data-v="Sour Apple" aria-label="Sour Apple" aria-pressed="false" style="--c:#7cb342"></button><button type="button" data-img="img/creatine/elec_melon.webp" data-v="Watermelon" aria-label="Watermelon" aria-pressed="false" style="--c:#e0525c"></button></div>
-    <p class="st-price"><b>$24.99</b> <span>subscribed · 30 servings</span></p>
+    <p class="st-price"><b>$24.99</b> <span>subscribed</span></p>
     <a class="st-btn ghost" href="#notify" data-notify>Notify me</a>
   </div>
 </article>
@@ -1356,7 +1370,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     <h3><a href="#creatine-info">Creatine Monohydrate Sticks</a></h3>
     <p class="st-var"><span data-var>Flavorless</span> · 30 sticks</p>
     <div class="st-sw" role="group" aria-label="Flavor"><button type="button" data-img="img/creatine/mono_flavorless.webp" data-v="Flavorless" aria-label="Flavorless" aria-pressed="true" style="--c:#f1d3dc"></button><button type="button" data-img="img/creatine/mono_blue.webp" data-v="Blue Raspberry" aria-label="Blue Raspberry" aria-pressed="false" style="--c:#3a8ad6"></button><button type="button" data-img="img/creatine/mono_pina.webp" data-v="Piña Colada" aria-label="Piña Colada" aria-pressed="false" style="--c:#e8a21a"></button><button type="button" data-img="img/creatine/mono_apple.webp" data-v="Sour Apple" aria-label="Sour Apple" aria-pressed="false" style="--c:#7cb342"></button><button type="button" data-img="img/creatine/mono_melon.webp" data-v="Watermelon" aria-label="Watermelon" aria-pressed="false" style="--c:#e0525c"></button></div>
-    <p class="st-price"><b>$24.99</b> <span>subscribed · 30 servings</span></p>
+    <p class="st-price"><b>$24.99</b> <span>subscribed</span></p>
     <a class="st-btn ghost" href="#notify" data-notify>Notify me</a>
   </div>
 </article>
@@ -1393,68 +1407,53 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
 </div></section>
 <div class="wrap st-more"><h2>About the products</h2><nav aria-label="Product details"><a href="#creatine-info">Creatine</a><a href="#gummies-info">Creatine gummies</a><a href="#icecream-info">Ice cream</a><a href="#creami">Ninja Creami recipes</a></nav></div>
 <section class="cr-how" id="creatine-info" aria-labelledby="h-crhow"><div class="wrap">
-  <h2 id="h-crhow">Creatine sticks</h2><p class="lead cr-sub">Mix a Flavorless stick into any shake, or take a flavor with water. 5g creatine per stick.</p>
-  <ol class="cr-steps">
-    <li><b>1</b><h3>Open a <span class="swl"><span>Lovely</span></span></h3><p>Any flavor, 30g or 50g.</p></li>
-    <li><b>2</b><h3>Add a Flavorless stick</h3><p>It dissolves into the shake without changing the taste.</p></li>
-    <li><b>3</b><h3>Shake and drink</h3><p>Protein and creatine in one bottle, every day.</p></li>
-  </ol>
+  <h2 id="h-crhow">Creatine sticks</h2><p class="lead cr-sub">Flavorless goes in your shake. Flavors go in water. 5g creatine a stick.</p>
   <div class="cr-pics">
-    <figure><img src="img/creatine/pour_shake.webp" srcset="img/creatine/pour_shake_sm.webp 500w, img/creatine/pour_shake.webp 900w" sizes="(max-width: 860px) 46vw, 430px" alt="Pouring a Flavorless Lovely Creatine stick into a Matcha Lovely" loading="lazy" width="900" height="1195"><figcaption><b>Flavorless + any <span class="swl"><span>Lovely</span></span></b><span>Same shake, now with creatine.</span></figcaption></figure>
-    <figure><img src="img/creatine/pour_water.webp" srcset="img/creatine/pour_water_sm.webp 500w, img/creatine/pour_water.webp 900w" sizes="(max-width: 860px) 46vw, 430px" alt="Pouring a Blue Raspberry Lovely Creatine + Electrolytes stick into a shaker of water at the gym" loading="lazy" width="900" height="1200"><figcaption><b>A flavor + water</b><span>For the gym bag, between shakes.</span></figcaption></figure>
+    <figure><img src="img/creatine/pour_shake.webp" srcset="img/creatine/pour_shake_sm.webp 500w, img/creatine/pour_shake.webp 900w" sizes="(max-width: 860px) 46vw, 430px" alt="Pouring a Flavorless Lovely Creatine stick into a Matcha Lovely" loading="lazy" width="900" height="1195"><figcaption><b>Flavorless + any <span class="swl"><span>Lovely</span></span></b></figcaption></figure>
+    <figure><img src="img/creatine/pour_water.webp" srcset="img/creatine/pour_water_sm.webp 500w, img/creatine/pour_water.webp 900w" sizes="(max-width: 860px) 46vw, 430px" alt="Pouring a Blue Raspberry Lovely Creatine + Electrolytes stick into a shaker of water at the gym" loading="lazy" width="900" height="1200"><figcaption><b>A flavor + water</b></figcaption></figure>
   </div>
   <div class="cr-types" role="group" aria-label="Choose a creatine">
-    <button type="button" class="cr-type" data-t="mono" aria-pressed="false"><b>Creatine Monohydrate</b><span>Pure creatine monohydrate. Nothing else.</span></button>
-    <button type="button" class="cr-type" data-t="elec" aria-pressed="true"><b>Creatine + Electrolytes</b><span>Creatine with magnesium and potassium.</span></button>
+    <button type="button" class="cr-type" data-t="mono" aria-pressed="false"><b>Creatine Monohydrate</b><span>Just creatine.</span></button>
+    <button type="button" class="cr-type" data-t="elec" aria-pressed="true"><b>Creatine + Electrolytes</b><span>Plus magnesium and potassium.</span></button>
   </div>
   <div class="cr-sticks" data-t="elec"><figure class="stick on" data-f="flavorless"><img src="img/creatine/elec_flavorless.webp" data-mono="img/creatine/mono_flavorless.webp" data-elec="img/creatine/elec_flavorless.webp" alt="Lovely Creatine + Electrolytes stick, Flavorless" loading="lazy"><figcaption style="--fc:#d0809c">Flavorless</figcaption></figure><figure class="stick" data-f="blue"><img src="img/creatine/elec_blue.webp" data-mono="img/creatine/mono_blue.webp" data-elec="img/creatine/elec_blue.webp" alt="Lovely Creatine + Electrolytes stick, Blue Raspberry" loading="lazy"><figcaption style="--fc:#3a8ad6">Blue Raspberry</figcaption></figure><figure class="stick" data-f="pina"><img src="img/creatine/elec_pina.webp" data-mono="img/creatine/mono_pina.webp" data-elec="img/creatine/elec_pina.webp" alt="Lovely Creatine + Electrolytes stick, Piña Colada" loading="lazy"><figcaption style="--fc:#e8a21a">Piña Colada</figcaption></figure><figure class="stick" data-f="apple"><img src="img/creatine/elec_apple.webp" data-mono="img/creatine/mono_apple.webp" data-elec="img/creatine/elec_apple.webp" alt="Lovely Creatine + Electrolytes stick, Sour Apple" loading="lazy"><figcaption style="--fc:#7cb342">Sour Apple</figcaption></figure><figure class="stick" data-f="melon"><img src="img/creatine/elec_melon.webp" data-mono="img/creatine/mono_melon.webp" data-elec="img/creatine/elec_melon.webp" alt="Lovely Creatine + Electrolytes stick, Watermelon" loading="lazy"><figcaption style="--fc:#e0525c">Watermelon</figcaption></figure></div>
-  <p class="cr-note small">Flavorless is made for mixing into your shake. Blue Raspberry, Piña Colada, Sour Apple and Watermelon are for water. Creatine is one of the most studied supplements for strength training.*</p>
-  <div class="ctas" style="justify-content:center"><a class="btn" href="#notify">Get first dibs</a><a class="btn alt" href="shop.html">Build a box of shakes</a></div>
+    <div class="ctas" style="justify-content:center"><a class="btn" href="#notify">Get first dibs</a></div>
 </div></section>
 <section class="gm-sec" id="gummies-info" aria-labelledby="h-gm"><div class="wrap">
   <div class="cr-head" style="max-width:760px">
     <span class="soon">New · chew it, don't stir it</span>
-    <h2 class="cr-h" id="h-gm">Lovely Creatine Gummies. <em>Sweet hearts, real creatine.</em></h2>
-    <p class="lead">The same daily creatine, in heart-shaped gummies. Keep a jar in your bag, car or desk.</p>
-    <ul class="mach-facts"><li>60 gummies a jar</li><li>5 candy flavors</li><li>No shaker needed</li></ul>
+    <h2 class="cr-h" id="h-gm">Creatine Gummies. <em>Sweet hearts, real creatine.</em></h2>
+    <p class="lead">Daily creatine you can chew. No shaker.</p>
   </div>
-  <div class="gm-grid"><figure><img src="img/gummies/strawberry.webp" srcset="img/gummies/strawberry_sm.webp 560w, img/gummies/strawberry.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Strawberry: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#b3123f"><b>Strawberry</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/blue.webp" srcset="img/gummies/blue_sm.webp 560w, img/gummies/blue.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Blue Raspberry: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#2236c9"><b>Blue Raspberry</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/watermelon.webp" srcset="img/gummies/watermelon_sm.webp 560w, img/gummies/watermelon.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Watermelon: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#d81f2a"><b>Watermelon</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/pina.webp" srcset="img/gummies/pina_sm.webp 560w, img/gummies/pina.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Piña Colada: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#d27a12"><b>Piña Colada</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/apple.webp" srcset="img/gummies/apple_sm.webp 560w, img/gummies/apple.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Sour Apple: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#3f7a1f"><b>Sour Apple</b><span>60 gummies · dietary supplement</span></figcaption></figure></div>
-  <div class="ctas" style="justify-content:center;margin-top:24px"><a class="btn" href="#notify">Get first dibs</a><a class="btn alt" href="#creatine-info">Prefer sticks? See the creatine sticks</a></div>
+  <div class="gm-grid"><figure><img src="img/gummies/strawberry.webp" srcset="img/gummies/strawberry_sm.webp 560w, img/gummies/strawberry.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Strawberry: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#b3123f"><b>Strawberry</b></figcaption></figure><figure><img src="img/gummies/blue.webp" srcset="img/gummies/blue_sm.webp 560w, img/gummies/blue.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Blue Raspberry: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#2236c9"><b>Blue Raspberry</b></figcaption></figure><figure><img src="img/gummies/watermelon.webp" srcset="img/gummies/watermelon_sm.webp 560w, img/gummies/watermelon.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Watermelon: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#d81f2a"><b>Watermelon</b></figcaption></figure><figure><img src="img/gummies/pina.webp" srcset="img/gummies/pina_sm.webp 560w, img/gummies/pina.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Piña Colada: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#d27a12"><b>Piña Colada</b></figcaption></figure><figure><img src="img/gummies/apple.webp" srcset="img/gummies/apple_sm.webp 560w, img/gummies/apple.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Sour Apple: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#3f7a1f"><b>Sour Apple</b></figcaption></figure></div>
+  <div class="ctas" style="justify-content:center;margin-top:24px"><a class="btn" href="#notify">Get first dibs</a></div>
 </div></section>
 <section class="alt-bg" id="icecream-info"><div class="wrap icwhy">
   <div class="icwhy-img"><img src="img/ic/ic2_fridge.webp" alt="Two women at a Pilates studio picking Lovely protein ice cream pints from a pink Lovely fridge" width="720" height="900" loading="lazy"></div>
   <div>
     <h2>Dessert first. Protein included.</h2>
     <ul class="icpoints">
-      <li><b>Real dessert flavors</b><span>Chocolate, vanilla, cookie butter and matcha, from the shake lineup.</span></li>
-      <li><b>Protein in every pint</b><span>Built on the same milk protein as the shakes, so it's a snack that holds you over.</span></li>
-      <li><b>Less sugar</b><span>Sweet enough for dessert, with less sugar than regular ice cream.</span></li>
+      <li><b>Shake flavors, as pints</b></li>
+      <li><b>Protein in every pint</b></li>
     </ul>
-    <p class="small" style="margin-top:14px"><span class="ph">Nutrition and pint sizes are placeholders until the recipes are final.</span></p>
+    <p class="small" style="margin-top:14px"><span class="ph">Coming soon. Details are placeholders.</span></p>
   </div>
 </div></section>
-<section id="creami" aria-labelledby="h-creami"><div class="wrap icdiy"> <div><h2 id="h-creami">Make it at home tonight</h2><p class="lead">Until pints drop, pour a bottle of <span class="swl"><span>Lovely</span></span> into a Ninja Creami pint, freeze it for 24 hours (yes, a whole day) and spin. Here&#x27;s what&#x27;s different with a protein shake, how to fix the usual problems, and the recipes worth making.</p><ul class="mach-facts"><li>One bottle per pint</li><li>Lite Ice Cream setting</li><li>30g protein a pint</li></ul><div class="ctas"><a class="btn" href="#recipes">See the recipes</a><a class="btn alt" href="shop.html">Build a box</a></div></div></div></section>
+<section id="creami" aria-labelledby="h-creami"><div class="wrap icdiy"> <div><h2 id="h-creami">Make it at home tonight</h2><p class="lead">Pour a <span class="swl"><span>Lovely</span></span> into a Ninja Creami pint, freeze 24 hours, spin.</p><div class="ctas"><a class="btn" href="#recipes">See the recipes</a></div></div></div></section>
 <section style="padding-top:10px" aria-labelledby="h-basics"><div class="wrap">
-  <div class="sec-h"><h2 id="h-basics">The basics</h2><p>Any <span class="swl"><span>Lovely</span></span> flavor works. One 14 oz bottle makes one pint with 30g protein (50g with a 50g bottle).</p></div>
-  <ol class="cbasics"><li><b>Pour and freeze.</b> Shake the bottle, pour it into the pint, and freeze it flat with the lid off for a full 24 hours.</li>
-    <li><b>Pick the setting.</b> Lite Ice Cream works for every flavor. Most protein bases come out crumbly the first time, and that's expected.</li>
-    <li><b>Re-spin.</b> Add 1 to 2 tbsp milk and re-spin. This is the step that makes protein ice cream creamy.</li>
-    <li><b>Mix in last.</b> Make a well, add your extras and use the Mix-in button.</li></ol>
+  <div class="sec-h"><h2 id="h-basics">The basics</h2><p>Any flavor works. One bottle, one pint.</p></div>
+  <ol class="cbasics"><li><b>Pour and freeze.</b> Lid off, flat, 24 hours.</li>
+    <li><b>Spin on Lite Ice Cream.</b> Crumbly the first time is normal.</li>
+    <li><b>Re-spin.</b> Add 1–2 tbsp milk. Now it's creamy.</li>
+    <li><b>Mix in last.</b> Use the Mix-in button.</li></ol>
 </div></section>
-<section class="alt-bg" aria-labelledby="h-fix"><div class="wrap">
-  <div class="sec-h"><h2 id="h-fix">Fix the usual problems</h2></div>
-  <div class="cfix"><div><h3>Powdery or crumbly after the first spin</h3><p>Normal with protein. Don't panic. Make a well, add 1 to 2 tbsp milk and re-spin. It almost always turns creamy on the second spin.</p></div><div><h3>Icy instead of creamy</h3><p>Whisk in 1 tbsp sugar-free pudding mix (or a pinch of xanthan or guar gum) before you freeze. They thicken the base so fewer ice crystals form.</p></div><div><h3>A hump in the middle</h3><p>Freeze with the lid off on a flat shelf. If it still domes, scrape the top level before spinning so the blade doesn&#x27;t strain.</p></div><div><h3>Rock hard the next day</h3><p>Leave it in the pint, smooth the top, and re-spin straight from the freezer. Don&#x27;t microwave it. We know. Don&#x27;t.</p></div><div><h3>Melts too fast</h3><p>Spin straight from a very cold freezer, then put the pint back for 10 minutes before you scoop.</p></div><div><h3>Mix-ins pulverized</h3><p>Add them last with the Mix-in button, and freeze chocolate or cookies first so they stay chunky.</p></div></div>
-</div></section>
-<section aria-labelledby="h-up"><div class="wrap cup">
-  <div class="sec-h" style="margin-bottom:0"><h2 id="h-up">Upgrade any pint</h2><p>Small add-ins that make a protein pint taste like the real thing.</p></div>
-  <ul class="cups"><li><b>Pudding mix.</b> 1 tbsp of a matching sugar-free flavor. The single best upgrade: thicker and less icy.</li><li><b>Greek yogurt or cottage cheese.</b> 1/4 cup, blended in first. More protein and a cheesecake or froyo tang.</li><li><b>A pinch of salt.</b> Makes chocolate, peanut butter and caramel flavors taste richer.</li><li><b>Espresso.</b> A shot in Vanilla, Chocolate or Cookie Butter makes a latte pint.</li><li><b>Two bottles, one pint.</b> Half Chocolate and half Vanilla, or half Matcha and half Vanilla. Pour both in and freeze.</li><li><b>Fruit.</b> Blend 1/2 cup strawberries into Vanilla before freezing for a strawberry pint.</li></ul>
-</div></section>
+<section style="padding-top:0" aria-label="Troubleshooting and upgrades"><div class="wrap cmore"><details><summary>Fix the usual problems</summary><ul class="cups"><li><b>Powdery or crumbly after the first spin.</b> Normal with protein. Don't panic. Make a well, add 1 to 2 tbsp milk and re-spin. It almost always turns creamy on the second spin.</li><li><b>Icy instead of creamy.</b> Whisk in 1 tbsp sugar-free pudding mix (or a pinch of xanthan or guar gum) before you freeze. They thicken the base so fewer ice crystals form.</li><li><b>A hump in the middle.</b> Freeze with the lid off on a flat shelf. If it still domes, scrape the top level before spinning so the blade doesn&#x27;t strain.</li><li><b>Rock hard the next day.</b> Leave it in the pint, smooth the top, and re-spin straight from the freezer. Don&#x27;t microwave it. We know. Don&#x27;t.</li><li><b>Melts too fast.</b> Spin straight from a very cold freezer, then put the pint back for 10 minutes before you scoop.</li><li><b>Mix-ins pulverized.</b> Add them last with the Mix-in button, and freeze chocolate or cookies first so they stay chunky.</li></ul></details><details><summary>Upgrade any pint</summary><ul class="cups"><li><b>Pudding mix.</b> 1 tbsp of a matching sugar-free flavor. The single best upgrade: thicker and less icy.</li><li><b>Greek yogurt or cottage cheese.</b> 1/4 cup, blended in first. More protein and a cheesecake or froyo tang.</li><li><b>A pinch of salt.</b> Makes chocolate, peanut butter and caramel flavors taste richer.</li><li><b>Espresso.</b> A shot in Vanilla, Chocolate or Cookie Butter makes a latte pint.</li><li><b>Two bottles, one pint.</b> Half Chocolate and half Vanilla, or half Matcha and half Vanilla. Pour both in and freeze.</li><li><b>Fruit.</b> Blend 1/2 cup strawberries into Vanilla before freezing for a strawberry pint.</li></ul></details></div></section>
 <section id="recipes" style="padding-top:0" aria-labelledby="h-rec"><div class="wrap">
-  <div class="sec-h"><h2 id="h-rec">Popular recipes</h2><p>The pints people actually make, adapted for <span class="swl"><span>Lovely</span></span>. You don't need a recipe for every flavor: the basics above work for all of them.</p></div>
-  <div class="recipes"><a class="rc" href="creami/strawberry-cheesecake-protein-ice-cream.html"><div class="stage rphoto"><img src="img/creami/van_sm.webp" alt="Vanilla protein ice cream in a Ninja Creami pint next to a pink Lovely 30g Vanilla bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Lite Ice Cream</span><h3>Strawberry Cheesecake Protein Ice Cream</h3><p>The most-copied Creami recipe online, made with a <span class="swl"><span>Lovely</span></span> Vanilla. Cheesecake pudding mix gives it the tang and the thick, scoopable texture.</p><span class="go">Get the recipe →</span></div></a><a class="rc" href="creami/chocolate-fudge-protein-ice-cream.html"><div class="stage rphoto"><img src="img/creami/choc_sm.webp" alt="Chocolate protein ice cream in a Ninja Creami pint next to a light-blue Lovely 50g Chocolate bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Lite Ice Cream</span><h3>Chocolate Fudge Protein Ice Cream</h3><p>The viral &quot;protein shake plus pudding mix&quot; pint. <span class="swl"><span>Lovely</span></span> Chocolate and chocolate pudding mix spin into something that tastes like a fudge bar.</p><span class="go">Get the recipe →</span></div></a><a class="rc" href="creami/matcha-latte-protein-ice-cream.html"><div class="stage rphoto"><img src="img/creami/matcha_sm.webp" alt="Matcha protein ice cream in a Ninja Creami pint next to a pink Lovely 30g Matcha bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Lite Ice Cream</span><h3>Matcha Latte Protein Ice Cream</h3><p>The coffee-shop matcha latte as a pint. <span class="swl"><span>Lovely</span></span> Matcha plus a little extra matcha powder for a deeper green-tea flavor.</p><span class="go">Get the recipe →</span></div></a><a class="rc" href="creami/protein-milkshake-from-a-pint.html"><div class="stage rphoto"><img src="img/creami/cbutter_sm.webp" alt="Cookie butter protein ice cream in a Ninja Creami pint next to a light-blue Lovely 50g Cookie Butter bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Milkshake</span><h3>Thick Protein Milkshake from Any Pint</h3><p>Turn a frozen pint back into a spoon-thick shake. This works with any <span class="swl"><span>Lovely</span></span> flavor, and it&#x27;s the fastest way to use up a leftover pint.</p><span class="go">Get the recipe →</span></div></a></div>
+  <div class="sec-h"><h2 id="h-rec">Popular recipes</h2></div>
+  <div class="recipes"><a class="rc" href="creami/strawberry-cheesecake-protein-ice-cream.html"><div class="stage rphoto"><img src="img/creami/van_sm.webp" alt="Vanilla protein ice cream in a Ninja Creami pint next to a pink Lovely 30g Vanilla bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Lite Ice Cream</span><h3>Strawberry Cheesecake Protein Ice Cream</h3><span class="go">Get the recipe →</span></div></a><a class="rc" href="creami/chocolate-fudge-protein-ice-cream.html"><div class="stage rphoto"><img src="img/creami/choc_sm.webp" alt="Chocolate protein ice cream in a Ninja Creami pint next to a light-blue Lovely 50g Chocolate bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Lite Ice Cream</span><h3>Chocolate Fudge Protein Ice Cream</h3><span class="go">Get the recipe →</span></div></a><a class="rc" href="creami/matcha-latte-protein-ice-cream.html"><div class="stage rphoto"><img src="img/creami/matcha_sm.webp" alt="Matcha protein ice cream in a Ninja Creami pint next to a pink Lovely 30g Matcha bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Lite Ice Cream</span><h3>Matcha Latte Protein Ice Cream</h3><span class="go">Get the recipe →</span></div></a><a class="rc" href="creami/protein-milkshake-from-a-pint.html"><div class="stage rphoto"><img src="img/creami/cbutter_sm.webp" alt="Cookie butter protein ice cream in a Ninja Creami pint next to a light-blue Lovely 50g Cookie Butter bottle" width="480" height="600" loading="lazy"></div><div class="t"><span class="rset">Milkshake</span><h3>Thick Protein Milkshake from Any Pint</h3><span class="go">Get the recipe →</span></div></a></div>
 </div></section>
 <section id="notify" style="padding-top:0"><div class="wrap"><div class="host">
-  <div><h2>Be first in line.</h2><p>We'll email you once when <span class="swl"><span>Lovely</span></span> Creatine, the gummies and ice cream pints drop. Once. We're not that brand.</p></div>
+  <div><h2>Be first in line.</h2><p>One email when creatine, gummies and pints drop. Just one.</p></div>
   <div><form data-simple="You're on the list. We'll email you when they drop." novalidate><label class="sr" for="ic-email">Email</label><input type="email" id="ic-email" placeholder="you@email.com" autocomplete="email"><button class="btn" type="submit">Notify me</button></form><p class="fmsg small" style="color:inherit;opacity:.8;margin-top:10px" aria-live="polite"></p></div>
 </div></div></section></main>
 <footer class="site"><div class="wrap">
@@ -1677,7 +1676,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   (function () { var f = $("aff-form"); if (!f) return;
     var m = me(); if (m) { if (m.name && !f.elements.name.value) f.elements.name.value = m.name; if (m.email && !f.elements.email.value) f.elements.email.value = m.email; }
     var prev = store("swell-aff"); if (prev) done(prev);
-    function done(a) { $("aff-box").innerHTML = '<div class="aff-done" tabindex="-1" id="aff-ok"><h3>Application in, ' + esc(a.name.split(" ")[0]) + '.</h3><p>We review every application within 5 business days and reply to ' + esc(a.email) + '. If you\'re approved, this is your code:</p><span class="code">' + esc(a.code) + '</span><p class="small" style="opacity:.75">Demo: this application was saved on this device only. Nothing was sent.</p><div class="ctas" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn sm" style="background:var(--on-ink);color:var(--ink)" href="' + P + 'account.html#affiliate">Open your dashboard</a><button type="button" class="btn alt sm" id="aff-redo">Start over</button></div></div>';
+    function done(a) { $("aff-box").innerHTML = '<div class="aff-done" tabindex="-1" id="aff-ok"><h3>Application in, ' + esc(a.name.split(" ")[0]) + '.</h3><span class="code">' + esc(a.code) + '</span><p class="small" style="opacity:.75">Demo: this application was saved on this device only. Nothing was sent.</p><div class="ctas" style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn sm" style="background:var(--on-ink);color:var(--ink)" href="' + P + 'account.html#affiliate">Open your dashboard</a><button type="button" class="btn alt sm" id="aff-redo">Start over</button></div></div>';
       $("aff-redo").addEventListener("click", function () { store("swell-aff", null); location.reload(); }); }
     function esc(t) { return String(t).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
     f.addEventListener("submit", function (e) { e.preventDefault(); var el = f.elements, err = $("aff-err"), bad = null;
@@ -2317,8 +2316,8 @@ document.querySelectorAll(".gm-flv").forEach(function (g) {
       t.parentNode.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b === t)); });
       img.src = img.dataset[p]; img.alt = img.alt.replace(/\d+g protein/, p + "g protein");
       c.dataset.price = r.now;
-      c.querySelector("[data-now]").textContent = m(r.now); c.querySelector("[data-was]").textContent = m(r.was);
-      c.querySelector("[data-per]").textContent = m(r.per) + "/bottle"; c.querySelector("[data-var]").textContent = "24 bottles · " + p + "g protein";
+      c.querySelector("[data-now]").textContent = m(r.now); 
+      c.querySelector("[data-var]").textContent = "24 bottles · " + p + "g protein";
       c.querySelector(".sv").textContent = "Save " + r.save + "%"; return; }
     if (t.hasAttribute("data-quick")) {
       var k = c.dataset.k + (c.dataset.p === "50" ? "~50" : ""), it = {}; it[k] = 24;

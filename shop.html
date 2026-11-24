@@ -1187,6 +1187,25 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   html.pdp-stuck .pdp-sticky { display: flex; }
   html.pdp-stuck .mbar, html.pdp-stuck .scanfab { visibility: hidden !important; opacity: 0 !important; }
 }
+/* shop: simpler storefront */
+.pdp-main { aspect-ratio: 3 / 2; background: #f2d3e1; }
+.pdp-main img, .pdp-thumbs button img { object-fit: contain; }
+.pdp-main img.fit { padding: 5% 0; }
+.pdp-thumbs button { background: #f2d3e1; }
+.pdp-gal { grid-template-columns: 1fr; }
+.pdp-main { grid-column: 1; }
+.pdp-thumbs { grid-column: 1; grid-row: 2; flex-direction: row; }
+.pdp-thumbs button { width: 72px; height: 72px; flex: none; }
+.pdp-price { padding-bottom: 14px; }
+.pdp-price span { flex-basis: auto; }
+.pdp-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pdp-plans .pdp-plan { margin: 0; }
+.pdp-plans .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.pdp-plan:not(:has(input:checked)) .pp-d { display: block; visibility: hidden; }
+.pp-d { font-size: 13px; }
+.pdp-acc { margin-top: 18px; border-top: 1px solid rgba(125, 69, 88, .18); }
+.pk[data-id="van"] b, .fl h3 .nlink[data-drink="van"] { color: #9c7a3c; }
+@media (max-width: 420px) { .pdp-plans { grid-template-columns: 1fr; } .pdp-plan:not(:has(input:checked)) .pp-d { display: none; } }
 </style>
 <header class="top"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
@@ -1208,40 +1227,36 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   </div>
   <div class="pdp-info">
     <nav class="st-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="products.html">Shop all</a><span aria-hidden="true">/</span><span aria-current="page">Protein shake</span></nav>
-    <p class="pdp-eye">Protein shake · 24 bottles</p>
-    <h1 id="pdp-h">Premium Protein Shake</h1>
-    <p class="pdp-sum">Lactose-free protein shakes with 0g added sugar. Pick a flavor and 30g or 50g of protein, and we ship a case of 24.</p>
-    <div class="pdp-price"><b id="pdp-now">$101.99</b><s id="pdp-was">$119.99</s><em id="pdp-save">Save 15%</em><span id="pdp-per">$4.25 per bottle · free shipping</span></div>
+        <h1 id="pdp-h">Premium Protein Shake</h1>
+    <p class="pdp-sum">Tastes like a milkshake. Lactose-free. Ships in cases of 24.</p>
+    <div class="pdp-price"><b id="pdp-now">$101.99</b><span id="pdp-per">Free shipping</span></div>
     <fieldset class="pdp-opt"><legend>Flavor: <b id="pdp-flv">Chocolate</b></legend><div class="pdp-flavors"><button type="button" data-f="choc" aria-pressed="true" title="Chocolate"><img src="img/b_choc.webp" alt="" width="204" height="700"><span>Chocolate</span></button><button type="button" data-f="van" aria-pressed="false" title="Vanilla"><img src="img/b_van.webp" alt="" width="204" height="700"><span>Vanilla</span></button><button type="button" data-f="cbutter" aria-pressed="false" title="Cookie Butter"><img src="img/b_cbutter.webp" alt="" width="204" height="700"><span>Cookie Butter</span></button><button type="button" data-f="matcha" aria-pressed="false" title="Matcha"><img src="img/b_matcha.webp" alt="" width="204" height="700"><span>Matcha</span></button><button type="button" data-f="pb" aria-pressed="false" title="Peanut Butter"><img src="img/b_pb.webp" alt="" width="204" height="700"><span>Peanut Butter</span></button><button type="button" data-f="mix" aria-pressed="false" title="Mix flavors"><img src="img/lineup_mix_sm.webp" alt="" width="660" height="435" class="mx"><span>Mix flavors</span></button></div></fieldset>
-    <fieldset class="pdp-opt"><legend>Protein: <b id="pdp-pro">30g</b></legend><div class="pdp-sizes"><button type="button" data-pp="30" aria-pressed="true"><b>30g protein</b><span>Pink bottle · 14 fl oz · 170 cal</span></button><button type="button" data-pp="50" aria-pressed="false"><b>50g protein</b><span>Blue bottle · 16 fl oz · 260 cal</span></button></div></fieldset>
-    <fieldset class="pdp-opt"><legend>Purchase</legend>
-      <label class="pdp-plan"><input type="radio" name="pdp-plan" value="sub" checked><span class="pp-h"><b>Subscribe &amp; save <em id="pdp-save2">15%</em></b><b id="pdp-subp">$101.99</b></span>
-        <span class="pp-d">Delivered every <select id="pdp-every" aria-label="Delivery frequency"><option value="2">2 weeks</option><option value="4" selected>4 weeks</option></select></span>
-        <ul><li>Free shipping on every case</li><li>Skip, swap flavors or cancel anytime</li><li>Double rewards points</li></ul></label>
-      <label class="pdp-plan"><input type="radio" name="pdp-plan" value="once"><span class="pp-h"><b>One-time purchase</b><b id="pdp-oncep">$119.99</b></span></label>
+    <fieldset class="pdp-opt"><legend>Protein: <b id="pdp-pro">30g</b></legend><div class="pdp-sizes"><button type="button" data-pp="30" aria-pressed="true"><b>30g protein</b><span>Pink bottle · 14 oz</span></button><button type="button" data-pp="50" aria-pressed="false"><b>50g protein</b><span>Blue bottle · 16 oz</span></button></div></fieldset>
+    <fieldset class="pdp-opt pdp-plans"><legend class="sr">Purchase</legend>
+      <label class="pdp-plan"><input type="radio" name="pdp-plan" value="sub" checked><span class="pp-h"><b>Subscribe <em id="pdp-save2">Save 15%</em></b></span>
+        <span class="pp-d">Every <select id="pdp-every" aria-label="Delivery frequency"><option value="2">2 weeks</option><option value="4" selected>4 weeks</option></select> · skip or cancel anytime</span></label>
+      <label class="pdp-plan"><input type="radio" name="pdp-plan" value="once"><span class="pp-h"><b>One time</b></span></label>
     </fieldset>
-    <button type="button" class="st-btn pdp-add" id="pdp-add">Add to cart · $101.99</button>
-    <p class="pdp-note">No payment today. Your card is charged when your order ships.</p>
-    <ul class="pdp-trust"><li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>Free shipping on 24</li><li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>Charged when it ships</li><li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Skip or cancel anytime</li><li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19l7-7"/></svg>Lactose-free</li></ul>
+    <button type="button" class="st-btn pdp-add" id="pdp-add">Add to cart</button>
+    <p class="pdp-note">Charged when it ships.</p>
     <div class="pdp-acc">
-      <details open><summary>Details</summary><ul class="pdp-facts"><li><b id="pdp-g">30g</b> protein</li><li><b>0g</b> added sugar</li><li><b>2.5g</b> collagen peptides</li><li><b>25%</b> DV iron and vitamin C</li></ul><p>Made with ultra-filtered milk, so it's lactose-free and thick without being chalky. Shelf stable until opened. Shake well and serve cold.</p></details>
+      <details open><summary>Details</summary><ul class="pdp-facts"><li><b id="pdp-g">30g</b> protein</li><li><b>0g</b> lactose</li><li><b>2.5g</b> collagen</li><li><b>25%</b> daily iron</li></ul><p>Thick, not chalky. Shake well, serve cold.</p></details>
       <details><summary>Ingredients</summary><p id="pdp-ing"></p><p><b>Contains:</b> milk.</p><p><button type="button" class="nf-link" data-drink="choc" id="pdp-nf">View nutrition facts</button></p></details>
-      <details><summary>Shipping &amp; subscriptions</summary><p>24-bottle cases ship free. Subscriptions renew every 2 or 4 weeks and you can skip a delivery, change flavors, or cancel from your account before the next one ships. Your card is charged when each order ships, not when you reserve it.</p></details>
-      <details><summary>How to use</summary><p>Drink one cold after a workout, as a snack, or with breakfast. Pour one into a Ninja Creami pint and freeze for 24 hours for protein ice cream. <a href="products.html#creami">See the recipes</a>.</p></details>
+      <details><summary>Shipping</summary><p>Cases of 24 ship free. Skip, swap or cancel anytime from your account.</p></details>
+      <details><summary>Ice cream hack</summary><p>Freeze one in a Ninja Creami pint for 24 hours. <a href="products.html#creami">Recipes</a></p></details>
     </div>
   </div>
 </div></section>
-<section id="build" class="pdp-build" aria-labelledby="h-build"><div class="wrap"><div class="st-secth"><h2 id="h-build">Build a mixed box</h2><p>Choose 12 or 24 bottles in any combination of flavors and protein sizes.</p></div></div><div class="wrap builder">
+<section id="build" class="pdp-build" aria-labelledby="h-build"><div class="wrap"><div class="st-secth"><h2 id="h-build">Build a mixed box</h2><p>12 or 24 bottles, any flavors, any size.</p></div></div><div class="wrap builder">
   <div class="steps">
     <div class="step"><h2>1. Box size</h2><div class="seg" role="group" aria-label="Box size">
-      <button type="button" data-size="12" aria-pressed="true"><b>12 shakes</b><span>$50.99 + shipping</span></button>
-      <button type="button" data-size="24" aria-pressed="false"><b>24 shakes</b><span>$101.99 · free shipping</span><em class="save">Best value</em></button></div></div>
+      <button type="button" data-size="12" aria-pressed="true"><b>12 shakes</b><span></span></button>
+      <button type="button" data-size="24" aria-pressed="false"><b>24 shakes</b><span>Free shipping</span></button></div></div>
     <div class="step"><h2>2. Bottle to add</h2><div class="seg" role="group" aria-label="Bottle to add">
-      <button type="button" data-protein="30" aria-pressed="true"><b><span class="swl"><span>Lovely</span></span> · 30g</b><span>Pink bottle · $4.25</span></button>
-      <button type="button" data-protein="50" aria-pressed="false" class="swollbtn"><b>Lovely · 50g</b><span>Light-blue bottle · $4.99</span></button></div>
-      <p class="mixnote">You can mix 30g and 50g bottles in one box.</p></div>
+      <button type="button" data-protein="30" aria-pressed="true"><b><span class="swl"><span>Lovely</span></span> · 30g</b><span>Pink bottle</span></button>
+      <button type="button" data-protein="50" aria-pressed="false" class="swollbtn"><b>Lovely · 50g</b><span>Light-blue bottle</span></button></div></div>
     <div class="step"><h2>3. Flavors</h2>
-      <div class="picks"><div class="pk" data-id="choc"><img src="img/b_choc.webp" alt="" width="46" height="120" loading="lazy" data-drink="choc"><div><b>Chocolate</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="choc">Nutrition</button></small></div><span class="pkmix" id="mix-choc"></span><div class="qty"><button type="button" data-dec="choc" aria-label="Remove one Chocolate">−</button><output id="q-choc">0</output><button type="button" data-inc="choc" aria-label="Add one Chocolate">+</button></div></div><div class="pk" data-id="van"><img src="img/b_van.webp" alt="" width="46" height="120" loading="lazy" data-drink="van"><div><b>Vanilla</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="van">Nutrition</button></small></div><span class="pkmix" id="mix-van"></span><div class="qty"><button type="button" data-dec="van" aria-label="Remove one Vanilla">−</button><output id="q-van">0</output><button type="button" data-inc="van" aria-label="Add one Vanilla">+</button></div></div><div class="pk" data-id="cbutter"><img src="img/b_cbutter.webp" alt="" width="46" height="120" loading="lazy" data-drink="cbutter"><div><b>Cookie Butter</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="cbutter">Nutrition</button></small></div><span class="pkmix" id="mix-cbutter"></span><div class="qty"><button type="button" data-dec="cbutter" aria-label="Remove one Cookie Butter">−</button><output id="q-cbutter">0</output><button type="button" data-inc="cbutter" aria-label="Add one Cookie Butter">+</button></div></div><div class="pk" data-id="matcha"><img src="img/b_matcha.webp" alt="" width="46" height="120" loading="lazy" data-drink="matcha"><div><b>Matcha</b><small>New · <button type="button" class="nf-link sm" data-drink="matcha">Nutrition</button></small></div><span class="pkmix" id="mix-matcha"></span><div class="qty"><button type="button" data-dec="matcha" aria-label="Remove one Matcha">−</button><output id="q-matcha">0</output><button type="button" data-inc="matcha" aria-label="Add one Matcha">+</button></div></div><div class="pk" data-id="pb"><img src="img/b_pb.webp" alt="" width="46" height="120" loading="lazy" data-drink="pb"><div><b>Peanut Butter</b><small>New · <button type="button" class="nf-link sm" data-drink="pb">Nutrition</button></small></div><span class="pkmix" id="mix-pb"></span><div class="qty"><button type="button" data-dec="pb" aria-label="Remove one Peanut Butter">−</button><output id="q-pb">0</output><button type="button" data-inc="pb" aria-label="Add one Peanut Butter">+</button></div></div></div></div>
+      <div class="picks"><div class="pk" data-id="choc"><img src="img/b_choc.webp" alt="" width="46" height="120" loading="lazy" data-drink="choc"><div><b>Chocolate</b><small><button type="button" class="nf-link sm" data-drink="choc">Nutrition</button></small></div><span class="pkmix" id="mix-choc"></span><div class="qty"><button type="button" data-dec="choc" aria-label="Remove one Chocolate">−</button><output id="q-choc">0</output><button type="button" data-inc="choc" aria-label="Add one Chocolate">+</button></div></div><div class="pk" data-id="van"><img src="img/b_van.webp" alt="" width="46" height="120" loading="lazy" data-drink="van"><div><b>Vanilla</b><small><button type="button" class="nf-link sm" data-drink="van">Nutrition</button></small></div><span class="pkmix" id="mix-van"></span><div class="qty"><button type="button" data-dec="van" aria-label="Remove one Vanilla">−</button><output id="q-van">0</output><button type="button" data-inc="van" aria-label="Add one Vanilla">+</button></div></div><div class="pk" data-id="cbutter"><img src="img/b_cbutter.webp" alt="" width="46" height="120" loading="lazy" data-drink="cbutter"><div><b>Cookie Butter</b><small><button type="button" class="nf-link sm" data-drink="cbutter">Nutrition</button></small></div><span class="pkmix" id="mix-cbutter"></span><div class="qty"><button type="button" data-dec="cbutter" aria-label="Remove one Cookie Butter">−</button><output id="q-cbutter">0</output><button type="button" data-inc="cbutter" aria-label="Add one Cookie Butter">+</button></div></div><div class="pk" data-id="matcha"><img src="img/b_matcha.webp" alt="" width="46" height="120" loading="lazy" data-drink="matcha"><div><b>Matcha</b><small><button type="button" class="nf-link sm" data-drink="matcha">Nutrition</button></small></div><span class="pkmix" id="mix-matcha"></span><div class="qty"><button type="button" data-dec="matcha" aria-label="Remove one Matcha">−</button><output id="q-matcha">0</output><button type="button" data-inc="matcha" aria-label="Add one Matcha">+</button></div></div><div class="pk" data-id="pb"><img src="img/b_pb.webp" alt="" width="46" height="120" loading="lazy" data-drink="pb"><div><b>Peanut Butter</b><small><button type="button" class="nf-link sm" data-drink="pb">Nutrition</button></small></div><span class="pkmix" id="mix-pb"></span><div class="qty"><button type="button" data-dec="pb" aria-label="Remove one Peanut Butter">−</button><output id="q-pb">0</output><button type="button" data-inc="pb" aria-label="Add one Peanut Butter">+</button></div></div></div></div>
   </div>
   <form class="summary" id="box-form" novalidate>
     <h3 id="box-title">12 shakes · 30g protein</h3>
@@ -1249,16 +1264,10 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     <div><div class="row"><span id="box-count">0 of 12</span><span class="ok" id="box-save">+ $4.99 shipping</span></div><div class="bar" style="margin-top:8px"><span id="box-bar"></span></div></div>
     <div class="links"><button type="button" id="fill">Fill the rest for me</button><button type="button" id="clear">Clear</button></div>
     <div class="bprice"><div><b id="bp-total">$50.99</b><span id="bp-per">$4.25 a 30g</span></div><span id="bp-ship">+ $4.99 shipping</span></div>
-    <label class="subq"><input type="checkbox" id="box-sub" checked><span><b>Subscribe: every <select id="box-every" aria-label="How often"><option value="2">2 weeks</option><option value="4" selected>4 weeks</option></select></b><small>$4.25 a Lovely instead of $5 ($4.99 instead of $7 for 50g), $4.99 shipping on 12s, double points. Skip, swap or pause anytime.</small></span></label>
-    <button class="btn" type="submit" id="box-submit" disabled>Add 12 more</button> <p class="assure">No payment today. Reserve from your cart and your card is charged when your box ships. First box comes with a free shaker.</p>
+    <label class="subq"><input type="checkbox" id="box-sub" checked><span><b>Subscribe: every <select id="box-every" aria-label="How often"><option value="2">2 weeks</option><option value="4" selected>4 weeks</option></select></b><small>Save 15%. Skip or pause anytime.</small></span></label>
+    <button class="btn" type="submit" id="box-submit" disabled>Add 12 more</button> <p class="assure">Charged when it ships. Free shaker in your first box.</p>
     <p id="box-msg" class="assure" aria-live="polite"></p>
   </form>
-</div></section>
-<section class="alt-bg" id="sizes"><div class="wrap sizes">
-  <div class="stage"><img src="img/size_compare.webp" alt="Lovely shake with 30g protein next to the Lovely shake with 50g" width="720" height="840" loading="lazy"></div>
-  <div><div class="sec-h" style="margin-bottom:20px"><h2>Two bottles, one recipe</h2><p>Same flavors and the same lactose-free base. Choose how much protein you want: a normal amount, or a lot.</p></div>
-    <button type="button" class="opt" data-protein="30" aria-pressed="true"><span class="g">30g</span><span class="t"><b><span class="swl"><span>Lovely</span></span></b><span>14 fl oz, 170 calories. Before Pilates, a snack or a dessert swap.</span></span><span class="dot"></span></button>
-    <button type="button" class="opt" data-protein="50" aria-pressed="false"><span class="g">50g</span><span class="t"><b>Lovely</b><span>16 fl oz, about 250 calories. Heavy days, leg days, or when it's replacing a meal.</span></span><span class="dot"></span></button></div>
 </div></section></main>
 <footer class="site"><div class="wrap">
   <div class="cols">
@@ -1382,8 +1391,8 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     var bp = boxPrice(s, box.sub, ns, bw), u30 = bp.u30, u50 = bp.u50;
     $("bp-total").textContent = "$" + bp.total.toFixed(2);
     $("bp-per").textContent = (ns ? money0(u30) + " a 30g" : "") + (ns && bw ? " · " : "") + (bw ? money0(u50) + " a 50g" : "") || money0(u30) + " a 30g · " + money0(u50) + " a 50g";
-    document.querySelectorAll("button[data-size] > span").forEach(function (sp) { var z = +sp.parentNode.dataset.size, t = boxPrice(z, box.sub, box.protein === 50 ? 0 : z, box.protein === 50 ? z : 0).total; sp.textContent = "$" + t.toFixed(2) + (z === 24 ? " · free shipping" : " + shipping"); });
-    document.querySelectorAll("button[data-protein]:not(.opt) > b + span").forEach(function (sp) { var p = +sp.parentNode.dataset.protein; sp.textContent = (p === 50 ? "Light-blue bottle · " : "Pink bottle · ") + money0(p === 50 ? u50 : u30); });
+    document.querySelectorAll("button[data-size] > span").forEach(function (sp) { var z = +sp.parentNode.dataset.size, t = boxPrice(z, box.sub, box.protein === 50 ? 0 : z, box.protein === 50 ? z : 0).total; sp.textContent = z === 24 ? "Free shipping" : ""; });
+    document.querySelectorAll("button[data-protein]:not(.opt) > b + span").forEach(function (sp) { var p = +sp.parentNode.dataset.protein; sp.textContent = p === 50 ? "Light-blue bottle" : "Pink bottle"; });
     if ($("box-every")) $("box-every").value = String(box.every || 4);
     $("bp-ship").textContent = s === 24 ? "Free shipping" + (box.sub ? " · double points" : "") : "+ $" + ship.toFixed(2) + " shipping" + (box.sub ? " · subscriber rate" : "");
     $("box-sub").checked = !!box.sub;
@@ -2085,16 +2094,13 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     var im = $("pdp-img"); im.src = cur[0]; im.alt = cur[1]; im.className = cur[2] ? "fit" : "";
     $("pdp-thumbs").innerHTML = P.map(function (x, i) { return '<button type="button" data-i="' + i + '" aria-pressed="' + (x === cur) + '" aria-label="Photo ' + (i + 1) + '"><img src="' + x[0] + '" alt=""' + (x[2] ? ' class="fit"' : "") + "></button>"; }).join("");
     $("pdp-flv").textContent = N[st.f]; $("pdp-pro").textContent = st.p + "g"; $("pdp-g").textContent = st.p + "g";
-    $("pdp-now").textContent = (mix ? "From " : "") + m(price); $("pdp-was").hidden = st.plan !== "sub"; $("pdp-was").textContent = m(r.once);
-    $("pdp-save").hidden = st.plan !== "sub"; $("pdp-save").textContent = "Save " + r.save + "%"; $("pdp-save2").textContent = r.save + "%";
-    $("pdp-per").textContent = m(price / 24) + " per bottle · free shipping";
-    $("pdp-subp").textContent = m(r.sub); $("pdp-oncep").textContent = m(r.once);
-    $("pdp-add").textContent = mix ? "Build your mix" : "Add to cart · " + m(price);
+    $("pdp-now").textContent = (mix ? "From " : "") + m(price); $("pdp-save2").textContent = "Save " + r.save + "%";
+    $("pdp-add").textContent = mix ? "Build your mix" : "Add to cart";
     document.querySelectorAll(".pdp-flavors [data-f]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.f === st.f)); });
     document.querySelectorAll(".pdp-sizes [data-pp]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.pp === st.p)); });
     var k = mix ? "choc" : st.f; $("pdp-nf").dataset.drink = k;
     $("pdp-ing").innerHTML = (mix ? "<b>Chocolate:</b> " : "") + "Ultra-filtered nonfat milk, milk protein concentrate, allulose, cream, " + ING[k] + "hydrolyzed bovine collagen peptides (VERISOL®). Contains 2% or less of: acacia gum (fiber), natural flavors, cellulose gel, cellulose gum, potassium citrate, sea salt, gellan gum, monk fruit extract, stevia leaf extract (Reb M), sucralose, lactase enzyme, ascorbic acid (vitamin C), ferric pyrophosphate (iron), vitamin A palmitate, vitamin D3, vitamin B12.";
-    var ss = document.querySelector(".pdp-sticky span"); if (ss) ss.textContent = (mix ? "Mixed box" : N[st.f] + " · " + st.p + "g") + " · " + m(price);
+    var ss = document.querySelector(".pdp-sticky span"); if (ss) ss.textContent = mix ? "Mixed box" : N[st.f] + " · " + st.p + "g";
     var sb = document.querySelector(".pdp-sticky .st-btn"); if (sb) sb.textContent = mix ? "Build your mix" : "Add to cart";
   }
   document.querySelector(".pdp-flavors").addEventListener("click", function (e) { var b = e.target.closest("[data-f]"); if (b) { st.f = b.dataset.f; st.img = 0; draw(); } });
