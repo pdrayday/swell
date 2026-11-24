@@ -1945,5 +1945,6 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   paint();
   if (document.getElementById("cartpage") && location.hash === "#checkout") setTimeout(function () { var x = document.getElementById("c-email"); if (x) x.focus(); }, 300);
 })();</script>
-<script>/* back buttons */document.querySelectorAll("[data-back]").forEach(function (a) { a.addEventListener("click", function (e) { try { if (document.referrer && new URL(document.referrer).origin === location.origin && history.length > 1) { e.preventDefault(); history.back(); } } catch (x) {} }); });</script></body>
+<script>/* back buttons */document.querySelectorAll("[data-back]").forEach(function (a) { a.addEventListener("click", function (e) { try { if (document.referrer && new URL(document.referrer).origin === location.origin && history.length > 1) { e.preventDefault(); history.back(); } } catch (x) {} }); });</script><script src="search.js" defer></script>
+</body>
 </html>
