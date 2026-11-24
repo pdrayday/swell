@@ -1187,6 +1187,77 @@ img[src$="logo.png"] { filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgb
 body::before { background: var(--bg) !important; }
 header.top { background: var(--bg) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
 .packband img, .summary .pack .packband img { filter: brightness(0) invert(1) !important; }
+/* ---------- storefront: collection grid ---------- */
+.st-top { padding-block: clamp(18px, 3vw, 34px) 30px; }
+.st-crumb { display: flex; gap: 8px; font: 500 13px/1.3 var(--body); color: var(--muted); margin-bottom: 14px; }
+.st-crumb a { color: inherit; text-decoration: none; } .st-crumb a:hover { text-decoration: underline; }
+.st-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.st-head h1 { font: 700 clamp(30px, 4vw, 44px)/1.05 var(--display); color: var(--fg); margin: 0; letter-spacing: -.01em; }
+.st-count { font: 500 14px/1 var(--body); color: var(--muted); margin: 0; }
+.st-perks { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; font: 600 13.5px/1.3 var(--body); color: var(--fg); }
+.st-perks li { display: flex; align-items: center; gap: 7px; }
+.st-perks li::before { content: ""; width: 15px; height: 15px; flex: none; background: var(--fg); -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>') center/contain no-repeat; mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>') center/contain no-repeat; }
+.st-bar { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: 22px 0 18px; padding: 12px 0; border-block: 1px solid rgba(125, 69, 88, .18); }
+.st-cats { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: -4px; padding: 4px; }
+.st-cats::-webkit-scrollbar { display: none; }
+.st-cats button { flex: none; font: 600 14px/1 var(--body); color: var(--fg); background: transparent; border: 1px solid rgba(125, 69, 88, .3); border-radius: 999px; padding: 9px 14px; cursor: pointer; }
+.st-cats button small { font-weight: 500; opacity: .65; margin-left: 3px; font-size: 12px; }
+.st-cats button:hover { border-color: var(--fg); }
+.st-cats button[aria-pressed="true"] { background: var(--fg); border-color: var(--fg); color: #fff; }
+.st-sort { display: flex; align-items: center; gap: 8px; flex: none; font: 600 13.5px/1 var(--body); color: var(--muted); }
+.st-sort select { font: 600 14px/1 var(--body); color: var(--fg); background: rgba(255, 255, 255, .55); border: 1px solid rgba(125, 69, 88, .3); border-radius: 10px; padding: 9px 30px 9px 12px; appearance: none; -webkit-appearance: none; cursor: pointer;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%237d4558" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>'); background-repeat: no-repeat; background-position: right 9px center; background-size: 14px; }
+.st-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 20px; }
+.st-card { display: flex; flex-direction: column; min-width: 0; }
+.st-card[hidden] { display: none; }
+.st-img { position: relative; display: block; aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden; background: #fbe9f0; }
+.st-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.st-img.bottle img { object-fit: contain; padding: 9% 0 7%; filter: drop-shadow(0 14px 18px rgba(125, 69, 88, .18)); }
+.st-card:hover .st-img img { transform: scale(1.035); }
+.st-img.stick img { object-fit: contain; padding: 8% 0; }
+.st-img img.alt { position: absolute; inset: 0; opacity: 0; transition: opacity .35s ease; padding: 0; filter: none; object-fit: cover; }
+@media (hover: hover) { .st-card:hover .st-img img.alt { opacity: 1; } }
+.st-top h1, .st-top h3, .st-more h2, .st-top p, .st-top li, .st-top button, .st-top a { text-shadow: none; }
+.st-badges { position: absolute; top: 10px; left: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+.st-badges em { font: 700 11.5px/1 var(--body); font-style: normal; letter-spacing: .02em; padding: 6px 8px; border-radius: 6px; background: #fff; color: var(--fg); }
+.st-badges em.nw { background: var(--fg); color: #fff; }
+.st-badges em.cs { background: rgba(255, 255, 255, .92); }
+.st-body { display: flex; flex-direction: column; gap: 6px; padding-top: 12px; flex: 1; }
+.st-body h3 { font: 700 16px/1.25 var(--body); margin: 0; letter-spacing: 0; color: var(--fg); }
+.st-body h3 a { color: inherit; text-decoration: none; } .st-body h3 a:hover { text-decoration: underline; }
+.st-var { margin: 0; font: 500 13.5px/1.35 var(--body); color: var(--muted); }
+.st-price { margin: 2px 0 0; font: 500 13.5px/1.3 var(--body); color: var(--muted); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 7px; }
+.st-price b { font: 700 16px/1 var(--body); color: var(--fg); }
+.st-price s { color: var(--muted); opacity: .8; }
+.st-price .from { color: var(--fg); font-weight: 600; }
+.st-size { display: flex; gap: 6px; }
+.st-size button { font: 600 12.5px/1 var(--body); color: var(--fg); background: transparent; border: 1px solid rgba(125, 69, 88, .3); border-radius: 7px; padding: 6px 10px; cursor: pointer; }
+.st-size button[aria-pressed="true"] { border-color: var(--fg); box-shadow: inset 0 0 0 1px var(--fg); }
+.st-sw { display: flex; gap: 7px; flex-wrap: wrap; padding: 2px 0; }
+.st-sw button { width: 20px; height: 20px; border-radius: 50%; background: var(--c); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(125, 69, 88, .3); cursor: pointer; padding: 0; }
+.st-sw button[aria-pressed="true"] { box-shadow: 0 0 0 1.5px var(--fg); }
+.st-btn { margin-top: auto; display: flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 10px; border: 1.5px solid var(--fg); background: var(--fg); color: #fff; font: 700 14.5px/1 var(--body); text-decoration: none; cursor: pointer; transition: background .2s, color .2s; }
+.st-body > .st-btn { margin-top: auto; } .st-price { margin-bottom: 8px; }
+.st-btn:hover { background: #6a3949; border-color: #6a3949; }
+.st-btn.ghost { background: transparent; color: var(--fg); }
+.st-btn.ghost:hover { background: var(--fg); color: #fff; }
+.st-btn.done { background: #3e7a4a; border-color: #3e7a4a; }
+.st-empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 40px 0; }
+.st-more { border-top: 1px solid rgba(125, 69, 88, .18); padding-top: 28px; margin-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+.st-more h2 { font: 700 22px/1.2 var(--display); margin: 0; color: var(--fg); }
+.st-more nav { display: flex; gap: 8px; flex-wrap: wrap; }
+.st-more nav a { font: 600 14px/1 var(--body); color: var(--fg); text-decoration: none; border: 1px solid rgba(125, 69, 88, .3); border-radius: 999px; padding: 9px 14px; }
+.st-more nav a:hover { border-color: var(--fg); }
+.cr-sub { text-align: center; max-width: 560px; margin: 8px auto 0; }
+@media (max-width: 1100px) { .st-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .st-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px; }
+  .st-bar { flex-direction: column; align-items: stretch; }
+  .st-sort { justify-content: flex-end; }
+  .st-body h3 { font-size: 14.5px; } .st-price b { font-size: 15px; } .st-var, .st-price { font-size: 12.5px; }
+  .st-btn { min-height: 40px; font-size: 13.5px; }
+  .st-perks { gap: 6px 14px; font-size: 12.5px; }
+}
 </style>
 <header class="top"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
@@ -1201,21 +1272,132 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <button type="button" class="btn alt pass-open" data-pass>Show my <span class="swl"><span>Lovely</span></span> Pass</button>
   <a class="btn" href="shop.html">Build a box <span class="boxcount" hidden>0</span></a>
 </aside><main id="main">
-<section class="page-h cr-top" id="creatine" aria-labelledby="h-cr"><div class="wrap">
-  <div class="cr-head">
-    <span class="soon">New · stir it into your shake</span>
-    <h1 id="h-cr">All products</h1>
-    <h2 class="cr-h">Lovely Creatine. <em>One stick, any shake.</em></h2>
-    <p class="lead">Tear a <b>Flavorless</b> stick into any <span class="swl"><span>Lovely</span></span>, shake it, and your protein shake is a creatine shake too. No taste, no grit, nothing extra to drink. Like your creatine in water instead? Bold. Pick a flavor.</p>
+<section class="st-top" aria-labelledby="h-all"><div class="wrap">
+  <nav class="st-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><span aria-current="page">Shop all</span></nav>
+  <div class="st-head"><h1 id="h-all">Shop all</h1><p class="st-count" id="st-count">11 products</p></div>
+  <ul class="st-perks"><li>Free shipping on 24-packs</li><li>Subscribe and save 15%</li><li>Skip or cancel anytime</li><li>Charged when your order ships</li></ul>
+  <div class="st-bar">
+    <div class="st-cats" role="group" aria-label="Category"><button type="button" data-cat="all" aria-pressed="true">All <small>11</small></button><button type="button" data-cat="shakes" aria-pressed="false">Protein shakes <small>6</small></button><button type="button" data-cat="creatine" aria-pressed="false">Creatine <small>2</small></button><button type="button" data-cat="gummies" aria-pressed="false">Gummies <small>1</small></button><button type="button" data-cat="icecream" aria-pressed="false">Ice cream <small>1</small></button><button type="button" data-cat="membership" aria-pressed="false">Membership <small>1</small></button></div>
+    <label class="st-sort"><span>Sort</span><select id="st-sort"><option value="featured">Featured</option><option value="new">Newest</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></label>
   </div>
-  <div class="cr-lineup"><img src="img/creatine/elec_lineup.webp" srcset="img/creatine/elec_lineup_sm.webp 560w, img/creatine/elec_lineup.webp 1100w" sizes="(max-width: 860px) 330px, 460px" alt="Lovely Creatine + Electrolytes sticks in Flavorless, Blue Raspberry, Piña Colada, Sour Apple and Watermelon" width="1100" height="1375" fetchpriority="high"></div>
+  <div class="st-grid" id="st-grid">
+<article class="st-card" data-cat="shakes" data-price="101.99" data-order="0" data-new="0" data-k="choc" data-p="30">
+  <a class="st-img bottle" href="shop.html?f=choc" aria-label="Chocolate protein shake"><img class="alt" src="img/pack_choc_sm.webp" data-30="img/pack_choc_sm.webp" data-50="img/pack_swoll_choc_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_choc.webp" data-30="img/b_choc.webp" data-50="img/sw_choc_lg.webp" alt="Chocolate protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="sv">Save 15%</em></span></a>
+  <div class="st-body">
+    <h3><a href="shop.html?f=choc">Chocolate Protein Shake</a></h3>
+    <p class="st-var"><span data-var>24 bottles · 30g protein</span></p>
+    <div class="st-size" role="group" aria-label="Protein per bottle"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div>
+    <p class="st-price"><b data-now>$101.99</b> <s data-was>$119.99</s> <span data-per>$4.25/bottle</span></p>
+    <button type="button" class="st-btn" data-quick>Add to cart</button>
+  </div>
+</article>
+<article class="st-card" data-cat="shakes" data-price="101.99" data-order="1" data-new="0" data-k="van" data-p="30">
+  <a class="st-img bottle" href="shop.html?f=van" aria-label="Vanilla protein shake"><img class="alt" src="img/pack_van_sm.webp" data-30="img/pack_van_sm.webp" data-50="img/pack_swoll_van_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_van.webp" data-30="img/b_van.webp" data-50="img/sw_van_lg.webp" alt="Vanilla protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="sv">Save 15%</em></span></a>
+  <div class="st-body">
+    <h3><a href="shop.html?f=van">Vanilla Protein Shake</a></h3>
+    <p class="st-var"><span data-var>24 bottles · 30g protein</span></p>
+    <div class="st-size" role="group" aria-label="Protein per bottle"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div>
+    <p class="st-price"><b data-now>$101.99</b> <s data-was>$119.99</s> <span data-per>$4.25/bottle</span></p>
+    <button type="button" class="st-btn" data-quick>Add to cart</button>
+  </div>
+</article>
+<article class="st-card" data-cat="shakes" data-price="101.99" data-order="2" data-new="0" data-k="cbutter" data-p="30">
+  <a class="st-img bottle" href="shop.html?f=cbutter" aria-label="Cookie Butter protein shake"><img class="alt" src="img/pack_cbutter_sm.webp" data-30="img/pack_cbutter_sm.webp" data-50="img/pack_swoll_cbutter_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_cbutter.webp" data-30="img/b_cbutter.webp" data-50="img/sw_cbutter_lg.webp" alt="Cookie Butter protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="sv">Save 15%</em></span></a>
+  <div class="st-body">
+    <h3><a href="shop.html?f=cbutter">Cookie Butter Protein Shake</a></h3>
+    <p class="st-var"><span data-var>24 bottles · 30g protein</span></p>
+    <div class="st-size" role="group" aria-label="Protein per bottle"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div>
+    <p class="st-price"><b data-now>$101.99</b> <s data-was>$119.99</s> <span data-per>$4.25/bottle</span></p>
+    <button type="button" class="st-btn" data-quick>Add to cart</button>
+  </div>
+</article>
+<article class="st-card" data-cat="shakes" data-price="101.99" data-order="3" data-new="1" data-k="matcha" data-p="30">
+  <a class="st-img bottle" href="shop.html?f=matcha" aria-label="Matcha protein shake"><img class="alt" src="img/pack_matcha_sm.webp" data-30="img/pack_matcha_sm.webp" data-50="img/pack_swoll_matcha_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_matcha.webp" data-30="img/b_matcha.webp" data-50="img/sw_matcha_lg.webp" alt="Matcha protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="nw">New</em><em class="sv">Save 15%</em></span></a>
+  <div class="st-body">
+    <h3><a href="shop.html?f=matcha">Matcha Protein Shake</a></h3>
+    <p class="st-var"><span data-var>24 bottles · 30g protein</span></p>
+    <div class="st-size" role="group" aria-label="Protein per bottle"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div>
+    <p class="st-price"><b data-now>$101.99</b> <s data-was>$119.99</s> <span data-per>$4.25/bottle</span></p>
+    <button type="button" class="st-btn" data-quick>Add to cart</button>
+  </div>
+</article>
+<article class="st-card" data-cat="shakes" data-price="101.99" data-order="4" data-new="1" data-k="pb" data-p="30">
+  <a class="st-img bottle" href="shop.html?f=pb" aria-label="Peanut Butter protein shake"><img class="alt" src="img/pack_pb_sm.webp" data-30="img/pack_pb_sm.webp" data-50="img/pack_swoll_pb_sm.webp" alt="" width="768" height="512" loading="lazy" aria-hidden="true"><img class="main" src="img/b_pb.webp" data-30="img/b_pb.webp" data-50="img/sw_pb_lg.webp" alt="Peanut Butter protein shake, 30g protein" width="204" height="700" loading="lazy"><span class="st-badges"><em class="nw">New</em><em class="sv">Save 15%</em></span></a>
+  <div class="st-body">
+    <h3><a href="shop.html?f=pb">Peanut Butter Protein Shake</a></h3>
+    <p class="st-var"><span data-var>24 bottles · 30g protein</span></p>
+    <div class="st-size" role="group" aria-label="Protein per bottle"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div>
+    <p class="st-price"><b data-now>$101.99</b> <s data-was>$119.99</s> <span data-per>$4.25/bottle</span></p>
+    <button type="button" class="st-btn" data-quick>Add to cart</button>
+  </div>
+</article>
+<article class="st-card" data-cat="shakes" data-price="101.99" data-order="5" data-new="0">
+  <a class="st-img photo" href="shop.html#build"><img src="img/lineup_mix_sm.webp" srcset="img/lineup_mix_sm.webp 660w, img/lineup_mix.webp 1315w" sizes="(max-width: 700px) 46vw, 280px" alt="Protein shakes in all five flavors, 30g pink and 50g blue bottles" width="1315" height="867" loading="lazy"><span class="st-badges"><em class="sv">Save 15%</em></span></a>
+  <div class="st-body">
+    <h3><a href="shop.html#build">Mix &amp; Match 24-Pack</a></h3>
+    <p class="st-var">Pick any flavors · 30g, 50g or both</p>
+    <p class="st-price"><span class="from">From</span> <b>$101.99</b> <span>$4.25/bottle</span></p>
+    <a class="st-btn" href="shop.html#build">Build your box</a>
+  </div>
+</article>
+<article class="st-card" data-cat="creatine" data-price="24.99" data-order="6" data-new="1">
+  <a class="st-img photo" href="#creatine-info"><img src="img/creatine/elec_flavorless.webp" alt="Creatine + Electrolytes stick, Flavorless" width="720" height="953" loading="lazy"><span class="st-badges"><em class="cs">Coming soon</em></span></a>
+  <div class="st-body">
+    <h3><a href="#creatine-info">Creatine + Electrolytes Sticks</a></h3>
+    <p class="st-var"><span data-var>Flavorless</span> · 30 sticks</p>
+    <div class="st-sw" role="group" aria-label="Flavor"><button type="button" data-img="img/creatine/elec_flavorless.webp" data-v="Flavorless" aria-label="Flavorless" aria-pressed="true" style="--c:#f1d3dc"></button><button type="button" data-img="img/creatine/elec_blue.webp" data-v="Blue Raspberry" aria-label="Blue Raspberry" aria-pressed="false" style="--c:#3a8ad6"></button><button type="button" data-img="img/creatine/elec_pina.webp" data-v="Piña Colada" aria-label="Piña Colada" aria-pressed="false" style="--c:#e8a21a"></button><button type="button" data-img="img/creatine/elec_apple.webp" data-v="Sour Apple" aria-label="Sour Apple" aria-pressed="false" style="--c:#7cb342"></button><button type="button" data-img="img/creatine/elec_melon.webp" data-v="Watermelon" aria-label="Watermelon" aria-pressed="false" style="--c:#e0525c"></button></div>
+    <p class="st-price"><b>$24.99</b> <span>subscribed · 30 servings</span></p>
+    <a class="st-btn ghost" href="#notify" data-notify>Notify me</a>
+  </div>
+</article>
+<article class="st-card" data-cat="creatine" data-price="24.99" data-order="7" data-new="1">
+  <a class="st-img stick" href="#creatine-info"><img src="img/creatine/mono_flavorless.webp" alt="Creatine Monohydrate stick, Flavorless" width="720" height="953" loading="lazy"><span class="st-badges"><em class="cs">Coming soon</em></span></a>
+  <div class="st-body">
+    <h3><a href="#creatine-info">Creatine Monohydrate Sticks</a></h3>
+    <p class="st-var"><span data-var>Flavorless</span> · 30 sticks</p>
+    <div class="st-sw" role="group" aria-label="Flavor"><button type="button" data-img="img/creatine/mono_flavorless.webp" data-v="Flavorless" aria-label="Flavorless" aria-pressed="true" style="--c:#f1d3dc"></button><button type="button" data-img="img/creatine/mono_blue.webp" data-v="Blue Raspberry" aria-label="Blue Raspberry" aria-pressed="false" style="--c:#3a8ad6"></button><button type="button" data-img="img/creatine/mono_pina.webp" data-v="Piña Colada" aria-label="Piña Colada" aria-pressed="false" style="--c:#e8a21a"></button><button type="button" data-img="img/creatine/mono_apple.webp" data-v="Sour Apple" aria-label="Sour Apple" aria-pressed="false" style="--c:#7cb342"></button><button type="button" data-img="img/creatine/mono_melon.webp" data-v="Watermelon" aria-label="Watermelon" aria-pressed="false" style="--c:#e0525c"></button></div>
+    <p class="st-price"><b>$24.99</b> <span>subscribed · 30 servings</span></p>
+    <a class="st-btn ghost" href="#notify" data-notify>Notify me</a>
+  </div>
+</article>
+<article class="st-card" data-cat="gummies" data-price="999" data-order="8" data-new="1">
+  <a class="st-img photo" href="#gummies-info"><img src="img/gummies/strawberry_sm.webp" alt="Creatine Gummies, Strawberry" width="560" height="700" loading="lazy"><span class="st-badges"><em class="cs">Coming soon</em></span></a>
+  <div class="st-body">
+    <h3><a href="#gummies-info">Creatine Gummies</a></h3>
+    <p class="st-var"><span data-var>Strawberry</span> · 60 gummies</p>
+    <div class="st-sw" role="group" aria-label="Flavor"><button type="button" data-img="img/gummies/strawberry_sm.webp" data-v="Strawberry" aria-label="Strawberry" aria-pressed="true" style="--c:#b3123f"></button><button type="button" data-img="img/gummies/blue_sm.webp" data-v="Blue Raspberry" aria-label="Blue Raspberry" aria-pressed="false" style="--c:#2236c9"></button><button type="button" data-img="img/gummies/watermelon_sm.webp" data-v="Watermelon" aria-label="Watermelon" aria-pressed="false" style="--c:#d81f2a"></button><button type="button" data-img="img/gummies/pina_sm.webp" data-v="Piña Colada" aria-label="Piña Colada" aria-pressed="false" style="--c:#d27a12"></button><button type="button" data-img="img/gummies/apple_sm.webp" data-v="Sour Apple" aria-label="Sour Apple" aria-pressed="false" style="--c:#3f7a1f"></button></div>
+    <p class="st-price"><span>Price coming soon</span></p>
+    <a class="st-btn ghost" href="#notify" data-notify>Notify me</a>
+  </div>
+</article>
+<article class="st-card" data-cat="icecream" data-price="999" data-order="9" data-new="1">
+  <a class="st-img photo" href="#icecream-info"><img src="img/ic/pint2_choc.webp" alt="Protein ice cream pint, Chocolate" width="640" height="800" loading="lazy"><span class="st-badges"><em class="cs">Coming soon</em></span></a>
+  <div class="st-body">
+    <h3><a href="#icecream-info">Protein Ice Cream</a></h3>
+    <p class="st-var"><span data-var>Chocolate</span> · 1 pint · 30g protein</p>
+    <div class="st-sw" role="group" aria-label="Flavor"><button type="button" data-img="img/ic/pint2_choc.webp" data-v="Chocolate" aria-label="Chocolate" aria-pressed="true" style="--c:#5a2c22"></button><button type="button" data-img="img/ic/pint2_van.webp" data-v="Vanilla" aria-label="Vanilla" aria-pressed="false" style="--c:#efe2c8"></button><button type="button" data-img="img/ic/pint2_cbutter.webp" data-v="Cookie Butter" aria-label="Cookie Butter" aria-pressed="false" style="--c:#c98a55"></button><button type="button" data-img="img/ic/pint2_matcha.webp" data-v="Matcha" aria-label="Matcha" aria-pressed="false" style="--c:#8db04a"></button></div>
+    <p class="st-price"><span>Price coming soon</span></p>
+    <a class="st-btn ghost" href="#notify" data-notify>Notify me</a>
+  </div>
+</article>
+<article class="st-card" data-cat="membership" data-price="19" data-order="10" data-new="0">
+  <a class="st-img photo" href="index.html#lovelypass"><img src="img/shot_pass.webp" alt="The member pass on a phone, a QR code you scan at the fridge" width="540" height="760" loading="lazy"></a>
+  <div class="st-body">
+    <h3><a href="index.html#lovelypass">Fridge Membership</a></h3>
+    <p class="st-var">5 fridge shakes a month · member prices after</p>
+    <p class="st-price"><b>$19</b> <span>/ month</span></p>
+    <a class="st-btn ghost" href="index.html#lovelypass">How it works</a>
+  </div>
+</article>
+  </div>
 </div></section>
-<section class="cr-how" aria-labelledby="h-crhow"><div class="wrap">
-  <h2 id="h-crhow">Better together</h2>
+<div class="wrap st-more"><h2>About the products</h2><nav aria-label="Product details"><a href="#creatine-info">Creatine</a><a href="#gummies-info">Creatine gummies</a><a href="#icecream-info">Ice cream</a><a href="#creami">Ninja Creami recipes</a></nav></div>
+<section class="cr-how" id="creatine-info" aria-labelledby="h-crhow"><div class="wrap">
+  <h2 id="h-crhow">Creatine sticks</h2><p class="lead cr-sub">Mix a Flavorless stick into any shake, or take a flavor with water. 5g creatine per stick.</p>
   <ol class="cr-steps">
     <li><b>1</b><h3>Open a <span class="swl"><span>Lovely</span></span></h3><p>Any flavor, 30g or 50g.</p></li>
     <li><b>2</b><h3>Add a Flavorless stick</h3><p>It dissolves into the shake without changing the taste.</p></li>
-    <li><b>3</b><h3>Shake and drink</h3><p>Protein and creatine in one bottle, every day. Gold star for consistency.</p></li>
+    <li><b>3</b><h3>Shake and drink</h3><p>Protein and creatine in one bottle, every day.</p></li>
   </ol>
   <div class="cr-pics">
     <figure><img src="img/creatine/pour_shake.webp" srcset="img/creatine/pour_shake_sm.webp 500w, img/creatine/pour_shake.webp 900w" sizes="(max-width: 860px) 46vw, 430px" alt="Pouring a Flavorless Lovely Creatine stick into a Matcha Lovely" loading="lazy" width="900" height="1195"><figcaption><b>Flavorless + any <span class="swl"><span>Lovely</span></span></b><span>Same shake, now with creatine.</span></figcaption></figure>
@@ -1229,37 +1411,24 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <p class="cr-note small">Flavorless is made for mixing into your shake. Blue Raspberry, Piña Colada, Sour Apple and Watermelon are for water. Creatine is one of the most studied supplements for strength training.*</p>
   <div class="ctas" style="justify-content:center"><a class="btn" href="#notify">Get first dibs</a><a class="btn alt" href="shop.html">Build a box of shakes</a></div>
 </div></section>
-<section class="gm-sec" id="gummies" aria-labelledby="h-gm"><div class="wrap">
+<section class="gm-sec" id="gummies-info" aria-labelledby="h-gm"><div class="wrap">
   <div class="cr-head" style="max-width:760px">
     <span class="soon">New · chew it, don't stir it</span>
     <h2 class="cr-h" id="h-gm">Lovely Creatine Gummies. <em>Sweet hearts, real creatine.</em></h2>
-    <p class="lead">Not a stick person? Same daily creatine habit, in heart-shaped gummies you'll actually remember to take. Keep a jar in your bag, your car and your desk. We won't judge.</p>
+    <p class="lead">The same daily creatine, in heart-shaped gummies. Keep a jar in your bag, car or desk.</p>
     <ul class="mach-facts"><li>60 gummies a jar</li><li>5 candy flavors</li><li>No shaker needed</li></ul>
   </div>
   <div class="gm-grid"><figure><img src="img/gummies/strawberry.webp" srcset="img/gummies/strawberry_sm.webp 560w, img/gummies/strawberry.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Strawberry: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#b3123f"><b>Strawberry</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/blue.webp" srcset="img/gummies/blue_sm.webp 560w, img/gummies/blue.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Blue Raspberry: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#2236c9"><b>Blue Raspberry</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/watermelon.webp" srcset="img/gummies/watermelon_sm.webp 560w, img/gummies/watermelon.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Watermelon: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#d81f2a"><b>Watermelon</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/pina.webp" srcset="img/gummies/pina_sm.webp 560w, img/gummies/pina.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Piña Colada: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#d27a12"><b>Piña Colada</b><span>60 gummies · dietary supplement</span></figcaption></figure><figure><img src="img/gummies/apple.webp" srcset="img/gummies/apple_sm.webp 560w, img/gummies/apple.webp 1100w" sizes="(max-width: 860px) 46vw, 330px" alt="Lovely Creatine Gummies, Sour Apple: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"><figcaption style="--fc:#3f7a1f"><b>Sour Apple</b><span>60 gummies · dietary supplement</span></figcaption></figure></div>
-  <div class="ctas" style="justify-content:center;margin-top:24px"><a class="btn" href="#notify">Get first dibs</a><a class="btn alt" href="#creatine">Prefer sticks? See Lovely Creatine</a></div>
+  <div class="ctas" style="justify-content:center;margin-top:24px"><a class="btn" href="#notify">Get first dibs</a><a class="btn alt" href="#creatine-info">Prefer sticks? See the creatine sticks</a></div>
 </div></section>
-<section class="page-h ic-top" id="icecream"><div class="wrap ictop">
-  <div>
-    <span class="soon">Coming soon</span>
-    <h2 class="h1">Protein ice cream, <em>by the pint.</em></h2>
-    <p class="lead">The same dessert flavors as the shakes, except now you need a spoon. <span class="swl"><span>Lovely</span></span> protein ice cream pints with protein in every spoonful.</p>
-    <div class="ctas"><a class="btn" href="#notify">Get first dibs</a><a class="btn alt" href="#pints">See the flavors</a></div>
-  </div>
-  <div class="fan" aria-hidden="true"><img src="img/creami/van.webp" alt="" width="900" height="1125"><img src="img/creami/matcha.webp" alt="" width="900" height="1125"><img src="img/creami/choc.webp" alt="" width="900" height="1125"></div>
-</div></section>
-<section id="pints" style="padding-top:20px"><div class="wrap">
-  <div class="sec-h"><h2>Four dessert pints</h2><p>Every pint is protein ice cream, with 30g of protein.</p></div><img class="iclineup" src="img/ic/pints2_lineup.webp" alt="Lovely Premium Protein Ice Cream pints in Vanilla, Chocolate, Cookie Butter and Matcha, 30g protein per pint" width="1600" height="533">
-  <div class="icgrid"><article class="icc"><div class="icpic"><img src="img/ic/pint2_choc.webp" alt="A woman by the window eating a pint of Lovely Chocolate protein ice cream" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Chocolate</h3><p>Deep cocoa with fudge ribbons and chocolate chunks.</p></div></article><article class="icc"><div class="icpic"><img src="img/ic/pint2_van.webp" alt="Friends laughing on the beach with a pint of Lovely Vanilla protein ice cream" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Vanilla</h3><p>Vanilla bean, speckled and creamy. Goes with everything.</p></div></article><article class="icc"><div class="icpic"><img src="img/ic/pint2_cbutter.webp" alt="A pint of Lovely Cookie Butter protein ice cream at the beach at sunset" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Cookie Butter</h3><p>Spiced speculoos cookie with a caramel cookie-butter swirl.</p></div></article><article class="icc"><div class="icpic"><img src="img/ic/pint2_matcha.webp" alt="A woman at a Pilates studio eating a pint of Lovely Matcha protein ice cream" width="640" height="800" loading="lazy"></div><div class="ict"><span class="ictag">Protein ice cream</span><h3>Matcha</h3><p>Smooth matcha green tea, creamy and lightly sweet.</p></div></article></div>
-</div></section>
-<section class="alt-bg"><div class="wrap icwhy">
+<section class="alt-bg" id="icecream-info"><div class="wrap icwhy">
   <div class="icwhy-img"><img src="img/ic/ic2_fridge.webp" alt="Two women at a Pilates studio picking Lovely protein ice cream pints from a pink Lovely fridge" width="720" height="900" loading="lazy"></div>
   <div>
     <h2>Dessert first. Protein included.</h2>
     <ul class="icpoints">
       <li><b>Real dessert flavors</b><span>Chocolate, vanilla, cookie butter and matcha, from the shake lineup.</span></li>
       <li><b>Protein in every pint</b><span>Built on the same milk protein as the shakes, so it's a snack that holds you over.</span></li>
-      <li><b>Less sugar</b><span>Sweet enough for 9pm, without the crash.</span></li>
+      <li><b>Less sugar</b><span>Sweet enough for dessert, with less sugar than regular ice cream.</span></li>
     </ul>
     <p class="small" style="margin-top:14px"><span class="ph">Nutrition and pint sizes are placeholders until the recipes are final.</span></p>
   </div>
@@ -2059,7 +2228,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   function totals(c) { var s = 0, h = 0, n = 0; c.forEach(function (b) { s += price(b) * b.qty; h += ship(b) * b.qty; n += b.qty; }); return { sub: s, ship: h, total: s + h, n: n }; }
   function line(b, i) { return '<li class="cline"><div class="cimg">' + pics(b) + '</div><div class="cinfo"><b>' + title(b) + "</b><span>" + mix(b) + "</span><span>" + plan(b) + '</span><div class="cqty"><button type="button" data-cdec="' + i + '" aria-label="One fewer box">−</button><output>' + b.qty + '</output><button type="button" data-cinc="' + i + '" aria-label="One more box">+</button><button type="button" class="crm" data-crm="' + i + '">Remove</button></div></div><b class="cprice">' + money(price(b) * b.qty) + "</b></li>"; }
   function sum(t) { return '<div class="csum"><div><span>Subtotal</span><b>' + money(t.sub) + "</b></div><div><span>Shipping</span><b>" + (t.ship ? money(t.ship) : "Free") + '</b></div><div class="ctot"><span>Total</span><b>' + money(t.total) + "</b></div><p>No payment today. Your card is charged when your box ships. First box comes with a free shaker.</p></div>"; }
-  var EMPTY = '<div class="cempty"><p>Your cart is empty. Tragic, but fixable.</p><a class="btn" href="' + P + 'shop.html">Build a box</a></div>';
+  var EMPTY = '<div class="cempty"><p>Your cart is empty.</p><a class="btn" href="' + P + 'shop.html">Build a box</a></div>';
   var sc = document.createElement("div"), dr = document.createElement("aside");
   sc.className = "cscrim"; dr.className = "cdrawer"; dr.id = "cdrawer"; dr.setAttribute("aria-label", "Your cart"); dr.setAttribute("aria-hidden", "true"); dr.setAttribute("inert", "");
   document.body.appendChild(sc); document.body.appendChild(dr);
@@ -2113,6 +2282,50 @@ document.querySelectorAll(".gm-flv").forEach(function (g) {
   });
 });
 </script>
+
+<script>/* storefront: filters, sort, swatches, quick add */
+(function () {
+  var g = document.getElementById("st-grid"); if (!g) return;
+  var cards = [].slice.call(g.querySelectorAll(".st-card")), sortSel = document.getElementById("st-sort"), cat = "all";
+  var PR = { 30: { now: 101.99, was: 119.99, per: 4.25, save: 15 }, 50: { now: 119.76, was: 167.99, per: 4.99, save: 28 } };
+  function m(v) { return "$" + v.toFixed(2); }
+  function apply() {
+    var n = 0, by = sortSel.value;
+    cards.forEach(function (c) { var on = cat === "all" || c.dataset.cat === cat; c.hidden = !on; if (on) n++; });
+    var arr = cards.slice().sort(function (a, b) {
+      if (by === "low") return a.dataset.price - b.dataset.price || a.dataset.order - b.dataset.order;
+      if (by === "high") { var pa = a.dataset.price == 999 ? -1 : +a.dataset.price, pb = b.dataset.price == 999 ? -1 : +b.dataset.price; return pb - pa || a.dataset.order - b.dataset.order; }
+      if (by === "new") return b.dataset.new - a.dataset.new || a.dataset.order - b.dataset.order;
+      return a.dataset.order - b.dataset.order; });
+    arr.forEach(function (c) { g.appendChild(c); });
+    document.getElementById("st-count").textContent = n + (n === 1 ? " product" : " products");
+    document.querySelectorAll(".st-cats [data-cat]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.cat === cat)); });
+  }
+  document.querySelectorAll(".st-cats [data-cat]").forEach(function (b) { b.addEventListener("click", function () { cat = b.dataset.cat; apply(); }); });
+  sortSel.addEventListener("change", apply);
+  var H = { creatine: "creatine", gummies: "gummies", icecream: "icecream", shakes: "shakes", membership: "membership" };
+  function fromHash() { var h = location.hash.slice(1); if (H[h]) { cat = H[h]; apply(); var t = document.querySelector(".st-top"); if (t) setTimeout(function () { t.scrollIntoView({ block: "start" }); }, 30); } }
+  addEventListener("hashchange", fromHash); fromHash();
+  g.addEventListener("click", function (e) {
+    var t = e.target.closest("button"); if (!t) return; var c = t.closest(".st-card");
+    if (t.parentNode.classList.contains("st-sw")) {
+      t.parentNode.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b === t)); });
+      var im = c.querySelector(".st-img img:not(.alt)"); im.src = t.dataset.img; im.removeAttribute("srcset");
+      im.alt = im.alt.replace(/, [^,]+$/, ", " + t.dataset.v); var v = c.querySelector("[data-var]"); if (v) v.textContent = t.dataset.v; return; }
+    if (t.parentNode.classList.contains("st-size")) {
+      var p = +t.dataset.p, r = PR[p], img = c.querySelector(".st-img img.main"), alt = c.querySelector(".st-img img.alt"); c.dataset.p = p; if (alt) alt.src = alt.dataset[p];
+      t.parentNode.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(b === t)); });
+      img.src = img.dataset[p]; img.alt = img.alt.replace(/\d+g protein/, p + "g protein");
+      c.dataset.price = r.now;
+      c.querySelector("[data-now]").textContent = m(r.now); c.querySelector("[data-was]").textContent = m(r.was);
+      c.querySelector("[data-per]").textContent = m(r.per) + "/bottle"; c.querySelector("[data-var]").textContent = "24 bottles · " + p + "g protein";
+      c.querySelector(".sv").textContent = "Save " + r.save + "%"; return; }
+    if (t.hasAttribute("data-quick")) {
+      var k = c.dataset.k + (c.dataset.p === "50" ? "~50" : ""), it = {}; it[k] = 24;
+      if (window.SwellCart) window.SwellCart.add({ size: 24, sub: true, every: 4, items: it }); else location.href = "shop.html?f=" + c.dataset.k;
+      t.classList.add("done"); t.textContent = "Added"; setTimeout(function () { t.classList.remove("done"); t.textContent = "Add to cart"; }, 1800); }
+  });
+})();</script>
 
 <script src="search.js" defer></script>
 </body>

@@ -1088,6 +1088,105 @@ img[src$="logo.png"] { filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgb
 body::before { background: var(--bg) !important; }
 header.top { background: var(--bg) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
 .packband img, .summary .pack .packband img { filter: brightness(0) invert(1) !important; }
+/* ---------- storefront: collection grid ---------- */
+.st-top { padding-block: clamp(18px, 3vw, 34px) 30px; }
+.st-crumb { display: flex; gap: 8px; font: 500 13px/1.3 var(--body); color: var(--muted); margin-bottom: 14px; }
+.st-crumb a { color: inherit; text-decoration: none; } .st-crumb a:hover { text-decoration: underline; }
+.st-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.st-head h1 { font: 700 clamp(30px, 4vw, 44px)/1.05 var(--display); color: var(--fg); margin: 0; letter-spacing: -.01em; }
+.st-count { font: 500 14px/1 var(--body); color: var(--muted); margin: 0; }
+.st-perks { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; font: 600 13.5px/1.3 var(--body); color: var(--fg); }
+.st-perks li { display: flex; align-items: center; gap: 7px; }
+.st-perks li::before { content: ""; width: 15px; height: 15px; flex: none; background: var(--fg); -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>') center/contain no-repeat; mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>') center/contain no-repeat; }
+.st-bar { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: 22px 0 18px; padding: 12px 0; border-block: 1px solid rgba(125, 69, 88, .18); }
+.st-cats { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin: -4px; padding: 4px; }
+.st-cats::-webkit-scrollbar { display: none; }
+.st-cats button { flex: none; font: 600 14px/1 var(--body); color: var(--fg); background: transparent; border: 1px solid rgba(125, 69, 88, .3); border-radius: 999px; padding: 9px 14px; cursor: pointer; }
+.st-cats button small { font-weight: 500; opacity: .65; margin-left: 3px; font-size: 12px; }
+.st-cats button:hover { border-color: var(--fg); }
+.st-cats button[aria-pressed="true"] { background: var(--fg); border-color: var(--fg); color: #fff; }
+.st-sort { display: flex; align-items: center; gap: 8px; flex: none; font: 600 13.5px/1 var(--body); color: var(--muted); }
+.st-sort select { font: 600 14px/1 var(--body); color: var(--fg); background: rgba(255, 255, 255, .55); border: 1px solid rgba(125, 69, 88, .3); border-radius: 10px; padding: 9px 30px 9px 12px; appearance: none; -webkit-appearance: none; cursor: pointer;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%237d4558" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>'); background-repeat: no-repeat; background-position: right 9px center; background-size: 14px; }
+.st-btn { display: flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 10px; border: 1.5px solid var(--fg); background: var(--fg); color: #fff; font: 700 14.5px/1 var(--body); text-decoration: none; cursor: pointer; }
+.st-btn:hover { background: #6a3949; border-color: #6a3949; }
+/* ---------- product page ---------- */
+.pdp { padding-block: clamp(16px, 3vw, 34px) 40px; }
+.pdp *, .pdp-build .st-secth * { text-shadow: none; }
+.pdp-grid { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.pdp-gal { position: sticky; top: 90px; display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 12px; }
+.pdp-main { grid-column: 2; grid-row: 1; aspect-ratio: 1 / 1; border-radius: 16px; overflow: hidden; background: #fbe9f0; }
+.pdp-main img { width: 100%; height: 100%; object-fit: cover; }
+.pdp-main img.fit { object-fit: contain; padding: 7% 0; filter: drop-shadow(0 18px 22px rgba(125, 69, 88, .2)); }
+.pdp-thumbs { grid-column: 1; grid-row: 1; display: flex; flex-direction: column; gap: 10px; }
+.pdp-thumbs button { width: 76px; height: 76px; padding: 0; border: 1.5px solid transparent; border-radius: 10px; overflow: hidden; background: #fbe9f0; cursor: pointer; }
+.pdp-thumbs button img { width: 100%; height: 100%; object-fit: cover; }
+.pdp-thumbs button img.fit { object-fit: contain; padding: 6px 0; }
+.pdp-thumbs button[aria-pressed="true"] { border-color: var(--fg); }
+.pdp-info { color: var(--fg); }
+.pdp-info .st-crumb { margin-bottom: 18px; }
+.pdp-eye { font: 600 12.5px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.pdp-info h1 { font: 700 clamp(30px, 3.4vw, 42px)/1.08 var(--display); margin: 0; color: var(--fg); letter-spacing: -.01em; }
+.pdp-sum { font: 500 15.5px/1.5 var(--body); color: var(--muted); margin: 10px 0 0; max-width: 480px; }
+.pdp-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; margin: 18px 0 4px; padding-bottom: 18px; border-bottom: 1px solid rgba(125, 69, 88, .18); }
+.pdp-price b { font: 700 26px/1 var(--body); color: var(--fg); }
+.pdp-price s { font: 500 17px/1 var(--body); color: var(--muted); }
+.pdp-price em { font: 700 12px/1 var(--body); font-style: normal; background: var(--fg); color: #fff; padding: 5px 8px; border-radius: 6px; }
+.pdp-price span { flex-basis: 100%; font: 500 14px/1.3 var(--body); color: var(--muted); }
+.pdp-opt { border: 0; padding: 0; margin: 18px 0 0; min-width: 0; }
+.pdp-opt legend { font: 600 14px/1 var(--body); color: var(--fg); padding: 0; margin-bottom: 10px; }
+.pdp-opt legend b { font-weight: 500; color: var(--muted); }
+.pdp-flavors { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+.pdp-flavors button { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 8px 4px 9px; border: 1px solid rgba(125, 69, 88, .25); border-radius: 10px; background: rgba(255, 255, 255, .35); cursor: pointer; font: 600 11.5px/1.15 var(--body); color: var(--fg); text-align: center; }
+.pdp-flavors img { height: 54px; width: auto; object-fit: contain; }
+.pdp-flavors img.mx { width: 100%; height: 54px; object-fit: cover; border-radius: 6px; }
+.pdp-flavors button[aria-pressed="true"] { border-color: var(--fg); box-shadow: inset 0 0 0 1px var(--fg); background: rgba(255, 255, 255, .7); }
+.pdp-sizes { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pdp-sizes button { text-align: left; display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border: 1px solid rgba(125, 69, 88, .25); border-radius: 10px; background: rgba(255, 255, 255, .35); cursor: pointer; color: var(--fg); }
+.pdp-sizes b { font: 700 15px/1 var(--body); } .pdp-sizes span { font: 500 12.5px/1.3 var(--body); color: var(--muted); }
+.pdp-sizes button[aria-pressed="true"] { border-color: var(--fg); box-shadow: inset 0 0 0 1px var(--fg); background: rgba(255, 255, 255, .7); }
+.pdp-plan { display: block; position: relative; padding: 14px 14px 14px 44px; border: 1px solid rgba(125, 69, 88, .25); border-radius: 10px; background: rgba(255, 255, 255, .35); cursor: pointer; margin-bottom: 8px; color: var(--fg); }
+.pdp-plan:has(input:checked) { border-color: var(--fg); box-shadow: inset 0 0 0 1px var(--fg); background: rgba(255, 255, 255, .7); }
+.pdp-plan input { position: absolute; left: 15px; top: 15px; width: 18px; height: 18px; accent-color: var(--fg); margin: 0; }
+.pp-h { display: flex; justify-content: space-between; gap: 10px; font: 700 15px/1.2 var(--body); }
+.pp-h em { font-style: normal; background: var(--fg); color: #fff; font-size: 11.5px; padding: 3px 6px; border-radius: 5px; margin-left: 4px; vertical-align: 1px; }
+.pp-d { display: block; margin-top: 6px; font: 500 13.5px/1.3 var(--body); color: var(--muted); }
+.pp-d select { font: 600 13.5px var(--body); color: var(--fg); border: 1px solid rgba(125, 69, 88, .3); border-radius: 6px; background: #fff; padding: 3px 6px; }
+.pdp-plan ul { margin: 8px 0 0; padding-left: 18px; font: 500 13.5px/1.55 var(--body); color: var(--muted); }
+.pdp-plan:not(:has(input:checked)) ul, .pdp-plan:not(:has(input:checked)) .pp-d { display: none; }
+.pdp-add { width: 100%; min-height: 54px; font-size: 16px; margin-top: 16px; border-radius: 12px; }
+.pdp-note { font: 500 13px/1.4 var(--body); color: var(--muted); text-align: center; margin: 9px 0 0; }
+.pdp-trust { list-style: none; padding: 16px 0; margin: 16px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; border-block: 1px solid rgba(125, 69, 88, .18); font: 600 13.5px/1.25 var(--body); color: var(--fg); }
+.pdp-trust li { display: flex; align-items: center; gap: 9px; }
+.pdp-acc details { border-bottom: 1px solid rgba(125, 69, 88, .18); }
+.pdp-acc summary { list-style: none; cursor: pointer; padding: 16px 0; font: 700 15px/1.2 var(--body); color: var(--fg); display: flex; justify-content: space-between; }
+.pdp-acc summary::-webkit-details-marker { display: none; }
+.pdp-acc summary::after { content: "+"; font-weight: 500; font-size: 20px; line-height: .8; }
+.pdp-acc details[open] summary::after { content: "−"; }
+.pdp-acc p { font: 500 14px/1.6 var(--body); color: var(--muted); margin: 0 0 14px; }
+.pdp-acc a, .pdp-acc .nf-link { color: var(--fg); font-weight: 700; }
+.pdp-acc .nf-link { background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; font: 700 14px var(--body); }
+.pdp-facts { list-style: none; padding: 0; margin: 0 0 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pdp-facts li { background: rgba(255, 255, 255, .45); border-radius: 10px; padding: 10px 12px; font: 500 13.5px/1.3 var(--body); color: var(--muted); }
+.pdp-facts b { display: block; font: 700 18px/1.1 var(--body); color: var(--fg); }
+.pdp-build h2, .pdp-build h3, .pdp-build .step h2 { text-shadow: none; }
+.pdp-build .step h2 { color: var(--fg); }
+.pdp-build { padding-top: 40px; border-top: 1px solid rgba(125, 69, 88, .18); }
+.st-secth { margin-bottom: 20px; } .st-secth h2 { font: 700 clamp(26px, 3vw, 34px)/1.1 var(--display); margin: 0; color: var(--fg); }
+.st-secth p { margin: 6px 0 0; font: 500 15px/1.45 var(--body); color: var(--muted); }
+.pdp-sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: none; align-items: center; gap: 12px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px)); background: #fbe9f0; box-shadow: 0 -6px 20px rgba(125, 69, 88, .15); }
+.pdp-sticky span { flex: 1; font: 600 13.5px/1.25 var(--body); color: var(--fg); }
+.pdp-sticky .st-btn { margin: 0; padding: 0 18px; min-height: 44px; }
+@media (max-width: 900px) {
+  .pdp-grid { grid-template-columns: 1fr; }
+  .pdp-gal { position: static; grid-template-columns: 1fr; }
+  .pdp-main { grid-column: 1; }
+  .pdp-thumbs { grid-column: 1; grid-row: 2; flex-direction: row; overflow-x: auto; }
+  .pdp-thumbs button { width: 64px; height: 64px; flex: none; }
+  .pdp-flavors { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  html.pdp-stuck .pdp-sticky { display: flex; }
+  html.pdp-stuck .mbar, html.pdp-stuck .scanfab { visibility: hidden !important; opacity: 0 !important; }
+}
 </style>
 <header class="top"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
@@ -1102,17 +1201,37 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <button type="button" class="btn alt pass-open" data-pass>Show my <span class="swl"><span>Lovely</span></span> Pass</button>
   <a class="btn" href="shop.html">Build a box <span class="boxcount" hidden>0</span></a>
 </aside><main id="main">
-<section class="page-h shop-top"><div class="wrap shop-hero">
-  <img class="shop-img" src="img/pack_matcha.webp" srcset="img/pack_matcha_sm.webp 768w, img/pack_matcha.webp 1536w" sizes="(max-width: 900px) 92vw, 52vw" alt="Lovely 30g Matcha protein shake: a pink 12-bottle pack and bottle with matcha powder and tea leaves" width="1536" height="1024" fetchpriority="high">
-  <div><h1>Build your box</h1>
-  <p class="lead">Pick 12 or 24 shakes, any mix of flavors, <span class="swl"><span>Lovely</span></span> or 50g. Reserve now and you won't be charged until your box ships. Commitment issues? Same. Skip or pause anytime.</p>
-  <ul class="pricepts"><li><b>$4.25</b><span>a <span class="swl"><span>Lovely</span></span>, subscribed</span></li><li><b>$4.99</b><span>a Lovely 50g, subscribed</span></li><li><b>Free</b>shipping on 24</li></ul>
-  <div class="presets"><span class="small" style="align-self:center">Not sure where to start?</span>
-    <button type="button" class="btn sm alt" data-preset="choc,van,cbutter,matcha,pb" data-n="12">One of each · 12</button>
-    <button type="button" class="btn sm alt" data-preset="choc,van,cbutter" data-n="24">The classics · 24</button>
-    <button type="button" class="btn sm alt" data-preset="choc,van" data-n="12" data-p="50">50g heavy days · 12</button></div></div>
+<section class="pdp" aria-labelledby="pdp-h"><div class="wrap pdp-grid">
+  <div class="pdp-gal">
+    <div class="pdp-main"><img id="pdp-img" src="img/pack_choc.webp" alt="Chocolate protein shake, 30g, with its 12-bottle pack" width="1536" height="1024" fetchpriority="high"></div>
+    <div class="pdp-thumbs" id="pdp-thumbs" role="group" aria-label="Product photos"></div>
+  </div>
+  <div class="pdp-info">
+    <nav class="st-crumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="products.html">Shop all</a><span aria-hidden="true">/</span><span aria-current="page">Protein shake</span></nav>
+    <p class="pdp-eye">Protein shake · 24 bottles</p>
+    <h1 id="pdp-h">Premium Protein Shake</h1>
+    <p class="pdp-sum">Lactose-free protein shakes with 0g added sugar. Pick a flavor and 30g or 50g of protein, and we ship a case of 24.</p>
+    <div class="pdp-price"><b id="pdp-now">$101.99</b><s id="pdp-was">$119.99</s><em id="pdp-save">Save 15%</em><span id="pdp-per">$4.25 per bottle · free shipping</span></div>
+    <fieldset class="pdp-opt"><legend>Flavor: <b id="pdp-flv">Chocolate</b></legend><div class="pdp-flavors"><button type="button" data-f="choc" aria-pressed="true" title="Chocolate"><img src="img/b_choc.webp" alt="" width="204" height="700"><span>Chocolate</span></button><button type="button" data-f="van" aria-pressed="false" title="Vanilla"><img src="img/b_van.webp" alt="" width="204" height="700"><span>Vanilla</span></button><button type="button" data-f="cbutter" aria-pressed="false" title="Cookie Butter"><img src="img/b_cbutter.webp" alt="" width="204" height="700"><span>Cookie Butter</span></button><button type="button" data-f="matcha" aria-pressed="false" title="Matcha"><img src="img/b_matcha.webp" alt="" width="204" height="700"><span>Matcha</span></button><button type="button" data-f="pb" aria-pressed="false" title="Peanut Butter"><img src="img/b_pb.webp" alt="" width="204" height="700"><span>Peanut Butter</span></button><button type="button" data-f="mix" aria-pressed="false" title="Mix flavors"><img src="img/lineup_mix_sm.webp" alt="" width="660" height="435" class="mx"><span>Mix flavors</span></button></div></fieldset>
+    <fieldset class="pdp-opt"><legend>Protein: <b id="pdp-pro">30g</b></legend><div class="pdp-sizes"><button type="button" data-pp="30" aria-pressed="true"><b>30g protein</b><span>Pink bottle · 14 fl oz · 170 cal</span></button><button type="button" data-pp="50" aria-pressed="false"><b>50g protein</b><span>Blue bottle · 16 fl oz · 260 cal</span></button></div></fieldset>
+    <fieldset class="pdp-opt"><legend>Purchase</legend>
+      <label class="pdp-plan"><input type="radio" name="pdp-plan" value="sub" checked><span class="pp-h"><b>Subscribe &amp; save <em id="pdp-save2">15%</em></b><b id="pdp-subp">$101.99</b></span>
+        <span class="pp-d">Delivered every <select id="pdp-every" aria-label="Delivery frequency"><option value="2">2 weeks</option><option value="4" selected>4 weeks</option></select></span>
+        <ul><li>Free shipping on every case</li><li>Skip, swap flavors or cancel anytime</li><li>Double rewards points</li></ul></label>
+      <label class="pdp-plan"><input type="radio" name="pdp-plan" value="once"><span class="pp-h"><b>One-time purchase</b><b id="pdp-oncep">$119.99</b></span></label>
+    </fieldset>
+    <button type="button" class="st-btn pdp-add" id="pdp-add">Add to cart · $101.99</button>
+    <p class="pdp-note">No payment today. Your card is charged when your order ships.</p>
+    <ul class="pdp-trust"><li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>Free shipping on 24</li><li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>Charged when it ships</li><li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Skip or cancel anytime</li><li><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19l7-7"/></svg>Lactose-free</li></ul>
+    <div class="pdp-acc">
+      <details open><summary>Details</summary><ul class="pdp-facts"><li><b id="pdp-g">30g</b> protein</li><li><b>0g</b> added sugar</li><li><b>2.5g</b> collagen peptides</li><li><b>25%</b> DV iron and vitamin C</li></ul><p>Made with ultra-filtered milk, so it's lactose-free and thick without being chalky. Shelf stable until opened. Shake well and serve cold.</p></details>
+      <details><summary>Ingredients</summary><p id="pdp-ing"></p><p><b>Contains:</b> milk.</p><p><button type="button" class="nf-link" data-drink="choc" id="pdp-nf">View nutrition facts</button></p></details>
+      <details><summary>Shipping &amp; subscriptions</summary><p>24-bottle cases ship free. Subscriptions renew every 2 or 4 weeks and you can skip a delivery, change flavors, or cancel from your account before the next one ships. Your card is charged when each order ships, not when you reserve it.</p></details>
+      <details><summary>How to use</summary><p>Drink one cold after a workout, as a snack, or with breakfast. Pour one into a Ninja Creami pint and freeze for 24 hours for protein ice cream. <a href="products.html#creami">See the recipes</a>.</p></details>
+    </div>
+  </div>
 </div></section>
-<section id="build" style="padding-top:20px"><div class="wrap builder">
+<section id="build" class="pdp-build" aria-labelledby="h-build"><div class="wrap"><div class="st-secth"><h2 id="h-build">Build a mixed box</h2><p>Choose 12 or 24 bottles in any combination of flavors and protein sizes.</p></div></div><div class="wrap builder">
   <div class="steps">
     <div class="step"><h2>1. Box size</h2><div class="seg" role="group" aria-label="Box size">
       <button type="button" data-size="12" aria-pressed="true"><b>12 shakes</b><span>$50.99 + shipping</span></button>
@@ -1120,7 +1239,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     <div class="step"><h2>2. Bottle to add</h2><div class="seg" role="group" aria-label="Bottle to add">
       <button type="button" data-protein="30" aria-pressed="true"><b><span class="swl"><span>Lovely</span></span> · 30g</b><span>Pink bottle · $4.25</span></button>
       <button type="button" data-protein="50" aria-pressed="false" class="swollbtn"><b>Lovely · 50g</b><span>Light-blue bottle · $4.99</span></button></div>
-      <p class="mixnote">Mix both in one box. Switching keeps every bottle you've already picked. We'd never make you start over.</p></div>
+      <p class="mixnote">You can mix 30g and 50g bottles in one box.</p></div>
     <div class="step"><h2>3. Flavors</h2>
       <div class="picks"><div class="pk" data-id="choc"><img src="img/b_choc.webp" alt="" width="46" height="120" loading="lazy" data-drink="choc"><div><b>Chocolate</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="choc">Nutrition</button></small></div><span class="pkmix" id="mix-choc"></span><div class="qty"><button type="button" data-dec="choc" aria-label="Remove one Chocolate">−</button><output id="q-choc">0</output><button type="button" data-inc="choc" aria-label="Add one Chocolate">+</button></div></div><div class="pk" data-id="van"><img src="img/b_van.webp" alt="" width="46" height="120" loading="lazy" data-drink="van"><div><b>Vanilla</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="van">Nutrition</button></small></div><span class="pkmix" id="mix-van"></span><div class="qty"><button type="button" data-dec="van" aria-label="Remove one Vanilla">−</button><output id="q-van">0</output><button type="button" data-inc="van" aria-label="Add one Vanilla">+</button></div></div><div class="pk" data-id="cbutter"><img src="img/b_cbutter.webp" alt="" width="46" height="120" loading="lazy" data-drink="cbutter"><div><b>Cookie Butter</b><small>Launch flavor · <button type="button" class="nf-link sm" data-drink="cbutter">Nutrition</button></small></div><span class="pkmix" id="mix-cbutter"></span><div class="qty"><button type="button" data-dec="cbutter" aria-label="Remove one Cookie Butter">−</button><output id="q-cbutter">0</output><button type="button" data-inc="cbutter" aria-label="Add one Cookie Butter">+</button></div></div><div class="pk" data-id="matcha"><img src="img/b_matcha.webp" alt="" width="46" height="120" loading="lazy" data-drink="matcha"><div><b>Matcha</b><small>New · <button type="button" class="nf-link sm" data-drink="matcha">Nutrition</button></small></div><span class="pkmix" id="mix-matcha"></span><div class="qty"><button type="button" data-dec="matcha" aria-label="Remove one Matcha">−</button><output id="q-matcha">0</output><button type="button" data-inc="matcha" aria-label="Add one Matcha">+</button></div></div><div class="pk" data-id="pb"><img src="img/b_pb.webp" alt="" width="46" height="120" loading="lazy" data-drink="pb"><div><b>Peanut Butter</b><small>New · <button type="button" class="nf-link sm" data-drink="pb">Nutrition</button></small></div><span class="pkmix" id="mix-pb"></span><div class="qty"><button type="button" data-dec="pb" aria-label="Remove one Peanut Butter">−</button><output id="q-pb">0</output><button type="button" data-inc="pb" aria-label="Add one Peanut Butter">+</button></div></div></div></div>
   </div>
@@ -1131,7 +1250,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     <div class="links"><button type="button" id="fill">Fill the rest for me</button><button type="button" id="clear">Clear</button></div>
     <div class="bprice"><div><b id="bp-total">$50.99</b><span id="bp-per">$4.25 a 30g</span></div><span id="bp-ship">+ $4.99 shipping</span></div>
     <label class="subq"><input type="checkbox" id="box-sub" checked><span><b>Subscribe: every <select id="box-every" aria-label="How often"><option value="2">2 weeks</option><option value="4" selected>4 weeks</option></select></b><small>$4.25 a Lovely instead of $5 ($4.99 instead of $7 for 50g), $4.99 shipping on 12s, double points. Skip, swap or pause anytime.</small></span></label>
-    <button class="btn" type="submit" id="box-submit" disabled>Add 12 more</button> <p class="assure">No payment today. Reserve from your cart and your card is charged when your box ships. First box comes with a free shaker. (You won't need it. It's already shaken.)</p>
+    <button class="btn" type="submit" id="box-submit" disabled>Add 12 more</button> <p class="assure">No payment today. Reserve from your cart and your card is charged when your box ships. First box comes with a free shaker.</p>
     <p id="box-msg" class="assure" aria-live="polite"></p>
   </form>
 </div></section>
@@ -1228,7 +1347,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   });
 
   // ---------- box (shared across pages): keys "choc" = Lovely 30g, "choc~50" = Lovely 50g ----------
-  var box = store("swell-box") || { size: 12, protein: 30, items: {} };
+  var box = store("swell-box") || { size: 24, protein: 30, sub: true, every: 4, items: {} };
   for (var bk in box.items) if (!NAMES[bk.replace(/~50$/, "")]) delete box.items[bk];
   if (box.sub === undefined) box.sub = true;
   function total() { var n = 0; for (var k in box.items) n += box.items[k]; return n; }
@@ -1911,8 +2030,8 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   function pics(b) { return Object.keys(b.items).filter(function (k) { return b.items[k]; }).slice(0, 3).map(function (k) { return '<img src="' + P + "img/" + (w(k) ? "sw_" : "b_") + bk(k) + '.webp" alt="">'; }).join(""); }
   function totals(c) { var s = 0, h = 0, n = 0; c.forEach(function (b) { s += price(b) * b.qty; h += ship(b) * b.qty; n += b.qty; }); return { sub: s, ship: h, total: s + h, n: n }; }
   function line(b, i) { return '<li class="cline"><div class="cimg">' + pics(b) + '</div><div class="cinfo"><b>' + title(b) + "</b><span>" + mix(b) + "</span><span>" + plan(b) + '</span><div class="cqty"><button type="button" data-cdec="' + i + '" aria-label="One fewer box">−</button><output>' + b.qty + '</output><button type="button" data-cinc="' + i + '" aria-label="One more box">+</button><button type="button" class="crm" data-crm="' + i + '">Remove</button></div></div><b class="cprice">' + money(price(b) * b.qty) + "</b></li>"; }
-  function sum(t) { return '<div class="csum"><div><span>Subtotal</span><b>' + money(t.sub) + "</b></div><div><span>Shipping</span><b>" + (t.ship ? money(t.ship) : "Free") + '</b></div><div class="ctot"><span>Total</span><b>' + money(t.total) + "</b></div><p>No payment today. Your card is charged when your box ships. First box comes with a free shaker. (You won't need it. It's already shaken.)</p></div>"; }
-  var EMPTY = '<div class="cempty"><p>Your cart is empty. Tragic, but fixable.</p><a class="btn" href="' + P + 'shop.html">Build a box</a></div>';
+  function sum(t) { return '<div class="csum"><div><span>Subtotal</span><b>' + money(t.sub) + "</b></div><div><span>Shipping</span><b>" + (t.ship ? money(t.ship) : "Free") + '</b></div><div class="ctot"><span>Total</span><b>' + money(t.total) + "</b></div><p>No payment today. Your card is charged when your box ships. First box comes with a free shaker.</p></div>"; }
+  var EMPTY = '<div class="cempty"><p>Your cart is empty.</p><a class="btn" href="' + P + 'shop.html">Build a box</a></div>';
   var sc = document.createElement("div"), dr = document.createElement("aside");
   sc.className = "cscrim"; dr.className = "cdrawer"; dr.id = "cdrawer"; dr.setAttribute("aria-label", "Your cart"); dr.setAttribute("aria-hidden", "true"); dr.setAttribute("inert", "");
   document.body.appendChild(sc); document.body.appendChild(dr);
@@ -1948,6 +2067,54 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   paint();
   if (document.getElementById("cartpage") && location.hash === "#checkout") setTimeout(function () { var x = document.getElementById("c-email"); if (x) x.focus(); }, 300);
 })();</script>
+<script>/* product page: gallery, options, add to cart */
+(function () {
+  var $ = function (i) { return document.getElementById(i); }; if (!$("pdp-add")) return;
+  var N = { choc: "Chocolate", van: "Vanilla", cbutter: "Cookie Butter", matcha: "Matcha", pb: "Peanut Butter", mix: "Mix flavors" };
+  var ING = { choc: "cocoa (processed with alkali), ", cbutter: "cinnamon, ", matcha: "matcha green tea powder, ", pb: "peanut flour, ", van: "" };
+  var PR = { 30: { sub: 101.99, once: 119.99, per: 4.25, save: 15 }, 50: { sub: 119.76, once: 167.99, per: 4.99, save: 28 } };
+  var q = new URLSearchParams(location.search), st = { f: N[q.get("f")] ? q.get("f") : "choc", p: q.get("p") === "50" ? 50 : 30, plan: "sub", img: 0 };
+  function m(v) { return "$" + v.toFixed(2); }
+  function pics() { var f = st.f, w = st.p === 50;
+    if (f === "mix") return [["img/lineup_mix.webp", "Protein shakes in every flavor, 30g and 50g bottles", 0], ["img/size_compare.webp", "30g and 50g bottles side by side", 0], ["img/pack_choc.webp", "A 12-bottle pack", 0]];
+    return [[w ? "img/pack_swoll_" + f + ".webp" : "img/pack_" + f + ".webp", N[f] + " protein shake, " + st.p + "g, with its pack", 0],
+      [w ? "img/sw_" + f + "_lg.webp" : "img/b_" + f + ".webp", N[f] + " protein shake bottle, " + st.p + "g protein", 1],
+      ["img/size_compare.webp", "30g and 50g bottles side by side", 0], ["img/lineup_mix.webp", "Every flavor in 30g and 50g bottles", 0]]; }
+  function draw() {
+    var r = PR[st.p], P = pics(), cur = P[Math.min(st.img, P.length - 1)], mix = st.f === "mix", price = st.plan === "sub" ? r.sub : r.once;
+    var im = $("pdp-img"); im.src = cur[0]; im.alt = cur[1]; im.className = cur[2] ? "fit" : "";
+    $("pdp-thumbs").innerHTML = P.map(function (x, i) { return '<button type="button" data-i="' + i + '" aria-pressed="' + (x === cur) + '" aria-label="Photo ' + (i + 1) + '"><img src="' + x[0] + '" alt=""' + (x[2] ? ' class="fit"' : "") + "></button>"; }).join("");
+    $("pdp-flv").textContent = N[st.f]; $("pdp-pro").textContent = st.p + "g"; $("pdp-g").textContent = st.p + "g";
+    $("pdp-now").textContent = (mix ? "From " : "") + m(price); $("pdp-was").hidden = st.plan !== "sub"; $("pdp-was").textContent = m(r.once);
+    $("pdp-save").hidden = st.plan !== "sub"; $("pdp-save").textContent = "Save " + r.save + "%"; $("pdp-save2").textContent = r.save + "%";
+    $("pdp-per").textContent = m(price / 24) + " per bottle · free shipping";
+    $("pdp-subp").textContent = m(r.sub); $("pdp-oncep").textContent = m(r.once);
+    $("pdp-add").textContent = mix ? "Build your mix" : "Add to cart · " + m(price);
+    document.querySelectorAll(".pdp-flavors [data-f]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.f === st.f)); });
+    document.querySelectorAll(".pdp-sizes [data-pp]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.pp === st.p)); });
+    var k = mix ? "choc" : st.f; $("pdp-nf").dataset.drink = k;
+    $("pdp-ing").innerHTML = (mix ? "<b>Chocolate:</b> " : "") + "Ultra-filtered nonfat milk, milk protein concentrate, allulose, cream, " + ING[k] + "hydrolyzed bovine collagen peptides (VERISOL®). Contains 2% or less of: acacia gum (fiber), natural flavors, cellulose gel, cellulose gum, potassium citrate, sea salt, gellan gum, monk fruit extract, stevia leaf extract (Reb M), sucralose, lactase enzyme, ascorbic acid (vitamin C), ferric pyrophosphate (iron), vitamin A palmitate, vitamin D3, vitamin B12.";
+    var ss = document.querySelector(".pdp-sticky span"); if (ss) ss.textContent = (mix ? "Mixed box" : N[st.f] + " · " + st.p + "g") + " · " + m(price);
+    var sb = document.querySelector(".pdp-sticky .st-btn"); if (sb) sb.textContent = mix ? "Build your mix" : "Add to cart";
+  }
+  document.querySelector(".pdp-flavors").addEventListener("click", function (e) { var b = e.target.closest("[data-f]"); if (b) { st.f = b.dataset.f; st.img = 0; draw(); } });
+  document.querySelector(".pdp-sizes").addEventListener("click", function (e) { var b = e.target.closest("[data-pp]"); if (b) { st.p = +b.dataset.pp; draw(); } });
+  $("pdp-thumbs").addEventListener("click", function (e) { var b = e.target.closest("[data-i]"); if (b) { st.img = +b.dataset.i; draw(); } });
+  document.querySelectorAll('input[name="pdp-plan"]').forEach(function (r) { r.addEventListener("change", function () { st.plan = r.value; draw(); }); });
+  $("pdp-every").addEventListener("change", function () { document.querySelector('input[name="pdp-plan"][value="sub"]').checked = true; st.plan = "sub"; draw(); });
+  function add(btn) {
+    if (st.f === "mix") { $("build").scrollIntoView({ behavior: "smooth", block: "start" }); return; }
+    var it = {}; it[st.f + (st.p === 50 ? "~50" : "")] = 24;
+    var o = { size: 24, sub: st.plan === "sub", every: +$("pdp-every").value, items: it };
+    if (window.SwellCart) window.SwellCart.add(o); else location.href = "cart.html";
+    var t = btn.textContent; btn.textContent = "Added to cart"; setTimeout(function () { draw(); }, 1600); }
+  $("pdp-add").addEventListener("click", function () { add(this); });
+  var bar = document.createElement("div"); bar.className = "pdp-sticky"; bar.innerHTML = '<span></span><button type="button" class="st-btn">Add to cart</button>'; document.body.appendChild(bar);
+  bar.querySelector("button").addEventListener("click", function () { add(this); });
+  if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { var e = es[0]; document.documentElement.classList.toggle("pdp-stuck", !e.isIntersecting && e.boundingClientRect.top < 0); }).observe($("pdp-add"));
+  draw();
+})();</script>
+
 <script src="search.js" defer></script>
 </body>
 </html>
