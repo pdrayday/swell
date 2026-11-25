@@ -46,16 +46,16 @@ html.bars-away .mbar, html.bars-away .scanfab { transform: translateY(14px) scal
 /* cart: slide-out drawer + cart page */
 .cart .cartcount { position: absolute; top: 1px; right: -1px; min-width: 19px; height: 19px; padding: 0 5px; border-radius: 10px; background: #dd7fa4; color: #fff; font: 700 11px/19px var(--body); text-align: center; box-shadow: 0 0 0 2px var(--bg); }
 .cart .cartcount[hidden] { display: none; }
-.cscrim { position: fixed; inset: 0; z-index: 90; background: rgba(125,69,88,.28); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s .25s; }
+.cscrim { position: fixed; inset: 0; z-index: 90; background: rgba(168, 68, 111,.28); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s .25s; }
 .cscrim.on { opacity: 1; visibility: visible; transition: opacity .25s ease; }
-.cdrawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 91; width: min(420px, 100vw); display: flex; flex-direction: column; background: #fff; color: #7d4558;
+.cdrawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 91; width: min(420px, 100vw); display: flex; flex-direction: column; background: #fff; color: #a8446f;
   transform: translateX(104%); transition: transform .34s cubic-bezier(.2,.8,.2,1); box-shadow: -24px 0 60px -24px rgba(125,40,70,.4);
   padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 .cdrawer.on { transform: none; }
 html.cart-open, html.cart-open body { overflow: hidden; }
 .chead { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #f6dbed; }
 .chead h2 { font: 700 26px/1.1 var(--display); color: var(--pink); margin: 0; text-shadow: none; }
-.chead h2 small { font: 600 15px var(--body); color: #874f62; }
+.chead h2 small { font: 600 15px var(--body); color: #b0527a; }
 .cx { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0; background: #fbe9f4; color: var(--pink); font: 400 26px/1 var(--body); cursor: pointer; }
 .clist { list-style: none; margin: 0; padding: 4px 20px; overflow: auto; flex: 1; }
 .cline { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 12px; padding: 14px 0; border-bottom: 1px solid #f6dbed; align-items: start; }
@@ -64,19 +64,19 @@ html.cart-open, html.cart-open body { overflow: hidden; }
 .cimg img { height: 64px; width: auto; max-width: none; margin: 0 -6px; }
 .cinfo { min-width: 0; }
 .cinfo b { display: block; color: var(--pink); font: 700 15px/1.3 var(--body); }
-.cinfo span { display: block; font-size: 13px; line-height: 1.4; color: #874f62; margin-top: 3px; }
+.cinfo span { display: block; font-size: 13px; line-height: 1.4; color: #b0527a; margin-top: 3px; }
 .cqty { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
 .cqty button { width: 30px; height: 30px; border-radius: 50%; border: 0; box-shadow: inset 0 0 0 1.5px #f2b9dc; background: #fff; color: var(--pink); font: 700 16px/1 var(--body); cursor: pointer; }
 .cqty output { min-width: 18px; text-align: center; font-weight: 700; color: var(--pink); }
-.cqty .crm { width: auto; height: auto; box-shadow: none; background: none; text-decoration: underline; font: 600 13px var(--body); margin-left: 6px; padding: 4px 0; color: #874f62; }
+.cqty .crm { width: auto; height: auto; box-shadow: none; background: none; text-decoration: underline; font: 600 13px var(--body); margin-left: 6px; padding: 4px 0; color: #b0527a; }
 .cprice { color: var(--pink); font-weight: 700; white-space: nowrap; }
 .cfoot { padding: 14px 20px 20px; border-top: 1px solid #f6dbed; display: grid; gap: 10px; background: #fff; }
-.csum > div { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; padding: 3px 0; color: #874f62; }
+.csum > div { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; padding: 3px 0; color: #b0527a; }
 .csum .ctot { font-size: 18px; color: var(--pink); font-weight: 700; border-top: 1px solid #f6dbed; margin-top: 6px; padding-top: 9px; }
-.csum p { font-size: 12.5px; line-height: 1.45; color: #874f62; margin: 6px 0 0; }
+.csum p { font-size: 12.5px; line-height: 1.45; color: #b0527a; margin: 6px 0 0; }
 .cdrawer .btn, #cartpage .btn { width: 100%; justify-content: center; text-align: center; background: #dd7fa4; color: #fff; box-shadow: none; }
 .cdrawer .btn.alt, #cartpage .btn.alt { background: #fff; color: var(--pink); box-shadow: inset 0 0 0 1.5px var(--pink); }
-.cempty { padding: 44px 22px; text-align: center; display: grid; gap: 14px; justify-items: center; color: #874f62; }
+.cempty { padding: 44px 22px; text-align: center; display: grid; gap: 14px; justify-items: center; color: #b0527a; }
 .cempty .btn { width: auto !important; padding-inline: 28px; }
 .cempty h2 { color: var(--pink); text-shadow: none; }
 #cartpage { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 22px; align-items: start; }
@@ -85,8 +85,8 @@ html.cart-open, html.cart-open body { overflow: hidden; }
 #cartpage .cempty { background: #fff; border-radius: 24px; grid-column: 1 / -1; }
 #cform { display: grid; gap: 10px; }
 #cform label { font: 700 13px var(--body); color: var(--pink); }
-#cform input { padding: 14px 18px; border-radius: 999px; border: 0; box-shadow: inset 0 0 0 1.5px #f2b9dc; color: #7d4558; font: 16px var(--body); background: #fff; }
-.cmsg { font-size: 13px; color: #874f62; margin: 0; }
+#cform input { padding: 14px 18px; border-radius: 999px; border: 0; box-shadow: inset 0 0 0 1.5px #f2b9dc; color: #a8446f; font: 16px var(--body); background: #fff; }
+.cmsg { font-size: 13px; color: #b0527a; margin: 0; }
 .ckeep { text-align: center; color: var(--pink); font: 600 14px var(--body); }
 @media (max-width: 860px) { #cartpage { grid-template-columns: minmax(0, 1fr); } #cartpage .cside { position: static; } }
 /* end cart */
@@ -183,9 +183,9 @@ footer.site .logo img { height: 66px !important; }
 /* Lovely: light pink on every page and device. */
 :root {
   --bg: #f4cde6; --bg-2: #efc2e0; --surface: #efc0de; --surface-2: #ecb8da;
-  --fg: #7d4558; --muted: #874f62; --line: rgba(255, 255, 255, .7);
+  --fg: #a8446f; --muted: #b0527a; --line: rgba(255, 255, 255, .7);
   --ink: #ffffff; --ink-2: #fff5fb; --on-ink: #c9577f; --em: #ffffff; --pink: #c9577f;
-  --stage: #f7d6eb; --stage-muted: #874f62; --good: #c7ecce; --good-ink: #17431f;
+  --stage: #f7d6eb; --stage-muted: #b0527a; --good: #c7ecce; --good-ink: #17431f;
   --display: "Source Serif 4", "Source Serif Pro", Georgia, serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --max: 1180px; --r: 20px;
@@ -1016,10 +1016,10 @@ h1 .swl, h2 .swl { height: 1.34em; vertical-align: -.45em; }
 .pricepts li { background: var(--surface-2); border-radius: 16px; padding: 10px 14px; font-size: 14px; color: var(--muted); display: grid; gap: 2px; }
 .pricepts b { font: 700 24px/1 var(--display); color: var(--fg); }
 .bprice { display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; flex-wrap: wrap; }
-.bprice b { font: 700 32px/1 var(--display); display: block; } .bprice span { font-size: 13.5px; color: #5a3a45; }
+.bprice b { font: 700 32px/1 var(--display); display: block; } .bprice span { font-size: 13.5px; color: #9c3f68; }
 .subq { display: flex; gap: 10px; align-items: flex-start; background: #fff; border-radius: 16px; padding: 12px 14px; cursor: pointer; }
 .subq input { width: 20px !important; height: 20px; margin-top: 2px; flex: none; accent-color: var(--ink); padding: 0 !important; }
-.subq b { display: block; font-size: 14.5px; } .subq small { font-size: 13px; color: #5a3a45; }
+.subq b { display: block; font-size: 14.5px; } .subq small { font-size: 13px; color: #9c3f68; }
 .soon + h2.h1 { margin-top: 10px; }
 .door img.mimg { height: 44%; object-fit: cover; width: auto; right: 16px; bottom: 16px; border-radius: 16px; filter: none; box-shadow: 0 14px 26px -16px rgba(40,10,20,.5); }
 @media (max-width: 1100px) and (min-width: 861px) { .door img.mimg { height: 38%; } }
@@ -1040,14 +1040,14 @@ header.top .logo, header.top .logo * { color: #fff; }
 /* white "label" panels: pink text inside, like the logo box on the bottle */
 :is(.host, .aff-apply, .pass-card, .door.dark, .tier.hot, .ad-stat.hi, .toast, .mbar, .scanfab, .soon, .summary, .post, .fnotiles, .fsearch) :is(h1, h2, h3, h4, p, b, em, small, span, li, label) { color: var(--pink); text-shadow: none; }
 :is(.host, .aff-apply) .btn { background: #dd7fa4; color: #fff; }
-.host input, .host select, .aff-apply input, .aff-apply select, .aff-apply textarea, .hsel { box-shadow: inset 0 0 0 1.5px #f2b9dc; color: #7d4558; }
-.summary { background: #fff; color: #7d4558; }
+.host input, .host select, .aff-apply input, .aff-apply select, .aff-apply textarea, .hsel { box-shadow: inset 0 0 0 1.5px #f2b9dc; color: #a8446f; }
+.summary { background: #fff; color: #a8446f; }
 .summary .btn { background: #dd7fa4; color: #fff; }
 .bar span { background: var(--pink); }
 .packband { background: var(--pink) !important; }
 .packband span, .packband b { color: #fff !important; }
-.post { background: #fff; color: #7d4558; }
-.bprice span, .subq small { color: #874f62; }
+.post { background: #fff; color: #a8446f; }
+.bprice span, .subq small { color: #b0527a; }
 .mbar i { background: var(--bg) !important; color: var(--pink) !important; }
 .scanfab { color: var(--pink); border-color: var(--bg); }
 .pin circle { stroke: var(--pink); } .pin text, .plbl, .fsearch input, .fctl button, .fctl.fme { fill: var(--pink); color: var(--pink); }
@@ -1073,7 +1073,7 @@ img[src$="logo.png"] { filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgb
 .seg button[aria-pressed="true"], .opt[aria-pressed="true"], .pk.on, .mloc.sel, .planopt.on, .sh-size button[aria-pressed="true"] { border-color: #fff; background: rgba(255,255,255,.35); }
 .filters button[aria-pressed="true"], .ffilters button[aria-pressed="true"], .drawer nav a[aria-current="page"], .btabs button[aria-selected="true"], .bottle-view button[aria-pressed="true"], .ad-range button[aria-pressed="true"] { background: #fff; color: var(--pink); }
 .drawer nav a { color: #fff; } .drawer nav a i { color: var(--pink); }
-.cmp th, .cmp td { color: #7d4558; }
+.cmp th, .cmp td { color: #a8446f; }
 .cmp thead th b, .cmp thead th { color: #fff; }
 /* Premium Protein look 3 */
 :is(.pass-card, .summary .pack, .host, .aff-apply, .post) img[src$="logo.png"] { filter: none !important; content: url("img/logo_rose.png"); }
