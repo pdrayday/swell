@@ -12,7 +12,7 @@
     { t: "Lovely Cookie Butter", d: "Spiced speculoos cookie butter in a sweet cream base.", url: "shop.html", img: "img/b_cbutter.webp", k: "shake cookie butter biscoff speculoos dessert flavor 30g 50g protein bottle" },
     { t: "Lovely Matcha", d: "The coffee-shop order with 30g protein. Natural caffeine from matcha.", url: "shop.html", img: "img/b_matcha.webp", k: "shake matcha green tea latte flavor caffeine 30g 50g protein bottle" },
     { t: "Lovely Peanut Butter", d: "Salty-sweet, like a peanut butter milkshake. Contains peanuts.", url: "shop.html", img: "img/b_pb.webp", k: "shake peanut butter pb nut allergy flavor 30g 50g protein bottle" },
-    { t: "Lovely 50g", d: "The bigger light-blue 16oz bottle with 50g protein.", url: "shop.html", img: "img/b_choc.webp", k: "50g fifty big bigger blue bottle 16oz more protein bulk gym" },
+    { t: "Lovely 50g", d: "The bigger coral 16oz bottle with 50g protein.", url: "shop.html", img: "img/b_choc.webp", k: "50g fifty big bigger coral bottle 16oz more protein bulk gym" },
     { t: "Build a box", d: "Mix flavors and sizes in a 24-pack. Subscribe and save, skip anytime.", url: "shop.html", k: "shop buy order box 24 pack 12 pack subscribe subscription price cost save delivery shipping" },
     { t: "Lovely Creatine sticks", d: "Flavorless stirs into any shake. Four flavors for water.", url: "products.html#creatine", img: "img/creatine/elec_lineup_sm.webp", k: "creatine stick packet electrolytes monohydrate magnesium potassium flavorless blue raspberry pina colada sour apple watermelon water" },
     { t: "Lovely Creatine Gummies", d: "Heart-shaped creatine gummies, 60 a jar, in five flavors.", url: "products.html#gummies", img: "img/gummies/strawberry_sm.webp", k: "creatine gummies gummy candy chew strawberry blue raspberry watermelon pina colada sour apple jar" },
@@ -64,7 +64,7 @@
   // extra words people use for each FAQ question, so plain-language questions find the right answer
   var FAQ_K = [
     ["What is Lovely?", "protein grams calories nutrition healthy iron collagen"],
-    ["What is Lovely 50g?", "50g protein more bigger blue gym"],
+    ["What is Lovely 50g?", "50g protein more bigger coral gym"],
     ["Is Lovely lactose-free?", "lactose bloating stomach digest"],
     ["What else is in it", "vitamins iron collagen ingredients nutrition"],
     ["How much does it cost?", "price buy order single bottle box"],
