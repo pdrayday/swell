@@ -7,12 +7,12 @@
   var u = function (p) { return BASE + p; };
 
   var ITEMS = [
-    { t: "Lovely Chocolate", d: "Like a chocolate milkshake. 30g or 50g protein.", url: "shop.html", img: "img/b_choc.webp?v=6", k: "shake chocolate cocoa milkshake flavor 30g 50g protein bottle" },
-    { t: "Lovely Vanilla", d: "The everyday base. Great in coffee or a Ninja Creami.", url: "shop.html", img: "img/b_van.webp?v=6", k: "shake vanilla flavor coffee creami 30g 50g protein bottle" },
-    { t: "Lovely Cookie Butter", d: "Spiced speculoos cookie butter in a sweet cream base.", url: "shop.html", img: "img/b_cbutter.webp?v=6", k: "shake cookie butter biscoff speculoos dessert flavor 30g 50g protein bottle" },
-    { t: "Lovely Matcha", d: "The coffee-shop order with 30g protein. Natural caffeine from matcha.", url: "shop.html", img: "img/b_matcha.webp?v=6", k: "shake matcha green tea latte flavor caffeine 30g 50g protein bottle" },
-    { t: "Lovely Peanut Butter", d: "Salty-sweet, like a peanut butter milkshake. Contains peanuts.", url: "shop.html", img: "img/b_pb.webp?v=6", k: "shake peanut butter pb nut allergy flavor 30g 50g protein bottle" },
-    { t: "Lovely 50g", d: "The bigger coral 16oz bottle with 50g protein.", url: "shop.html", img: "img/b_choc.webp?v=6", k: "50g fifty big bigger coral bottle 16oz more protein bulk gym" },
+    { t: "Lovely Chocolate", d: "Like a chocolate milkshake. 30g or 50g protein.", url: "shop.html", img: "img/b_choc.webp?v=9", k: "shake chocolate cocoa milkshake flavor 30g 50g protein bottle" },
+    { t: "Lovely Vanilla", d: "The everyday base. Great in coffee or a Ninja Creami.", url: "shop.html", img: "img/b_van.webp?v=9", k: "shake vanilla flavor coffee creami 30g 50g protein bottle" },
+    { t: "Lovely Cookie Butter", d: "Spiced speculoos cookie butter in a sweet cream base.", url: "shop.html", img: "img/b_cbutter.webp?v=9", k: "shake cookie butter biscoff speculoos dessert flavor 30g 50g protein bottle" },
+    { t: "Lovely Matcha", d: "The coffee-shop order with 30g protein. Natural caffeine from matcha.", url: "shop.html", img: "img/b_matcha.webp?v=9", k: "shake matcha green tea latte flavor caffeine 30g 50g protein bottle" },
+    { t: "Lovely Peanut Butter", d: "Salty-sweet, like a peanut butter milkshake. Contains peanuts.", url: "shop.html", img: "img/b_pb.webp?v=9", k: "shake peanut butter pb nut allergy flavor 30g 50g protein bottle" },
+    { t: "Lovely 50g", d: "The bigger coral 16oz bottle with 50g protein.", url: "shop.html", img: "img/b_choc.webp?v=9", k: "50g fifty big bigger coral bottle 16oz more protein bulk gym" },
     { t: "Build a box", d: "Mix flavors and sizes in a 24-pack. Subscribe and save, skip anytime.", url: "shop.html", k: "shop buy order box 24 pack 12 pack subscribe subscription price cost save delivery shipping" },
     { t: "Lovely Creatine sticks", d: "Flavorless stirs into any shake. Four flavors for water.", url: "products.html#creatine-info", img: "img/creatine/elec_lineup_sm.webp", k: "creatine stick packet electrolytes monohydrate magnesium potassium flavorless blue raspberry pina colada sour apple watermelon water" },
     { t: "Lovely Creatine Gummies", d: "Heart-shaped creatine gummies, 60 a jar, in five flavors.", url: "products.html#gummies-info", img: "img/gummies/strawberry_sm.webp", k: "creatine gummies gummy candy chew strawberry blue raspberry watermelon pina colada sour apple jar" },
