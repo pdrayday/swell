@@ -1261,7 +1261,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   .hstage .hs-orbit { width: min(76vw, 300px); }
   .hstage .hs-orbit text { font-size: 8.4px; }
   .hstage .hs-glow { width: 62vw; }
-  .hstage .hs-word { top: 25%; font-size: 50vw; }
+  .hstage .hs-word { top: 27%; font-size: 35vw; opacity: .85; text-shadow: 0 4px 30px rgba(176,64,104,.22); }
   .hstage .hs-under { margin-top: 10px; gap: 10px; }
   .hstage .hs-name { min-width: 0; text-align: right; font-size: 24px; }
   .hstage .hs-size button { padding: 8px 12px; font-size: 13px; }
@@ -1272,8 +1272,56 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   .hstage h1 { font-size: clamp(34px, 9.4vw, 42px); margin-top: 4px; }
   .hstage .hs-kick { margin: 10px 0 8px; font-size: 11px; }
 }
+/* overlay header + ticker + weight class */
+header.top.over { background: transparent !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; border-bottom-color: transparent !important; transition: background-color .35s ease, box-shadow .35s ease, border-color .35s ease; }
+header.top.over.solid { background: rgba(244, 205, 230, .9) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; border-bottom-color: rgba(255,255,255,.55) !important; box-shadow: 0 8px 24px -18px rgba(156,61,102,.45); }
+header.top.over .tabs a { text-shadow: 0 1px 10px rgba(156,61,102,.35); }
+.hero.hstage { margin-top: calc(-1 * var(--hh, 66px)); padding-top: calc(var(--hh, 66px) + clamp(18px, 3vw, 40px)); }
+.tick { background: #9c3d66; color: #fff; overflow: hidden; border-block: 1px solid rgba(255,255,255,.25); }
+.tick-track { display: flex; width: max-content; animation: tickgo 34s linear infinite; }
+.tick-run { display: flex; align-items: center; flex: none; }
+.tick span { font: 800 13px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; padding: 14px 0; white-space: nowrap; color: #fff; }
+.tick i { font-style: normal; padding: 0 22px; opacity: .7; font-size: 12px; }
+.tick:hover .tick-track { animation-play-state: paused; }
+@keyframes tickgo { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .tick-track { animation: none; } }
+.wclass { padding-block: clamp(26px, 4vw, 48px) 0; }
+.wclass .wc-h { margin: 0 0 16px; font-size: clamp(28px, 3.4vw, 44px); color: #9c3d66; }
+.wclass .wc-h em { color: #fff; text-shadow: 0 1px 12px rgba(176,64,104,.3); }
+.wclass .wc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(10px, 2vw, 22px); }
+.wclass .wc { position: relative; display: flex; align-items: flex-end; justify-content: space-between; overflow: hidden; border-radius: 28px; min-height: clamp(200px, 22vw, 290px); padding: clamp(16px, 2.4vw, 32px); text-decoration: none; isolation: isolate; transition: transform .35s var(--spring), box-shadow .35s; }
+.wclass .wc:hover { transform: translateY(-4px); box-shadow: 0 22px 40px -24px rgba(156,61,102,.6); }
+.wclass .wc.lite { background: linear-gradient(150deg, #fff 0%, #fbe3f0 100%); }
+.wclass .wc.heavy { background: linear-gradient(150deg, #ff8a8e 0%, #f45d63 100%); }
+.wclass .wc-t { position: relative; z-index: 1; }
+.wclass .wc p { margin: 0; }
+.wclass .wc-k { font: 800 12.5px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; }
+.wclass .wc-g { font: 600 clamp(56px, 7vw, 104px)/.95 var(--display); letter-spacing: -.03em; margin-top: 8px !important; }
+.wclass .wc-s { font: 500 clamp(14px, 1.3vw, 17px)/1.3 var(--body); margin-top: 6px !important; }
+.wclass .wc-go { display: inline-block; margin-top: 14px; font: 700 14px/1 var(--body); padding: 11px 16px; border-radius: 999px; }
+.wclass .lite .wc-k, .wclass .lite .wc-g, .wclass .lite .wc-s { color: #9c3d66; }
+.wclass .lite .wc-go { background: #9c3d66; color: #fff; }
+.wclass .heavy .wc-k, .wclass .heavy .wc-g, .wclass .heavy .wc-s { color: #fff; }
+.wclass .heavy .wc-go { background: #fff; color: #d8434a; }
+.wclass .wc img { position: absolute; z-index: 0; right: clamp(8px, 4%, 40px); bottom: -14%; height: 120%; width: auto; transform: rotate(8deg); filter: drop-shadow(0 18px 18px rgba(120,30,70,.25)); transition: transform .5s var(--spring); }
+.wclass .wc:hover img { transform: rotate(2deg) translateY(-6px); }
+@media (max-width: 860px) {
+  .hero.hstage { padding-top: calc(var(--hh, 60px) + 8px); }
+  .tick span { font-size: 11.5px; padding: 12px 0; }
+  .tick i { padding: 0 16px; }
+  .wclass .wc { min-height: 0; border-radius: 22px; padding: 16px 14px; align-items: flex-start; }
+  .wclass .wc img { height: 92%; bottom: -18%; right: -6px; }
+  .wclass .wc-g { font-size: 52px; }
+  .wclass .wc-s { max-width: 8.5em; font-size: 13.5px; }
+  .wclass .wc-go { margin-top: 12px; padding: 9px 12px; font-size: 12.5px; }
+  .wclass .wc-t { max-width: 72%; }
+  .wclass .wc-go { white-space: nowrap; }
+  .wclass .wc-k { letter-spacing: .08em; white-space: nowrap; }
+  .wclass .wc-k { font-size: 11px; }
+}
+@media (max-width: 380px) { .wclass .wc img { right: -16px; } }
 </style>
-<header class="top"><div class="wrap">
+<header class="top over"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   <a class="logo" href="index.html" aria-label="Lovely home"><img src="img/logo.png" alt="Lovely" width="416" height="159"></a>
   <nav class="tabs" aria-label="Main"><a href="shop.html">Shop</a><a href="products.html">Products</a><a href="index.html#find">Find a fridge</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a href="affiliate.html" class="aff">Become an affiliate</a></nav>
@@ -1298,6 +1346,11 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
 <div class="hs-chips" role="group" aria-label="Pick a flavor"><button type="button" class="hs-chip" data-k="choc" style="--fc:#5a2c22" aria-pressed="true">Chocolate</button><button type="button" class="hs-chip" data-k="van" style="--fc:#b98a3c" aria-pressed="false">Vanilla</button><button type="button" class="hs-chip" data-k="cbutter" style="--fc:#864a28" aria-pressed="false">Cookie Butter</button><button type="button" class="hs-chip" data-k="matcha" style="--fc:#3f6e1c" aria-pressed="false">Matcha</button><button type="button" class="hs-chip" data-k="pb" style="--fc:#8a5a2a" aria-pressed="false">Peanut Butter</button></div>
 </div>
 </div></section>
+<div class="tick" aria-label="Lovely in a nutshell"><div class="tick-track"><div class="tick-run"><span>Tastes like a milkshake</span><i aria-hidden="true">✦</i><span>30g or 50g protein</span><i aria-hidden="true">✦</i><span>Lactose-free</span><i aria-hidden="true">✦</i><span>Ingredients you can pronounce</span><i aria-hidden="true">✦</i><span>Grab one from a fridge</span><i aria-hidden="true">✦</i><span>#lifeislovely</span><i aria-hidden="true">✦</i></div><div class="tick-run" aria-hidden="true"><span>Tastes like a milkshake</span><i aria-hidden="true">✦</i><span>30g or 50g protein</span><i aria-hidden="true">✦</i><span>Lactose-free</span><i aria-hidden="true">✦</i><span>Ingredients you can pronounce</span><i aria-hidden="true">✦</i><span>Grab one from a fridge</span><i aria-hidden="true">✦</i><span>#lifeislovely</span><i aria-hidden="true">✦</i></div></div></div>
+<section class="wclass" aria-labelledby="h-wclass"><div class="wrap"><h2 id="h-wclass" class="wc-h">Pick your <em>weight class.</em></h2><div class="wc-grid">
+<a class="wc lite" href="shop.html?p=30"><div class="wc-t"><p class="wc-k">Light weight</p><p class="wc-g">30g</p><p class="wc-s">The everyday sipper.</p><span class="wc-go">Shop 30g <span aria-hidden="true">→</span></span></div><img src="img/b_van.webp?v=9" alt="" width="408" height="1400" loading="lazy"></a>
+<a class="wc heavy" href="shop.html?p=50"><div class="wc-t"><p class="wc-k">Heavy weight</p><p class="wc-g">50g</p><p class="wc-s">Leg day's best friend.</p><span class="wc-go">Shop 50g <span aria-hidden="true">→</span></span></div><img src="img/sw_choc.webp?v=9" alt="" width="408" height="1400" loading="lazy"></a>
+</div></div></section>
 <section class="topbox" aria-label="Build a box"><div class="wrap"><div class="doors one"><a class="door dark" href="shop.html"><div><h3>Build a box of 12 or 24</h3><p>Any flavors, 30g or 50g. Free shipping on 24, because we're not monsters.</p></div><span class="go">Start building →</span><img class="lineup" src="img/lineup_mix.webp?v=6" srcset="img/lineup_mix_sm.webp?v=6 560w, img/lineup_mix.webp?v=6 1315w" sizes="(max-width: 860px) 320px, 420px" alt="Pink 30g Lovely bottles in Matcha, Vanilla, Chocolate and Cookie Butter with a coral 50g Chocolate" width="1315" height="867"></a></div></div></section><section class="shelf" style="padding-block:28px 10px" aria-labelledby="shelf-shakes"><div class="wrap"><div class="shelf-top"><h2 id="shelf-shakes">5 flavors. Zero chalk.</h2><div class="filters" role="group" aria-label="Filter"><button type="button" class="press" aria-pressed="true" data-filter="all">All</button><button type="button" class="press" aria-pressed="false" data-filter="classic">Launch flavors</button><button type="button" class="press" aria-pressed="false" data-filter="new">New</button></div></div><div class="bottle-view"><p><b>Pick a bottle.</b> Tap a flavor for nutrition facts.</p><div class="segline" role="group" aria-label="Bottle size"><button type="button" data-protein="30" aria-pressed="true"><span class="swl"><span>Lovely</span></span> · 30g</button><button type="button" data-protein="50" aria-pressed="false" class="w">Lovely · 50g</button></div></div><div class="rail"><article class="fl" data-tag="classic" id="flavor-choc"><span class="tag classic">Launch flavor</span><button type="button" class="pic" data-drink="choc" aria-label="Chocolate: see nutrition facts"><img src="img/b_choc.webp?v=9" alt="Lovely Chocolate protein shake" width="408" height="1400" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="choc">Chocolate</button></h3><button type="button" class="nf-link" data-drink="choc">Nutrition facts</button><button type="button" class="add" data-add="choc">Add to box</button></article><article class="fl" data-tag="classic" id="flavor-van"><span class="tag classic">Launch flavor</span><button type="button" class="pic" data-drink="van" aria-label="Vanilla: see nutrition facts"><img src="img/b_van.webp?v=9" alt="Lovely Vanilla protein shake" width="408" height="1400" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="van">Vanilla</button></h3><button type="button" class="nf-link" data-drink="van">Nutrition facts</button><button type="button" class="add" data-add="van">Add to box</button></article><article class="fl" data-tag="classic" id="flavor-pb"><span class="tag classic">Launch flavor</span><button type="button" class="pic" data-drink="pb" aria-label="Peanut Butter: see nutrition facts"><img src="img/b_pb.webp?v=9" alt="Lovely Peanut Butter protein shake" width="408" height="1400" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="pb">Peanut Butter</button></h3><button type="button" class="nf-link" data-drink="pb">Nutrition facts</button><button type="button" class="add" data-add="pb">Add to box</button></article><article class="fl" data-tag="new" id="flavor-cbutter"><span class="tag new">New</span><button type="button" class="pic" data-drink="cbutter" aria-label="Cookie Butter: see nutrition facts"><img src="img/b_cbutter.webp?v=9" alt="Lovely Cookie Butter protein shake" width="408" height="1400" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="cbutter">Cookie Butter</button></h3><button type="button" class="nf-link" data-drink="cbutter">Nutrition facts</button><button type="button" class="add" data-add="cbutter">Add to box</button></article><article class="fl" data-tag="new" id="flavor-matcha"><span class="tag new">New</span><button type="button" class="pic" data-drink="matcha" aria-label="Matcha: see nutrition facts"><img src="img/b_matcha.webp?v=9" alt="Lovely Matcha protein shake" width="408" height="1400" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="matcha">Matcha</button></h3><button type="button" class="nf-link" data-drink="matcha">Nutrition facts</button><button type="button" class="add" data-add="matcha">Add to box</button></article></div></div></section>
 <section class="ds-sec" aria-labelledby="h-ds"><div class="wrap ds-head">
   <div><h2 id="h-ds"><span class="hash">#lifeislovely</span></h2><p>Tag <b>@drinklovely</b> to get featured. Fame awaits. Mild fame.</p></div>
@@ -2222,5 +2275,6 @@ cs.forEach(function(c,i){c.addEventListener("click",function(){show(i,true)})});
 h.querySelectorAll(".hs-size button").forEach(function(b){b.addEventListener("click",function(){p=+b.dataset.p;h.querySelectorAll(".hs-size button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});bs.forEach(function(im){im.src=im.dataset[p===50?"50":"30"]});restart();})});
 h.addEventListener("mouseenter",function(){clearInterval(t)});h.addEventListener("mouseleave",restart);
 bs.forEach(function(im){if(im.loading==="lazy")im.loading="eager"});show(0);restart();})();</script>
+<script>/* overlay header */(function(){var h=document.querySelector("header.top.over"),r=document.documentElement;if(!h)return;function sz(){r.style.setProperty("--hh",h.offsetHeight+"px")}function sc(){h.classList.toggle("solid",scrollY>24)}sz();sc();addEventListener("resize",sz);addEventListener("scroll",sc,{passive:true});})();</script>
 </body>
 </html>
