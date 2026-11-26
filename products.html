@@ -2278,7 +2278,7 @@ document.querySelectorAll(".cr-type").forEach(function (b) { b.addEventListener(
   document.querySelectorAll(".cr-type").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
   var t = b.dataset.t, name = t === "mono" ? "Creatine Monohydrate" : "Creatine + Electrolytes";
   document.querySelectorAll(".stick img").forEach(function (i) { i.src = i.dataset[t]; i.alt = i.alt.replace(/Creatine (Monohydrate|\+ Electrolytes)/, name); });
-  var cs = document.querySelector(".cr-sticks"); if (cs) cs.dataset.t = t; var l = document.querySelector(".cr-lineup img"); if (l) { l.src = "img/creatine/" + t + "_lineup.webp"; l.srcset = t === "elec" ? "img/creatine/elec_lineup_sm.webp 560w, img/creatine/elec_lineup.webp 1100w" : ""; }
+  var cs = document.querySelector(".cr-sticks"); if (cs) cs.dataset.t = t; var l = document.querySelector(".cr-lineup img"); if (l) { l.src = "img/creatine/" + t + "_lineup.webp"; l.srcset = t === "elec" ? "img/creatine/elec_lineup_sm.webp?v=2 560w, img/creatine/elec_lineup.webp?v=2 1100w" : ""; }
 }); });</script>
 <script>/* creatine gummies flavor switch */
 document.querySelectorAll(".gm-flv").forEach(function (g) {
