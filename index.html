@@ -23,16 +23,16 @@
 .fl .nf-link { justify-self: center; }
 .fl h3 .nlink[data-drink="choc"], .pk[data-id="choc"] b { color: #5a2c22; }
 .fl h3 .nlink[data-drink="van"], .pk[data-id="van"] b { color: #fff; }
-.fl h3 .nlink[data-drink="cbutter"], .pk[data-id="cbutter"] b { color: #9a5733; }
-.fl h3 .nlink[data-drink="matcha"], .pk[data-id="matcha"] b { color: #4a7a1f; }
-.fl h3 .nlink[data-drink="pb"], .pk[data-id="pb"] b { color: #a8653a; }
+.fl h3 .nlink[data-drink="cbutter"], .pk[data-id="cbutter"] b { color: #864a28; }
+.fl h3 .nlink[data-drink="matcha"], .pk[data-id="matcha"] b { color: #3f6e1c; }
+.fl h3 .nlink[data-drink="pb"], .pk[data-id="pb"] b { color: #8a5a2a; }
 .fan img { aspect-ratio: 4 / 5 !important; width: 50%; }
 @media (max-width: 720px) { .fan img { width: 48%; } }
 /* header cart with item count */
 header.top .right { display: flex; align-items: center; gap: 6px; }
 .cart { position: relative; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; color: var(--pink); text-decoration: none; flex: none; }
 .cart .cav { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #fff; }
-.cart .boxcount { position: absolute; top: 1px; right: -1px; min-width: 19px; height: 19px; padding: 0 5px; border-radius: 10px; background: #dd7fa4; color: #fff; font: 700 11px/19px var(--body); text-align: center; box-shadow: 0 0 0 2px var(--bg); margin: 0; }
+.cart .boxcount { position: absolute; top: 1px; right: -1px; min-width: 19px; height: 19px; padding: 0 5px; border-radius: 10px; background: #d26c96; color: #fff; font: 700 11px/19px var(--body); text-align: center; box-shadow: 0 0 0 2px var(--bg); margin: 0; }
 .cart .boxcount[hidden] { display: none; }
 /* audit fixes: overlaps (v2) */
 .pwho { grid-template-columns: minmax(0, 1fr); overflow: hidden; }
@@ -64,18 +64,18 @@ html.bars-away .mbar, html.bars-away .scanfab { transform: translateY(14px) scal
   .hero.hbgw .opts { display: none; }
 }
 /* cart: slide-out drawer + cart page */
-.cart .cartcount { position: absolute; top: 1px; right: -1px; min-width: 19px; height: 19px; padding: 0 5px; border-radius: 10px; background: #dd7fa4; color: #fff; font: 700 11px/19px var(--body); text-align: center; box-shadow: 0 0 0 2px var(--bg); }
+.cart .cartcount { position: absolute; top: 1px; right: -1px; min-width: 19px; height: 19px; padding: 0 5px; border-radius: 10px; background: #d26c96; color: #fff; font: 700 11px/19px var(--body); text-align: center; box-shadow: 0 0 0 2px var(--bg); }
 .cart .cartcount[hidden] { display: none; }
-.cscrim { position: fixed; inset: 0; z-index: 90; background: rgba(168, 68, 111,.28); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s .25s; }
+.cscrim { position: fixed; inset: 0; z-index: 90; background: rgba(156, 61, 102,.28); opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility 0s .25s; }
 .cscrim.on { opacity: 1; visibility: visible; transition: opacity .25s ease; }
-.cdrawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 91; width: min(420px, 100vw); display: flex; flex-direction: column; background: #fff; color: #a8446f;
+.cdrawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 91; width: min(420px, 100vw); display: flex; flex-direction: column; background: #fff; color: #9c3d66;
   transform: translateX(104%); transition: transform .34s cubic-bezier(.2,.8,.2,1); box-shadow: -24px 0 60px -24px rgba(125,40,70,.4);
   padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 .cdrawer.on { transform: none; }
 html.cart-open, html.cart-open body { overflow: hidden; }
 .chead { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px solid #f6dbed; }
 .chead h2 { font: 700 26px/1.1 var(--display); color: var(--pink); margin: 0; text-shadow: none; }
-.chead h2 small { font: 600 15px var(--body); color: #b0527a; }
+.chead h2 small { font: 600 15px var(--body); color: #9c3d66; }
 .cx { flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0; background: #fbe9f4; color: var(--pink); font: 400 26px/1 var(--body); cursor: pointer; }
 .clist { list-style: none; margin: 0; padding: 4px 20px; overflow: auto; flex: 1; }
 .cline { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 12px; padding: 14px 0; border-bottom: 1px solid #f6dbed; align-items: start; }
@@ -84,19 +84,19 @@ html.cart-open, html.cart-open body { overflow: hidden; }
 .cimg img { height: 64px; width: auto; max-width: none; margin: 0 -6px; }
 .cinfo { min-width: 0; }
 .cinfo b { display: block; color: var(--pink); font: 700 15px/1.3 var(--body); }
-.cinfo span { display: block; font-size: 13px; line-height: 1.4; color: #b0527a; margin-top: 3px; }
+.cinfo span { display: block; font-size: 13px; line-height: 1.4; color: #9c3d66; margin-top: 3px; }
 .cqty { display: flex; align-items: center; gap: 6px; margin-top: 8px; }
 .cqty button { width: 30px; height: 30px; border-radius: 50%; border: 0; box-shadow: inset 0 0 0 1.5px #f2b9dc; background: #fff; color: var(--pink); font: 700 16px/1 var(--body); cursor: pointer; }
 .cqty output { min-width: 18px; text-align: center; font-weight: 700; color: var(--pink); }
-.cqty .crm { width: auto; height: auto; box-shadow: none; background: none; text-decoration: underline; font: 600 13px var(--body); margin-left: 6px; padding: 4px 0; color: #b0527a; }
+.cqty .crm { width: auto; height: auto; box-shadow: none; background: none; text-decoration: underline; font: 600 13px var(--body); margin-left: 6px; padding: 4px 0; color: #9c3d66; }
 .cprice { color: var(--pink); font-weight: 700; white-space: nowrap; }
 .cfoot { padding: 14px 20px 20px; border-top: 1px solid #f6dbed; display: grid; gap: 10px; background: #fff; }
-.csum > div { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; padding: 3px 0; color: #b0527a; }
+.csum > div { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; padding: 3px 0; color: #9c3d66; }
 .csum .ctot { font-size: 18px; color: var(--pink); font-weight: 700; border-top: 1px solid #f6dbed; margin-top: 6px; padding-top: 9px; }
-.csum p { font-size: 12.5px; line-height: 1.45; color: #b0527a; margin: 6px 0 0; }
-.cdrawer .btn, #cartpage .btn { width: 100%; justify-content: center; text-align: center; background: #dd7fa4; color: #fff; box-shadow: none; }
+.csum p { font-size: 12.5px; line-height: 1.45; color: #9c3d66; margin: 6px 0 0; }
+.cdrawer .btn, #cartpage .btn { width: 100%; justify-content: center; text-align: center; background: #d26c96; color: #fff; box-shadow: none; }
 .cdrawer .btn.alt, #cartpage .btn.alt { background: #fff; color: var(--pink); box-shadow: inset 0 0 0 1.5px var(--pink); }
-.cempty { padding: 44px 22px; text-align: center; display: grid; gap: 14px; justify-items: center; color: #b0527a; }
+.cempty { padding: 44px 22px; text-align: center; display: grid; gap: 14px; justify-items: center; color: #9c3d66; }
 .cempty .btn { width: auto !important; padding-inline: 28px; }
 .cempty h2 { color: var(--pink); text-shadow: none; }
 #cartpage { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 22px; align-items: start; }
@@ -105,8 +105,8 @@ html.cart-open, html.cart-open body { overflow: hidden; }
 #cartpage .cempty { background: #fff; border-radius: 24px; grid-column: 1 / -1; }
 #cform { display: grid; gap: 10px; }
 #cform label { font: 700 13px var(--body); color: var(--pink); }
-#cform input { padding: 14px 18px; border-radius: 999px; border: 0; box-shadow: inset 0 0 0 1.5px #f2b9dc; color: #a8446f; font: 16px var(--body); background: #fff; }
-.cmsg { font-size: 13px; color: #b0527a; margin: 0; }
+#cform input { padding: 14px 18px; border-radius: 999px; border: 0; box-shadow: inset 0 0 0 1.5px #f2b9dc; color: #9c3d66; font: 16px var(--body); background: #fff; }
+.cmsg { font-size: 13px; color: #9c3d66; margin: 0; }
 .ckeep { text-align: center; color: var(--pink); font: 600 14px var(--body); }
 @media (max-width: 860px) { #cartpage { grid-template-columns: minmax(0, 1fr); } #cartpage .cside { position: static; } }
 /* end cart */
@@ -190,7 +190,7 @@ header.top .logo img[src$="logo.png"] { filter: brightness(0) invert(1) !importa
 @media (max-width: 899px) and (max-height: 720px) { .topbox { padding-top: 4px !important; } }
 /* peanut butter feature: bottle pack on the right on wide screens */
 @media (min-width: 861px) { .pb-sec .matcha-in > img { order: 2; } }
-.pb-sec .tag.new { background: #a8653a !important; color: #fff !important; }
+.pb-sec .tag.new { background: #8a5a2a !important; color: #fff !important; }
 
 /* creatine gummies */
 .gm-sec .matcha-in > img, .gm-sec .gm-shot img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 26px; box-shadow: 0 28px 54px -30px rgba(40,10,20,.5); display: block; }
@@ -278,9 +278,9 @@ footer.site .logo img { height: 66px !important; }
 /* Lovely: light pink on every page and device. */
 :root {
   --bg: #f4cde6; --bg-2: #efc2e0; --surface: #efc0de; --surface-2: #ecb8da;
-  --fg: #a8446f; --muted: #b0527a; --line: rgba(255, 255, 255, .7);
+  --fg: #9c3d66; --muted: #9c3d66; --line: rgba(255, 255, 255, .7);
   --ink: #ffffff; --ink-2: #fff5fb; --on-ink: #c9577f; --em: #ffffff; --pink: #c9577f;
-  --stage: #f7d6eb; --stage-muted: #b0527a; --good: #c7ecce; --good-ink: #17431f;
+  --stage: #f7d6eb; --stage-muted: #9c3d66; --good: #c7ecce; --good-ink: #17431f;
   --display: "Source Serif 4", "Source Serif Pro", Georgia, serif;
   --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --max: 1180px; --r: 20px;
@@ -644,7 +644,7 @@ h2.h1 { font-size: clamp(42px, 5.6vw, 76px); } .mach-top .lead { margin-top: 18p
 .venues { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 16px 0 0; padding: 0; }
 .venues li { padding: 6px 12px; border-radius: 999px; background: color-mix(in srgb, var(--on-ink) 14%, transparent); font: 600 13px/1.2 var(--body); }
 .host input { flex: 1 1 220px; padding: 15px 18px; border-radius: 999px; border: 0; background: #fff; color: #1a1216; min-width: 0; }
-.host .btn { background: #dd7fa4; color: var(--ink); }
+.host .btn { background: #d26c96; color: var(--ink); }
 @media (max-width: 760px) { .host { grid-template-columns: 1fr; } }
 
 /* about */
@@ -922,7 +922,7 @@ html.sheet-open, html.sheet-open body { overflow: hidden; }
 .pcap { padding: 2px 16px 16px; font-size: 14.5px; line-height: 1.45; } .pcap .ht { color: var(--em); font-weight: 600; }
 .tagband { align-items: center; } .tagband h2 { font-size: clamp(34px, 4vw, 52px); }
 .tagband-r { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
-.social.on-dark a, ul.social.on-dark a { background: #dd7fa4; color: var(--ink); }
+.social.on-dark a, ul.social.on-dark a { background: #d26c96; color: var(--ink); }
 footer.site .fsocial { display: flex; align-items: center; justify-content: space-between; gap: 14px 24px; flex-wrap: wrap; margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); }
 footer.site .fsocial p { color: var(--muted); font-size: 15px; } footer.site .fsocial p a { color: var(--fg); }
 ul.social, footer.site ul.social { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; }
@@ -933,7 +933,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 .mbar { position: fixed; left: 12px; right: 12px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 40; min-height: 56px; padding: 7px 8px 7px 7px; border-radius: 999px; background: var(--ink); color: var(--on-ink); text-decoration: none;
   display: flex; align-items: center; gap: 11px; box-shadow: 0 14px 30px -10px rgba(20,8,12,.55); border: 3px solid var(--bg); transition: transform .3s cubic-bezier(.22,1,.36,1), opacity .22s, visibility 0s; }
 .mbar.pre { transition: none; }
-.mbar i { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: #dd7fa4; color: var(--ink); }
+.mbar i { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border-radius: 50%; background: #d26c96; color: var(--ink); }
 .mbar .p { flex: 1; min-width: 0; line-height: 1.2; } .mbar .p b { display: block; font: 700 15px/1.15 var(--body); } .mbar .p span { display: block; font-size: 12.5px; opacity: .78; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .mbar .go { flex: none; font: 700 13.5px/1 var(--body); padding: 10px 14px; border-radius: 999px; background: color-mix(in srgb, var(--on-ink) 16%, transparent); }
 .mbar:active { transform: scale(.97); }
@@ -1004,10 +1004,10 @@ ol.steps h3 { font-size: 22px; } ol.steps p { color: var(--muted); font-size: 15
 .aff-form textarea { min-height: 90px; resize: vertical; }
 .aff-form input:focus, .aff-form select:focus, .aff-form textarea:focus { outline: none; border-color: var(--bg); }
 .aff-form .chk { display: flex; gap: 10px; align-items: flex-start; font: 500 14.5px/1.35 var(--body); } .aff-form .chk input { width: 20px; height: 20px; margin-top: 1px; accent-color: var(--bg); flex: none; }
-.aff-form .btn { background: #dd7fa4; color: var(--ink); justify-self: start; }
+.aff-form .btn { background: #d26c96; color: var(--ink); justify-self: start; }
 .aff-form .err { color: #ffb4d9; font: 600 14px/1.3 var(--body); min-height: 1em; }
 .aff-apply .small { color: inherit; }
-.aff-done { display: grid; gap: 12px; align-content: center; text-align: left; } .aff-done h3 { font-size: 30px; } .aff-done .code { font: 800 22px/1 var(--body); letter-spacing: .08em; background: #dd7fa4; color: var(--ink); padding: 12px 16px; border-radius: 12px; justify-self: start; }
+.aff-done { display: grid; gap: 12px; align-content: center; text-align: left; } .aff-done h3 { font-size: 30px; } .aff-done .code { font: 800 22px/1 var(--body); letter-spacing: .08em; background: #d26c96; color: var(--ink); padding: 12px 16px; border-radius: 12px; justify-self: start; }
 @media (max-width: 860px) { .aff-hero, .aff-apply { grid-template-columns: 1fr; } ol.steps, .tiers { grid-template-columns: 1fr; } .asks { grid-template-columns: 1fr 1fr; } .aff-stats { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 520px) { .aff-form { grid-template-columns: 1fr; } .asks { grid-template-columns: 1fr; } .aff-pics img:last-child { margin-top: 24px; } }
 /* ---- affiliate dashboard (account page) ---- */
@@ -1131,18 +1131,18 @@ header.top .logo, header.top .logo * { color: #fff; }
 .promo a { color: var(--pink); }
 .btn, .add { box-shadow: 0 8px 22px -12px rgba(185,80,118,.55); }
 .btn.alt { background: transparent; color: #fff; box-shadow: inset 0 0 0 2px #fff; }
-.add.in { background: #dd7fa4; color: #fff; }
+.add.in { background: #d26c96; color: #fff; }
 /* white "label" panels: pink text inside, like the logo box on the bottle */
 :is(.host, .aff-apply, .pass-card, .door.dark, .tier.hot, .ad-stat.hi, .toast, .mbar, .scanfab, .soon, .summary, .post, .fnotiles, .fsearch) :is(h1, h2, h3, h4, p, b, em, small, span, li, label) { color: var(--pink); text-shadow: none; }
-:is(.host, .aff-apply) .btn { background: #dd7fa4; color: #fff; }
-.host input, .host select, .aff-apply input, .aff-apply select, .aff-apply textarea, .hsel { box-shadow: inset 0 0 0 1.5px #f2b9dc; color: #a8446f; }
-.summary { background: #fff; color: #a8446f; }
-.summary .btn { background: #dd7fa4; color: #fff; }
+:is(.host, .aff-apply) .btn { background: #d26c96; color: #fff; }
+.host input, .host select, .aff-apply input, .aff-apply select, .aff-apply textarea, .hsel { box-shadow: inset 0 0 0 1.5px #f2b9dc; color: #9c3d66; }
+.summary { background: #fff; color: #9c3d66; }
+.summary .btn { background: #d26c96; color: #fff; }
 .bar span { background: var(--pink); }
-.packband { background: #dd7fa4 !important; }
+.packband { background: #d26c96 !important; }
 .packband span, .packband b { color: #fff !important; }
-.post { background: #fff; color: #a8446f; }
-.bprice span, .subq small { color: #b0527a; }
+.post { background: #fff; color: #9c3d66; }
+.bprice span, .subq small { color: #9c3d66; }
 .mbar i { background: var(--bg) !important; color: var(--pink) !important; }
 .scanfab { color: var(--pink); border-color: var(--bg); }
 .pin circle { stroke: var(--pink); } .pin text, .plbl, .fsearch input, .fctl button, .fctl.fme { fill: var(--pink); color: var(--pink); }
@@ -1168,7 +1168,7 @@ img[src$="logo.png"] { filter: brightness(0) invert(1) drop-shadow(0 1px 1px rgb
 .seg button[aria-pressed="true"], .opt[aria-pressed="true"], .pk.on, .mloc.sel, .planopt.on, .sh-size button[aria-pressed="true"] { border-color: #fff; background: rgba(255,255,255,.35); }
 .filters button[aria-pressed="true"], .ffilters button[aria-pressed="true"], .drawer nav a[aria-current="page"], .btabs button[aria-selected="true"], .bottle-view button[aria-pressed="true"], .ad-range button[aria-pressed="true"] { background: #fff; color: var(--pink); }
 .drawer nav a { color: #fff; } .drawer nav a i { color: var(--pink); }
-.cmp th, .cmp td { color: #a8446f; }
+.cmp th, .cmp td { color: #9c3d66; }
 .cmp thead th b, .cmp thead th { color: #fff; }
 /* Premium Protein look 3 */
 :is(.pass-card, .summary .pack, .host, .aff-apply, .post) img[src$="logo.png"] { filter: none !important; content: url("img/logo_rose.png"); }
@@ -1181,24 +1181,38 @@ body::before { background: var(--bg) !important; }
 header.top { background: var(--bg) !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
 .packband img, .summary .pack .packband img { filter: brightness(0) invert(1) !important; }
 /* home: simpler */
-.hero.hbgw .btn.alt { background: #dd7fa4; border-color: #dd7fa4; color: #fff; }
+.hero.hbgw .btn.alt { background: #d26c96; border-color: #d26c96; color: #fff; }
 .hero.hbgw .btn.alt .swl span { color: #fff; }
 @media (max-width: 520px) { .psteps { grid-template-columns: 1fr 1fr; gap: 8px; } .psteps li { padding: 14px; } .psteps p { font-size: 13.5px; } }
 /* flavor cards: pink */
-.fl { background: #ecb8da; box-shadow: 0 6px 20px rgba(168, 68, 111, .10); }
-.fl .tag, .fl .tag.classic { background: #fff; color: #a8446f; }
-.fl .tag.new { background: #dd7fa4; color: #fff; }
-.fl h3 .nlink[data-drink="van"] { color: #fff; text-shadow: 0 1px 2px rgba(168, 68, 111, .35); }
+.fl { background: #ecb8da; box-shadow: 0 6px 20px rgba(156, 61, 102, .10); }
+.fl .tag, .fl .tag.classic { background: #fff; color: #9c3d66; }
+.fl .tag.new { background: #d26c96; color: #fff; }
+.fl h3 .nlink[data-drink="van"] { color: #fff; text-shadow: 0 1px 2px rgba(156, 61, 102, .35); }
 .fl .add { border: 1.5px solid #fff; }
-.fl .add:not(.in) { background: #fff; color: #c9577f; }
-.fl .add.in { background: #dd7fa4; color: #fff; }
-.fl .nf-link { color: #a8446f; }
+.fl .add:not(.in) { background: #fff; color: #b9466f; }
+.fl .add.in { background: #d26c96; color: #fff; }
+.fl .nf-link { color: #9c3d66; }
 /* every: readable labels */
-.eben b { color: #c9577f; } .eben h3 { color: #a8446f; }
+.eben b { color: #b9466f; } .eben h3 { color: #9c3d66; }
 /* every: white labels */
 .eben h3 { color: #fff !important; text-shadow: 0 1px 2px rgba(176,64,104,.35), 0 2px 14px rgba(176,64,104,.25); }
 /* hero: pass matches lead text */
-.hero.hbgw .btn.alt, .hero .btn.alt[href$="#lovelypass"] { background: #a8446f !important; border-color: #a8446f !important; color: #fff !important; }
+.hero.hbgw .btn.alt, .hero .btn.alt[href$="#lovelypass"] { background: #9c3d66 !important; border-color: #9c3d66 !important; color: #fff !important; }
+/* legible v1 */
+.btn.alt { background: #fff; color: #b9466f; border-color: #fff; }
+.btn.alt:hover { background: #fde9f1; }
+.btn.alt .swl span { color: #b9466f; }
+.hero.hbgw .btn.alt, .hero .btn.alt[href$="#lovelypass"] { background: #9c3d66 !important; border-color: #9c3d66 !important; color: #fff !important; }
+.hero .btn.alt .swl span { color: #fff; }
+/* legible v2 */
+footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color: #9c3d66 !important; text-shadow: none !important; }
+.cmp thead th, .cmp thead th b, .cmp thead th b .swl span { color: #9c3d66 !important; text-shadow: none !important; }
+.backlink { color: #9c3d66; }
+/* hero legible v1 */
+@media (min-width: 861px) { .hero.hbgw::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: linear-gradient(90deg, rgba(246, 214, 234,.93) 0%, rgba(246, 214, 234,.86) 38%, rgba(246, 214, 234,.35) 58%, rgba(246, 214, 234,0) 72%) !important; } }
+@media (max-width: 860px) { .hero.hbgw::after { background: linear-gradient(180deg, rgba(246, 214, 234,0) 28%, rgba(246, 214, 234,.72) 46%, rgba(246, 214, 234,.92) 62%, rgba(246, 214, 234,.95) 100%) !important; } }
+.hero.hbgw .lead { color: #9c3d66 !important; text-shadow: none !important; }
 </style>
 <header class="top"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
@@ -1213,7 +1227,7 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
   <button type="button" class="btn alt pass-open" data-pass>Show my <span class="swl"><span>Lovely</span></span> Pass</button>
   <a class="btn" href="shop.html">Build a box <span class="boxcount" hidden>0</span></a>
 </aside><main id="main">
-<section class="hero hbgw" aria-labelledby="h-shakes"><picture class="hbg"><source media="(max-width: 760px)" srcset="img/hero2_grid_m720.webp?v=6 720w, img/hero2_grid_m1080.webp?v=6 1080w" sizes="100vw"><img src="img/hero3_grid_2400.webp?v=6" srcset="img/hero3_grid_1600.webp?v=6 1600w, img/hero3_grid_2400.webp?v=6 2400w" sizes="100vw" alt="Lovely protein shakes in every flavor: pink 30g bottles and 12-packs in vanilla, chocolate, cookie butter and matcha, and coral 50g bottles and 12-packs" width="2400" height="1350" fetchpriority="high"></picture><div class="wrap"><div><h1 id="h-shakes">The protein shake you actually <em>want to drink.</em></h1><p class="lead">Tastes like a milkshake. Protein for him and for her. Protein for light weight, heavy weight, and everything in between. Only ingredients you can actually pronounce. Helping you build a life that's lovely.</p><div class="ctas stack"><a class="btn alt" href="index.html#lovelypass"><span class="swl"><span>Lovely</span></span> Pass</a><a class="btn" href="#find">Find a fridge</a></div></div></div></section>
+<section class="hero hbgw" aria-labelledby="h-shakes"><picture class="hbg"><source media="(max-width: 760px)" srcset="img/hero2_grid_m720.webp?v=8 720w, img/hero2_grid_m1080.webp?v=8 1080w" sizes="100vw"><img src="img/hero3_grid_2400.webp?v=8" srcset="img/hero3_grid_1600.webp?v=8 1600w, img/hero3_grid_2400.webp?v=8 2400w" sizes="100vw" alt="Lovely protein shakes in every flavor: pink 30g bottles and 12-packs in vanilla, chocolate, cookie butter and matcha, and coral 50g bottles and 12-packs" width="2400" height="1350" fetchpriority="high"></picture><div class="wrap"><div><h1 id="h-shakes">The protein shake you actually <em>want to drink.</em></h1><p class="lead">Tastes like a milkshake. Protein for him and for her. Protein for light weight, heavy weight, and everything in between. Only ingredients you can actually pronounce. Helping you build a life that's lovely.</p><div class="ctas stack"><a class="btn alt" href="index.html#lovelypass"><span class="swl"><span>Lovely</span></span> Pass</a><a class="btn" href="#find">Find a fridge</a></div></div></div></section>
 <section class="topbox" aria-label="Build a box"><div class="wrap"><div class="doors one"><a class="door dark" href="shop.html"><div><h3>Build a box of 12 or 24</h3><p>Any flavors, 30g or 50g. Free shipping on 24, because we're not monsters.</p></div><span class="go">Start building →</span><img class="lineup" src="img/lineup_mix.webp?v=6" srcset="img/lineup_mix_sm.webp?v=6 560w, img/lineup_mix.webp?v=6 1315w" sizes="(max-width: 860px) 320px, 420px" alt="Pink 30g Lovely bottles in Matcha, Vanilla, Chocolate and Cookie Butter with a coral 50g Chocolate" width="1315" height="867"></a></div></div></section><section class="shelf" style="padding-block:28px 10px" aria-labelledby="shelf-shakes"><div class="wrap"><div class="shelf-top"><h2 id="shelf-shakes">5 flavors. Zero chalk.</h2><div class="filters" role="group" aria-label="Filter"><button type="button" class="press" aria-pressed="true" data-filter="all">All</button><button type="button" class="press" aria-pressed="false" data-filter="classic">Launch flavors</button><button type="button" class="press" aria-pressed="false" data-filter="new">New</button></div></div><div class="bottle-view"><p><b>Pick a bottle.</b> Tap a flavor for nutrition facts.</p><div class="segline" role="group" aria-label="Bottle size"><button type="button" data-protein="30" aria-pressed="true"><span class="swl"><span>Lovely</span></span> · 30g</button><button type="button" data-protein="50" aria-pressed="false" class="w">Lovely · 50g</button></div></div><div class="rail"><article class="fl" data-tag="classic" id="flavor-choc"><span class="tag classic">Launch flavor</span><button type="button" class="pic" data-drink="choc" aria-label="Chocolate: see nutrition facts"><img src="img/b_choc.webp?v=6" alt="Lovely Chocolate protein shake" width="200" height="520" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="choc">Chocolate</button></h3><button type="button" class="nf-link" data-drink="choc">Nutrition facts</button><button type="button" class="add" data-add="choc">Add to box</button></article><article class="fl" data-tag="classic" id="flavor-van"><span class="tag classic">Launch flavor</span><button type="button" class="pic" data-drink="van" aria-label="Vanilla: see nutrition facts"><img src="img/b_van.webp?v=6" alt="Lovely Vanilla protein shake" width="200" height="520" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="van">Vanilla</button></h3><button type="button" class="nf-link" data-drink="van">Nutrition facts</button><button type="button" class="add" data-add="van">Add to box</button></article><article class="fl" data-tag="classic" id="flavor-pb"><span class="tag classic">Launch flavor</span><button type="button" class="pic" data-drink="pb" aria-label="Peanut Butter: see nutrition facts"><img src="img/b_pb.webp?v=6" alt="Lovely Peanut Butter protein shake" width="200" height="520" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="pb">Peanut Butter</button></h3><button type="button" class="nf-link" data-drink="pb">Nutrition facts</button><button type="button" class="add" data-add="pb">Add to box</button></article><article class="fl" data-tag="new" id="flavor-cbutter"><span class="tag new">New</span><button type="button" class="pic" data-drink="cbutter" aria-label="Cookie Butter: see nutrition facts"><img src="img/b_cbutter.webp?v=6" alt="Lovely Cookie Butter protein shake" width="200" height="520" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="cbutter">Cookie Butter</button></h3><button type="button" class="nf-link" data-drink="cbutter">Nutrition facts</button><button type="button" class="add" data-add="cbutter">Add to box</button></article><article class="fl" data-tag="new" id="flavor-matcha"><span class="tag new">New</span><button type="button" class="pic" data-drink="matcha" aria-label="Matcha: see nutrition facts"><img src="img/b_matcha.webp?v=6" alt="Lovely Matcha protein shake" width="200" height="520" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="matcha">Matcha</button></h3><button type="button" class="nf-link" data-drink="matcha">Nutrition facts</button><button type="button" class="add" data-add="matcha">Add to box</button></article></div></div></section>
 <section class="ds-sec" aria-labelledby="h-ds"><div class="wrap ds-head">
   <div><h2 id="h-ds"><span class="hash">#lifeislovely</span></h2><p>Tag <b>@drinklovely</b> to get featured. Fame awaits. Mild fame.</p></div>
@@ -1269,18 +1283,18 @@ header.top { background: var(--bg) !important; backdrop-filter: none !important;
     <div class="ctas"><button type="button" class="add" data-add="matcha">Add Matcha to box</button><button type="button" class="btn alt" data-drink="matcha">Nutrition facts</button></div></div>
 </div></section>
 <section class="matcha-sec cr-sec" id="creatine" aria-labelledby="h-crhome"><div class="wrap matcha-in">
-  <a class="cr-shot" href="products.html#creatine"><img src="img/creatine/elec_lineup.webp" srcset="img/creatine/elec_lineup_sm.webp 560w, img/creatine/elec_lineup.webp 1100w" sizes="(max-width: 860px) 330px, 460px" alt="Lovely Creatine + Electrolytes sticks in Flavorless, Blue Raspberry, Piña Colada, Sour Apple and Watermelon" width="1100" height="1375" loading="lazy"></a>
+  <a class="cr-shot" href="products.html#creatine-info"><img src="img/creatine/elec_lineup.webp" srcset="img/creatine/elec_lineup_sm.webp 560w, img/creatine/elec_lineup.webp 1100w" sizes="(max-width: 860px) 330px, 460px" alt="Lovely Creatine + Electrolytes sticks in Flavorless, Blue Raspberry, Piña Colada, Sour Apple and Watermelon" width="1100" height="1375" loading="lazy"></a>
   <div><span class="tag new">New · Lovely Creatine</span><h2 id="h-crhome">Creatine, <em>stirred into your shake.</em></h2>
     <p class="lead">Tear a Flavorless stick into any <span class="swl"><span>Lovely</span></span>. Protein and creatine, one bottle, no grit.</p>
     <ul class="mach-facts"><li>Flavorless for shakes</li><li>4 flavors for water</li></ul>
-    <div class="ctas"><a class="btn" href="products.html#creatine">See Lovely Creatine</a></div></div>
+    <div class="ctas"><a class="btn" href="products.html#creatine-info">See Lovely Creatine</a></div></div>
 </div></section>
 <section class="matcha-sec gm-sec" id="gummies" aria-labelledby="h-gmhome"><div class="wrap matcha-in">
-  <a class="gm-shot" href="products.html#gummies"><img id="gm-home-img" src="img/gummies/strawberry.webp" srcset="img/gummies/strawberry_sm.webp 560w, img/gummies/strawberry.webp 1100w" sizes="(max-width: 860px) 340px, 460px" alt="Lovely Creatine Gummies, Strawberry: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"></a>
+  <a class="gm-shot" href="products.html#gummies-info"><img id="gm-home-img" src="img/gummies/strawberry.webp" srcset="img/gummies/strawberry_sm.webp 560w, img/gummies/strawberry.webp 1100w" sizes="(max-width: 860px) 340px, 460px" alt="Lovely Creatine Gummies, Strawberry: two pink jars of heart-shaped gummies" width="1100" height="1375" loading="lazy"></a>
   <div><span class="tag new">New · Lovely Creatine Gummies</span><h2 id="h-gmhome">Creatine, <em>but make it candy.</em></h2>
     <p class="lead">Heart-shaped creatine gummies. No shaker. Just chew and go.</p>
-    <div class="gm-flv" role="group" aria-label="Gummy flavors" data-for="#gm-home-img"><button type="button" data-g="strawberry" aria-pressed="true" style="--fc:#b3123f">Strawberry</button><button type="button" data-g="blue" aria-pressed="false" style="--fc:#2236c9">Blue Raspberry</button><button type="button" data-g="watermelon" aria-pressed="false" style="--fc:#d81f2a">Watermelon</button><button type="button" data-g="pina" aria-pressed="false" style="--fc:#d27a12">Piña Colada</button><button type="button" data-g="apple" aria-pressed="false" style="--fc:#3f7a1f">Sour Apple</button></div>
-    <div class="ctas"><a class="btn" href="products.html#gummies">See the gummies</a></div></div>
+    <div class="gm-flv" role="group" aria-label="Gummy flavors" data-for="#gm-home-img"><button type="button" data-g="strawberry" aria-pressed="true" style="--fc:#b3123f">Strawberry</button><button type="button" data-g="blue" aria-pressed="false" style="--fc:#2236c9">Blue Raspberry</button><button type="button" data-g="watermelon" aria-pressed="false" style="--fc:#d81f2a">Watermelon</button><button type="button" data-g="pina" aria-pressed="false" style="--fc:#85590a">Piña Colada</button><button type="button" data-g="apple" aria-pressed="false" style="--fc:#3f7a1f">Sour Apple</button></div>
+    <div class="ctas"><a class="btn" href="products.html#gummies-info">See the gummies</a></div></div>
 </div></section>
 <section class="mach-sec" id="machines" aria-labelledby="h-machines"><div class="wrap mach-top">
   <div><span class="soon">Coming after launch</span><h2 id="h-machines" class="h1"><span class="swl"><span>Lovely</span></span> fridges</h2><p class="lead">Smart fridges in studios, gyms and campus rec centers. Tap your <a href="#lovelypass"><span class="swl"><span>Lovely</span></span> Pass</a>, grab a cold shake.</p></div>

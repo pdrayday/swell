@@ -14,9 +14,9 @@
     { t: "Lovely Peanut Butter", d: "Salty-sweet, like a peanut butter milkshake. Contains peanuts.", url: "shop.html", img: "img/b_pb.webp?v=6", k: "shake peanut butter pb nut allergy flavor 30g 50g protein bottle" },
     { t: "Lovely 50g", d: "The bigger coral 16oz bottle with 50g protein.", url: "shop.html", img: "img/b_choc.webp?v=6", k: "50g fifty big bigger coral bottle 16oz more protein bulk gym" },
     { t: "Build a box", d: "Mix flavors and sizes in a 24-pack. Subscribe and save, skip anytime.", url: "shop.html", k: "shop buy order box 24 pack 12 pack subscribe subscription price cost save delivery shipping" },
-    { t: "Lovely Creatine sticks", d: "Flavorless stirs into any shake. Four flavors for water.", url: "products.html#creatine", img: "img/creatine/elec_lineup_sm.webp", k: "creatine stick packet electrolytes monohydrate magnesium potassium flavorless blue raspberry pina colada sour apple watermelon water" },
-    { t: "Lovely Creatine Gummies", d: "Heart-shaped creatine gummies, 60 a jar, in five flavors.", url: "products.html#gummies", img: "img/gummies/strawberry_sm.webp", k: "creatine gummies gummy candy chew strawberry blue raspberry watermelon pina colada sour apple jar" },
-    { t: "Protein ice cream pints", d: "Dessert pints with 30g protein each.", url: "products.html#icecream", k: "ice cream pint dessert frozen sorbet protein" },
+    { t: "Lovely Creatine sticks", d: "Flavorless stirs into any shake. Four flavors for water.", url: "products.html#creatine-info", img: "img/creatine/elec_lineup_sm.webp", k: "creatine stick packet electrolytes monohydrate magnesium potassium flavorless blue raspberry pina colada sour apple watermelon water" },
+    { t: "Lovely Creatine Gummies", d: "Heart-shaped creatine gummies, 60 a jar, in five flavors.", url: "products.html#gummies-info", img: "img/gummies/strawberry_sm.webp", k: "creatine gummies gummy candy chew strawberry blue raspberry watermelon pina colada sour apple jar" },
+    { t: "Protein ice cream pints", d: "Dessert pints with 30g protein each.", url: "products.html#icecream-info", k: "ice cream pint dessert frozen sorbet protein" },
     { t: "Ninja Creami recipes", d: "Turn a Lovely into protein ice cream at home.", url: "products.html#creami", k: "ninja creami recipe ice cream homemade freeze pint milkshake sorbet" },
     { t: "All products", d: "Creatine, gummies, ice cream pints and recipes.", url: "products.html", k: "products everything catalog" },
     { t: "Lovely Pass", d: "One membership for your box and the Lovely fridge. Member prices and points.", url: "index.html#lovelypass", img: "img/shot_pass.webp", k: "pass membership member points rewards free shake qr code app" },
@@ -88,7 +88,7 @@
   }
 
   var css = "" +
-    ".srch-btn{display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--fg,#a8446f);cursor:pointer;flex:none;-webkit-tap-highlight-color:transparent}" +
+    ".srch-btn{display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--fg,#9c3d66);cursor:pointer;flex:none;-webkit-tap-highlight-color:transparent}" +
     ".srch-btn .sav{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--surface,#efc0de);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}" +
     ".srch-btn:active .sav{transform:scale(.9)}" +
     ".srch-btn.srch-m{display:none}" +
@@ -97,30 +97,30 @@
     ".srch-open .srch-scrim{opacity:1}" +
     ".srch{position:fixed;z-index:96;left:50%;top:calc(14px + env(safe-area-inset-top,0px));width:min(680px,calc(100vw - 24px));max-height:calc(100dvh - 28px - env(safe-area-inset-top,0px));display:flex;flex-direction:column;background:var(--bg,#f4cde6);border-radius:26px;box-shadow:0 30px 70px -20px rgba(40,10,20,.55);transform:translate(-50%,-14px) scale(.98);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .25s;overflow:hidden}" +
     ".srch-open .srch{transform:translate(-50%,0);opacity:1}" +
-    ".srch-bar{display:flex;align-items:center;gap:10px;margin:12px;padding:0 8px 0 16px;height:56px;border-radius:999px;background:#fff;color:#a8446f;flex:none}" +
+    ".srch-bar{display:flex;align-items:center;gap:10px;margin:12px;padding:0 8px 0 16px;height:56px;border-radius:999px;background:#fff;color:#9c3d66;flex:none}" +
     ".srch-bar svg{flex:none;opacity:.7}" +
     ".srch-bar input{flex:1;min-width:0;border:0;outline:none;background:none;font:500 17px/1.2 var(--body,system-ui);color:#94395f}" +
     ".srch-bar input::placeholder{color:#b98a9b}" +
-    ".srch-x{border:0;background:var(--surface,#efc0de);color:#a8446f;width:38px;height:38px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;flex:none}" +
+    ".srch-x{border:0;background:var(--surface,#efc0de);color:#9c3d66;width:38px;height:38px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;flex:none}" +
     ".srch-body{overflow-y:auto;padding:0 12px 14px;overscroll-behavior:contain}" +
     ".srch-h{font:700 11.5px/1 var(--body,system-ui);letter-spacing:.12em;text-transform:uppercase;color:#fff;margin:14px 6px 8px}" +
     ".srch-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 4px}" +
-    ".srch-chips button{border:0;border-radius:999px;padding:9px 13px;background:rgba(255,255,255,.55);color:#a8446f;font:600 13.5px/1 var(--body,system-ui);cursor:pointer}" +
+    ".srch-chips button{border:0;border-radius:999px;padding:9px 13px;background:rgba(255,255,255,.55);color:#9c3d66;font:600 13.5px/1 var(--body,system-ui);cursor:pointer}" +
     ".srch-ans{background:#fff;border-radius:18px;padding:16px 18px;color:#9c3f68}" +
-    ".srch-ans>b{display:block;font:700 18px/1.25 var(--display,Georgia,serif);color:#c9577f;margin-bottom:6px}" +
+    ".srch-ans>b{display:block;font:700 18px/1.25 var(--display,Georgia,serif);color:#b9466f;margin-bottom:6px}" +
     ".srch-ans p{margin:0;font-size:15px;line-height:1.5;color:#6b3a4b}" +
-    ".srch-ans a{display:inline-block;margin-top:8px;font:700 13.5px var(--body,system-ui);color:#c9577f}" +
+    ".srch-ans a{display:inline-block;margin-top:8px;font:700 13.5px var(--body,system-ui);color:#b9466f}" +
     ".srch-list{display:grid;gap:6px}" +
     ".srch-it{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center;padding:8px 10px;border-radius:16px;background:rgba(255,255,255,.55);text-decoration:none;color:#9c3f68}" +
     ".srch-it:hover,.srch-it:focus-visible{background:#fff;outline:none}" +
     ".srch-it .ic{width:44px;height:44px;border-radius:12px;background:#fff;display:grid;place-items:center;overflow:hidden}" +
     ".srch-it .ic img{width:100%;height:100%;object-fit:contain}" +
     ".srch-it .tx>b{display:block;font:700 15px/1.25 var(--body,system-ui)}" +
-    ".srch-it .tx>span{display:block;font-size:13px;line-height:1.35;color:#b0527a}" +
+    ".srch-it .tx>span{display:block;font-size:13px;line-height:1.35;color:#9c3d66}" +
     ".srch-faq{display:block;padding:12px 14px;border-radius:16px;background:rgba(255,255,255,.55);text-decoration:none;color:#9c3f68}" +
     ".srch-faq:hover,.srch-faq:focus-visible{background:#fff;outline:none}" +
     ".srch-faq>b{display:block;font:700 14.5px/1.3 var(--body,system-ui)}" +
-    ".srch-faq>span{display:block;font-size:13px;line-height:1.4;color:#b0527a;margin-top:3px}" +
+    ".srch-faq>span{display:block;font-size:13px;line-height:1.4;color:#9c3d66;margin-top:3px}" +
     ".srch-bar input::-webkit-search-cancel-button{-webkit-appearance:none;display:none}" +
     ".srch-none{padding:14px 8px;color:#fff;font-size:15px}" +
     ".srch-none a{color:#fff;font-weight:700}" +
