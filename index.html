@@ -1286,7 +1286,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   <button type="button" class="btn alt pass-open" data-pass>Show my <span class="swl"><span>Lovely</span></span> Pass</button>
   <a class="btn" href="shop.html">Build a box <span class="boxcount" hidden>0</span></a>
 </aside><main id="main">
-<section class="hero hstage" aria-labelledby="h-shakes" style="--glow:rgba(120,60,45,.30);--fc:#5a2c22">
+<section class="hero hstage" aria-labelledby="h-shakes" style="--glow:rgba(255,255,255,.95);--fc:#5a2c22">
 <div class="hs-word" aria-hidden="true">Lovely</div>
 <div class="wrap">
 <div class="hs-copy"><p class="hs-kick">Premium protein · <em>life is lovely</em></p><h1 id="h-shakes">The protein shake you actually <em>want to drink.</em></h1><p class="lead">Tastes like a milkshake. Protein for him and for her. Protein for light weight, heavy weight, and everything in between. Only ingredients you can actually pronounce. Helping you build a life that's lovely.</p><div class="ctas stack"><a class="btn alt" href="index.html#lovelypass"><span class="swl"><span>Lovely</span></span> Pass</a><a class="btn" href="#find">Find a fridge</a></div></div>
@@ -1445,7 +1445,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   });
   function burst(el) {
     if (reduce) return;
-    var r = el.getBoundingClientRect(), w = document.createElement("div"), cols = ["#9e2a4b", "#ef8fc1", "#f2c94c", "#8fd4a0", "#2a121a"];
+    var r = el.getBoundingClientRect(), w = document.createElement("div"), cols = ["#9e2a4b", "#ef8fc1", "#ffffff", "#8fd4a0", "#2a121a"];
     w.className = "burst"; w.style.left = (r.left + r.width / 2) + "px"; w.style.top = (r.top + r.height / 2) + "px";
     for (var i = 0; i < 10; i++) { var a = i / 10 * Math.PI * 2, dist = 34 + Math.random() * 18, d = document.createElement("i");
       d.style.background = cols[i % cols.length]; d.style.setProperty("--x", Math.cos(a) * dist + "px"); d.style.setProperty("--y", Math.sin(a) * dist + "px"); w.appendChild(d); }
@@ -1453,7 +1453,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   }
   function confetti(el) {
     if (reduce) return;
-    var r = el.getBoundingClientRect(), w = document.createElement("div"), cols = ["#9e2a4b", "#ef8fc1", "#f2c94c", "#8fd4a0", "#fde6f3", "#2a121a"];
+    var r = el.getBoundingClientRect(), w = document.createElement("div"), cols = ["#9e2a4b", "#ef8fc1", "#ffffff", "#8fd4a0", "#fde6f3", "#2a121a"];
     w.className = "confetti"; w.style.left = (r.left + r.width / 2) + "px"; w.style.top = (r.top) + "px";
     for (var i = 0; i < 46; i++) { var d = document.createElement("i"), a = -Math.PI / 2 + (Math.random() - .5) * 2.2, v = 120 + Math.random() * 240;
       d.style.background = cols[i % cols.length]; d.style.setProperty("--x", Math.cos(a) * v + "px"); d.style.setProperty("--y", (Math.sin(a) * v + 160) + "px");
@@ -2215,7 +2215,7 @@ document.querySelectorAll(".gm-flv").forEach(function (g) {
 });
 </script>
 <script src="search.js" defer></script>
-<script>/* hero flavor stage */(function(){var h=document.querySelector(".hstage");if(!h)return;var bs=[].slice.call(h.querySelectorAll(".hs-b")),cs=[].slice.call(h.querySelectorAll(".hs-chip")),nm=h.querySelector(".hs-name"),G={choc:["rgba(120,60,45,.30)","#5a2c22"],van:["rgba(255,236,196,.95)","#b98a3c"],cbutter:["rgba(214,150,92,.45)","#864a28"],matcha:["rgba(150,190,96,.45)","#3f6e1c"],pb:["rgba(206,150,88,.45)","#8a5a2a"]},N={choc:"Chocolate",van:"Vanilla",cbutter:"Cookie Butter",matcha:"Matcha",pb:"Peanut Butter"},cur=0,p=30,t;
+<script>/* hero flavor stage */(function(){var h=document.querySelector(".hstage");if(!h)return;var bs=[].slice.call(h.querySelectorAll(".hs-b")),cs=[].slice.call(h.querySelectorAll(".hs-chip")),nm=h.querySelector(".hs-name"),G={choc:["rgba(255,255,255,.95)","#5a2c22"],van:["rgba(255,255,255,.95)","#b98a3c"],cbutter:["rgba(255,255,255,.95)","#864a28"],matcha:["rgba(255,255,255,.95)","#3f6e1c"],pb:["rgba(255,255,255,.95)","#8a5a2a"]},N={choc:"Chocolate",van:"Vanilla",cbutter:"Cookie Butter",matcha:"Matcha",pb:"Peanut Butter"},cur=0,p=30,t;
 function show(i,user){var prev=bs[cur];cur=(i+bs.length)%bs.length;var k=bs[cur].dataset.k;bs.forEach(function(b,j){b.classList.toggle("on",j===cur);b.classList.toggle("out",b===prev&&j!==cur);if(j!==cur&&b!==prev)b.classList.remove("out");});cs.forEach(function(c){c.setAttribute("aria-pressed",c.dataset.k===k?"true":"false")});nm.textContent=N[k];h.style.setProperty("--glow",G[k][0]);h.style.setProperty("--fc",G[k][1]);if(user)restart();}
 function restart(){clearInterval(t);if(!matchMedia("(prefers-reduced-motion: reduce)").matches)t=setInterval(function(){show(cur+1)},3200);}
 cs.forEach(function(c,i){c.addEventListener("click",function(){show(i,true)})});

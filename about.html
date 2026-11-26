@@ -1178,7 +1178,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   });
   function burst(el) {
     if (reduce) return;
-    var r = el.getBoundingClientRect(), w = document.createElement("div"), cols = ["#9e2a4b", "#ef8fc1", "#f2c94c", "#8fd4a0", "#2a121a"];
+    var r = el.getBoundingClientRect(), w = document.createElement("div"), cols = ["#9e2a4b", "#ef8fc1", "#ffffff", "#8fd4a0", "#2a121a"];
     w.className = "burst"; w.style.left = (r.left + r.width / 2) + "px"; w.style.top = (r.top + r.height / 2) + "px";
     for (var i = 0; i < 10; i++) { var a = i / 10 * Math.PI * 2, dist = 34 + Math.random() * 18, d = document.createElement("i");
       d.style.background = cols[i % cols.length]; d.style.setProperty("--x", Math.cos(a) * dist + "px"); d.style.setProperty("--y", Math.sin(a) * dist + "px"); w.appendChild(d); }
@@ -1186,7 +1186,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   }
   function confetti(el) {
     if (reduce) return;
-    var r = el.getBoundingClientRect(), w = document.createElement("div"), cols = ["#9e2a4b", "#ef8fc1", "#f2c94c", "#8fd4a0", "#fde6f3", "#2a121a"];
+    var r = el.getBoundingClientRect(), w = document.createElement("div"), cols = ["#9e2a4b", "#ef8fc1", "#ffffff", "#8fd4a0", "#fde6f3", "#2a121a"];
     w.className = "confetti"; w.style.left = (r.left + r.width / 2) + "px"; w.style.top = (r.top) + "px";
     for (var i = 0; i < 46; i++) { var d = document.createElement("i"), a = -Math.PI / 2 + (Math.random() - .5) * 2.2, v = 120 + Math.random() * 240;
       d.style.background = cols[i % cols.length]; d.style.setProperty("--x", Math.cos(a) * v + "px"); d.style.setProperty("--y", (Math.sin(a) * v + 160) + "px");
