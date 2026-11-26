@@ -1224,6 +1224,8 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
 }
 /* hero: flavor stage */
 .hero.hstage { position: relative; overflow: hidden; padding: clamp(18px, 3vw, 40px) 0 clamp(28px, 4vw, 56px); isolation: isolate; background: radial-gradient(90% 70% at 72% 45%, #fbe6f2 0%, rgba(251,230,242,0) 60%), var(--bg); }
+.hstage .hs-word { position: absolute; z-index: -1; left: 50%; top: 50%; transform: translate(-50%, -52%); font: italic 400 clamp(180px, 34vw, 520px)/1 "Pinyon Script", "Great Vibes", var(--display); font-family: var(--script, inherit); color: #fff; opacity: .62; text-shadow: 0 6px 40px rgba(176,64,104,.18); white-space: nowrap; pointer-events: none; letter-spacing: -.02em; }
+.hstage .hs-word { font-family: "Source Serif 4", Georgia, serif; font-style: italic; font-weight: 300; }
 .hstage .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(16px, 3vw, 48px); align-items: center; }
 .hstage .hs-kick { font: 700 12.5px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: #9c3d66; margin: 0 0 14px; }
 .hstage .hs-kick em { color: #9c3d66; font: italic 600 15px/1 var(--display); letter-spacing: 0; text-transform: none; }
@@ -1259,6 +1261,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   .hstage .hs-orbit { width: min(76vw, 300px); }
   .hstage .hs-orbit text { font-size: 8.4px; }
   .hstage .hs-glow { width: 62vw; }
+  .hstage .hs-word { top: 27%; font-size: 35vw; opacity: .85; text-shadow: 0 4px 30px rgba(176,64,104,.22); }
   .hstage .hs-under { margin-top: 10px; gap: 10px; }
   .hstage .hs-name { min-width: 0; text-align: right; font-size: 24px; }
   .hstage .hs-size button { padding: 8px 12px; font-size: 13px; }
@@ -1333,6 +1336,7 @@ header.top.over .tabs a { text-shadow: 0 1px 10px rgba(156,61,102,.35); }
   <a class="btn" href="shop.html">Build a box <span class="boxcount" hidden>0</span></a>
 </aside><main id="main">
 <section class="hero hstage" aria-labelledby="h-shakes" style="--glow:rgba(255,255,255,.95);--fc:#5a2c22">
+<div class="hs-word" aria-hidden="true">Lovely</div>
 <div class="wrap">
 <div class="hs-copy"><p class="hs-kick">Premium protein · <em>life is lovely</em></p><h1 id="h-shakes">The protein shake you actually <em>want to drink.</em></h1><p class="lead">Tastes like a milkshake. Protein for him and for her. Protein for light weight, heavy weight, and everything in between. Only ingredients you can actually pronounce. Helping you build a life that's lovely.</p><div class="ctas stack"><a class="btn alt" href="index.html#lovelypass"><span class="swl"><span>Lovely</span></span> Pass</a><a class="btn" href="#find">Find a fridge</a></div></div>
 <div class="hs-stage">
