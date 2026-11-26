@@ -1277,6 +1277,14 @@ header.top.over { background: transparent !important; backdrop-filter: none !imp
 header.top.over.solid { background: rgba(244, 205, 230, .9) !important; backdrop-filter: blur(12px) !important; -webkit-backdrop-filter: blur(12px) !important; border-bottom-color: rgba(255,255,255,.55) !important; box-shadow: 0 8px 24px -18px rgba(156,61,102,.45); }
 header.top.over .tabs a { text-shadow: 0 1px 10px rgba(156,61,102,.35); }
 .hero.hstage { margin-top: calc(-1 * var(--hh, 66px)); padding-top: calc(var(--hh, 66px) + clamp(18px, 3vw, 40px)); }
+.tick { background: #9c3d66; color: #fff; overflow: hidden; border-block: 1px solid rgba(255,255,255,.25); }
+.tick-track { display: flex; width: max-content; animation: tickgo 34s linear infinite; }
+.tick-run { display: flex; align-items: center; flex: none; }
+.tick span { font: 800 13px/1 var(--body); letter-spacing: .16em; text-transform: uppercase; padding: 14px 0; white-space: nowrap; color: #fff; }
+.tick i { font-style: normal; padding: 0 22px; opacity: .7; font-size: 12px; }
+.tick:hover .tick-track { animation-play-state: paused; }
+@keyframes tickgo { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .tick-track { animation: none; } }
 .wclass { padding-block: clamp(26px, 4vw, 48px) 0; }
 .wclass .wc-h { margin: 0 0 16px; font-size: clamp(28px, 3.4vw, 44px); color: #9c3d66; }
 .wclass .wc-h em { color: #fff; text-shadow: 0 1px 12px rgba(176,64,104,.3); }
@@ -1300,6 +1308,8 @@ header.top.over .tabs a { text-shadow: 0 1px 10px rgba(156,61,102,.35); }
 .wclass .wc:hover img { transform: rotate(2deg) translateY(-6px); }
 @media (max-width: 860px) {
   .hero.hstage { padding-top: calc(var(--hh, 60px) + 8px); }
+  .tick span { font-size: 11.5px; padding: 12px 0; }
+  .tick i { padding: 0 16px; }
   .wclass .wc { min-height: 0; border-radius: 22px; padding: 16px 14px; align-items: flex-start; }
   .wclass .wc img { height: 92%; bottom: -18%; right: -6px; }
   .wclass .wc-g { font-size: 52px; }
@@ -1337,6 +1347,7 @@ header.top.over .tabs a { text-shadow: 0 1px 10px rgba(156,61,102,.35); }
 <div class="hs-chips" role="group" aria-label="Pick a flavor"><button type="button" class="hs-chip" data-k="choc" style="--fc:#5a2c22" aria-pressed="true">Chocolate</button><button type="button" class="hs-chip" data-k="van" style="--fc:#b98a3c" aria-pressed="false">Vanilla</button><button type="button" class="hs-chip" data-k="cbutter" style="--fc:#864a28" aria-pressed="false">Cookie Butter</button><button type="button" class="hs-chip" data-k="matcha" style="--fc:#3f6e1c" aria-pressed="false">Matcha</button><button type="button" class="hs-chip" data-k="pb" style="--fc:#8a5a2a" aria-pressed="false">Peanut Butter</button></div>
 </div>
 </div></section>
+<div class="tick" aria-label="Lovely in a nutshell"><div class="tick-track"><div class="tick-run"><span>Tastes like a milkshake</span><i aria-hidden="true">✦</i><span>30g or 50g protein</span><i aria-hidden="true">✦</i><span>Lactose-free</span><i aria-hidden="true">✦</i><span>Ingredients you can pronounce</span><i aria-hidden="true">✦</i><span>Grab one from a fridge</span><i aria-hidden="true">✦</i><span>#lifeislovely</span><i aria-hidden="true">✦</i></div><div class="tick-run" aria-hidden="true"><span>Tastes like a milkshake</span><i aria-hidden="true">✦</i><span>30g or 50g protein</span><i aria-hidden="true">✦</i><span>Lactose-free</span><i aria-hidden="true">✦</i><span>Ingredients you can pronounce</span><i aria-hidden="true">✦</i><span>Grab one from a fridge</span><i aria-hidden="true">✦</i><span>#lifeislovely</span><i aria-hidden="true">✦</i></div></div></div>
 <section class="wclass" aria-labelledby="h-wclass"><div class="wrap"><h2 id="h-wclass" class="wc-h">Pick your <em>weight class.</em></h2><div class="wc-grid">
 <a class="wc lite" href="shop.html?p=30"><div class="wc-t"><p class="wc-k">Light weight</p><p class="wc-g">30g</p><p class="wc-s">The everyday sipper.</p><span class="wc-go">Shop 30g <span aria-hidden="true">→</span></span></div><img src="img/b_van.webp?v=9" alt="" width="408" height="1400" loading="lazy"></a>
 <a class="wc heavy" href="shop.html?p=50"><div class="wc-t"><p class="wc-k">Heavy weight</p><p class="wc-g">50g</p><p class="wc-s">Leg day's best friend.</p><span class="wc-go">Shop 50g <span aria-hidden="true">→</span></span></div><img src="img/sw_choc.webp?v=9" alt="" width="408" height="1400" loading="lazy"></a>
