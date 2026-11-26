@@ -1321,6 +1321,16 @@ header.top.over .tabs a { text-shadow: 0 1px 10px rgba(156,61,102,.35); }
   .wclass .wc-k { font-size: 11px; }
 }
 @media (max-width: 380px) { .wclass .wc img { right: -16px; } }
+/* hero stage: packaging */
+.hstage .hs-b.hpk { height: auto; width: min(100%, 660px); max-height: 100%; object-fit: contain; filter: drop-shadow(0 26px 24px rgba(120, 30, 70, .28)); }
+.hstage .hs-bottles:has(.hpk) { height: clamp(300px, 30vw, 430px); display: block; }
+.hstage .hs-b.hpk { bottom: 6%; }
+.hstage .hs-b.hpk.on { transform: translate(-50%, 0) scale(1) rotate(-2deg); }
+.hstage .hs-b.hpk.out { transform: translate(-20%, -6px) scale(.92) rotate(5deg); }
+@media (max-width: 860px) {
+  .hstage .hs-bottles:has(.hpk) { height: min(30svh, 250px); }
+  .hstage .hs-b.hpk { width: 96%; bottom: 4%; }
+}
 </style>
 <header class="top over"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
@@ -1342,7 +1352,7 @@ header.top.over .tabs a { text-shadow: 0 1px 10px rgba(156,61,102,.35); }
 <div class="hs-stage">
 <div class="hs-bottles"><div class="hs-orbit" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="hsc" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs><text><textPath href="#hsc">30g or 50g protein · tastes like a milkshake · lactose-free · life is lovely · </textPath></text></svg></div>
 <div class="hs-glow" aria-hidden="true"></div>
-<img class="hs-b" data-k="choc" src="img/b_choc.webp?v=9" data-30="img/b_choc.webp?v=9" data-50="img/sw_choc.webp?v=9" alt="Lovely Chocolate protein shake" width="408" height="1400" fetchpriority="high"><img class="hs-b" data-k="van" src="img/b_van.webp?v=9" data-30="img/b_van.webp?v=9" data-50="img/sw_van.webp?v=9" alt="Lovely Vanilla protein shake" width="408" height="1400" loading="lazy"><img class="hs-b" data-k="cbutter" src="img/b_cbutter.webp?v=9" data-30="img/b_cbutter.webp?v=9" data-50="img/sw_cbutter.webp?v=9" alt="Lovely Cookie Butter protein shake" width="408" height="1400" loading="lazy"><img class="hs-b" data-k="matcha" src="img/b_matcha.webp?v=9" data-30="img/b_matcha.webp?v=9" data-50="img/sw_matcha.webp?v=9" alt="Lovely Matcha protein shake" width="408" height="1400" loading="lazy"><img class="hs-b" data-k="pb" src="img/b_pb.webp?v=9" data-30="img/b_pb.webp?v=9" data-50="img/sw_pb.webp?v=9" alt="Lovely Peanut Butter protein shake" width="408" height="1400" loading="lazy"></div>
+<img class="hs-b hpk" data-k="choc" src="img/hp30_choc.webp?v=1" data-30="img/hp30_choc.webp?v=1" data-50="img/hp50_choc.webp?v=1" alt="Lovely Chocolate 12-pack and bottle" width="1100" height="660" fetchpriority="high"><img class="hs-b hpk" data-k="van" src="img/hp30_van.webp?v=1" data-30="img/hp30_van.webp?v=1" data-50="img/hp50_van.webp?v=1" alt="Lovely Vanilla 12-pack and bottle" width="1100" height="660" loading="eager"><img class="hs-b hpk" data-k="cbutter" src="img/hp30_cbutter.webp?v=1" data-30="img/hp30_cbutter.webp?v=1" data-50="img/hp50_cbutter.webp?v=1" alt="Lovely Cookie Butter 12-pack and bottle" width="1100" height="660" loading="eager"><img class="hs-b hpk" data-k="matcha" src="img/hp30_matcha.webp?v=1" data-30="img/hp30_matcha.webp?v=1" data-50="img/hp50_matcha.webp?v=1" alt="Lovely Matcha 12-pack and bottle" width="1100" height="660" loading="eager"><img class="hs-b hpk" data-k="pb" src="img/hp30_pb.webp?v=1" data-30="img/hp30_pb.webp?v=1" data-50="img/hp50_pb.webp?v=1" alt="Lovely Peanut Butter 12-pack and bottle" width="1100" height="660" loading="eager"></div>
 <div class="hs-under"><p class="hs-name" aria-live="polite">Chocolate</p><div class="hs-size" role="group" aria-label="Bottle size"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div></div>
 <div class="hs-chips" role="group" aria-label="Pick a flavor"><button type="button" class="hs-chip" data-k="choc" style="--fc:#5a2c22" aria-pressed="true">Chocolate</button><button type="button" class="hs-chip" data-k="van" style="--fc:#b98a3c" aria-pressed="false">Vanilla</button><button type="button" class="hs-chip" data-k="cbutter" style="--fc:#864a28" aria-pressed="false">Cookie Butter</button><button type="button" class="hs-chip" data-k="matcha" style="--fc:#3f6e1c" aria-pressed="false">Matcha</button><button type="button" class="hs-chip" data-k="pb" style="--fc:#8a5a2a" aria-pressed="false">Peanut Butter</button></div>
 </div>
