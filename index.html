@@ -1222,6 +1222,56 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   .rail:has(> .fl) { grid-auto-columns: 74% !important; }
   .fl { --bh: min(50vh, 440px); }
 }
+/* hero: flavor stage */
+.hero.hstage { position: relative; overflow: hidden; padding: clamp(18px, 3vw, 40px) 0 clamp(28px, 4vw, 56px); isolation: isolate; background: radial-gradient(90% 70% at 72% 45%, #fbe6f2 0%, rgba(251,230,242,0) 60%), var(--bg); }
+.hstage .hs-word { position: absolute; z-index: -1; left: 50%; top: 50%; transform: translate(-50%, -52%); font: italic 400 clamp(180px, 34vw, 520px)/1 "Pinyon Script", "Great Vibes", var(--display); font-family: var(--script, inherit); color: #fff; opacity: .38; white-space: nowrap; pointer-events: none; letter-spacing: -.02em; }
+.hstage .hs-word { font-family: "Source Serif 4", Georgia, serif; font-style: italic; font-weight: 300; }
+.hstage .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(16px, 3vw, 48px); align-items: center; }
+.hstage .hs-kick { font: 700 12.5px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: #9c3d66; margin: 0 0 14px; }
+.hstage .hs-kick em { font: italic 400 15px/1 var(--display); letter-spacing: 0; text-transform: none; }
+.hstage h1 { font-size: clamp(42px, 5.4vw, 78px); line-height: 1.02; color: #fff; text-shadow: 0 2px 22px rgba(176,64,104,.35), 0 1px 3px rgba(176,64,104,.25); }
+.hstage .lead { color: #9c3d66; margin-top: 18px; max-width: 34em; }
+.hstage .btn.alt, .hstage .btn.alt[href$="#lovelypass"] { background: #9c3d66 !important; border-color: #9c3d66 !important; color: #fff !important; }
+.hstage .btn.alt .swl span { color: #fff; }
+.hstage .hs-stage { position: relative; display: grid; justify-items: center; align-content: center; min-height: clamp(440px, 46vw, 640px); padding-top: 20px; }
+.hstage .hs-orbit { position: absolute; z-index: 0; width: clamp(440px, 40vw, 600px); aspect-ratio: 1; top: 50%; left: 50%; transform: translate(-50%, -50%); animation: hsSpin 40s linear infinite; pointer-events: none; }
+.hstage .hs-orbit text { font: 700 7.6px/1 var(--body); letter-spacing: .22em; text-transform: uppercase; fill: #fff; opacity: .9; }
+.hstage .hs-glow { position: absolute; width: min(70%, 420px); aspect-ratio: 1; border-radius: 50%; z-index: 0; top: 50%; left: 50%; transform: translate(-50%, -50%); background: radial-gradient(closest-side, var(--glow), rgba(255,255,255,0)); transition: background .6s ease; filter: blur(6px); }
+.hstage .hs-bottles { position: relative; height: clamp(320px, 34vw, 470px); width: 100%; }
+.hstage .hs-b { position: absolute; z-index: 1; left: 50%; bottom: 0; height: 100%; width: auto; transform: translate(-50%, 18px) scale(.88) rotate(-6deg); opacity: 0; transition: transform .7s var(--spring), opacity .45s ease; filter: drop-shadow(0 24px 22px rgba(120, 30, 70, .28)); }
+.hstage .hs-b.on { opacity: 1; transform: translate(-50%, 0) scale(1) rotate(0deg); }
+.hstage .hs-b.out { opacity: 0; transform: translate(-30%, -10px) scale(.9) rotate(8deg); }
+.hstage .hs-under { display: flex; align-items: center; gap: 14px; margin-top: 18px; }
+.hstage .hs-name { margin: 0; font: italic 600 clamp(26px, 2.6vw, 36px)/1 var(--display); color: var(--fc); transition: color .5s; min-width: 7.2em; text-align: right; }
+.hstage .hs-size { display: inline-flex; background: rgba(255,255,255,.55); border-radius: 999px; padding: 4px; }
+.hstage .hs-size button { border: 0; background: none; font: 700 14px/1 var(--body); color: #9c3d66; padding: 9px 14px; border-radius: 999px; cursor: pointer; }
+.hstage .hs-size button[aria-pressed="true"] { background: #fff; box-shadow: 0 2px 8px rgba(156,61,102,.18); }
+.hstage .hs-size button[data-p="50"][aria-pressed="true"] { background: #f45d63; color: #fff; }
+.hstage .hs-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; max-width: 600px; }
+.hstage .hs-chip { flex: none; border: 1.5px solid rgba(255,255,255,.9); background: rgba(255,255,255,.4); color: #9c3d66; font: 700 13px/1 var(--body); padding: 9px 12px; border-radius: 999px; cursor: pointer; transition: background .2s, transform .2s; }
+.hstage .hs-chip:hover { transform: translateY(-2px); }
+.hstage .hs-chip[aria-pressed="true"] { background: #fff; color: var(--fc); }
+@keyframes hsSpin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .hstage .hs-orbit { animation: none; } .hstage .hs-b { transition: opacity .2s; } }
+@media (max-width: 860px) {
+  .hstage { padding-top: 8px; }
+  .hstage .wrap { grid-template-columns: 1fr; gap: 4px; }
+  .hstage .hs-stage { order: -1; min-height: 0; padding-top: 8px; }
+  .hstage .hs-bottles { height: min(30svh, 260px); }
+  .hstage .hs-orbit { width: min(80vw, 320px); }
+  .hstage .hs-orbit text { font-size: 8.4px; }
+  .hstage .hs-glow { width: 62vw; }
+  .hstage .hs-word { top: 18%; font-size: 58vw; }
+  .hstage .hs-under { margin-top: 10px; gap: 10px; }
+  .hstage .hs-name { min-width: 0; text-align: right; font-size: 24px; }
+  .hstage .hs-size button { padding: 8px 12px; font-size: 13px; }
+  .hstage .hs-chips { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; margin: 10px -20px 0; padding: 2px 20px 4px; max-width: none; width: calc(100% + 40px); }
+  .hstage .hs-chips::-webkit-scrollbar { display: none; }
+  .hstage .hs-chip { padding: 8px 11px; font-size: 12.5px; }
+  .hstage .hs-copy { padding-bottom: 96px; }
+  .hstage h1 { font-size: clamp(34px, 9.4vw, 42px); margin-top: 4px; }
+  .hstage .hs-kick { margin: 10px 0 8px; font-size: 11px; }
+}
 </style>
 <header class="top"><div class="wrap">
   <button type="button" class="burger press" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
@@ -1236,7 +1286,18 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   <button type="button" class="btn alt pass-open" data-pass>Show my <span class="swl"><span>Lovely</span></span> Pass</button>
   <a class="btn" href="shop.html">Build a box <span class="boxcount" hidden>0</span></a>
 </aside><main id="main">
-<section class="hero hbgw" aria-labelledby="h-shakes"><picture class="hbg"><source media="(max-width: 760px)" srcset="img/hero2_grid_m720.webp?v=8 720w, img/hero2_grid_m1080.webp?v=8 1080w" sizes="100vw"><img src="img/hero3_grid_2400.webp?v=8" srcset="img/hero3_grid_1600.webp?v=8 1600w, img/hero3_grid_2400.webp?v=8 2400w" sizes="100vw" alt="Lovely protein shakes in every flavor: pink 30g bottles and 12-packs in vanilla, chocolate, cookie butter and matcha, and coral 50g bottles and 12-packs" width="2400" height="1350" fetchpriority="high"></picture><div class="wrap"><div><h1 id="h-shakes">The protein shake you actually <em>want to drink.</em></h1><p class="lead">Tastes like a milkshake. Protein for him and for her. Protein for light weight, heavy weight, and everything in between. Only ingredients you can actually pronounce. Helping you build a life that's lovely.</p><div class="ctas stack"><a class="btn alt" href="index.html#lovelypass"><span class="swl"><span>Lovely</span></span> Pass</a><a class="btn" href="#find">Find a fridge</a></div></div></div></section>
+<section class="hero hstage" aria-labelledby="h-shakes" style="--glow:rgba(120,60,45,.30);--fc:#5a2c22">
+<div class="hs-word" aria-hidden="true">Lovely</div>
+<div class="wrap">
+<div class="hs-copy"><p class="hs-kick">Premium protein · <em>life is lovely</em></p><h1 id="h-shakes">The protein shake you actually <em>want to drink.</em></h1><p class="lead">Tastes like a milkshake. Protein for him and for her. Protein for light weight, heavy weight, and everything in between. Only ingredients you can actually pronounce. Helping you build a life that's lovely.</p><div class="ctas stack"><a class="btn alt" href="index.html#lovelypass"><span class="swl"><span>Lovely</span></span> Pass</a><a class="btn" href="#find">Find a fridge</a></div></div>
+<div class="hs-stage">
+<div class="hs-bottles"><div class="hs-orbit" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="hsc" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs><text><textPath href="#hsc">30g or 50g protein · tastes like a milkshake · lactose-free · life is lovely · </textPath></text></svg></div>
+<div class="hs-glow" aria-hidden="true"></div>
+<img class="hs-b" data-k="choc" src="img/b_choc.webp?v=9" data-30="img/b_choc.webp?v=9" data-50="img/sw_choc.webp?v=9" alt="Lovely Chocolate protein shake" width="408" height="1400" fetchpriority="high"><img class="hs-b" data-k="van" src="img/b_van.webp?v=9" data-30="img/b_van.webp?v=9" data-50="img/sw_van.webp?v=9" alt="Lovely Vanilla protein shake" width="408" height="1400" loading="lazy"><img class="hs-b" data-k="cbutter" src="img/b_cbutter.webp?v=9" data-30="img/b_cbutter.webp?v=9" data-50="img/sw_cbutter.webp?v=9" alt="Lovely Cookie Butter protein shake" width="408" height="1400" loading="lazy"><img class="hs-b" data-k="matcha" src="img/b_matcha.webp?v=9" data-30="img/b_matcha.webp?v=9" data-50="img/sw_matcha.webp?v=9" alt="Lovely Matcha protein shake" width="408" height="1400" loading="lazy"><img class="hs-b" data-k="pb" src="img/b_pb.webp?v=9" data-30="img/b_pb.webp?v=9" data-50="img/sw_pb.webp?v=9" alt="Lovely Peanut Butter protein shake" width="408" height="1400" loading="lazy"></div>
+<div class="hs-under"><p class="hs-name" aria-live="polite">Chocolate</p><div class="hs-size" role="group" aria-label="Bottle size"><button type="button" data-p="30" aria-pressed="true">30g</button><button type="button" data-p="50" aria-pressed="false">50g</button></div></div>
+<div class="hs-chips" role="group" aria-label="Pick a flavor"><button type="button" class="hs-chip" data-k="choc" style="--fc:#5a2c22" aria-pressed="true">Chocolate</button><button type="button" class="hs-chip" data-k="van" style="--fc:#b98a3c" aria-pressed="false">Vanilla</button><button type="button" class="hs-chip" data-k="cbutter" style="--fc:#864a28" aria-pressed="false">Cookie Butter</button><button type="button" class="hs-chip" data-k="matcha" style="--fc:#3f6e1c" aria-pressed="false">Matcha</button><button type="button" class="hs-chip" data-k="pb" style="--fc:#8a5a2a" aria-pressed="false">Peanut Butter</button></div>
+</div>
+</div></section>
 <section class="topbox" aria-label="Build a box"><div class="wrap"><div class="doors one"><a class="door dark" href="shop.html"><div><h3>Build a box of 12 or 24</h3><p>Any flavors, 30g or 50g. Free shipping on 24, because we're not monsters.</p></div><span class="go">Start building →</span><img class="lineup" src="img/lineup_mix.webp?v=6" srcset="img/lineup_mix_sm.webp?v=6 560w, img/lineup_mix.webp?v=6 1315w" sizes="(max-width: 860px) 320px, 420px" alt="Pink 30g Lovely bottles in Matcha, Vanilla, Chocolate and Cookie Butter with a coral 50g Chocolate" width="1315" height="867"></a></div></div></section><section class="shelf" style="padding-block:28px 10px" aria-labelledby="shelf-shakes"><div class="wrap"><div class="shelf-top"><h2 id="shelf-shakes">5 flavors. Zero chalk.</h2><div class="filters" role="group" aria-label="Filter"><button type="button" class="press" aria-pressed="true" data-filter="all">All</button><button type="button" class="press" aria-pressed="false" data-filter="classic">Launch flavors</button><button type="button" class="press" aria-pressed="false" data-filter="new">New</button></div></div><div class="bottle-view"><p><b>Pick a bottle.</b> Tap a flavor for nutrition facts.</p><div class="segline" role="group" aria-label="Bottle size"><button type="button" data-protein="30" aria-pressed="true"><span class="swl"><span>Lovely</span></span> · 30g</button><button type="button" data-protein="50" aria-pressed="false" class="w">Lovely · 50g</button></div></div><div class="rail"><article class="fl" data-tag="classic" id="flavor-choc"><span class="tag classic">Launch flavor</span><button type="button" class="pic" data-drink="choc" aria-label="Chocolate: see nutrition facts"><img src="img/b_choc.webp?v=9" alt="Lovely Chocolate protein shake" width="408" height="1400" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="choc">Chocolate</button></h3><button type="button" class="nf-link" data-drink="choc">Nutrition facts</button><button type="button" class="add" data-add="choc">Add to box</button></article><article class="fl" data-tag="classic" id="flavor-van"><span class="tag classic">Launch flavor</span><button type="button" class="pic" data-drink="van" aria-label="Vanilla: see nutrition facts"><img src="img/b_van.webp?v=9" alt="Lovely Vanilla protein shake" width="408" height="1400" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="van">Vanilla</button></h3><button type="button" class="nf-link" data-drink="van">Nutrition facts</button><button type="button" class="add" data-add="van">Add to box</button></article><article class="fl" data-tag="classic" id="flavor-pb"><span class="tag classic">Launch flavor</span><button type="button" class="pic" data-drink="pb" aria-label="Peanut Butter: see nutrition facts"><img src="img/b_pb.webp?v=9" alt="Lovely Peanut Butter protein shake" width="408" height="1400" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="pb">Peanut Butter</button></h3><button type="button" class="nf-link" data-drink="pb">Nutrition facts</button><button type="button" class="add" data-add="pb">Add to box</button></article><article class="fl" data-tag="new" id="flavor-cbutter"><span class="tag new">New</span><button type="button" class="pic" data-drink="cbutter" aria-label="Cookie Butter: see nutrition facts"><img src="img/b_cbutter.webp?v=9" alt="Lovely Cookie Butter protein shake" width="408" height="1400" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="cbutter">Cookie Butter</button></h3><button type="button" class="nf-link" data-drink="cbutter">Nutrition facts</button><button type="button" class="add" data-add="cbutter">Add to box</button></article><article class="fl" data-tag="new" id="flavor-matcha"><span class="tag new">New</span><button type="button" class="pic" data-drink="matcha" aria-label="Matcha: see nutrition facts"><img src="img/b_matcha.webp?v=9" alt="Lovely Matcha protein shake" width="408" height="1400" loading="lazy"></button><h3><button type="button" class="nlink" data-drink="matcha">Matcha</button></h3><button type="button" class="nf-link" data-drink="matcha">Nutrition facts</button><button type="button" class="add" data-add="matcha">Add to box</button></article></div></div></section>
 <section class="ds-sec" aria-labelledby="h-ds"><div class="wrap ds-head">
   <div><h2 id="h-ds"><span class="hash">#lifeislovely</span></h2><p>Tag <b>@drinklovely</b> to get featured. Fame awaits. Mild fame.</p></div>
@@ -2154,5 +2215,12 @@ document.querySelectorAll(".gm-flv").forEach(function (g) {
 });
 </script>
 <script src="search.js" defer></script>
+<script>/* hero flavor stage */(function(){var h=document.querySelector(".hstage");if(!h)return;var bs=[].slice.call(h.querySelectorAll(".hs-b")),cs=[].slice.call(h.querySelectorAll(".hs-chip")),nm=h.querySelector(".hs-name"),G={choc:["rgba(120,60,45,.30)","#5a2c22"],van:["rgba(255,236,196,.95)","#b98a3c"],cbutter:["rgba(214,150,92,.45)","#864a28"],matcha:["rgba(150,190,96,.45)","#3f6e1c"],pb:["rgba(206,150,88,.45)","#8a5a2a"]},N={choc:"Chocolate",van:"Vanilla",cbutter:"Cookie Butter",matcha:"Matcha",pb:"Peanut Butter"},cur=0,p=30,t;
+function show(i,user){var prev=bs[cur];cur=(i+bs.length)%bs.length;var k=bs[cur].dataset.k;bs.forEach(function(b,j){b.classList.toggle("on",j===cur);b.classList.toggle("out",b===prev&&j!==cur);if(j!==cur&&b!==prev)b.classList.remove("out");});cs.forEach(function(c){c.setAttribute("aria-pressed",c.dataset.k===k?"true":"false")});nm.textContent=N[k];h.style.setProperty("--glow",G[k][0]);h.style.setProperty("--fc",G[k][1]);if(user)restart();}
+function restart(){clearInterval(t);if(!matchMedia("(prefers-reduced-motion: reduce)").matches)t=setInterval(function(){show(cur+1)},3200);}
+cs.forEach(function(c,i){c.addEventListener("click",function(){show(i,true)})});
+h.querySelectorAll(".hs-size button").forEach(function(b){b.addEventListener("click",function(){p=+b.dataset.p;h.querySelectorAll(".hs-size button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});bs.forEach(function(im){im.src=im.dataset[p===50?"50":"30"]});restart();})});
+h.addEventListener("mouseenter",function(){clearInterval(t)});h.addEventListener("mouseleave",restart);
+bs.forEach(function(im){if(im.loading==="lazy")im.loading="eager"});show(0);restart();})();</script>
 </body>
 </html>
