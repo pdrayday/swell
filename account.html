@@ -90,11 +90,11 @@ html.cart-open, html.cart-open body { overflow: hidden; }
 .ckeep { text-align: center; color: var(--pink); font: 600 14px var(--body); }
 @media (max-width: 860px) { #cartpage { grid-template-columns: minmax(0, 1fr); } #cartpage .cside { position: static; } }
 /* end cart */
-/* Lovely 50g: light blue like the bottle */
-.pkmix .w { color: #e0474e !important; }
-.bottle-view button.w[aria-pressed="true"] { background: #f4513e !important; color: #fff !important; text-shadow: 0 1px 2px rgba(190,50,60,.35); }
+/* Lovely 50g: tomato like the bottle */
+.pkmix .w { color: #e8402b !important; }
+.bottle-view button.w[aria-pressed="true"] { background: #f4513e !important; color: #fff !important; text-shadow: 0 1px 2px rgba(200,64,40,.35); }
 .bottle-view button.w[aria-pressed="true"] * { color: #fff !important; }
-.seg button.swollbtn[aria-pressed="true"] { background: #fde1e2 !important; border-color: #f4513e !important; color: var(--fg) !important; }
+.seg button.swollbtn[aria-pressed="true"] { background: #fde3dd !important; border-color: #f4513e !important; color: var(--fg) !important; }
 .seg button.swollbtn[aria-pressed="true"] * { color: var(--fg) !important; }
 .sh-size button.w[aria-pressed="true"] { border-color: #f4513e !important; background: #fde9ea !important; color: var(--fg) !important; }
 .cmp2 .us.w { background: #fde9ea !important; color: var(--fg) !important; }
@@ -413,12 +413,12 @@ a.opt { color: inherit; text-decoration: none; margin-bottom: 12px; }
 .pk > img { grid-column: 1; grid-row: 1 / span 2; } .pk > div { grid-column: 2; grid-row: 1; min-width: 0; } .pk > .pkmix { grid-column: 2; grid-row: 2; text-align: left; } .pk > .pkmix:empty { display: none; } .pk > .qty { grid-column: 3; grid-row: 1 / span 2; }
 .pkmix i { display: inline !important; margin-right: 6px; }
 .pkmix { font: 700 11px/1.2 var(--body); color: var(--muted); text-align: right; }
-.pkmix i { font-style: normal; display: block; } .pkmix .w { color: #e0474e; }
+.pkmix i { font-style: normal; display: block; } .pkmix .w { color: #e8402b; }
 .mixnote { margin-top: 10px; font-size: 13.5px; color: var(--muted); }
-.seg button.swollbtn[aria-pressed="true"] { background: #fbc6c8; border-color: #e0474e; color: #8f2a31; }
+.seg button.swollbtn[aria-pressed="true"] { background: #fcd0c6; border-color: #e8402b; color: #a92b18; }
 .slots i.w .b { background: none; }
 .slots i.w small::after { content: none; }
-.tally span.w { background: #fde1e2; }
+.tally span.w { background: #fde3dd; }
 .pk b { font-size: 15px; line-height: 1.2; display: block; } .pk small { color: var(--muted); font-size: 12.5px; }
 .qty { display: flex; align-items: center; gap: 4px; }
 .qty button { width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--bg-2); cursor: pointer; font-size: 19px; line-height: 1; display: grid; place-items: center; transition: transform .3s var(--spring); }
@@ -647,7 +647,7 @@ footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8p
 .bottle-view .segline { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--bg); flex: none; }
 .bottle-view button { border: 0; background: transparent; color: var(--muted); padding: 9px 13px; border-radius: 999px; font: 700 13px/1 var(--body); cursor: pointer; }
 .bottle-view button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
-.bottle-view button.w[aria-pressed="true"] { background: #e0474e; color: #fff; }
+.bottle-view button.w[aria-pressed="true"] { background: #e8402b; color: #fff; }
 @media (max-width: 760px) { .bottle-view { align-items: flex-start; flex-direction: column; } }
 
 /* ---------- account: profile button, scan button, Lovely Pass ---------- */
@@ -750,14 +750,14 @@ html.sheet-open, html.sheet-open body { overflow: hidden; }
 .sh-x { position: absolute; right: 14px; top: 12px; z-index: 3; width: 40px; height: 40px; border-radius: 50%; border: 0; background: var(--surface); font-size: 24px; line-height: 1; cursor: pointer; }
 .sh-top { display: grid; grid-template-columns: 130px 1fr; gap: 16px; align-items: center; padding-top: 6px; }
 .sh-top .bimg { display: grid; place-items: center; height: 220px; border-radius: 20px; background: var(--stage); }
-.sh-top .bimg.w { background: #fde1e2; }
+.sh-top .bimg.w { background: #fde3dd; }
 .sh-top .bimg img { height: 200px; width: auto; filter: drop-shadow(0 10px 10px rgba(40,10,20,.2)); }
 .sh-top h2 { font-size: clamp(28px, 6vw, 36px); padding-right: 40px; } .sh-top .kind { color: var(--muted); font-size: 14px; margin-top: 4px; }
 .sh-top p.d { margin-top: 10px; color: var(--muted); font-size: 15px; }
 .sh-size { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0 12px; }
 .sh-size button { border: 2px solid transparent; background: var(--surface); border-radius: 16px; padding: 10px 12px; text-align: left; cursor: pointer; color: var(--fg); }
 .sh-size button b { display: block; font-size: 15px; } .sh-size button span { font-size: 12.5px; color: var(--muted); }
-.sh-size button[aria-pressed="true"] { border-color: var(--ink); } .sh-size button.w[aria-pressed="true"] { border-color: #e0474e; background: #fde1e2; color: #8f2a31; }
+.sh-size button[aria-pressed="true"] { border-color: var(--ink); } .sh-size button.w[aria-pressed="true"] { border-color: #e8402b; background: #fde3dd; color: #a92b18; }
 .sh-add { width: 100%; margin-bottom: 18px; }
 .nf { background: #fff; color: #000; border: 2px solid #000; padding: 6px 10px 8px; font: 400 14px/1.25 Arial, Helvetica, sans-serif; max-width: 420px; margin: 0 auto; }
 .nf h3 { font: 900 30px/1 "Arial Black", Arial, sans-serif; letter-spacing: -.5px; margin: 0; border-bottom: 1px solid #000; padding-bottom: 2px; }
@@ -863,7 +863,7 @@ footer.site .legal { margin-top: 30px; padding-top: 20px; border-top: 1px solid 
 .cmp2 thead th { vertical-align: bottom; } .cmp2 thead th b { display: block; font: 700 17px/1.1 var(--display); color: var(--fg); } .cmp2 thead th small { display: block; font: 600 11.5px/1.25 var(--body); color: var(--muted); margin-top: 3px; }
 .cmp2 th[scope="row"] { position: sticky !important; left: 0; z-index: 1; background: var(--surface); font: 700 14px/1.25 var(--body); min-width: 118px; }
 .cmp2 td { font-size: 14.5px; } .cmp2 td svg { vertical-align: -3px; color: var(--good-ink); }
-.cmp2 .us.w { background: #fde1e2; color: #8f2a31; } .cmp2 thead th.us.w b { color: #8f2a31; } .cmp2 thead th.us.w small { color: #3a5a92; }
+.cmp2 .us.w { background: #fde3dd; color: #a92b18; } .cmp2 thead th.us.w b { color: #a92b18; } .cmp2 thead th.us.w small { color: #3a5a92; }
 .cmp2 tbody tr:nth-child(-n+3) td { font: 700 17px/1.2 var(--body); }
 .cmp-note { margin-top: 12px; max-width: 60em; }
 .cmp-sec .btn { margin-top: 16px; }
@@ -985,7 +985,7 @@ h1 .swl, h2 .swl { height: 1.34em; vertical-align: -.45em; }
 /* ---- deck refresh: pack hero, phases, Lovely Pass, matcha, shop pricing ---- */
 .hpacks { display: grid; width: 100%; max-width: 660px; justify-self: end; }
 .hpacks img { width: 82%; height: auto; border-radius: 22px; box-shadow: 0 26px 50px -28px rgba(40,10,20,.5); }
-.hpacks img + img { justify-self: end; margin-top: -9%; position: relative; box-shadow: 0 26px 50px -24px rgba(150,40,50,.55); }
+.hpacks img + img { justify-self: end; margin-top: -9%; position: relative; box-shadow: 0 26px 50px -24px rgba(160,50,30,.55); }
 @media (max-width: 880px) { .hpacks { order: -1; justify-self: center; max-width: 560px; } .hpacks img { width: 86%; } }
 .phases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .phases div { background: var(--surface-2); border-radius: 22px; padding: 22px; display: grid; gap: 8px; align-content: start; }
@@ -1236,7 +1236,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
     $("bp-total").textContent = "$" + bp.total.toFixed(2);
     $("bp-per").textContent = (ns ? money0(u30) + " a 30g" : "") + (ns && bw ? " · " : "") + (bw ? money0(u50) + " a 50g" : "") || money0(u30) + " a 30g · " + money0(u50) + " a 50g";
     document.querySelectorAll("button[data-size] > span").forEach(function (sp) { var z = +sp.parentNode.dataset.size, t = boxPrice(z, box.sub, box.protein === 50 ? 0 : z, box.protein === 50 ? z : 0).total; sp.textContent = "$" + t.toFixed(2) + (z === 24 ? " · free shipping" : " + shipping"); });
-    document.querySelectorAll("button[data-protein]:not(.opt) > b + span").forEach(function (sp) { var p = +sp.parentNode.dataset.protein; sp.textContent = (p === 50 ? "Coral bottle · " : "Pink bottle · ") + money0(p === 50 ? u50 : u30); });
+    document.querySelectorAll("button[data-protein]:not(.opt) > b + span").forEach(function (sp) { var p = +sp.parentNode.dataset.protein; sp.textContent = (p === 50 ? "Tomato bottle · " : "Pink bottle · ") + money0(p === 50 ? u50 : u30); });
     if ($("box-every")) $("box-every").value = String(box.every || 4);
     $("bp-ship").textContent = s === 24 ? "Free shipping" + (box.sub ? " · double points" : "") : "+ $" + ship.toFixed(2) + " shipping" + (box.sub ? " · subscriber rate" : "");
     $("box-sub").checked = !!box.sub;
@@ -1296,7 +1296,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   if ($("box-sub")) $("box-sub").addEventListener("change", function (e) { box.sub = e.target.checked; render(); });
   if ($("box-every")) { $("box-every").addEventListener("change", function (e) { box.every = +e.target.value; box.sub = true; render(); }); }
   document.querySelectorAll("[data-protein]").forEach(function (b) { b.addEventListener("click", function () { box.protein = +b.dataset.protein; render();
-    if ($("box-form")) toast(box.protein === 50 ? "Adding coral <b>50g</b> bottles now. Your 30g picks stay in the box." : "Adding pink <b>30g</b> bottles now. Your 50g picks stay in the box."); }); });
+    if ($("box-form")) toast(box.protein === 50 ? "Adding tomato <b>50g</b> bottles now. Your 30g picks stay in the box." : "Adding pink <b>30g</b> bottles now. Your 50g picks stay in the box."); }); });
   function btab(line) {
     document.querySelectorAll("[data-btab]").forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.btab === line)); });
     document.querySelectorAll("[data-bpanel]").forEach(function (p) { p.hidden = p.dataset.bpanel !== line; });
@@ -1518,7 +1518,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
     shBody.innerHTML = '<div class="sh-top"><div class="bimg' + (sw ? " w" : "") + '"><img src="' + P + "img/" + (sw ? "sw_" + shK + "_lg" : "b_" + shK) + '.webp" alt="' + (sw ? "Lovely 50g " : "Lovely ") + d.n + '"></div>' +
       '<div><h2 id="sh-name">' + d.n + '</h2><p class="kind">' + (sw ? "Lovely 50g" : "Lovely") + " " + kind + " · " + (sw ? "50g" : "30g") + " protein</p>" + '<p class="d">' + d.d + "</p></div></div>" +
       '<div class="sh-size" role="group" aria-label="Bottle"><button type="button" data-shp="30" aria-pressed="' + !sw + '"><b>Lovely · 30g</b><span>Pink bottle</span></button>' +
-      (ONLY30[shK] ? '</div>' : '<button type="button" class="w" data-shp="50" aria-pressed="' + sw + '"><b>Lovely · 50g</b><span>Coral bottle</span></button></div>') +
+      (ONLY30[shK] ? '</div>' : '<button type="button" class="w" data-shp="50" aria-pressed="' + sw + '"><b>Lovely · 50g</b><span>Tomato bottle</span></button></div>') +
       '<button type="button" class="btn sh-add" id="sh-add">' + (q ? CHECK + " " + q + " in box · add another" : "Add " + (sw ? "Lovely 50g " : "Lovely ") + d.n + " to box") + "</button>" +
       '<div class="sh-ben"><b>In every bottle</b><ul><li><i>' + (sw ? "50g" : "30g") + '</i>protein</li><li><i>25%</i>iron + vitamin C</li><li><i>2.5g</i>collagen</li><li><i>0g</i>added sugar</li><li><i>0</i>lactose</li></ul><a href="' + P + 'index.html#every">Why it matters →</a></div>' +
       nfHtml(NUT[shP], sw) +
