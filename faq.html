@@ -1190,7 +1190,7 @@ html body input::placeholder, html body textarea::placeholder { color: #e0705c !
 .every-sec .never.lbl *, .every-sec .never.lbl h3 { color: #fff !important; border-color: #fff !important; }
 .every-sec .never.lbl li { border-bottom-color: rgba(255,255,255,.5) !important; }
 /* weight tiles: two reds */
-.wclass .wc.lite { background: linear-gradient(150deg, #ef6a52 0%, #e2533b 100%) !important; }
+.wclass .wc.lite { background: radial-gradient(120% 90% at 78% 70%, #fdeaf4 0%, #f8c4e0 70%) !important; }
 .wclass .wc.heavy { background: linear-gradient(150deg, #e0402a 0%, #c83720 100%) !important; }
 .wclass .lite .wc-k, .wclass .lite .wc-g, .wclass .lite .wc-s, .wclass .heavy .wc-k, .wclass .heavy .wc-g, .wclass .heavy .wc-s { color: #fff !important; }
 .wclass .wc-go { background: #fff !important; color: #d9432d !important; }
@@ -1251,6 +1251,21 @@ html body .pc .dir { background: #fff !important; color: #d9432d !important; }
   html body .cr-all .gm-grid figcaption b { font-size: 14px; line-height: 1.15; overflow-wrap: anywhere; }
 }
 html body .pass-top { padding-right: 58px !important; }
+/* pink accents: bottle pink around pink products */
+html body .wclass .wc.lite :is(.wc-k,.wc-g,.wc-s) { color: #c83720 !important; -webkit-text-fill-color: #c83720 !important; }
+html body .wclass .wc.lite .wc-go { background: #d9432d !important; color: #fff !important; -webkit-text-fill-color: #fff !important; }
+html body .wclass .wc.lite .wc-go * { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+html body .wclass .wc.lite img { filter: drop-shadow(0 14px 16px rgba(200,55,32,.28)); }
+html body :is(.st-img, .pdp-main):has(img:is([src*="img/b_"], [src*="img/pack_"]:not([src*="swoll"]))) { background: radial-gradient(110% 85% at 50% 55%, #fdeaf4 0%, #f8c4e0 75%) !important; }
+html body :is(.st-img, .pdp-main):has(img:is([src*="img/b_"], [src*="img/pack_"]:not([src*="swoll"]))) img { background: transparent !important; filter: drop-shadow(0 14px 16px rgba(200,55,32,.22)); }
+html body .fl:has(.pic img[src*="img/b_"]) .pic { background: radial-gradient(110% 85% at 50% 60%, #fdeaf4 0%, #f8c4e0 75%) !important; border-radius: 14px; }
+html body .fl .pic img { filter: drop-shadow(0 12px 14px rgba(200,55,32,.22)); }
+html body .hstage .hs-bottles { position: relative; }
+html body .hstage .hs-bottles::before { content: ""; position: absolute; left: 6%; right: 6%; bottom: 0; height: 34%; border-radius: 50%; background: radial-gradient(closest-side, rgba(248,196,224,.75), rgba(248,196,224,0)); opacity: 0; transition: opacity .45s ease; pointer-events: none; z-index: 0; }
+html body .hstage .hs-bottles:has(.hpk.on[src*="hp30_"])::before { opacity: 1; }
+html body .hstage .hs-bottles .hpk { z-index: 1; }
+/* slightly pink text accents */
+html body :is(h1, h2) em, html body .hs-kick, html body .hs-kick em { color: #ffd3e8 !important; -webkit-text-fill-color: #ffd3e8 !important; }
 /* phone menu */
 html body .drawer { background: #d9432d !important; }
 html body .drawer .x { background: #e2533b !important; color: #fff !important; }
