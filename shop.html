@@ -1394,6 +1394,9 @@ html body .hstage .hs-bottles .hpk { z-index: 1; }
 html body :is(h1, h2) em, html body .hs-kick, html body .hs-kick em { color: #fff !important; -webkit-text-fill-color: #fff !important; }
 html body::before { background: #d9432d !important; }
 html body a.mbar > i, html body a.mbar > i svg { color: #fff !important; -webkit-text-fill-color: #fff !important; stroke: #fff !important; }
+html body .every-pic img[src*="size_compare"] { filter: none !important; border-radius: 22px; }
+html body .pdp-main img[src*="size_compare"], html body #pdp-thumbs img[src*="size_compare"] { object-fit: contain !important; padding: 0 !important; filter: none !important; background: #d6402a; }
+html body .pdp-main:has(img[src*="size_compare"]) { background: #d6402a !important; }
 /* phone menu */
 html body .drawer { background: #d9432d !important; }
 html body .drawer .x { background: #e2533b !important; color: #fff !important; }
@@ -2301,10 +2304,10 @@ html body :is(.summary .pack, .host, .aff-apply, .post) img[src$="logo.png"] { c
   var q = new URLSearchParams(location.search), st = { f: N[q.get("f")] ? q.get("f") : "choc", p: q.get("p") === "50" ? 50 : 30, plan: "sub", img: 0 };
   function m(v) { return "$" + v.toFixed(2); }
   function pics() { var f = st.f, w = st.p === 50;
-    if (f === "mix") return [["img/lineup_mix.webp?v=20", "Protein shakes in every flavor, 30g and 50g bottles", 0], ["img/size_compare.webp?v=13", "30g and 50g bottles side by side", 0], ["img/pack_choc.webp?v=21", "A 12-bottle pack", 0]];
+    if (f === "mix") return [["img/lineup_mix.webp?v=20", "Protein shakes in every flavor, 30g and 50g bottles", 0], ["img/size_compare.webp?v=14", "30g and 50g bottles side by side", 0], ["img/pack_choc.webp?v=21", "A 12-bottle pack", 0]];
     return [[w ? "img/pack_swoll_" + f + ".webp?v=21" : "img/pack_" + f + ".webp?v=21", N[f] + " protein shake, " + st.p + "g, with its pack", 0],
       [w ? "img/sw_" + f + "_lg.webp?v=20" : "img/b_" + f + ".webp?v=20", N[f] + " protein shake bottle, " + st.p + "g protein", 1],
-      ["img/size_compare.webp?v=13", "30g and 50g bottles side by side", 0], ["img/lineup_mix.webp?v=20", "Every flavor in 30g and 50g bottles", 0]]; }
+      ["img/size_compare.webp?v=14", "30g and 50g bottles side by side", 0], ["img/lineup_mix.webp?v=20", "Every flavor in 30g and 50g bottles", 0]]; }
   function draw() {
     var r = PR[st.p], P = pics(), cur = P[Math.min(st.img, P.length - 1)], mix = st.f === "mix", price = st.plan === "sub" ? r.sub : r.once;
     var im = $("pdp-img"); im.src = cur[0]; im.alt = cur[1]; im.className = cur[2] ? "fit" : "";

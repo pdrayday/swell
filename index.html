@@ -1542,6 +1542,9 @@ html body .hstage .hs-bottles .hpk { z-index: 1; }
 html body :is(h1, h2) em, html body .hs-kick, html body .hs-kick em { color: #fff !important; -webkit-text-fill-color: #fff !important; }
 html body::before { background: #d9432d !important; }
 html body a.mbar > i, html body a.mbar > i svg { color: #fff !important; -webkit-text-fill-color: #fff !important; stroke: #fff !important; }
+html body .every-pic img[src*="size_compare"] { filter: none !important; border-radius: 22px; }
+html body .pdp-main img[src*="size_compare"], html body #pdp-thumbs img[src*="size_compare"] { object-fit: contain !important; padding: 0 !important; filter: none !important; background: #d6402a; }
+html body .pdp-main:has(img[src*="size_compare"]) { background: #d6402a !important; }
 /* phone menu */
 html body .drawer { background: #d9432d !important; }
 html body .drawer .x { background: #e2533b !important; color: #fff !important; }
@@ -1623,7 +1626,7 @@ html body :is(.summary .pack, .host, .aff-apply, .post) img[src$="logo.png"] { c
 <p class="wrap small" style="margin-top:12px"><span class="ph">Sample posts for layout. Replace with real #lifeislovely posts before launch.</span></p>
 </section>
 <section class="every-sec" id="every" aria-labelledby="h-every"><div class="wrap every-in">
-  <div class="every-pic"><img src="img/size_compare.webp?v=13" alt="A Lovely 30g and a Lovely 50g protein shake side by side" width="720" height="840" loading="lazy"></div>
+  <div class="every-pic"><img src="img/size_compare.webp?v=14" alt="A Lovely 30g and a Lovely 50g protein shake side by side" width="720" height="1080" loading="lazy"></div>
   <div><p class="kick">Every <span class="swl"><span>Lovely</span></span> and Lovely 50g</p><h2 id="h-every">What's in it. <em>What never is.</em></h2>
   <p class="lead">Go ahead, flip it over. We'll wait.</p>
   <div class="eben">
