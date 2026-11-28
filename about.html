@@ -90,7 +90,7 @@ html.cart-open, html.cart-open body { overflow: hidden; }
 .ckeep { text-align: center; color: var(--pink); font: 600 14px var(--body); }
 @media (max-width: 860px) { #cartpage { grid-template-columns: minmax(0, 1fr); } #cartpage .cside { position: static; } }
 /* end cart */
-/* Lovely 50g: tomato like the bottle */
+/* Lovely 50g: red like the bottle */
 .pkmix .w { color: #e8402b !important; }
 .bottle-view button.w[aria-pressed="true"] { background: #f4513e !important; color: #fff !important; text-shadow: 0 1px 2px rgba(200,64,40,.35); }
 .bottle-view button.w[aria-pressed="true"] * { color: #fff !important; }
@@ -1117,7 +1117,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   <div class="body">
     <p><strong>Nothing on the protein shelf looked like something you'd actually want.</strong> It looked like medicine, candy, or a chemistry final. So we made the pretty one.</p>
     <p>Dessert sells the first bottle. How you feel sells the next: 30g of protein in 170 calories, lactose-free, with iron and collagen.</p>
-    <p>The tomato 50g is for heavy days, and for him.</p>
+    <p>The red 50g is for heavy days, and for him.</p>
   </div>
   <ol class="time"><li><b>Online</b><span>Build-a-box and subscriptions. Reserve now, pay when it ships.</span></li><li><b>Studios</b><span>Wholesale into Pilates studios, with founding instructors.</span></li><li><b>Fridges</b><span><span class="swl"><span>Lovely</span></span> fridges and the <span class="swl"><span>Lovely</span></span> Pass app.</span></li></ol>
 </div></section>
@@ -1252,7 +1252,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
     $("bp-total").textContent = "$" + bp.total.toFixed(2);
     $("bp-per").textContent = (ns ? money0(u30) + " a 30g" : "") + (ns && bw ? " · " : "") + (bw ? money0(u50) + " a 50g" : "") || money0(u30) + " a 30g · " + money0(u50) + " a 50g";
     document.querySelectorAll("button[data-size] > span").forEach(function (sp) { var z = +sp.parentNode.dataset.size, t = boxPrice(z, box.sub, box.protein === 50 ? 0 : z, box.protein === 50 ? z : 0).total; sp.textContent = "$" + t.toFixed(2) + (z === 24 ? " · free shipping" : " + shipping"); });
-    document.querySelectorAll("button[data-protein]:not(.opt) > b + span").forEach(function (sp) { var p = +sp.parentNode.dataset.protein; sp.textContent = (p === 50 ? "Tomato bottle · " : "Pink bottle · ") + money0(p === 50 ? u50 : u30); });
+    document.querySelectorAll("button[data-protein]:not(.opt) > b + span").forEach(function (sp) { var p = +sp.parentNode.dataset.protein; sp.textContent = (p === 50 ? "Red bottle · " : "Pink bottle · ") + money0(p === 50 ? u50 : u30); });
     if ($("box-every")) $("box-every").value = String(box.every || 4);
     $("bp-ship").textContent = s === 24 ? "Free shipping" + (box.sub ? " · double points" : "") : "+ $" + ship.toFixed(2) + " shipping" + (box.sub ? " · subscriber rate" : "");
     $("box-sub").checked = !!box.sub;
@@ -1312,7 +1312,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   if ($("box-sub")) $("box-sub").addEventListener("change", function (e) { box.sub = e.target.checked; render(); });
   if ($("box-every")) { $("box-every").addEventListener("change", function (e) { box.every = +e.target.value; box.sub = true; render(); }); }
   document.querySelectorAll("[data-protein]").forEach(function (b) { b.addEventListener("click", function () { box.protein = +b.dataset.protein; render();
-    if ($("box-form")) toast(box.protein === 50 ? "Adding tomato <b>50g</b> bottles now. Your 30g picks stay in the box." : "Adding pink <b>30g</b> bottles now. Your 50g picks stay in the box."); }); });
+    if ($("box-form")) toast(box.protein === 50 ? "Adding red <b>50g</b> bottles now. Your 30g picks stay in the box." : "Adding pink <b>30g</b> bottles now. Your 50g picks stay in the box."); }); });
   function btab(line) {
     document.querySelectorAll("[data-btab]").forEach(function (t) { t.setAttribute("aria-selected", String(t.dataset.btab === line)); });
     document.querySelectorAll("[data-bpanel]").forEach(function (p) { p.hidden = p.dataset.bpanel !== line; });
@@ -1534,7 +1534,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
     shBody.innerHTML = '<div class="sh-top"><div class="bimg' + (sw ? " w" : "") + '"><img src="' + P + "img/" + (sw ? "sw_" + shK + "_lg" : "b_" + shK) + '.webp" alt="' + (sw ? "Lovely 50g " : "Lovely ") + d.n + '"></div>' +
       '<div><h2 id="sh-name">' + d.n + '</h2><p class="kind">' + (sw ? "Lovely 50g" : "Lovely") + " " + kind + " · " + (sw ? "50g" : "30g") + " protein</p>" + '<p class="d">' + d.d + "</p></div></div>" +
       '<div class="sh-size" role="group" aria-label="Bottle"><button type="button" data-shp="30" aria-pressed="' + !sw + '"><b>Lovely · 30g</b><span>Pink bottle</span></button>' +
-      (ONLY30[shK] ? '</div>' : '<button type="button" class="w" data-shp="50" aria-pressed="' + sw + '"><b>Lovely · 50g</b><span>Tomato bottle</span></button></div>') +
+      (ONLY30[shK] ? '</div>' : '<button type="button" class="w" data-shp="50" aria-pressed="' + sw + '"><b>Lovely · 50g</b><span>Red bottle</span></button></div>') +
       '<button type="button" class="btn sh-add" id="sh-add">' + (q ? CHECK + " " + q + " in box · add another" : "Add " + (sw ? "Lovely 50g " : "Lovely ") + d.n + " to box") + "</button>" +
       '<div class="sh-ben"><b>In every bottle</b><ul><li><i>' + (sw ? "50g" : "30g") + '</i>protein</li><li><i>25%</i>iron + vitamin C</li><li><i>2.5g</i>collagen</li><li><i>0g</i>added sugar</li><li><i>0</i>lactose</li></ul><a href="' + P + 'index.html#every">Why it matters →</a></div>' +
       nfHtml(NUT[shP], sw) +
