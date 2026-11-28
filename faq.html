@@ -1209,7 +1209,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   function isW(k) { return /~50$/.test(k); }
   function baseK(k) { return k.replace(/~50$/, ""); }
   function keyFor(k, p) { return (p || box.protein) === 50 && !ONLY30[baseK(k)] ? baseK(k) + "~50" : baseK(k); }
-  function imgFor(k) { return P + "img/" + (isW(k) ? "sw_" : "b_") + baseK(k) + ".webp?v=16"; }
+  function imgFor(k) { return P + "img/" + (isW(k) ? "sw_" : "b_") + baseK(k) + ".webp?v=17"; }
   function nameFor(k) { return NAMES[baseK(k)]; }
   function count(k) { return (box.items[baseK(k)] || 0) + (box.items[baseK(k) + "~50"] || 0); }
   // Lovely 30g / 50g: $4.25 / $4.99 a bottle on subscription, $5 / $7 one time; unfilled slots count as the size being added
@@ -1224,7 +1224,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
     document.querySelectorAll(".boxcount").forEach(function (c) { c.hidden = !n; c.textContent = n; });
     document.querySelectorAll("button[data-protein]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.protein === box.protein)); });
     document.querySelectorAll("img[data-p30]").forEach(function (im) { var b = P + "img/" + (box.protein === 50 ? im.dataset.p50 : im.dataset.p30); if (im.getAttribute("src") !== b + ".webp") { im.setAttribute("src", b + ".webp"); im.setAttribute("srcset", b + "_sm.webp 768w, " + b + ".webp 1536w"); } });
-    document.querySelectorAll(".fl[id^='flavor-'] .pic img").forEach(function (im) { var id = im.closest(".fl").id.slice(7), w = P + "img/" + (box.protein === 50 ? "sw_" : "b_") + id + ".webp?v=16"; if (im.getAttribute("src") !== w) im.setAttribute("src", w); });
+    document.querySelectorAll(".fl[id^='flavor-'] .pic img").forEach(function (im) { var id = im.closest(".fl").id.slice(7), w = P + "img/" + (box.protein === 50 ? "sw_" : "b_") + id + ".webp?v=17"; if (im.getAttribute("src") !== w) im.setAttribute("src", w); });
     document.querySelectorAll("[data-add]").forEach(function (b) { var q = count(b.dataset.add); b.classList.toggle("in", q > 0);
       if (!b.dataset.busy) b.innerHTML = q ? CHECK + " " + q + " in box" : (b.dataset.label || "Add to box"); });
     if (!$("box-form")) { store("swell-box", box); return; }
@@ -1254,7 +1254,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
     document.querySelectorAll(".pk").forEach(function (r) {
       var id = r.dataset.id, a = box.items[id] || 0, b = box.items[id + "~50"] || 0;
       r.classList.toggle("on", a + b > 0); $("q-" + id).textContent = box.protein === 50 && !ONLY30[id] ? b : a;
-      var im = r.querySelector("img"), want = P + "img/" + (box.protein === 50 && !ONLY30[id] ? "sw_" : "b_") + id + ".webp?v=16"; if (im.getAttribute("src") !== want) im.setAttribute("src", want);
+      var im = r.querySelector("img"), want = P + "img/" + (box.protein === 50 && !ONLY30[id] ? "sw_" : "b_") + id + ".webp?v=17"; if (im.getAttribute("src") !== want) im.setAttribute("src", want);
       $("mix-" + id).innerHTML = (a ? "<i>" + a + " × 30g</i>" : "") + (b ? '<i class="w">' + b + " × 50g</i>" : "");
     });
     store("swell-box", box);
@@ -1771,7 +1771,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   function paintAccount() {
     var host = $("acct"); if (!host) return; var m = me();
     if (!m) { host.innerHTML = '<div class="acard">' + signinHtml("acct") + "</div>"; wireSignin(host); return; }
-    var pulls = (m.pulls || []).map(function (x) { var d = DRINKS[x.k] || { n: x.k }; return '<li><img src="' + P + "img/" + (x.p === 50 ? "sw_" : "b_") + x.k + '.webp?v=16" alt=""><div><b>' + (x.p === 50 ? "Lovely 50g " : "Lovely ") + d.n + "</b><small>" + x.where + " · " + new Date(x.at).toLocaleString() + "</small></div><b>" + (x.inc ? "Included" : "$" + (x.amt === undefined ? PRICE[x.p] : x.amt).toFixed(2)) + "</b></li>"; }).join("");
+    var pulls = (m.pulls || []).map(function (x) { var d = DRINKS[x.k] || { n: x.k }; return '<li><img src="' + P + "img/" + (x.p === 50 ? "sw_" : "b_") + x.k + '.webp?v=17" alt=""><div><b>' + (x.p === 50 ? "Lovely 50g " : "Lovely ") + d.n + "</b><small>" + x.where + " · " + new Date(x.at).toLocaleString() + "</small></div><b>" + (x.inc ? "Included" : "$" + (x.amt === undefined ? PRICE[x.p] : x.amt).toFixed(2)) + "</b></li>"; }).join("");
     var spent = (m.pulls || []).reduce(function (a, x) { return a + (x.amt === undefined ? PRICE[x.p] : x.amt); }, 0);
     var pk = planOf(m), pl = PLANS[pk], mp = monthPulls(m), incN = mp.filter(function (x) { return x.inc; }).length,
         value = mp.filter(function (x) { return x.inc; }).reduce(function (a, x) { return a + PRICE[x.p]; }, 0), start = m.planStart || m.since, renew = start;
@@ -1881,7 +1881,7 @@ footer.site h2, footer.site h3, footer.site b, footer.site h2 .swl span { color:
   function title(b) { var c = counts(b); return b.size + " bottles · " + (c[0] && c[1] ? "30g + 50g mix" : c[1] ? "50g protein" : "30g protein"); }
   function mix(b) { return Object.keys(b.items).filter(function (k) { return b.items[k]; }).map(function (k) { return NM[bk(k)] + (w(k) ? " 50g" : "") + " × " + b.items[k]; }).join(", "); }
   function plan(b) { return b.sub ? "Subscription · every " + (b.every || 4) + " weeks" : "One-time order"; }
-  function pics(b) { return Object.keys(b.items).filter(function (k) { return b.items[k]; }).slice(0, 3).map(function (k) { return '<img src="' + P + "img/" + (w(k) ? "sw_" : "b_") + bk(k) + '.webp?v=16" alt="">'; }).join(""); }
+  function pics(b) { return Object.keys(b.items).filter(function (k) { return b.items[k]; }).slice(0, 3).map(function (k) { return '<img src="' + P + "img/" + (w(k) ? "sw_" : "b_") + bk(k) + '.webp?v=17" alt="">'; }).join(""); }
   function totals(c) { var s = 0, h = 0, n = 0; c.forEach(function (b) { s += price(b) * b.qty; h += ship(b) * b.qty; n += b.qty; }); return { sub: s, ship: h, total: s + h, n: n }; }
   function line(b, i) { return '<li class="cline"><div class="cimg">' + pics(b) + '</div><div class="cinfo"><b>' + title(b) + "</b><span>" + mix(b) + "</span><span>" + plan(b) + '</span><div class="cqty"><button type="button" data-cdec="' + i + '" aria-label="One fewer box">−</button><output>' + b.qty + '</output><button type="button" data-cinc="' + i + '" aria-label="One more box">+</button><button type="button" class="crm" data-crm="' + i + '">Remove</button></div></div><b class="cprice">' + money(price(b) * b.qty) + "</b></li>"; }
   function sum(t) { return '<div class="csum"><div><span>Subtotal</span><b>' + money(t.sub) + "</b></div><div><span>Shipping</span><b>" + (t.ship ? money(t.ship) : "Free") + '</b></div><div class="ctot"><span>Total</span><b>' + money(t.total) + "</b></div><p>No payment today. Your card is charged when your box ships. First box comes with a free shaker.</p></div>"; }
