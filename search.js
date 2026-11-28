@@ -19,8 +19,8 @@
     { t: "Protein ice cream pints", d: "Dessert pints with 30g protein each.", url: "products.html#icecream-info", k: "ice cream pint dessert frozen sorbet protein" },
     { t: "Ninja Creami recipes", d: "Turn a Lovely into protein ice cream at home.", url: "products.html#creami", k: "ninja creami recipe ice cream homemade freeze pint milkshake sorbet" },
     { t: "All products", d: "Creatine, gummies, ice cream pints and recipes.", url: "products.html", k: "products everything catalog" },
-    { t: "Lovely Pass", d: "One membership for your box and the Lovely fridge. Member prices and points.", url: "index.html#lovelypass", img: "img/shot_pass.webp?v=4", k: "pass membership member points rewards free shake qr code app" },
-    { t: "Find a Lovely fridge", d: "Grab a cold Lovely at studios, gyms and campuses.", url: "index.html#find", img: "img/shot_map.webp?v=4", k: "fridge find near me location map store where buy cold studio gym campus" },
+    { t: "Lovely Pass", d: "One membership for your box and the Lovely fridge. Member prices and points.", url: "index.html#lovelypass", img: "img/shot_pass.webp?v=5", k: "pass membership member points rewards free shake qr code app" },
+    { t: "Find a Lovely fridge", d: "Grab a cold Lovely at studios, gyms and campuses.", url: "index.html#find", img: "img/shot_map.webp?v=5", k: "fridge find near me location map store where buy cold studio gym campus" },
     { t: "Stock Lovely at your studio", d: "Own a studio or gym? Get a Lovely fridge.", url: "index.html#host", k: "studio owner gym host fridge wholesale stock business partner" },
     { t: "Become an affiliate", d: "Creators and instructors earn commission.", url: "affiliate.html", k: "affiliate ambassador creator influencer commission earn partner code" },
     { t: "About Lovely", d: "Why we made the shake you actually want to drink.", url: "about.html", k: "about story founder company brand who" },
@@ -89,24 +89,24 @@
 
   var css = "" +
     ".srch-btn{display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:transparent;color:var(--fg,#fff);cursor:pointer;flex:none;-webkit-tap-highlight-color:transparent}" +
-    ".srch-btn .sav{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--surface,#ff6650);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}" +
+    ".srch-btn .sav{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--surface,#f06a50);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}" +
     ".srch-btn:active .sav{transform:scale(.9)}" +
     ".srch-btn.srch-m{display:none}" +
     "@media (max-width:1100px){.srch-btn.srch-m{display:grid}.srch-btn.srch-d{display:none}}" +
     ".srch-scrim{position:fixed;inset:0;z-index:95;background:rgba(90,20,10,.42);opacity:0;transition:opacity .25s}" +
     ".srch-open .srch-scrim{opacity:1}" +
-    ".srch{position:fixed;z-index:96;left:50%;top:calc(14px + env(safe-area-inset-top,0px));width:min(680px,calc(100vw - 24px));max-height:calc(100dvh - 28px - env(safe-area-inset-top,0px));display:flex;flex-direction:column;background:var(--bg,#ff5a45);border-radius:26px;box-shadow:0 30px 70px -20px rgba(140,30,14,.45);transform:translate(-50%,-14px) scale(.98);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .25s;overflow:hidden}" +
+    ".srch{position:fixed;z-index:96;left:50%;top:calc(14px + env(safe-area-inset-top,0px));width:min(680px,calc(100vw - 24px));max-height:calc(100dvh - 28px - env(safe-area-inset-top,0px));display:flex;flex-direction:column;background:var(--bg,#ea5a41);border-radius:26px;box-shadow:0 30px 70px -20px rgba(140,30,14,.45);transform:translate(-50%,-14px) scale(.98);opacity:0;transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .25s;overflow:hidden}" +
     ".srch-open .srch{transform:translate(-50%,0);opacity:1}" +
-    ".srch-bar{display:flex;align-items:center;gap:10px;margin:12px;padding:0 8px 0 16px;height:56px;border-radius:999px;background:#fff;color:#e5472f;flex:none}" +
+    ".srch-bar{display:flex;align-items:center;gap:10px;margin:12px;padding:0 8px 0 16px;height:56px;border-radius:999px;background:#fff;color:#d94a31;flex:none}" +
     ".srch-bar svg{flex:none;opacity:.7}" +
-    ".srch-bar input{flex:1;min-width:0;border:0;outline:none;background:none;font:500 17px/1.2 var(--body,system-ui);color:#e5472f}" +
+    ".srch-bar input{flex:1;min-width:0;border:0;outline:none;background:none;font:500 17px/1.2 var(--body,system-ui);color:#d94a31}" +
     ".srch-bar input::placeholder{color:rgba(200,55,32,.6)}" +
-    ".srch-x{border:0;background:var(--surface,#ff6650);color:#fff;width:38px;height:38px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;flex:none}" +
+    ".srch-x{border:0;background:var(--surface,#f06a50);color:#fff;width:38px;height:38px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;flex:none}" +
     ".srch-body{overflow-y:auto;padding:0 12px 14px;overscroll-behavior:contain}" +
     ".srch-h{font:700 11.5px/1 var(--body,system-ui);letter-spacing:.12em;text-transform:uppercase;color:#fff;margin:14px 6px 8px}" +
     ".srch-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 4px}" +
     ".srch-chips button{border:0;border-radius:999px;padding:9px 13px;background:rgba(255,255,255,.16);color:#fff;font:600 13.5px/1 var(--body,system-ui);cursor:pointer}" +
-    ".srch-ans{background:#ff6650;border:1.5px solid rgba(255,255,255,.3);border-radius:18px;padding:16px 18px;color:#fff}" +
+    ".srch-ans{background:#f06a50;border:1.5px solid rgba(255,255,255,.3);border-radius:18px;padding:16px 18px;color:#fff}" +
     ".srch-ans>b{display:block;font:700 18px/1.25 var(--display,Georgia,serif);color:#fff;margin-bottom:6px}" +
     ".srch-ans p{margin:0;font-size:15px;line-height:1.5;color:#fff}" +
     ".srch-ans a{display:inline-block;margin-top:8px;font:700 13.5px var(--body,system-ui);color:#fff}" +
